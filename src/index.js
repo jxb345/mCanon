@@ -1,5 +1,6 @@
-import { ReactDom } from 'react-dom';
+const ReactDOM = require('react-dom');
+const React = require('react');
 import App from './components/App.jsx';
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
