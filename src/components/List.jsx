@@ -8,16 +8,31 @@ const List = () => {
     fetch('/query-entries')
       .then(response => response.json())
       .then(data => setEntries((data)));
-  })
+  }, [])
 
   return (
     <div>
       <table>
-
+        <thead>
+          <tr>
+            <td>band</td>
+            <td>album</td>
+            <td>year</td>
+            <td>genre</td>
+            <td>mood</td>
+            <td>rating</td>
+          </tr>
+        </thead>
       {
       entries.map(entry => {
+        console.log('entry', entry)
         return <tr>
-          <td>{entry}</td>
+          <td>{entry.band}</td>
+          <td>{entry.album}</td>
+          <td>{entry.year}</td>
+          <td>{entry.genre}</td>
+          <td>{entry.mood}</td>
+          <td>{entry.rating}</td>
         </tr>
       })
       }
