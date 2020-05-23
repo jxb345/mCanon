@@ -4,7 +4,7 @@ const Form = () => {
 
   return (
     <div>
-      <form action="post">
+      <form action="/new-entry" method="post">
         <div className="form">
         <label for="band">Band</label>
         <input type="text" name="band" id="band" required/>
@@ -32,10 +32,8 @@ const Form = () => {
         <input type="radio" name="instrumental" id="no" value="no" />
           <label for="no">no</label>
         </div>
-          <option value="canon">canon</option>
-          <option value="research">research</option>
         <label for="year">Year</label>
-        <input type="number" name="year" id="year" min="4" max="4" required/>
+        <input type="number" name="year" id="year" min="1900" max="2030" required/>
         <label for="rating">Rating</label>
         <select type="text" name="rating" id="rating" required>
           <option value="1">1</option>
@@ -47,6 +45,9 @@ const Form = () => {
           <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
+        <div>
+          <button>New Entry</button>
+        </div>
         </div>
       </form>
     </div>
