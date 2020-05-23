@@ -18,6 +18,8 @@ const Form = () => {
           <option value="blues">blues</option>
           <option value="funk">funk</option>
           <option value="rhythmAndlues">rhythm and blues</option>
+          <option value="electronic">electronic</option>
+          <option value="country">country</option>
         </select>
         <label for="mood">Mood</label>
         <select type="text" name="mood" id="mood" required>
