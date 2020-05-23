@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-await mongoose.connect('mongodb://localhost/canon');
+mongoose.connect('mongodb://localhost/canon', { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
@@ -10,7 +10,7 @@ const Entry = new Schema({
   mood: String,
   instrumental: Boolean,
   year: Number,
-  Rating: Number,
+  rating: Number,
   book: String,
 })
 

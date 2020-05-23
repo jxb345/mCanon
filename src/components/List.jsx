@@ -7,12 +7,21 @@ const List = () => {
     console.log('fetching...')
     fetch('/query-entries')
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => setEntries((data)));
   })
 
   return (
     <div>
-      {entries}
+      <table>
+
+      {
+      entries.map(entry => {
+        return <tr>
+          <td>{entry}</td>
+        </tr>
+      })
+      }
+      </table>
     </div>
   )
 
