@@ -19,7 +19,7 @@ app.post('/new-entry', (req, res) => {
   console.log('req.body', req.body);
   const entry = req.body;
   addEntry(entry)
-    .then(res.status(200).send('received new entry!'));
+    .then(res.status(200));
 })
 
 app.listen(PORT, () => {
