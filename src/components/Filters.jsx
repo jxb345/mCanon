@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { response } from 'express';
 
 
 const Filters = () => {
@@ -13,9 +14,16 @@ const Filters = () => {
     }
     console.log('whichBook', whichBook);
     fetch('/query-entries', {
-      data: whichBook
+      method: 'post',
+      headers: {
+        'Content-Type': 'text/html',
+      },
+      body: whichBook
     })
-    .
+    .then(response => response.json())
+    .then(data => {
+      console.log('data', data);
+    })
 
   }
 
