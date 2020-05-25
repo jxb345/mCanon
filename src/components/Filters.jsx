@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { response } from 'express';
 
 
-const Filters = () => {
+const Filters = (props) => {
   const [whichBook, setWhichBook] = useState('canon');
 
   const handleBookChange = (e) => {
@@ -22,13 +22,14 @@ const Filters = () => {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('data', data);
+      console.log('data',)
     })
 
   }
 
   return (
     <div>
+      {console.log('props', props)}
       Filters
       <p>Book</p>
         <div>
