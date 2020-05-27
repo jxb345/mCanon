@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 
 const Filters = () => {
-  const [whichBook, setWhichBook] = useState('canon');
+  // const [whichBook, setWhichBook] = useState('');
+  const whichBook = useRef('');
 
   const handleBookChange = (e) => {
-    console.log('e', e.target.value)
-    if (whichBook === 'canon') {
-      setWhichBook('research')
+    let bookFilter = e.target.value;
+    console.log('bookFilter', typeof bookFilter)
+    if (bookFilter === 'research') {
+      whichBook.current = 'research';
     } else {
-      setWhichBook('canon');
+      whichBook.current = 'canon';
     }
     console.log('whichBook', whichBook);
     fetch('/query-entries', {
-      data: whichBook
+      data: whichBook.current
     })
 
   }
