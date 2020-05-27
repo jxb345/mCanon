@@ -12,6 +12,7 @@ const Filters = () => {
     } else {
       whichBook.current = 'canon';
     }
+    console.log('whichBook', whichBook);
     fetch('/query-entries', {
       method: 'POST',
       headers: {

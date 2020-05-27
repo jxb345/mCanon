@@ -5,7 +5,13 @@ const List = () => {
 
   useEffect(() => {
     console.log('fetching...')
-    fetch('/query-entries')
+    fetch('/query-entries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({})
+    })
       .then(response => response.json())
       .then(data => setEntries((data)));
   }, [])

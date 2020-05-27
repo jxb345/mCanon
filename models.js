@@ -24,13 +24,19 @@ const addEntry = (entry) => {
   });
 }
 
-const query = () => {
+const query = (filter) => {
+
+  let queryFilter = {};
+
+  if (filter === 'research' || 'canon') {
+    queryFilter.book = filter;
+  }
 
   return new Promise((resolve, reject) => {
-    model.find({}, (err, docs) => {
+    model.find(queryFilter, (err, docs) => {
       console.log('docs', docs)
       resolve(docs);
-  })
+    })
   })
 }
 

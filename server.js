@@ -10,12 +10,11 @@ app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 
 app.post('/query-entries', (req, res) => {
-  console.log('query-entries: req.body', req.body);
-  // query()
-  //   .then((entries) => {
-  //     res.status(200).send(entries)
-  //   })
-  res.send('back from Q-E')
+  let filter = req.body.current || {};
+  query(filter)
+    .then((entries) => {
+      res.status(200).send(entries)
+    })
 })
 
 app.post('/new-entry', (req, res) => {
