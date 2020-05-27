@@ -15,7 +15,6 @@ const Filters = () => {
     fetch('/query-entries', {
       data: whichBook
     })
-    .
 
   }
 
