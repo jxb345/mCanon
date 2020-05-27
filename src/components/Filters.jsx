@@ -7,17 +7,20 @@ const Filters = () => {
 
   const handleBookChange = (e) => {
     let bookFilter = e.target.value;
-    console.log('bookFilter', typeof bookFilter)
     if (bookFilter === 'research') {
       whichBook.current = 'research';
     } else {
       whichBook.current = 'canon';
     }
-    console.log('whichBook', whichBook);
     fetch('/query-entries', {
-      data: whichBook.current
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(whichBook)
     })
-
+    .then(response => response.json())
+    .then(data => console.log, 'data');
   }
 
   return (

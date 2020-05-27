@@ -3,16 +3,19 @@ const express = require('express')
 const app = express();
 const PORT = 3000;
 const { addEntry, query } = require('./models.js');
+var bodyParser = require('body-parser');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
+app.use(bodyParser.json());
 
-app.get('/query-entries', (req, res) => {
-  console.log('query-entries');
-  query()
-    .then((entries) => {
-      res.status(200).send(entries)
-    })
+app.post('/query-entries', (req, res) => {
+  console.log('query-entries: req.body', req.body);
+  // query()
+  //   .then((entries) => {
+  //     res.status(200).send(entries)
+  //   })
+  res.send('back from Q-E')
 })
 
 app.post('/new-entry', (req, res) => {
