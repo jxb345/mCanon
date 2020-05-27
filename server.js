@@ -13,6 +13,7 @@ app.post('/query-entries', (req, res) => {
   let filter = req.body.current || {};
   query(filter)
     .then((entries) => {
+      console.log('entries', entries)
       res.status(200).send(entries)
     })
 })

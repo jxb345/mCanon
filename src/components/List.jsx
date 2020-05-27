@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-const List = () => {
-  const [entries, setEntries] = useState([]);
+const List = (props) => {
+  // const [entries, setEntries] = useState([]);
 
-  useEffect(() => {
-    console.log('fetching...')
-    fetch('/query-entries', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-      .then(response => response.json())
-      .then(data => setEntries((data)));
-  }, [])
+  // useEffect(() => {
+  //   console.log('fetching...')
+  //   fetch('/query-entries', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({})
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => setEntries((data)));
+  // }, [])
 
   return (
     <div>
@@ -30,7 +30,7 @@ const List = () => {
           </tr>
         </thead>
       {
-      entries.map(entry => {
+      props.entries.map(entry => {
         console.log('entry', entry)
         return <tr>
           <td>{entry.band}</td>

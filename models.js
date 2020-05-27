@@ -25,13 +25,14 @@ const addEntry = (entry) => {
 }
 
 const query = (filter) => {
-
+  console.log('filter---', filter)
   let queryFilter = {};
 
-  if (filter === 'research' || 'canon') {
+  if (filter === 'research') {
+    console.log('conditional met in query')
     queryFilter.book = filter;
   }
-
+  console.log('queryFilter', queryFilter)
   return new Promise((resolve, reject) => {
     model.find(queryFilter, (err, docs) => {
       console.log('docs', docs)
