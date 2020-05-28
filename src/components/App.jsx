@@ -5,28 +5,23 @@ import Filters from './Filters.jsx';
 
 const App = () => {
 
-  const whichBook = useRef('');
+  const filter = useRef('');
   const [entries, setEntries] = useState([]);
 
   const handleFilterChange = (e) => {
-    let selectedFilter;
-    let filter = e.target.value;
-    whichBook.current = filter;
+    let selectedFilter = e.target.value;
+    filter.current = selectedFilter;
 
     fetch('/query-entries', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(whichBook)
+      body: JSON.stringify(filter)
     })
     .then(response => response.json())
     .then(data => setEntries(data));
   }
-
-  // const handleMoodChange = (e) => {
-  //   console.log('e', e.target.value)
-  // }
 
     useEffect(() => {
     console.log('fetching...')
@@ -46,7 +41,7 @@ const App = () => {
     <div>
       mCanon
       <Form />
-      <Filters handleFilterChange={handleFilterChange} whichBook={whichBook}/>
+      <Filters handleFilterChange={handleFilterChange} filter={filter}/>
       <List entries={entries} />
     </div>
   )

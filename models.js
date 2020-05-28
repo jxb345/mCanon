@@ -54,21 +54,13 @@ const findFilter = (filter) => {
 
     switch (selectedFilter) {
       case 'bookOptions':
-        if (filter === 'research') {
-          return { book: 'research'};
-        } else {
-          return { book: 'canon'};
-        }
+        return { book: filter };
       case 'moodOptions':
-        if (filter === 'chill') {
-          return { mood: 'chill'};
-        }
-        if (filter === 'upbeat') {
-          return { mood: 'upbeat'};
-        }
-        if (filter === 'daytime') {
-          return { mood: 'daytime'};
-        }
+        return { mood: filter };
+        case 'instrumentalOptions':
+          return { instrumental: filter };
+        case 'genreOptions':
+          return { genre: filter };
         default:
           return {};
       }
