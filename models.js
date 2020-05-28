@@ -26,18 +26,52 @@ const addEntry = (entry) => {
 
 const query = (filter) => {
   console.log('filter---', filter)
-  let queryFilter = {};
+  let queryFilter = findFilter(filter);
 
-  if (filter === 'canon' || filter === 'research') {
-    console.log('conditional met in query')
-    queryFilter.book = filter;
-  }
-  console.log('queryFilter', queryFilter)
   return new Promise((resolve, reject) => {
     model.find(queryFilter, (err, docs) => {
       resolve(docs);
     })
   })
+}
+
+const findFilter = (filter) => {
+    let selectedFilter = '';
+     const allFilters = {
+       bookOptions: ['research', 'canon'],
+       moodOptions: ['chill', 'upbeat', 'daytime'],
+       instrumentalOptions: ['yes', 'no'],
+       genreOptions:['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
+       ratingOptions: [1, 2, 3]
+    }
+
+    for (const oneFilter in allFilters) {
+      if (allFilters[oneFilter].includes(filter)) {
+        selectedFilter = oneFilter;
+        break;
+      }
+    }
+
+    switch (selectedFilter) {
+      case 'bookOptions':
+        if (filter === 'research') {
+          return { book: 'research'};
+        } else {
+          return { book: 'canon'};
+        }
+      case 'moodOptions':
+        if (filter === 'chill') {
+          return { mood: 'chill'};
+        }
+        if (filter === 'upbeat') {
+          return { mood: 'upbeat'};
+        }
+        if (filter === 'daytime') {
+          return { mood: 'daytime'};
+        }
+        default:
+          return {};
+      }
 }
 
 module.exports = { addEntry, query }

@@ -9,14 +9,14 @@ const Filters = (props) => {
       Filters
         <div>
       <p>Book</p>
-        <input type="radio" name="book-filter" id="book-filter" value="canon" onClick={props.handleBookChange}  />
+        <input type="radio" name="book-filter" id="book-filter" value="canon" onClick={props.handleFilterChange}  />
           <label for="canon">canon</label>
-        <input type="radio" name="book-filter" id="book-filter" value="research" onClick={props.handleBookChange} />
+        <input type="radio" name="book-filter" id="book-filter" value="research" onClick={props.handleFilterChange} />
           <label for="research">research</label>
         </div>
         <div>
           <p>Mood</p>
-          <select type="text" name="mood" id="mood" onChange={props.handleMoodChange}>
+          <select type="text" name="mood" id="mood" onChange={props.handleFilterChange}>
           <option disabled selected value> select an mood</option>
           <option value="chill">chill</option>
           <option value="upbeat">upbeat</option>

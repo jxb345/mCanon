@@ -8,14 +8,11 @@ const App = () => {
   const whichBook = useRef('');
   const [entries, setEntries] = useState([]);
 
-  const handleBookChange = (e) => {
-    let bookFilter = e.target.value;
-    if (bookFilter === 'research') {
-      whichBook.current = 'research';
-    } else {
-      whichBook.current = 'canon';
-    }
-    console.log('whichBook', whichBook);
+  const handleFilterChange = (e) => {
+    let selectedFilter;
+    let filter = e.target.value;
+    whichBook.current = filter;
+
     fetch('/query-entries', {
       method: 'POST',
       headers: {
@@ -27,9 +24,9 @@ const App = () => {
     .then(data => setEntries(data));
   }
 
-  const handleMoodChange = (e) => {
-    console.log('e', e.target.value)
-  }
+  // const handleMoodChange = (e) => {
+  //   console.log('e', e.target.value)
+  // }
 
     useEffect(() => {
     console.log('fetching...')
@@ -49,7 +46,7 @@ const App = () => {
     <div>
       mCanon
       <Form />
-      <Filters handleMoodChange={handleMoodChange} handleBookChange={handleBookChange} whichBook={whichBook}/>
+      <Filters handleFilterChange={handleFilterChange} whichBook={whichBook}/>
       <List entries={entries} />
     </div>
   )
