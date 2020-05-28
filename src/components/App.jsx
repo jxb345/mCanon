@@ -27,6 +27,10 @@ const App = () => {
     .then(data => setEntries(data));
   }
 
+  const handleMoodChange = (e) => {
+    console.log('e', e.target.value)
+  }
+
     useEffect(() => {
     console.log('fetching...')
     fetch('/query-entries', {
@@ -45,7 +49,7 @@ const App = () => {
     <div>
       mCanon
       <Form />
-      <Filters handleBookChange={handleBookChange} whichBook={whichBook}/>
+      <Filters handleMoodChange={handleMoodChange} handleBookChange={handleBookChange} whichBook={whichBook}/>
       <List entries={entries} />
     </div>
   )
