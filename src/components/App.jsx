@@ -7,6 +7,8 @@ const App = () => {
 
   const filter = useRef('');
   const [entries, setEntries] = useState([]);
+  const [search, setSearch] = useState(true);
+  const [toggleButton, setToggleButton] = useState('New Entry');
 
   const handleFilterChange = (e) => {
     let selectedFilter = e.target.value;
@@ -21,6 +23,10 @@ const App = () => {
     })
     .then(response => response.json())
     .then(data => setEntries(data));
+  }
+
+  const handleToggle = () => {
+    setSearch(!search);
   }
 
     useEffect(() => {
@@ -40,8 +46,13 @@ const App = () => {
   return (
     <div>
       mCanon
-      <Form />
-      <Filters handleFilterChange={handleFilterChange} filter={filter}/>
+      <button onClick={handleToggle}>New Entry</button>
+      <button onClick={handleToggle}>Search</button>
+
+      {search
+        ? <Filters handleFilterChange={handleFilterChange} filter={filter}/>
+        : <Form />
+      }
       <List entries={entries} />
     </div>
   )
