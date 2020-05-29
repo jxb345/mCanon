@@ -1,0 +1,22 @@
+.grid {
+  display: grid;
+  grid-template-columns: 75px 100px;
+  grid-auto-rows: 50px 50px 50px 50px;
+  gap: 10px;
+}
+
+.one {
+  grid-column: 1 / 2;
+  grid-row: 1;
+}
+
+.two {
+  grid-column: 1;
+  grid-row: 2 / 4;
+}
+
+.three {
+  grid-column: 2;
+  grid-row: 2 / 4;
+
+}

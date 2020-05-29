@@ -46,14 +46,19 @@ const App = () => {
   return (
     <div>
       mCanon
-      <button onClick={handleToggle}>New Entry</button>
-      <button onClick={handleToggle}>Search</button>
-
-      {search
-        ? <Filters handleFilterChange={handleFilterChange} filter={filter}/>
-        : <Form />
-      }
-      <List entries={entries} />
+      {/* <button onClick={handleToggle}>New Entry</button>
+      <button onClick={handleToggle}>Search</button> */}
+      <div class="grid">
+        <div class="one">
+          <Form />
+        </div>
+        <div class="two">
+          <Filters handleFilterChange={handleFilterChange} filter={filter} />
+          </div>
+        <div class="three">
+          <List entries={entries} />
+          </div>
+      </div>
     </div>
   )
 }
