@@ -9,17 +9,22 @@ const App = () => {
   const [entries, setEntries] = useState([]);
   const [search, setSearch] = useState(true);
   const [toggleButton, setToggleButton] = useState('New Entry');
+  const [selectedFilters, setSelectedFilters] = useState([]);
 
   const handleFilterChange = (e) => {
-    let selectedFilter = e.target.value;
-    filter.current = selectedFilter;
+    let currentFilterValue = e.target.value;
+    let currentFilterId = e.target.id
+    let currentFilterPair = {[currentFilterId]: currentFilterValue }
+    console.log('e.target.id----', e.target.id)
+    setSelectedFilters(selectedFilters => ({...selectedFilters, currentFilterPair  }));
+    // filter.current = currentFilter;
 
     fetch('/query-entries', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(filter)
+      body: JSON.stringify(selectedFilters)
     })
     .then(response => response.json())
     .then(data => setEntries(data));
@@ -30,17 +35,18 @@ const App = () => {
   }
 
     useEffect(() => {
-    console.log('fetching...')
-    fetch('/query-entries', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-      .then(response => response.json())
-      .then(data => setEntries((data)));
-  }, [])
+      console.log('selectedFilters', selectedFilters)
+      console.log('fetching...')
+      fetch('/query-entries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      })
+        .then(response => response.json())
+        .then(data => setEntries((data)));
+  },[])
 
 
   return (

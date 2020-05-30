@@ -26,10 +26,10 @@ const addEntry = (entry) => {
 
 const query = (filter) => {
   console.log('filter---', filter)
-  let queryFilter = findFilter(filter);
+  // let queryFilter = findFilter(filter);
 
   return new Promise((resolve, reject) => {
-    model.find(queryFilter, (err, docs) => {
+    model.find(filter, (err, docs) => {
       resolve(docs);
     })
   })

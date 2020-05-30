@@ -31,7 +31,6 @@ const List = (props) => {
         </thead>
       {
       props.entries.map(entry => {
-        console.log('entry', entry)
         return <tr>
           <td>{entry.band}</td>
           <td>{entry.album}</td>

@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 
 
 const Filters = (props) => {
-  console.log('props in filters', props);
 
   return (
     <div>

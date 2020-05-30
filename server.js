@@ -10,8 +10,8 @@ app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 
 app.post('/query-entries', (req, res) => {
-  let filter = req.body.current || {};
-  query(filter)
+  let filters = req.body || {};
+  query(filters)
     .then((entries) => {
       res.status(200).send(entries)
     })
