@@ -14,20 +14,21 @@ const App = () => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
-    let currentFilterPair = {[currentFilterId]: currentFilterValue }
+    // let currentFilterPair = {[currentFilterId]: currentFilterValue }
     console.log('e.target.id----', e.target.id)
-    setSelectedFilters(selectedFilters => ({...selectedFilters, currentFilterPair  }));
+    setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
     // filter.current = currentFilter;
 
-    fetch('/query-entries', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(selectedFilters)
-    })
-    .then(response => response.json())
-    .then(data => setEntries(data));
+  //   fetch('/query-entries', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({selectedFilters})
+  //   })
+  //   .then(response => response.json())
+  //   .then(data => setEntries(data));
+  // }
   }
 
   const handleToggle = () => {
@@ -42,11 +43,11 @@ const App = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({})
+        body: JSON.stringify(selectedFilters)
       })
         .then(response => response.json())
         .then(data => setEntries((data)));
-  },[])
+  }, [])
 
 
   return (

@@ -10,7 +10,10 @@ app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 
 app.post('/query-entries', (req, res) => {
-  let filters = req.body || {};
+  let filters = req.body;
+  if (Array.isArray(filters) && filters.length === 0) {
+    filters = {};
+  }
   query(filters)
     .then((entries) => {
       res.status(200).send(entries)
