@@ -47,8 +47,10 @@ const App = () => {
       })
         .then(response => response.json())
         .then(data => setEntries((data)));
-  }, [])
-
+        return () => {
+          console.log('filter end')
+        }
+      }, [selectedFilters])
 
   return (
     <div>
