@@ -16,6 +16,9 @@ const App = () => {
     let currentFilterId = e.target.id
     // let currentFilterPair = {[currentFilterId]: currentFilterValue }
     console.log('e.target.id----', e.target.id)
+    if (currentFilterValue === 'clear') {
+      currentFilterValue = '';
+    }
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
     // filter.current = currentFilter;
 

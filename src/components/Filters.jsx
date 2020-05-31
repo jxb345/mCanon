@@ -8,15 +8,16 @@ const Filters = (props) => {
       Filters
         <div>
       <p>Book</p>
-        <input type="radio" name="book-filter" id="book-filter" value="canon" onClick={props.handleFilterChange}  />
+        <input type="radio" name="book" id="book" value="canon" onClick={props.handleFilterChange}  />
           <label for="canon">canon</label>
-        <input type="radio" name="book-filter" id="book-filter" value="research" onClick={props.handleFilterChange} />
+        <input type="radio" name="book" id="book" value="research" onClick={props.handleFilterChange} />
           <label for="research">research</label>
         </div>
         <div>
           <p>Mood</p>
           <select type="text" name="mood" id="mood" onChange={props.handleFilterChange}>
           <option disabled selected value> select an mood</option>
+          <option value="clear">CLEAR MOOD</option>
           <option value="chill">chill</option>
           <option value="upbeat">upbeat</option>
           <option value="daytime">daytime</option>
@@ -26,6 +27,7 @@ const Filters = (props) => {
           <p>Genre</p>
           <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
           <option disabled selected value> select an genre</option>
+          <option value="clear">CLEAR GENRE</option>
           <option value="rock">rock</option>
           <option value="rap">rap</option>
           <option value="jazz">jazz</option>
