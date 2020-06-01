@@ -57,7 +57,9 @@ const App = () => {
 
   return (
     <div>
-      mCanon
+      <div className="title">
+        mCanon
+      </div>
       {/* <button onClick={handleToggle}>New Entry</button>
       <button onClick={handleToggle}>Search</button> */}
       <div className="grid">

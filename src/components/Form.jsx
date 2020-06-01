@@ -3,7 +3,7 @@ const React = require('react');
 const Form = () => {
 
   return (
-    <div>
+    <div className="form">
       <form action="/new-entry" method="post">
         <div className="form">
         <label for="band">Band</label>
@@ -27,13 +27,6 @@ const Form = () => {
           <option value="upbeat">upbeat</option>
           <option value="daytime">daytime</option>
         </select>
-        <p>Instrumental</p>
-        <div>
-        <input type="radio" name="instrumental" id="yes" value="yes" checked />
-          <label for="yes">yes</label>
-        <input type="radio" name="instrumental" id="no" value="no" />
-          <label for="no">no</label>
-        </div>
         <label for="year">Year</label>
         <input type="number" name="year" id="year" min="1900" max="2030" required/>
         <label for="rating">Rating</label>
@@ -47,9 +40,12 @@ const Form = () => {
           <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
-        <div>
-          <button>New Entry</button>
-        </div>
+        <label for="instrumental">Instrumental</label>
+        <select type="text" name="instrumental" id="instrumental" required>
+          <option value="yes">yes</option>
+          <option value="no">no</option>
+        </select>
+          <button>NEW ENTRY</button>
         </div>
       </form>
     </div>
