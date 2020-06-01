@@ -20,7 +20,7 @@ const List = (props) => {
     <div>
       <table>
         <thead>
-          <tr>
+          <tr className="entries">
             <td>band</td>
             <td>album</td>
             <td>year</td>
@@ -31,7 +31,7 @@ const List = (props) => {
         </thead>
       {
       props.entries.map(entry => {
-        return <tr>
+        return <tr className="entries">
           <td>{entry.band}</td>
           <td>{entry.album}</td>
           <td>{entry.year}</td>

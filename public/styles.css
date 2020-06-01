@@ -1,22 +1,60 @@
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid black;
+}
+
+thead th, tfoot th {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+
+thead {
+  padding: 20px;
+  letter-spacing: 2px;
+  border-bottom: 2px solid black;
+  background-color: black;
+  color: white;
+}
+
+td {
+  padding: 20px;
+  letter-spacing: 1px;;
+}
+
+p {
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.filters {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: 75px 100px;
-  grid-auto-rows: 50px 50px 50px 50px;
-  gap: 10px;
+  grid-template-columns: .5fr 3fr;
+  grid-auto-rows: 150px 500px;
 }
 
 .one {
-  grid-column: 1 / 2;
+  grid-column: 1 / 5;
   grid-row: 1;
+  border-bottom: 2px solid black;
 }
 
 .two {
   grid-column: 1;
   grid-row: 2 / 4;
+  border-right: 2px solid black;
 }
 
 .three {
   grid-column: 2;
   grid-row: 2 / 4;
-
 }

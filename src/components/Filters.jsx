@@ -5,8 +5,7 @@ const Filters = (props) => {
 
   return (
     <div>
-      Filters
-        <div>
+        <div className="filters">
       <p>Book</p>
         <input type="radio" name="book" id="book" value="canon" onClick={props.handleFilterChange} />
           <label for="canon">canon</label>

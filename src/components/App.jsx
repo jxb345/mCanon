@@ -60,14 +60,14 @@ const App = () => {
       mCanon
       {/* <button onClick={handleToggle}>New Entry</button>
       <button onClick={handleToggle}>Search</button> */}
-      <div class="grid">
-        <div class="one">
+      <div className="grid">
+        <div className="one">
           <Form />
         </div>
-        <div class="two">
+        <div className="two">
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
           </div>
-        <div class="three">
+        <div className="three">
           <List entries={entries} />
           </div>
       </div>
