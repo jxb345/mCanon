@@ -25,15 +25,25 @@ const addEntry = (entry) => {
       resolve()
     })
   });
+}
 
-  const capitalize = (name) => {
-    let complete = name.split(' ');
-    let results = '';
-    console.log('complete', complete)
-    for (let i = 0; i < complete.length; i += 1) {
-      complete[i][0].toUpperCase()
-    }
+const deleteEntry = (entry) => {
+
+  return new Promise((resolve, reject) => {
+    model.findOneAndDelete({ album: entry.album }, (err) => {
+      if (err) { throw err }
+      resolve();
+    })
+  })
+}
+
+const capitalize = (name) => {
+  let complete = name.split(' ');
+  console.log('complete', complete)
+  for (let i = 0; i < complete.length; i += 1) {
+    complete[i][0] = complete[i][0].toUpperCase()
   }
+  console.log('complete', complete)
 }
 
 const query = (filter) => {
@@ -42,6 +52,7 @@ const query = (filter) => {
 
   return new Promise((resolve, reject) => {
     model.find(filter, (err, docs) => {
+      if (err) { throw err }
       resolve(docs);
     })
   })
