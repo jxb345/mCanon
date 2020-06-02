@@ -38,6 +38,8 @@ const List = (props) => {
           <td>{entry.genre}</td>
           <td>{entry.mood}</td>
           <td>{entry.rating}</td>
+          {/* add LINK column */}
+          {/* <td>{entry.link</td> */}
         </tr>
       })
       }
