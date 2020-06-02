@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Entry from './Entry.jsx';
 
 const List = (props) => {
   // const [entries, setEntries] = useState([]);
@@ -31,16 +32,7 @@ const List = (props) => {
         </thead>
       {
       props.entries.map(entry => {
-        return <tr className="entries">
-          <td>{entry.band}</td>
-          <td>{entry.album}</td>
-          <td>{entry.year}</td>
-          <td>{entry.genre}</td>
-          <td>{entry.mood}</td>
-          <td>{entry.rating}</td>
-          {/* add LINK column */}
-          {/* <td>{entry.link</td> */}
-        </tr>
+        return <Entry entry={entry} />
       })
       }
       </table>
