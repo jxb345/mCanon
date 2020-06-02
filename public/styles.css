@@ -52,6 +52,10 @@ p {
   padding: 10px;
 }
 
+.gray-entry {
+  background-color: red;
+}
+
 .grid {
   display: grid;
   grid-template-columns: .5fr 3fr;

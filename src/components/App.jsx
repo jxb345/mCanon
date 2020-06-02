@@ -20,18 +20,6 @@ const App = () => {
       currentFilterValue = '';
     }
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
-    // filter.current = currentFilter;
-
-  //   fetch('/query-entries', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({selectedFilters})
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => setEntries(data));
-  // }
   }
 
   const handleToggle = () => {

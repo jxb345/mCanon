@@ -1,9 +1,7 @@
 import React from 'react';
 
 const Entry = (props) => {
-
   return (
-    <div>
       <tr className="entries">
         <td>{props.entry.band}</td>
         <td>{props.entry.album}</td>
@@ -11,10 +9,8 @@ const Entry = (props) => {
         <td>{props.entry.genre}</td>
         <td>{props.entry.mood}</td>
         <td>{props.entry.rating}</td>
-        {/* add LINK column */}
-        {/* <td>{entry.link</td> */}
+        {/* <td>{entry.link}</td> */}
       </tr>
-    </div>
   )
 }
 

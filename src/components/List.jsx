@@ -2,20 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Entry from './Entry.jsx';
 
 const List = (props) => {
-  // const [entries, setEntries] = useState([]);
-
-  // useEffect(() => {
-  //   console.log('fetching...')
-  //   fetch('/query-entries', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({})
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => setEntries((data)));
-  // }, [])
 
   return (
     <div>
@@ -28,11 +14,12 @@ const List = (props) => {
             <td>genre</td>
             <td>mood</td>
             <td>rating</td>
+            {/* <td>link</td> */}
           </tr>
         </thead>
       {
-      props.entries.map(entry => {
-        return <Entry entry={entry} />
+      props.entries.map((entry, i) => {
+          return <Entry entry={entry} num={i}/>
       })
       }
       </table>
