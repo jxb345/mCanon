@@ -36,15 +36,12 @@ td {
 
 p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   text-align: center;
-  background-color: black;
-  color:white;
 }
 
 .filters {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
 
 }
 
