@@ -29,10 +29,18 @@ const addEntry = (entry) => {
 }
 
 const deleteEntry = (entry) => {
-
   return new Promise((resolve, reject) => {
     model.findOneAndDelete({ album: entry.album }, (err) => {
       if (err) { throw err }
+      resolve();
+    })
+  })
+}
+
+const editEntry = (entry) => {
+  return new Promise((resolve, reject) => {
+    model.findByIdAndUpdate( { entry }, update  , (err) => {
+      if (err) { throw err; }
       resolve();
     })
   })

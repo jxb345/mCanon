@@ -34,6 +34,12 @@ app.post('/delete-entry', (req, res) => {
 
 })
 
+app.post('/edit-entry', (req, res) => {
+  const edit = req.body;
+  editEntry(edit)
+    .then(res.status(200).send('entry edited!')
+})
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })
