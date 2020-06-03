@@ -5,7 +5,8 @@ const model = mongoose.model('Page', Entry);
 
 const addEntry = (entry) => {
 
-  let test = capitalize(entry.band)
+  entry.band = capitalize(entry.band);
+  entry.album = capitalize(entry.album);
 
   const create = new model({
     band: entry.band,
@@ -19,7 +20,7 @@ const addEntry = (entry) => {
   })
 
   return new Promise((resolve, reject) => {
-    create.save( (err, create) => {
+    create.save((err, create) => {
       if (err) return console.error(err);
       console.log('create', create)
       resolve()
@@ -38,12 +39,17 @@ const deleteEntry = (entry) => {
 }
 
 const capitalize = (name) => {
-  let complete = name.split(' ');
-  console.log('complete', complete)
-  for (let i = 0; i < complete.length; i += 1) {
-    complete[i][0] = complete[i][0].toUpperCase()
+  let capital = name[0].toUpperCase();
+  for (let i = 1; i < name.length; i += 1) {
+    if (name[i] === ' ') {
+      capital += ' ';
+      capital += name[i + 1].toUpperCase();
+      i += 1
+    } else {
+      capital += name[i];
+    }
   }
-  console.log('complete', complete)
+  return capital;
 }
 
 const query = (filter) => {
@@ -59,34 +65,34 @@ const query = (filter) => {
 }
 
 const findFilter = (filter) => {
-    let selectedFilter = '';
-     const allFilters = {
-       bookOptions: ['research', 'canon'],
-       moodOptions: ['chill', 'upbeat', 'daytime'],
-       instrumentalOptions: ['yes', 'no'],
-       genreOptions:['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
-       ratingOptions: [1, 2, 3]
-    }
+  let selectedFilter = '';
+  const allFilters = {
+    bookOptions: ['research', 'canon'],
+    moodOptions: ['chill', 'upbeat', 'daytime'],
+    instrumentalOptions: ['yes', 'no'],
+    genreOptions: ['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
+    ratingOptions: [1, 2, 3]
+  }
 
-    for (const oneFilter in allFilters) {
-      if (allFilters[oneFilter].includes(filter)) {
-        selectedFilter = oneFilter;
-        break;
-      }
+  for (const oneFilter in allFilters) {
+    if (allFilters[oneFilter].includes(filter)) {
+      selectedFilter = oneFilter;
+      break;
     }
+  }
 
-    switch (selectedFilter) {
-      case 'bookOptions':
-        return { book: filter };
-      case 'moodOptions':
-        return { mood: filter };
-        case 'instrumentalOptions':
-          return { instrumental: filter };
-        case 'genreOptions':
-          return { genre: filter };
-        default:
-          return {};
-      }
+  switch (selectedFilter) {
+    case 'bookOptions':
+      return { book: filter };
+    case 'moodOptions':
+      return { mood: filter };
+    case 'instrumentalOptions':
+      return { instrumental: filter };
+    case 'genreOptions':
+      return { genre: filter };
+    default:
+      return {};
+  }
 }
 
 module.exports = { addEntry, query }
