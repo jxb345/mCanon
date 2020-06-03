@@ -22,7 +22,6 @@ const addEntry = (entry) => {
   return new Promise((resolve, reject) => {
     create.save((err, create) => {
       if (err) return console.error(err);
-      console.log('create', create)
       resolve()
     })
   });
@@ -61,8 +60,6 @@ const capitalize = (name) => {
 }
 
 const query = (filter) => {
-  console.log('filter---', filter)
-  // let queryFilter = findFilter(filter);
 
   return new Promise((resolve, reject) => {
     model.find(filter, (err, docs) => {
