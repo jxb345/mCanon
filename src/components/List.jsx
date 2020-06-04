@@ -14,6 +14,7 @@ const List = (props) => {
             <td>genre</td>
             <td>mood</td>
             <td>rating</td>
+            <td></td>
             {/* <td>link</td> */}
           </tr>
         </thead>
