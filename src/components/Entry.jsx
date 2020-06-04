@@ -4,7 +4,18 @@ const Entry = (props) => {
 
   const handleClick = (e) => {
    console.log('clicked')
+
+    fetch('/delete-entry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(props.entry)
+    })
+    .then(response => response.json())
+    .then(date => console.log('data', data));
   }
+
 
   return (
       <tr className="entries">
@@ -14,7 +25,7 @@ const Entry = (props) => {
         <td contenteditable='true'>{props.entry.genre}</td>
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
-        <td onHover={handleClick}>&#10247;</td>
+        <td onClick={handleClick}>&#10247;</td>
         {/* <td>{entry.link}</td> */}
       </tr>
   )

@@ -100,5 +100,5 @@ const findFilter = (filter) => {
   }
 }
 
-module.exports = { addEntry, query }
+module.exports = { addEntry, query, deleteEntry }
 
