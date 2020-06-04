@@ -13,7 +13,7 @@ const Entry = (props) => {
       body: JSON.stringify(props.entry)
     })
     .then(response => response.json())
-    .then(date => console.log('data', data));
+    .then(data => console.log('data', data));
   }
 
 

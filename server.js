@@ -31,7 +31,7 @@ app.post('/delete-entry', (req, res) => {
   console.log('req.body', req.body)
   const remove = req.body;
   deleteEntry(remove)
-    .then(res.status(200).send('entry deleted!'))
+    .then(res.status(200).send({ entry: 'entry deleted!'}))
 
 })
 

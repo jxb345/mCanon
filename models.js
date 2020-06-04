@@ -31,6 +31,7 @@ const deleteEntry = (entry) => {
   return new Promise((resolve, reject) => {
     model.findOneAndDelete({ album: entry.album }, (err) => {
       if (err) { throw err }
+      console.log('deleted in deleteEntry')
       resolve();
     })
   })
