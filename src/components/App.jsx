@@ -8,8 +8,8 @@ const App = () => {
   const filter = useRef('');
   const [entries, setEntries] = useState([]);
   const [search, setSearch] = useState(true);
-  const [toggleButton, setToggleButton] = useState('New Entry');
   const [selectedFilters, setSelectedFilters] = useState([]);
+  const [clicked, setClicked] = useState({});
 
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
@@ -22,19 +22,16 @@ const App = () => {
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
   }
 
-  const handleToggle = () => {
-    setSearch(!search);
-  }
-
   const handleClick = (e) => {
-    console.log('clicked')
+
+    console.log('click', clicked)
 
      fetch('/delete-entry', {
        method: 'POST',
        headers: {
          'Content-Type': 'application/json'
        },
-       body: JSON.stringify(props.entry)
+       body: JSON.stringify(clicked)
      })
      .then(response => response.json())
      .then(data => console.log('data', data));
@@ -72,7 +69,7 @@ const App = () => {
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
           </div>
         <div className="three">
-          <List entries={entries} handleClick={handleClick} />
+          <List entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} />
           </div>
       </div>
     </div>

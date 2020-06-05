@@ -16,6 +16,11 @@ const Entry = (props) => {
   //   .then(data => console.log('data', data));
   // }
 
+  const entryClicked = () => {
+    props.setClicked(props.entry)
+    props.handleClick();
+  }
+
 
   return (
       <tr className="entries">
@@ -25,7 +30,7 @@ const Entry = (props) => {
         <td contenteditable='true'>{props.entry.genre}</td>
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
-        <td onClick={props.handleClick}>&#10247;</td>
+        <td onClick={entryClicked}>&#10247;</td>
         {/* <td>{entry.link}</td> */}
       </tr>
   )
