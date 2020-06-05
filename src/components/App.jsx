@@ -26,6 +26,20 @@ const App = () => {
     setSearch(!search);
   }
 
+  const handleClick = (e) => {
+    console.log('clicked')
+
+     fetch('/delete-entry', {
+       method: 'POST',
+       headers: {
+         'Content-Type': 'application/json'
+       },
+       body: JSON.stringify(props.entry)
+     })
+     .then(response => response.json())
+     .then(data => console.log('data', data));
+   }
+
     useEffect(() => {
       console.log('selectedFilters', selectedFilters)
       console.log('fetching...')
@@ -58,7 +72,7 @@ const App = () => {
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
           </div>
         <div className="three">
-          <List entries={entries} />
+          <List entries={entries} handleClick={handleClick} />
           </div>
       </div>
     </div>

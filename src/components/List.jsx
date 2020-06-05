@@ -20,7 +20,7 @@ const List = (props) => {
         </thead>
       {
       props.entries.map((entry, i) => {
-          return <Entry entry={entry} num={i}/>
+          return <Entry entry={entry} num={i} handleClick={props.handleClick}/>
       })
       }
       </table>
