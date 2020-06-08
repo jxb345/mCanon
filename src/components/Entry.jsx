@@ -16,10 +16,10 @@ const Entry = (props) => {
   //   .then(data => console.log('data', data));
   // }
 
-  const entryClicked = () => {
-    props.setClicked(props.entry)
-    props.handleClick();
-  }
+  // const entryClicked = () => {
+  //   props.setClicked(props.entry)
+  //   props.handleClick();
+  // }
 
 
   return (
@@ -30,7 +30,7 @@ const Entry = (props) => {
         <td contenteditable='true'>{props.entry.genre}</td>
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
-        <td className="three-dot-menu" onClick={entryClicked}>
+        <td className="three-dot-menu">
           <button>&#10247;</button>
             <ul>
               <li>
@@ -40,8 +40,7 @@ const Entry = (props) => {
                 <button>DELETE</button>
               </li>
             </ul>
-        </td>
-        {/* <td>{entry.link}</td> */}
+            </td>
       </tr>
   )
 }

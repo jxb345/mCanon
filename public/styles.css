@@ -1,3 +1,11 @@
+.test ul {
+  opacity: 0;
+}
+
+.test button:focus + ul {
+  opacity: 1;
+}
+
 button {
   margin: 5px;
   padding: 10px;
@@ -41,6 +49,10 @@ p {
 
 .three-dot-menu ul {
   opacity: 0;
+}
+
+.three-dot-menu button {
+  border-radius: 100%;
 }
 
 .three-dot-menu button:focus + ul {
