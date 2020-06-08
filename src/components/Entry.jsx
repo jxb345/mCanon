@@ -31,15 +31,17 @@ const Entry = (props) => {
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
         <td className="three-dot-menu">
-          <button>&#10247;</button>
-            <ul>
+          {/* <button> */}
+        &#10247;
+        {/* </button> */}
+            {/* <ul>
               <li>
                 <button>EDIT</button>
               </li>
               <li>
                 <button>DELETE</button>
               </li>
-            </ul>
+            </ul> */}
             </td>
       </tr>
   )
