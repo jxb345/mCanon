@@ -30,7 +30,17 @@ const Entry = (props) => {
         <td contenteditable='true'>{props.entry.genre}</td>
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
-        <td onClick={entryClicked}>&#10247;</td>
+        <td className="three-dot-menu" onClick={entryClicked}>
+          <button>&#10247;</button>
+            <ul>
+              <li>
+                <button>EDIT</button>
+              </li>
+              <li>
+                <button>DELETE</button>
+              </li>
+            </ul>
+        </td>
         {/* <td>{entry.link}</td> */}
       </tr>
   )

@@ -20,12 +20,15 @@ const Form = () => {
           <option value="rhythmAndlues">rhythm and blues</option>
           <option value="electronic">electronic</option>
           <option value="country">country</option>
+          <option value="+-genre">+ genre</option>
         </select>
         <label for="mood">Mood</label>
         <select type="text" name="mood" id="mood" required>
           <option value="chill">chill</option>
           <option value="upbeat">upbeat</option>
           <option value="daytime">daytime</option>
+          <option value="+-mood">+ mood</option>
+
         </select>
         <label for="year">Year</label>
         <input type="number" name="year" id="year" min="1900" max="2030" required/>
