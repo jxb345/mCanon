@@ -45,7 +45,7 @@ p {
 } */
 
 tr:hover {
-  background-color: lightgray;
+  background-color: #ffffe0;
   cursor: pointer;
 }
 
@@ -85,6 +85,11 @@ tr:hover {
   grid-column: 1 / 5;
   grid-row: 1;
   border-bottom: 2px solid black;
+}
+
+.options {
+  opacity: 0;
+  background-color: teal;
 }
 
 .two {

@@ -24,25 +24,26 @@ const Entry = (props) => {
 
   return (
       <tr className="entries">
+        <td><input type="checkbox" id="select" name="select" onChange={props.handleCheck} /></td>
         <td contenteditable='true'>{props.entry.band}</td>
         <td contenteditable='true'>{props.entry.album}</td>
         <td contenteditable='true'>{props.entry.year}</td>
         <td contenteditable='true'>{props.entry.genre}</td>
         <td contenteditable='true'>{props.entry.mood}</td>
         <td contenteditable='true'>{props.entry.rating}</td>
-        <td className="three-dot-menu">
-          {/* <button> */}
+        {/* <td className="three-dot-menu">
+          <button>
         &#10247;
-        {/* </button> */}
-            {/* <ul>
+        </button>
+           <ul>
               <li>
                 <button>EDIT</button>
               </li>
               <li>
                 <button>DELETE</button>
               </li>
-            </ul> */}
-            </td>
+            </ul>
+            </td> */}
       </tr>
   )
 }
