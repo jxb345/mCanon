@@ -30,8 +30,14 @@ const Entry = (props) => {
     console.log('entries', entries)
   }
 
+  const handleMouse = (e) => {
+    const test = document.getElementById(e.target.id);
+    console.log('test', test.innerHTML)
+
+  }
+
   return (
-      <tr className="entries">
+      <tr className="entries" onMouseEnter={handleMouse}>
         {/* <td><input type="checkbox" id="select" name="select" onChange={props.handleCheck} /></td> */}
         <td  id="band-edit">{props.entry.band}</td>
         <td  id="album-edit">{props.entry.album}</td>
