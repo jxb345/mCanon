@@ -11,20 +11,20 @@ const List = (props) => {
     setIcons(!icons)
   }
 
-  useEffect( () => {
-    if (icons) {
-      options[0].style.opacity = 1;
-    } else {
-      options[0].style.opacity = 0
-    }
-  })
+// useEffect( () => {
+//   if (icons) {
+//     options[0].style.opacity = 1;
+//   } else {
+//     options[0].style.opacity = 0
+//   }
+// })
 
   return (
     <div>
       <table>
         <thead>
           <tr className="entries">
-            <td></td>
+            {/* <td></td> */}
             <td>band</td>
             <td>album</td>
             <td>year</td>
@@ -34,7 +34,7 @@ const List = (props) => {
             {/* <td></td> */}
             {/* <td>link</td> */}
           </tr>
-          <tr className="options">test</tr>
+          {/* <tr className="options">test</tr> */}
         </thead>
       {
       props.entries.map((entry, i) => {
