@@ -3,13 +3,7 @@ import Entry from './Entry.jsx';
 
 const List = (props) => {
 
-  const [icons, setIcons] = useState(false)
   const options = document.getElementsByClassName("options");
-
-  const handleCheck = () => {
-    console.log('box ticked')
-    setIcons(!icons)
-  }
 
   return (
     <div>
@@ -29,7 +23,6 @@ const List = (props) => {
           return <Entry
                     entry={entry}
                     num={i}
-                    handleCheck={handleCheck}
                     handleClick={props.handleClick}
                     clicked={props.clicked}
                     setClicked={props.setClicked}

@@ -40,10 +40,6 @@ p {
   text-align: center;
 }
 
-/* .entries td:hover {
-  cursor: pointer;
-} */
-
 tr:hover {
   background-color: #ffffe0;
   cursor: pointer;

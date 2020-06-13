@@ -60,10 +60,15 @@ const capitalize = (name) => {
   return capital;
 }
 
-const query = (filter) => {
-
+const query = (filters) => {
+  console.log('filters', filters)
+  for (let key in filters) {
+    if (filters[key] === 'clear') {
+      delete filters[key]
+    }
+  }
   return new Promise((resolve, reject) => {
-    model.find(filter, (err, docs) => {
+    model.find(filters, (err, docs) => {
       if (err) { throw err }
       resolve(docs);
     })
