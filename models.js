@@ -8,6 +8,8 @@ const addEntry = (entry) => {
   entry.band = capitalize(entry.band);
   entry.album = capitalize(entry.album);
 
+  console.log('entry', entry)
+
   const create = new model({
     band: entry.band,
     album: entry.album,

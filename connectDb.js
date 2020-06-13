@@ -8,7 +8,7 @@ const Entry = new Schema({
   album: String,
   genre: String,
   mood: String,
-  instrumental: Boolean,
+  instrumental: String,
   year: Number,
   rating: Number,
   book: String,

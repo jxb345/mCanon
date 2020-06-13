@@ -9,7 +9,7 @@ const Filters = (props) => {
         <p>
           book
           <br></br>
-        <select type="text" name="book" id="book" onClick={props.handleFilterChange} >
+        <select type="text" name="book" id="book" onChange={props.handleFilterChange} >
           <option disabled selected value>select a book</option>
           <option value="clear">CLEAR BOOK</option>
           <option value="book"></option>

@@ -45,22 +45,9 @@ tr:hover {
   cursor: pointer;
 }
 
-.three-dot-menu ul {
-  opacity: 0;
-}
-
-.three-dot-menu button {
-  border-radius: 100%;
-}
-
-.three-dot-menu button:focus + ul {
-  opacity: 1;
-}
-
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-
 }
 
 .form {
@@ -81,11 +68,6 @@ tr:hover {
   grid-column: 1 / 5;
   grid-row: 1;
   border-bottom: 2px solid black;
-}
-
-.options {
-  opacity: 0;
-  background-color: teal;
 }
 
 .two {

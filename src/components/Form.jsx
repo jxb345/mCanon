@@ -45,8 +45,8 @@ const Form = () => {
         </select>
         <label for="instrumental">Instrumental</label>
         <select type="text" name="instrumental" id="instrumental" required>
-          <option value="yes">yes</option>
           <option value="no">no</option>
+          <option value="yes">yes</option>
         </select>
           <button>NEW ENTRY</button>
         </div>
