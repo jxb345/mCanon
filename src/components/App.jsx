@@ -14,7 +14,6 @@ const App = () => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
-    // let currentFilterPair = {[currentFilterId]: currentFilterValue }
     console.log('e.target.id----', e.target.id)
     if (currentFilterValue === 'clear') {
       currentFilterValue = '';
@@ -59,8 +58,6 @@ const App = () => {
       <div className="title">
         mCanon
       </div>
-      {/* <button onClick={handleToggle}>New Entry</button>
-      <button onClick={handleToggle}>Search</button> */}
       <div className="grid">
         <div className="one">
           <Form />
