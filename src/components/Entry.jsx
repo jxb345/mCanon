@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Entry = (props) => {
-  console.log('props', props.entry)
+
   return (
       <tr className="entries">
         <td  id="band-edit">{props.entry.band}</td>

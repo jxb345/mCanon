@@ -33,7 +33,6 @@ const App = () => {
    }
 
     useEffect(() => {
-      console.log('selectedFilters', selectedFilters)
       console.log('fetching...')
       fetch('/query-entries', {
         method: 'POST',
