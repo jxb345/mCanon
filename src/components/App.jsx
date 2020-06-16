@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import List from './List.jsx';
-import Form from './Form.jsx';
+import Search from './Search.jsx';
 import Filters from './Filters.jsx';
 
 const App = () => {
@@ -56,6 +56,7 @@ const App = () => {
       <div className="grid">
         <div className="one">
           {/* <Form /> */}
+          <Search />
         </div>
         <div className="two">
           <Filters handleFilterChange={handleFilterChange} filter={filter} />

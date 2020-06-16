@@ -23,6 +23,10 @@ input, input[placeholder] {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.filters select {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .form select {
   height: 30px;
   width: 250px;
@@ -132,8 +136,8 @@ new-entry-btn {
 }
 
 .title {
-  background-color: black;
-  color:white;
+  /* background-color: black;
+  color:white; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   padding: 20px;
