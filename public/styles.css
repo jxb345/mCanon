@@ -12,6 +12,8 @@ button {
 input {
   height: 30px;
   width: 200px;
+  border-radius: 2px;
+  border:1px solid #ccc;
 }
 
 table {

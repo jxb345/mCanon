@@ -9,8 +9,10 @@ const Form = () => {
         <label for="band">Band</label>
         <input type="text" name="band" id="band" required/>
         <br/>
+        <br/>
         <label for="album">Album</label>
         <input type="text" name="album" id="album" required/>
+        <br/>
         <br/>
         <label for="genre">Genre</label>
         <select type="text" name="genre" id="genre" required>
@@ -25,6 +27,7 @@ const Form = () => {
           <option value="+-genre">+ genre</option>
         </select>
         <br/>
+        <br/>
         <label for="mood">Mood</label>
         <select type="text" name="mood" id="mood" required>
           <option value="chill">chill</option>
@@ -33,8 +36,10 @@ const Form = () => {
           <option value="+-mood">+ mood</option>
         </select>
         <br/>
+        <br/>
         <label for="year">Year</label>
         <input type="number" name="year" id="year" min="1900" max="2030" required/>
+        <br/>
         <br/>
         <label for="rating">Rating</label>
         <select type="text" name="rating" id="rating" required>
@@ -43,11 +48,13 @@ const Form = () => {
           <option value="3">3</option>
         </select>
         <br/>
+        <br/>
         <label for="book">Book</label>
         <select type="text" name="book" id="book" required>
           <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
+        <br/>
         <br/>
         <label for="instrumental">Instrumental</label>
         <select type="text" name="instrumental" id="instrumental" required>
