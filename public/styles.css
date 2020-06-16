@@ -25,6 +25,8 @@ input, input[placeholder] {
 
 .filters select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 30px;
+  width: 150px;
 }
 
 .form select {
@@ -90,14 +92,27 @@ tr:hover {
   grid-auto-rows: 80px 500px;
 }
 
+.input-search {
+  margin: auto;
+}
+
 .one {
   grid-column: 1 / 5;
   grid-row: 1;
-  border-bottom: 2px solid black;
+  padding-top: 15px;
+  /* margin: auto; */
 }
 
-new-entry-btn {
+/* .new-entry-btn-container {
+  padding-left: 15px;
+} */
+
+.new-entry-btn {
   border-radius: 50%;
+  font-size: 20px;
+  float: left;
+  margin-right: 375px;
+  /* margin: auto; */
 }
 
 .new-entry-popup {
@@ -127,6 +142,7 @@ new-entry-btn {
 .two {
   grid-column: 1;
   grid-row: 2 / 4;
+  border-top: 2px solid black;
   border-right: 2px solid black;
 }
 
@@ -138,7 +154,8 @@ new-entry-btn {
 .title {
   /* background-color: black;
   color:white; */
+  border-bottom: 1px solid black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
-  padding: 20px;
+  text-align: left;
+  padding: 5px;
 }

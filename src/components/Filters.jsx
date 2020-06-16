@@ -4,15 +4,17 @@ import Form from './Form.jsx'
 
 const Filters = (props) => {
 
-  const displayForm = () => {
-    const popup = document.getElementsByClassName("new-entry-popup")[0];
-    console.log('popup', popup)
-    popup.style.display = "block";
-  }
+  // const displayForm = () => {
+  //   const popup = document.getElementsByClassName("new-entry-popup")[0];
+  //   console.log('popup', popup)
+  //   popup.style.display = "block";
+  // }
 
   return (
     <div>
+      {/* <div className="new-entry-btn-container">
       <button className="new-entry-btn" onClick={displayForm}>+</button>
+      </div> */}
       <div className="new-entry-popup">
         <div className="new-entry-form">
           <Form />
