@@ -1,10 +1,23 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
+import Form from './Form.jsx'
 
 
 const Filters = (props) => {
 
+  const displayForm = () => {
+    const popup = document.getElementsByClassName("new-entry-popup")[0];
+    console.log('popup', popup)
+    popup.style.display = "block";
+  }
+
   return (
     <div>
+      <button className="new-entry-btn" onClick={displayForm}>+</button>
+      <div className="new-entry-popup">
+        <div className="new-entry-form">
+          <Form />
+        </div>
+      </div>
       <div className="filters">
         <p>
           book

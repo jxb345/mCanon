@@ -55,7 +55,7 @@ const App = () => {
       </div>
       <div className="grid">
         <div className="one">
-          <Form />
+          {/* <Form /> */}
         </div>
         <div className="two">
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
