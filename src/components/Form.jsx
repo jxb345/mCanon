@@ -21,9 +21,10 @@ const Form = () => {
         <input type="number" name="year" id="year" min="1900" max="2030" required placeholder="year"/>
         <br/>
         <br/>
-        <label for="genre">Genre</label>
-        <br/>
+        {/* <label for="genre">Genre</label>
+        <br/> */}
         <select type="text" name="genre" id="genre" required>
+          <option selected>genre</option>
           <option value="rock">rock</option>
           <option value="rap">rap</option>
           <option value="jazz">jazz</option>
@@ -36,9 +37,10 @@ const Form = () => {
         </select>
         <br/>
         <br/>
-        <label for="mood">Mood</label>
-        <br/>
+        {/* <label for="mood">Mood</label>
+        <br/> */}
         <select type="text" name="mood" id="mood" required>
+          <option selected>mood</option>
           <option value="chill">chill</option>
           <option value="upbeat">upbeat</option>
           <option value="daytime">daytime</option>
@@ -46,29 +48,33 @@ const Form = () => {
         </select>
         <br/>
         <br/>
-        <label for="rating">Rating</label>
-        <br/>
+        {/* <label for="rating">Rating</label>
+        <br/> */}
         <select type="text" name="rating" id="rating" required>
+          <option selected>rating</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
         </select>
         <br/>
         <br/>
-        <label for="book">Book</label>
-        <br/>
+        {/* <label for="book">Book</label>
+        <br/> */}
         <select type="text" name="book" id="book" required>
+        <option selected>book</option>
           <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
         <br/>
         <br/>
-        <label for="instrumental">Instrumental</label>
-        <br/>
+        {/* <label for="instrumental">Instrumental</label>
+        <br/> */}
         <select type="text" name="instrumental" id="instrumental" required>
+          <option selected>instrumental</option>
           <option value="no">no</option>
           <option value="yes">yes</option>
         </select>
+        <br/>
         <br/>
           <button>ADD</button>
         </div>
