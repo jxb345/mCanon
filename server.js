@@ -9,6 +9,10 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 
+app.post('./search', (req, res) => {
+  console.log('req.body - search: ', req.body);
+})
+
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
   if (Array.isArray(filters) && filters.length === 0) {
