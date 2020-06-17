@@ -62,7 +62,7 @@ const capitalize = (name) => {
   return capital;
 }
 
-const query = (filters) => {
+const filter = (filters) => {
   console.log('filters', filters)
   for (let key in filters) {
     if (filters[key] === 'clear') {
@@ -108,5 +108,15 @@ const findFilter = (filter) => {
   }
 }
 
-module.exports = { addEntry, query, deleteEntry }
+const search = (query) => {
+  return new Promise ((resolve, reject) => {
+    model.find({"band": new RegExp(query + ".")}, (err, docs) => {
+      if (err) console.log('err: ', err);
+      console.log('docs: ', docs);
+      resolve(docs);
+    })
+  })
+}
+
+module.exports = { addEntry, filter, deleteEntry, search }
 

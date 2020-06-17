@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const { addEntry, deleteEntry, query } = require('./models.js');
+const { addEntry, deleteEntry, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -12,6 +12,10 @@ app.use(bodyParser.text());
 
 app.post('/search', (req, res) => {
   console.log('req.body - search: ', req.body);
+  search(req.body)
+    .then((results) => {
+      res.status(200).send(results)
+    })
 })
 
 app.post('/query-entries', (req, res) => {
@@ -19,7 +23,7 @@ app.post('/query-entries', (req, res) => {
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
-  query(filters)
+  filter(filters)
     .then((entries) => {
       res.status(200).send(entries)
     })
