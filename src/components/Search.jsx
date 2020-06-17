@@ -16,12 +16,12 @@ const Search = () => {
   useEffect( () => {
     console.log('query', query);
     if (query.length && query.length > 1) {
-      fetch('./search', {
+      fetch('/search', {
         method: 'POST',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'text/plain'
         },
-        body: JSON.stringify(query)
+        body: query
       })
       .then(response => response.json())
       .then(data => console.log('data', data))

@@ -8,8 +8,9 @@ var bodyParser = require('body-parser');
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.text());
 
-app.post('./search', (req, res) => {
+app.post('/search', (req, res) => {
   console.log('req.body - search: ', req.body);
 })
 
