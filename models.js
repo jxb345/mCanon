@@ -110,7 +110,9 @@ const findFilter = (filter) => {
 
 const search = (query) => {
   return new Promise ((resolve, reject) => {
-    model.find({"band": new RegExp(query + ".")}, (err, docs) => {
+    const wildcard = capitalize(query) + ".*";
+    const regex = new RegExp(wildcard);
+    model.find({"band": regex}, (err, docs) => {
       if (err) console.log('err: ', err);
       console.log('docs: ', docs);
       resolve(docs);
