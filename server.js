@@ -14,7 +14,7 @@ app.post('/search', (req, res) => {
   console.log('req.body - search: ', req.body);
   search(req.body)
     .then((results) => {
-      // res.status(200).send(results)
+      res.status(200).send(results)
     })
 })
 
@@ -22,15 +22,16 @@ app.post('/query-entries', (req, res) => {
   console.log('req.body', req.body)
   let filters = req.body;
 
-  if (typeof filters === 'string') {
-    filters = { "band": filters}
-  }
+  // if (typeof filters === 'string') {
+  //   filters = { "band": filters}
+  // }
 
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
   filter(filters)
     .then((entries) => {
+      console.log('entries', entries)
       res.status(200).send(entries)
     })
 })

@@ -64,18 +64,12 @@ const capitalize = (name) => {
 
 const filter = (filters) => {
   console.log('filters', filters)
-  let regex;
   for (let key in filters) {
     if (filters[key] === 'clear') {
       delete filters[key]
     }
-    if (key === 'band') {
-      const wildcard = capitalize(filters[key]) + ".*";
-      regex = { "band": new RegExp(wildcard) };
-    }
   }
 
-  filters = regex || filters
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }
@@ -119,12 +113,13 @@ const search = (query) => {
   return new Promise ((resolve, reject) => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
-    // model.find({"band": regex}, (err, docs) => {
-    //   if (err) console.log('err: ', err);
-    //   console.log('docs: ', docs);
-    //   resolve(docs);
-    resolve(filter({ "band": regex}))
+    console.log('regex', regex)
+    model.find({ "band": regex }, (err, docs) => {
+      if (err) console.log('err: ', err);
+      console.log('docs: ', docs);
+      resolve(docs);
     })
+  })
 }
 
 module.exports = { addEntry, filter, deleteEntry, search }
