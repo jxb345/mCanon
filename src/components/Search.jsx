@@ -16,7 +16,7 @@ const Search = () => {
   useEffect( () => {
     console.log('query', query);
     if (query.length && query.length > 1) {
-      fetch('/search', {
+      fetch('/query-entries', {
         method: 'POST',
         headers: {
           'Content-type': 'text/plain'
