@@ -12,6 +12,7 @@ const Search = (props) => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
+    console.log('query---', query)
   }
 
   useEffect( () => {
@@ -26,8 +27,11 @@ const Search = (props) => {
       })
       .then(response => response.json())
       .then(data => props.setEntries(data))
+      return () => {
+        console.log('search - set entries')
+      }
     }
-  })
+  }, [query])
 
   return (
     <div>

@@ -56,7 +56,7 @@ const App = () => {
       <div className="grid">
         <div className="one">
           {/* <Form /> */}
-          <Search  setEntries={setEntries} />
+          <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="two">
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
