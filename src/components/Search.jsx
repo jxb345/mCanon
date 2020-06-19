@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 const Search = (props) => {
-  console.log('props', props)
   const [query, setQuery] = useState('');
 
   const displayForm = () => {

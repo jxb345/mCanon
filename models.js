@@ -7,9 +7,6 @@ const addEntry = (entry) => {
 
   entry.band = capitalize(entry.band);
   entry.album = capitalize(entry.album);
-
-  console.log('entry', entry)
-
   const create = new model({
     band: entry.band,
     album: entry.album,
@@ -113,10 +110,8 @@ const search = (query) => {
   return new Promise((resolve, reject) => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
-    console.log('regex', regex)
     model.find({ $or: [{ "band": regex }, { "album": regex }] }).exec(function (err, docs) {
       if (err) { console.log('err: ', err); }
-      console.log('docs: ', docs);
       resolve(docs);
     })
   })

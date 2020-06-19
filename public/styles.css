@@ -46,7 +46,7 @@ table {
 }
 
 thead th, tfoot th {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -74,6 +74,10 @@ tr:hover {
   cursor: pointer;
 }
 
+.entries {
+  font-family: 'Times New Roman', Times, serif;
+}
+
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
@@ -81,6 +85,14 @@ tr:hover {
 
 .form {
   padding: 10px;
+}
+
+.form-title {
+  border-bottom: 3px solid black;
+  font-weight: 500;
+  font-size: 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding-bottom: 2px;
 }
 
 .gray-entry {
