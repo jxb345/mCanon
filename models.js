@@ -114,12 +114,16 @@ const search = (query) => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
     console.log('regex', regex)
-    model.find({ "band": regex }, (err, docs) => {
-      if (err) console.log('err: ', err);
+    model.find( { $or: [{ "band": regex }, { "album": regex }]}).exec(function (err, docs) {
+      if (err) { console.log('err: ', err); }
       console.log('docs: ', docs);
       resolve(docs);
-    })
-  })
+    // (err, docs) => {
+    //   if (err) console.log('err: ', err);
+    //   console.log('docs: ', docs);
+    //   resolve(docs);
+    // })
+  } )})
 }
 
 module.exports = { addEntry, filter, deleteEntry, search }
