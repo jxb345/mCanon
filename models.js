@@ -41,7 +41,7 @@ const deleteEntry = (entry) => {
 
 const editEntry = (entry) => {
   return new Promise((resolve, reject) => {
-    model.findByIdAndUpdate( { entry }, update  , (err) => {
+    model.findByIdAndUpdate({ entry }, update, (err) => {
       if (err) { throw err; }
       resolve();
     })
@@ -110,20 +110,16 @@ const findFilter = (filter) => {
 }
 
 const search = (query) => {
-  return new Promise ((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
     console.log('regex', regex)
-    model.find( { $or: [{ "band": regex }, { "album": regex }]}).exec(function (err, docs) {
+    model.find({ $or: [{ "band": regex }, { "album": regex }] }).exec(function (err, docs) {
       if (err) { console.log('err: ', err); }
       console.log('docs: ', docs);
       resolve(docs);
-    // (err, docs) => {
-    //   if (err) console.log('err: ', err);
-    //   console.log('docs: ', docs);
-    //   resolve(docs);
-    // })
-  } )})
+    })
+  })
 }
 
 module.exports = { addEntry, filter, deleteEntry, search }

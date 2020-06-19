@@ -55,7 +55,6 @@ const App = () => {
       </div>
       <div className="grid">
         <div className="one">
-          {/* <Form /> */}
           <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="two">

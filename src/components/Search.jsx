@@ -17,7 +17,7 @@ const Search = (props) => {
 
   useEffect( () => {
     console.log('query', query);
-    if (query.length && query.length > 1) {
+    if (query.length && query.length > 0) {
       fetch('/search', {
         method: 'POST',
         headers: {
@@ -28,8 +28,22 @@ const Search = (props) => {
       .then(response => response.json())
       .then(data => props.setEntries(data))
       return () => {
-        console.log('search - set entries')
+        console.log('search - set entries', props.entries)
       }
+    } else {
+      fetch('/query-entries', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      })
+        .then(response => response.json())
+        .then(data => props.setEntries((data)));
+        return () => {
+          console.log('search query: 0 characters')
+        }
+
     }
   }, [query])
 
@@ -37,9 +51,7 @@ const Search = (props) => {
     <div>
       <button className="new-entry-btn" onClick={displayForm}>+</button>
       <div className="input-search">
-      <input type="text" placeholder="band" onChange={handleChange} />
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <input type="text" placeholder="album" onChange={handleChange} />
+      <input type="text" placeholder="band or album" onChange={handleChange} />
       </div>
     </div>
   )
