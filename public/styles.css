@@ -146,7 +146,7 @@ tr:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 45%;
-  height: 65%;
+  height: 70%;
   border-radius: 5px;
   text-align: center;
 }
@@ -174,3 +174,17 @@ tr:hover {
   padding-left: 10px;
   /* margin-left:10px; */
 }
+
+.hover-class .run,
+.hover-class:hover .test {
+  display: none;
+}
+
+.hover-class:hover .run {
+  display: inline
+}
+
+.test {
+  color: white
+}
+

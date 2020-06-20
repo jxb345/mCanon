@@ -17,6 +17,7 @@ const List = (props) => {
             <td>mood</td>
             <td>instrumental</td>
             <td>rating</td>
+            <td></td>
           </tr>
         </thead>
       {
