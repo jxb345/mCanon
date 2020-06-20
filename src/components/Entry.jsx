@@ -1,27 +1,26 @@
 import React from 'react';
 
 const Entry = (props) => {
-  const run = document.getElementById("run");
-  const showIcons = () => {
-    console.log('icons!')
-    // const test = document.getElementById("test");
-    // console.log('test', test)
-    // test.style.opacity = 0;
-    console.log('run', run)
-    run.style.opacity = 1;
+
+  const handleDelete = (e) => {
+    console.log('id', e)
+    console.log('trash button!')
+    fetch('/delete-entry', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify('')
+    });
+    return console.log('response', response.json());
   }
 
-  const hideIcons = () => {
-    console.log('hide')
-    run.style.opacity = 0;
-  }
-
-  const handleButton = () => {
-    console.log('button!')
+  const handleEdit = () => {
+    console.log('edit button')
   }
 
   return (
-      <tr className="entries">
+    <tr className="entries">
         <td  id="band-edit">{props.entry.band}</td>
         <td  id="album-edit">{props.entry.album}</td>
         <td  id="year-edit">{props.entry.year}</td>
@@ -30,15 +29,16 @@ const Entry = (props) => {
         <td>{props.entry.instrumental}</td>
         <td  id="rating-edit">{props.entry.rating}</td>
         <td>
-          <div className="hover-class">
+            <div className="hover-class">
             <div className="test">
-              test
+              icons
             </div>
             <div className="run">
-              <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
-              <button onClick={handleButton}>
-
-              <img src="./trash-can.png" alt="pencil-image" height="20" width="20"/>
+              <button onClick={handleEdit}>
+                <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
+              </button>
+              <button onClick={handleDelete}>
+                <img src="./trash-can.png" alt="pencil-image" height="20" width="20"/>
               </button>
             </div>
           </div>
