@@ -10,14 +10,14 @@ const List = (props) => {
       <table>
         <thead>
           <tr className="entries">
-            <td>band</td>
-            <td>album</td>
-            <td>year</td>
-            <td>genre</td>
-            <td>mood</td>
-            <td>instrumental</td>
-            <td>rating</td>
-            <td></td>
+            <th>band</th>
+            <th>album</th>
+            <th>year</th>
+            <th>genre</th>
+            <th>mood</th>
+            <th>instrumental</th>
+            <th>rating</th>
+            <th></th>
           </tr>
         </thead>
       {
