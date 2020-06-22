@@ -188,3 +188,9 @@ tr:hover {
   color: white
 }
 
+.run button {
+  background-color: white;
+  padding: 0;
+  border: none;
+}
+
