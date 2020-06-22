@@ -9,7 +9,7 @@ const List = (props) => {
     <div>
       <table>
         <thead>
-          <tr className="entries">
+          <tr className="entries-headers">
             <th>band</th>
             <th>album</th>
             <th>year</th>

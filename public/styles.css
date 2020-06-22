@@ -58,10 +58,16 @@ thead {
   background-color: black;
 }
 
+th {
+  height: 40px;
+
+}
+
 td {
   padding: 20px;
   letter-spacing: 1px;;
   border-bottom: 1px solid black;
+  height: 33px;
 }
 
 p {
@@ -69,13 +75,14 @@ p {
   text-align: center;
 }
 
-tr:hover {
+tr .entries:hover {
   background-color: #ffffe0;
   cursor: pointer;
 }
 
 .entries {
   font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }
 
 .filters {
