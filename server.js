@@ -32,7 +32,7 @@ app.post('/query-entries', (req, res) => {
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
   addEntry(entry)
-    .then(res.status(200).send('entry added!'));
+    .then(res.status(200).send('<p>new entry added</p><a href="localhost:3000">return</a>'));
 })
 
 app.post('/delete-entry', (req, res) => {

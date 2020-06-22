@@ -27,6 +27,7 @@ const Form = () => {
           <option value="jazz">jazz</option>
           <option value="blues">blues</option>
           <option value="funk">funk</option>
+          <option value="punk rock">punk rock</option>
           <option value="rhythmAndlues">rhythm and blues</option>
           <option value="electronic">electronic</option>
           <option value="country">country</option>
