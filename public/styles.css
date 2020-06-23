@@ -49,6 +49,10 @@ thead th, tfoot th {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+th, td {
+  width: 20%;
+}
+
 
 thead {
   padding: 20px;
@@ -59,8 +63,7 @@ thead {
 }
 
 th {
-  height: 40px;
-
+  height: 60px;
 }
 
 td {
@@ -68,7 +71,9 @@ td {
   letter-spacing: 1px;;
   border-bottom: 1px solid black;
   height: 33px;
+  /* width: 10px; */
 }
+
 
 p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -84,6 +89,8 @@ tr .entries:hover {
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
+
+
 
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

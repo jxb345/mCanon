@@ -54,6 +54,7 @@ const Entry = (props) => {
               <button onClick={handleEdit}>
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>
+              &nbsp;&nbsp;
               <button onClick={handleDelete}>
                 <img src="./trash-can.png" alt="pencil-image" height="20" width="20"/>
               </button>
