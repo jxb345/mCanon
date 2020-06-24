@@ -26,20 +26,24 @@ app.post('/query-entries', (req, res) => {
     .then((entries) => {
       res.status(200).send(entries)
     })
+    .catch(error => {
+      console.error(error.message)
+    })
 })
 
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
   addEntry(entry)
     .then(res.status(200).send('<p>new entry added</p><a href="localhost:3000">return</a>'));
+
 })
 
 app.post('/delete-entry', (req, res) => {
   const remove = req.body;
 
-  Promise.all([deleteEntry(remove), filter({})])
+  deleteEntry(remove)
     .then((entries) => {
-      console.log('entries in /delete', entries)
+      res.status(200).send(entries)
     })
     .catch(error => {
       console.error(error.message)

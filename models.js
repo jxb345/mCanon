@@ -30,8 +30,10 @@ const deleteEntry = (entry) => {
   return new Promise((resolve, reject) => {
     model.findOneAndDelete({ album: entry.album }, (err) => {
       if (err) { throw err }
-      console.log('deleted in deleteEntry')
-      resolve();
+      model.find({}, (err, docs) => {
+        if (err) { throw err; }
+        resolve(docs)
+      })
     })
   })
 }
@@ -62,13 +64,11 @@ const capitalize = (name) => {
 const filter = (filters) => {
   console.log('filters', filters)
 
-  if (Object.keys(filters).length !== 0) {
     for (let key in filters) {
       if (filters[key] === 'clear') {
         delete filters[key]
       }
     }
-  }
 
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {

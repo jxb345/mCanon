@@ -14,7 +14,7 @@ const Entry = (props) => {
       body: JSON.stringify(element)
     })
     .then(response => response.json())
-    .then(data => console.log('data', data))
+    .then(data => props.setEntries(data));
   }
 
   const handleEdit = () => {
