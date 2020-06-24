@@ -36,14 +36,14 @@ app.post('/new-entry', (req, res) => {
 
 app.post('/delete-entry', (req, res) => {
   const remove = req.body;
-  deleteEntry(remove)
-    .then(filter({}))
+
+  Promise.all([deleteEntry(remove), filter({})])
     .then((entries) => {
       console.log('entries in /delete', entries)
-      // res.status(200).send(entries);
-
     })
-
+    .catch(error => {
+      console.error(error.message)
+    })
 })
 
 app.post('/edit-entry', (req, res) => {
