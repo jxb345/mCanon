@@ -1,9 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Entry from './Entry.jsx';
 
 const List = (props) => {
+  const [element, setElement] = useState('');
+  const refs = [];
+
 
   const options = document.getElementsByClassName("options");
+
+  const hoverElement = (e) => {
+    console.log('e.current', e.currentTarget)
+    // e.preventDefault();
+    // const target = document.getElementById(e.target.id);
+    // let firstText = "";
+    // for (let i = 0; i < target.childNodes.length; i++) {
+    //     let curNode = target.childNodes[i];
+    //     if (curNode.nodeName === "#text") {
+    //         firstText = curNode.nodeValue;
+    //         break;
+    //     }
+    // }
+
+    // console.log('first', firstText)
+    // setElement(target);
+  }
 
   return (
     <div>
@@ -24,10 +44,12 @@ const List = (props) => {
       props.entries.map((entry, i) => {
           return <Entry
                     entry={entry}
-                    num={i}
+                    key={i}
                     handleClick={props.handleClick}
                     clicked={props.clicked}
                     setClicked={props.setClicked}
+                    hoverElement={hoverElement}
+                    ref={ref => refs[i] = ref}
                   />
       })
       }

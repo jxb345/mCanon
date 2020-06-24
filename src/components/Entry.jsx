@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const Entry = (props) => {
-  const [element, setElement] = useState('')
+  // const [element, setElement] = useState('')
 
   const handleDelete = (e) => {
     console.log('id', e)
@@ -20,25 +20,25 @@ const Entry = (props) => {
     console.log('edit button')
   }
 
-  const hoverElement = (e) => {
+  // const hoverElement = (e) => {
 
-    const target = document.getElementById(e.target.id);
-    let firstText = "";
-    for (let i = 0; i < target.childNodes.length; i++) {
-        let curNode = target.childNodes[i];
-        if (curNode.nodeName === "#text") {
-            firstText = curNode.nodeValue;
-            break;
-        }
-    }
+  //   const target = document.getElementById(e.target.id);
+  //   let firstText = "";
+  //   for (let i = 0; i < target.childNodes.length; i++) {
+  //       let curNode = target.childNodes[i];
+  //       if (curNode.nodeName === "#text") {
+  //           firstText = curNode.nodeValue;
+  //           break;
+  //       }
+  //   }
 
-    console.log('first', firstText)
-    setElement(target);
-  }
+  //   console.log('first', firstText)
+  //   setElement(target);
+  // }
 
   return (
-    <tr className="entries">
-        <td  id="band-edit" onMouseEnter={hoverElement}>{props.entry.band}</td>
+    <tr className="entries" onMouseEnter={props.hoverElement}>
+        <td  id="band-edit" >{props.entry.band}</td>
         <td  id="album-edit">{props.entry.album}</td>
         <td  id="year-edit">{props.entry.year}</td>
         <td  id="genre-edit">{props.entry.genre}</td>
@@ -54,7 +54,7 @@ const Entry = (props) => {
               <button onClick={handleEdit}>
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>
-              &nbsp;&nbsp;
+              &nbsp;
               <button onClick={handleDelete}>
                 <img src="./trash-can.png" alt="pencil-image" height="20" width="20"/>
               </button>
