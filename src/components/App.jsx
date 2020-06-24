@@ -61,7 +61,7 @@ const App = () => {
           <Filters handleFilterChange={handleFilterChange} filter={filter} />
           </div>
         <div className="three">
-          <List entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} />
+          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} />
           </div>
       </div>
     </div>

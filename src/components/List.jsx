@@ -31,6 +31,7 @@ const List = (props) => {
                     handleClick={props.handleClick}
                     clicked={props.clicked}
                     setClicked={props.setClicked}
+                    setEntries={props.setEntries}
                     // hoverElement={hoverElement}
                     // ref={ref => refs[i] = ref}
                   />

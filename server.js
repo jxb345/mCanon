@@ -24,7 +24,6 @@ app.post('/query-entries', (req, res) => {
   }
   filter(filters)
     .then((entries) => {
-      console.log('entries', entries)
       res.status(200).send(entries)
     })
 })
@@ -38,7 +37,12 @@ app.post('/new-entry', (req, res) => {
 app.post('/delete-entry', (req, res) => {
   const remove = req.body;
   deleteEntry(remove)
-    .then(res.status(200).send({ entry: 'entry deleted!'}))
+    .then(filter({}))
+    .then((entries) => {
+      console.log('entries in /delete', entries)
+      // res.status(200).send(entries);
+
+    })
 
 })
 

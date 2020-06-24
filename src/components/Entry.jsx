@@ -13,7 +13,8 @@ const Entry = (props) => {
       },
       body: JSON.stringify(element)
     })
-    .then(response => console.log('res', response.json()))
+    .then(response => response.json())
+    .then(data => console.log('data', data))
   }
 
   const handleEdit = () => {
@@ -25,19 +26,6 @@ const Entry = (props) => {
     console.log('e.current', e.currentTarget.childNodes[1].innerHTML)
     let albumTitle = e.currentTarget.childNodes[1].innerHTML;
     setElement({album: albumTitle})
-    // e.preventDefault();
-    // const target = document.getElementById(e.target.id);
-    // let firstText = "";
-    // for (let i = 0; i < target.childNodes.length; i++) {
-    //     let curNode = target.childNodes[i];
-    //     if (curNode.nodeName === "#text") {
-    //         firstText = curNode.nodeValue;
-    //         break;
-    //     }
-    // }
-
-    // console.log('first', firstText)
-    // setElement(target);
   }
 
 

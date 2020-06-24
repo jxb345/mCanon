@@ -61,15 +61,19 @@ const capitalize = (name) => {
 
 const filter = (filters) => {
   console.log('filters', filters)
-  for (let key in filters) {
-    if (filters[key] === 'clear') {
-      delete filters[key]
+
+  if (Object.keys(filters).length !== 0) {
+    for (let key in filters) {
+      if (filters[key] === 'clear') {
+        delete filters[key]
+      }
     }
   }
 
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }
+      console.log('docs', docs)
       resolve(docs);
     })
   })
