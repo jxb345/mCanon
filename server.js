@@ -10,6 +10,12 @@ app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
+app.post('/get-one-entry', (req, res) => {
+  let queryOne = req.body;
+
+}
+)
+
 app.post('/search', (req, res) => {
   search(req.body)
     .then((results) => {

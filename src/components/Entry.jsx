@@ -20,11 +20,11 @@ const Entry = (props) => {
     const handleEdit = (e) => {
       let albumTitle = e.currentTarget.childNodes[1].innerHTML;
       fetch('/get-one-entry', {
-        method: 'GET',
+        method: 'POST',
         headers: {
-          'Content-type': 'application/json'
+          'Content-type': 'text/plain'
         },
-        body: JSON.stringify()
+        body: albumTitle
       })
       .then(response => response.json())
       .then((data) => {
