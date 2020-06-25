@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const { addEntry, deleteEntry, filter, search } = require('./models.js');
+const { addEntry, deleteEntry, findOne, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -11,7 +11,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 
 app.post('/get-one-entry', (req, res) => {
-  let queryOne = req.body;
+  let queryOne = req.body.album;
+  console.log('queryOne', queryOne)
+  findOne(queryOne)
+    .then((data) => {
+      console.log('data', data)
+      res.status(200).send(data)
+    })
 
 }
 )

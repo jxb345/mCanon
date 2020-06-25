@@ -80,9 +80,9 @@ const filter = (filters) => {
 }
 
 const findOne = (query) => {
-
+  console.log('q', query)
   return new Promise((resolve, reject) => {
-    model.findOne(query, (err, docs) => {
+    model.findOne({"album": query }, (err, docs) => {
       if (err) { throw err }
       resolve(docs);
     })
