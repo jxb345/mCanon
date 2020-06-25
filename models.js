@@ -79,36 +79,46 @@ const filter = (filters) => {
   })
 }
 
-const findFilter = (filter) => {
-  let selectedFilter = '';
-  const allFilters = {
-    bookOptions: ['research', 'canon'],
-    moodOptions: ['chill', 'upbeat', 'daytime'],
-    instrumentalOptions: ['yes', 'no'],
-    genreOptions: ['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
-    ratingOptions: [1, 2, 3]
-  }
+const findOne = (query) => {
 
-  for (const oneFilter in allFilters) {
-    if (allFilters[oneFilter].includes(filter)) {
-      selectedFilter = oneFilter;
-      break;
-    }
-  }
-
-  switch (selectedFilter) {
-    case 'bookOptions':
-      return { book: filter };
-    case 'moodOptions':
-      return { mood: filter };
-    case 'instrumentalOptions':
-      return { instrumental: filter };
-    case 'genreOptions':
-      return { genre: filter };
-    default:
-      return {};
-  }
+  return new Promise((resolve, reject) => {
+    model.findOne(query, (err, docs) => {
+      if (err) { throw err }
+      resolve(docs);
+    })
+  })
 }
+
+// const findFilter = (filter) => {
+//   let selectedFilter = '';
+//   const allFilters = {
+//     bookOptions: ['research', 'canon'],
+//     moodOptions: ['chill', 'upbeat', 'daytime'],
+//     instrumentalOptions: ['yes', 'no'],
+//     genreOptions: ['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
+//     ratingOptions: [1, 2, 3]
+//   }
+
+//   for (const oneFilter in allFilters) {
+//     if (allFilters[oneFilter].includes(filter)) {
+//       selectedFilter = oneFilter;
+//       break;
+//     }
+//   }
+
+//   switch (selectedFilter) {
+//     case 'bookOptions':
+//       return { book: filter };
+//     case 'moodOptions':
+//       return { mood: filter };
+//     case 'instrumentalOptions':
+//       return { instrumental: filter };
+//     case 'genreOptions':
+//       return { genre: filter };
+//     default:
+//       return {};
+//   }
+// }
 
 const search = (query) => {
   return new Promise((resolve, reject) => {
@@ -121,5 +131,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, filter, deleteEntry, search }
+module.exports = { addEntry, filter, findOne, deleteEntry, search }
 
