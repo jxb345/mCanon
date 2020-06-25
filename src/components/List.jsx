@@ -32,6 +32,7 @@ const List = (props) => {
                     clicked={props.clicked}
                     setClicked={props.setClicked}
                     setEntries={props.setEntries}
+                    setEditButton={props.setEditButton}
                     // hoverElement={hoverElement}
                     // ref={ref => refs[i] = ref}
                   />

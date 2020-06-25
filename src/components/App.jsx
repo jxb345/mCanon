@@ -10,6 +10,7 @@ const App = () => {
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [clicked, setClicked] = useState({});
+  const [editButton, setEditButton] = useState(false);
 
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
@@ -58,10 +59,10 @@ const App = () => {
           <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="two">
-          <Filters handleFilterChange={handleFilterChange} filter={filter} />
+          <Filters handleFilterChange={handleFilterChange} filter={filter}  setEditButton={setEditButton}/>
           </div>
         <div className="three">
-          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} />
+          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setEditButton={setEditButton} />
           </div>
       </div>
     </div>

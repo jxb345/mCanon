@@ -4,11 +4,12 @@ import Form from './Form.jsx'
 
 const Filters = (props) => {
 
+
   return (
     <div>
       <div className="new-entry-popup">
         <div className="new-entry-form">
-          <Form />
+          <Form setEditButton={props.setEditButton} />
         </div>
       </div>
       <div className="filters">
