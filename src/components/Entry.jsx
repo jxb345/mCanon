@@ -17,9 +17,12 @@ const Entry = (props) => {
     .then(data => props.setEntries(data));
   }
 
-  const handleEdit = () => {
-    console.log('edit button')
-  }
+    const displayForm = () => {
+      const popup = document.getElementsByClassName("new-entry-popup")[0];
+      console.log('popup', popup)
+      popup.style.display = "block";
+    }
+
 
 
   const hoverElement = (e) => {
@@ -44,7 +47,7 @@ const Entry = (props) => {
               icons
             </div>
             <div className="run">
-              <button onClick={handleEdit}>
+              <button onClick={displayForm}>
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>
               &nbsp;
