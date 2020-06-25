@@ -17,10 +17,22 @@ const Entry = (props) => {
     .then(data => props.setEntries(data));
   }
 
-    const displayForm = () => {
-      const popup = document.getElementsByClassName("new-entry-popup")[0];
-      console.log('popup', popup)
-      popup.style.display = "block";
+    const handleEdit = (e) => {
+      let albumTitle = e.currentTarget.childNodes[1].innerHTML;
+      fetch('/get-one-entry', {
+        method: 'GET',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify()
+      })
+      .then(response => response.json())
+      .then((data) => {
+        const popup = document.getElementsByClassName("new-entry-popup")[0];
+        console.log('popup', popup)
+        popup.style.display = "block";
+        console.log('data from get-one-entry', data);
+      })
     }
 
 
@@ -47,7 +59,7 @@ const Entry = (props) => {
               icons
             </div>
             <div className="run">
-              <button onClick={displayForm}>
+              <button onClick={handleEdit}>
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>
               &nbsp;
