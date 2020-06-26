@@ -1,58 +1,49 @@
 import React, { useState, useEffect } from 'react';
 
 const Form = (props) => {
-  const [formSettings, setFormSettings] = useState({ formAction: '', title: '', button: ''})
+  const [formSettings, setFormSettings] = useState({
+    formAction: '',
+     title: '',
+      button: '',
+      band: '',
+      album: '',
+      genreSelected: '',
+      moodSelected: '',
+      ratingSelected: '',
+      bookSelected: '',
+      instrumentalSelected: ''
+    })
 
   useEffect(() => {
-    console.log('props.editbutton', props.editButton)
+
+    console.log('props.editButton', props.editButton)
     if (props.editButton) {
       setFormSettings({
         formAction: '/get-one-entry',
         title: 'EDIT ENTRY',
-        button: 'EDIT'
+        button: 'EDIT',
+        band: props.editEntry.band,
+        album: props.editEntry.album,
+        genreSelected: props.editEntry.genre,
+        moodSelected: props.editEntry.mood,
+        ratingSelected: props.editEntry.rating,
+        bookSelected: props.editEntry.book,
+        instrumentalSelected: props.editEntry.instrumental,
       })
     } else {
       setFormSettings({
         formAction: '/new-entry',
         title: 'NEW ENTRY',
-        button: 'ADD'
+        button: 'ADD',
+        genreSelected = 'genre',
+        moodSelected = 'mood',
+        ratingSelected = 'rating',
+        bookSelected = 'book',
+        instrumentalSelected = 'instrumental',
+        button = 'ADD'
       })
     }
-
-
-
   }, [props.editButton])
-
-  // let formAction;
-  // let title;
-  let genreSelected;
-  let moodSelected;
-  let ratingSelected;
-  let bookSelected;
-  let instrumentalSelected;
-  let band = '';
-  let album = '';
-  let year = '';
-  let button;
-
-
-  // if (<props className="1"></props>Button) {
-  //   formAction = "/get-one-entry";
-  //   title = 'EDIT ENTRY';
-  //   // genreSelected =
-  //   // moodSelected =
-  //   // ratingSelected =
-  //   button = 'EDIT'
-  // } else {
-  //   formAction = "/new-entry";
-  //   title ='NEW ENTRY';
-  //   genreSelected = 'genre';
-  //   moodSelected = 'mood';
-  //   ratingSelected = 'rating'
-  //   bookSelected = 'book';
-  //   instrumentalSelected = 'instrumental';
-  //   button = 'ADD'
-  // }
 
   return (
     <div className="form">
