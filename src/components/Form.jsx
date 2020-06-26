@@ -1,8 +1,30 @@
-const React = require('react');
+import React, { useState, useEffect } from 'react';
 
 const Form = (props) => {
-  let formAction;
-  let title;
+  const [formSettings, setFormSettings] = useState({ formAction: '', title: '', button: ''})
+
+  useEffect(() => {
+    console.log('props.editbutton', props.editButton)
+    if (props.editButton) {
+      setFormSettings({
+        formAction: '/get-one-entry',
+        title: 'EDIT ENTRY',
+        button: 'EDIT'
+      })
+    } else {
+      setFormSettings({
+        formAction: '/new-entry',
+        title: 'NEW ENTRY',
+        button: 'ADD'
+      })
+    }
+
+
+
+  }, [props.editButton])
+
+  // let formAction;
+  // let title;
   let genreSelected;
   let moodSelected;
   let ratingSelected;
@@ -14,31 +36,30 @@ const Form = (props) => {
   let button;
 
 
-  if (props.editButton) {
-    formAction = "/get-one-entry";
-    title = 'EDIT ENTRY';
-    // genreSelected =
-    // moodSelected =
-    // ratingSelected =
-    button = 'EDIT'
-  } else {
-    formAction = "/new-entry";
-    title ='NEW ENTRY';
-    genreSelected = 'genre';
-    moodSelected = 'mood';
-    ratingSelected = 'rating'
-    bookSelected = 'book';
-    instrumentalSelected = 'instrumental';
-    button = 'ADD'
-  }
+  // if (<props className="1"></props>Button) {
+  //   formAction = "/get-one-entry";
+  //   title = 'EDIT ENTRY';
+  //   // genreSelected =
+  //   // moodSelected =
+  //   // ratingSelected =
+  //   button = 'EDIT'
+  // } else {
+  //   formAction = "/new-entry";
+  //   title ='NEW ENTRY';
+  //   genreSelected = 'genre';
+  //   moodSelected = 'mood';
+  //   ratingSelected = 'rating'
+  //   bookSelected = 'book';
+  //   instrumentalSelected = 'instrumental';
+  //   button = 'ADD'
+  // }
 
   return (
     <div className="form">
-      <form action={formAction} method="post">
+      <form action={formSettings.formAction} method="post">
         <div className="form">
           <div className="form-title">
-         {title}
-{         console.log('formAction', formAction)}
+         {formSettings.title}
 
           </div>
           <br/>

@@ -9,7 +9,7 @@ const Filters = (props) => {
     <div>
       <div className="new-entry-popup">
         <div className="new-entry-form">
-          <Form setEditButton={props.setEditButton} />
+          <Form setEditButton={props.setEditButton} editButton={props.editButton} />
         </div>
       </div>
       <div className="filters">

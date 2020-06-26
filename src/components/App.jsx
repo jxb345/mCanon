@@ -34,6 +34,8 @@ const App = () => {
    }
 
     useEffect(() => {
+      console.log('edit button', editButton)
+
       console.log('fetching...')
       fetch('/query-entries', {
         method: 'POST',
@@ -59,10 +61,10 @@ const App = () => {
           <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="two">
-          <Filters handleFilterChange={handleFilterChange} filter={filter}  setEditButton={setEditButton}/>
+          <Filters handleFilterChange={handleFilterChange} filter={filter}  setEditButton={setEditButton} editButton={editButton}/>
           </div>
         <div className="three">
-          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setEditButton={setEditButton} />
+          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setEditButton={setEditButton}  />
           </div>
       </div>
     </div>

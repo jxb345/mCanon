@@ -18,6 +18,7 @@ const Entry = (props) => {
   }
 
     const handleEdit = (e) => {
+      props.setEditButton(true)
       fetch('/get-one-entry', {
         method: 'POST',
         headers: {
@@ -27,10 +28,9 @@ const Entry = (props) => {
       })
       .then(response => response.json())
       .then((data) => {
-        props.setEditButton(true)
-        // const popup = document.getElementsByClassName("edit-entry-popup")[0];
-        // console.log('popup', popup)
-        // popup.style.display = "block";
+        const popup = document.getElementsByClassName("new-entry-popup")[0];
+        console.log('popup', popup)
+        popup.style.display = "block";
         console.log('data from get-one-entry', data);
       })
     }
