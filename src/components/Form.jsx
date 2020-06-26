@@ -7,6 +7,7 @@ const Form = (props) => {
       button: '',
       band: '',
       album: '',
+      year: '',
       genreSelected: '',
       moodSelected: '',
       ratingSelected: '',
@@ -15,8 +16,7 @@ const Form = (props) => {
     })
 
   useEffect(() => {
-
-    console.log('props.editButton', props.editButton)
+    console.log('props', props)
     if (props.editButton) {
       setFormSettings({
         formAction: '/get-one-entry',
@@ -24,6 +24,7 @@ const Form = (props) => {
         button: 'EDIT',
         band: props.editEntry.band,
         album: props.editEntry.album,
+        year: props.editEntry.year,
         genreSelected: props.editEntry.genre,
         moodSelected: props.editEntry.mood,
         ratingSelected: props.editEntry.rating,
@@ -35,12 +36,12 @@ const Form = (props) => {
         formAction: '/new-entry',
         title: 'NEW ENTRY',
         button: 'ADD',
-        genreSelected = 'genre',
-        moodSelected = 'mood',
-        ratingSelected = 'rating',
-        bookSelected = 'book',
-        instrumentalSelected = 'instrumental',
-        button = 'ADD'
+        genreSelected: 'genre',
+        moodSelected: 'mood',
+        ratingSelected: 'rating',
+        bookSelected: 'book',
+        instrumentalSelected: 'instrumental',
+        button: 'ADD'
       })
     }
   }, [props.editButton])
@@ -55,17 +56,17 @@ const Form = (props) => {
           </div>
           <br/>
           <br/>
-        <input type="text" name="band" id="band" required placeholder="band" value={band} />
+        <input type="text" name="band" id="band" required placeholder="band" value={formSettings.band} />
         <br/>
         <br/>
-        <input type="text" name="album" id="album" required placeholder="album" value={album} />
+        <input type="text" name="album" id="album" required placeholder="album" value={formSettings.album} />
         <br/>
         <br/>
-        <input type="number" name="year" id="year" min="1900" max="2030" required placeholder="year" value={year} />
+        <input type="number" name="year" id="year" min="1900" max="2030" required placeholder="year" value={formSettings.year} />
         <br/>
         <br/>
         <select type="text" name="genre" id="genre" required>
-          <option selected>{genreSelected}</option>
+          <option selected>{formSettings.genreSelected}</option>
           <option value="rock">rock</option>
           <option value="rap">rap</option>
           <option value="jazz">jazz</option>
@@ -80,7 +81,7 @@ const Form = (props) => {
         <br/>
         <br/>
         <select type="text" name="mood" id="mood" required>
-          <option selected>{moodSelected}</option>
+          <option selected>{formSettings.moodSelected}</option>
           <option value="chill">chill</option>
           <option value="upbeat">upbeat</option>
           <option value="daytime">daytime</option>
@@ -89,7 +90,7 @@ const Form = (props) => {
         <br/>
         <br/>
         <select type="text" name="rating" id="rating" required>
-          <option selected>{ratingSelected}</option>
+          <option selected>{formSettings.ratingSelected}</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -97,20 +98,20 @@ const Form = (props) => {
         <br/>
         <br/>
         <select type="text" name="book" id="book" required>
-        <option selected>{bookSelected}</option>
+        <option selected>{formSettings.bookSelected}</option>
           <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
         <br/>
         <br/>
         <select type="text" name="instrumental" id="instrumental" required>
-          <option selected>{instrumentalSelected}</option>
+          <option selected>{formSettings.instrumentalSelected}</option>
           <option value="no">no</option>
           <option value="yes">yes</option>
         </select>
         <br/>
         <br/>
-          <button>{button}</button>
+          <button>{formSettings.button}</button>
         </div>
       </form>
     </div>
