@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const { addEntry, deleteEntry, findOne, filter, search } = require('./models.js');
+const { addEntry, deleteEntry, editEntry, findOne, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -18,9 +18,7 @@ app.post('/get-one-entry', (req, res) => {
       console.log('data', data)
       res.status(200).send(data)
     })
-
-}
-)
+})
 
 app.post('/search', (req, res) => {
   search(req.body)

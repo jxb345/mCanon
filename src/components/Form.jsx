@@ -19,7 +19,7 @@ const Form = (props) => {
     console.log('props', props)
     if (props.editButton) {
       setFormSettings({
-        formAction: '/get-one-entry',
+        formAction: '/edit-entry',
         title: 'EDIT ENTRY',
         button: 'EDIT',
         band: props.editEntry.band,

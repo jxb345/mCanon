@@ -39,8 +39,10 @@ const deleteEntry = (entry) => {
 }
 
 const editEntry = (entry) => {
+  console.log('entry in editEntry', entry)
+  let album = entry.album;
   return new Promise((resolve, reject) => {
-    model.findByIdAndUpdate({ entry }, update, (err) => {
+    model.findByIdAndUpdate({ album }, update, (err) => {
       if (err) { throw err; }
       resolve();
     })
@@ -131,5 +133,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, filter, findOne, deleteEntry, search }
+module.exports = { addEntry, editEntry, filter, findOne, deleteEntry, search }
 
