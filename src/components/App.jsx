@@ -11,7 +11,7 @@ const App = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [clicked, setClicked] = useState({});
   const [editButton, setEditButton] = useState(false);
-  const [editEntry, setEditEntry] = useState({});
+  const [editEntry, setEditEntry] = useState([]);
 
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;

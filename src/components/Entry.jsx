@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Entry = (props) => {
   const [element, setElement] = useState({album: ''})
@@ -18,7 +18,6 @@ const Entry = (props) => {
   }
 
     const handleEdit = (e) => {
-      props.setEditButton(true)
       fetch('/get-one-entry', {
         method: 'POST',
         headers: {
@@ -28,15 +27,14 @@ const Entry = (props) => {
       })
       .then(response => response.json())
       .then((data) => {
+        props.setEditEntry(data);
         const popup = document.getElementsByClassName("new-entry-popup")[0];
         console.log('popup', popup)
         popup.style.display = "block";
-        props.setEditEntry(data);
         console.log('data from get-one-entry', data);
+        props.setEditButton(true)
       })
     }
-
-
 
   const hoverElement = (e) => {
     console.log('e.current', e.currentTarget.childNodes[1].innerHTML)
