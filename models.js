@@ -44,13 +44,26 @@ const editEntry = (entry) => {
   return new Promise((resolve, reject) => {
     findOne(id)
       .then(result => {
-        console.log('result in edit entry', result)
-        model.findByIdAndUpdate({ result }, update, (err) => {
-          if (err) { throw err; }
-          resolve();
-        })
+        return compareTwoEntries(result, entry)
+      })
+      .then(modified => {
+        console.log('modified', modified)
+        model.findByIdAndUpdate({ _id: id }, modified, (err) => {
+        if (err) { throw err; }
+        resolve();
+      })})
     })
-  })
+  }
+
+const compareTwoEntries = (original, edited) => {
+
+  let difference = {};
+  for (category in original) {
+    if (original[category] !== edited[category]) {
+      difference[category] = edited[category]
+    }
+  }
+  return difference;
 }
 
 const capitalize = (name) => {
