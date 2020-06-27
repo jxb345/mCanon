@@ -62,6 +62,7 @@ app.post('/delete-entry', (req, res) => {
 
 app.post('/edit-entry', (req, res) => {
   const edit = req.body;
+  console.log('edit', edit)
   editEntry(edit)
     .then(res.status(200).send('entry edited!'));
 })

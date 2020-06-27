@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import Entry from './Entry.jsx';
 
 const List = (props) => {
-  // const [element, setElement] = useState('');
-
 
   const options = document.getElementsByClassName("options");
 

@@ -3,8 +3,9 @@ button {
   margin: 5px;
   padding: 10px;
   border-radius: 4px;
+  border-color: transparent;
   font-weight: 700;
-  background-color: black;
+  background-color: rgb(120, 166, 240);
   color: white;
   align-content: center;
 }
@@ -28,8 +29,8 @@ input, input[placeholder] {
   height: 30px;
   width: 150px;
   margin-top: 4px;
-  color: gray;
-  border: 1px solid lightgrey;
+  color:rgb(71, 68, 68);
+  border: 1px solid gray;
   border-radius: 3px;
 }
 
@@ -65,7 +66,7 @@ thead {
   letter-spacing: 2px;
   border-bottom: 2px solid black;
   color: white;
-  background-color: black;
+  background-color: rgb(120, 166, 240);
 }
 
 th {
@@ -187,8 +188,8 @@ tr .entries:hover {
 .two {
   grid-column: 1;
   grid-row: 2 / 4;
-  border-top: 2px solid black;
-  border-right: 2px solid black;
+  border-top: 2px solid gray;
+  border-right: 2px solid gray;
 }
 
 .three {
@@ -205,6 +206,7 @@ tr .entries:hover {
   text-align: left;
   padding: 5px;
   padding-left: 10px;
+  color: rgb(149, 186, 245);
   /* margin-left:10px; */
 }
 

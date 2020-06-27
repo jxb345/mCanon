@@ -31,6 +31,7 @@ const Form = (props) => {
         bookSelected: props.editEntry.book,
         instrumentalSelected: props.editEntry.instrumental,
       })
+
     } else {
       setFormSettings({
         formAction: '/new-entry',
@@ -49,13 +50,15 @@ const Form = (props) => {
   return (
     <div className="form">
       <form action={formSettings.formAction} method="post">
-        <div className="form">
+        {/* <div className="form"> */}
           <div className="form-title">
          {formSettings.title}
 
           </div>
           <br/>
           <br/>
+        <input type="hidden" name="_id" value={props.editButton_id}/>
+
         <input type="text" name="band" id="band" required placeholder="band" value={formSettings.band} />
         <br/>
         <br/>
@@ -112,7 +115,7 @@ const Form = (props) => {
         <br/>
         <br/>
           <button>{formSettings.button}</button>
-        </div>
+        {/* </div> */}
       </form>
     </div>
   )
