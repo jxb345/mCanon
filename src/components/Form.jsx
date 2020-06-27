@@ -16,7 +16,8 @@ const Form = (props) => {
     })
 
   useEffect(() => {
-    console.log('props', props)
+    console.log('props in form', props)
+    console.log('_id', props.editEntry_id)
     if (props.editButton) {
       setFormSettings({
         formAction: '/edit-entry',
@@ -57,7 +58,7 @@ const Form = (props) => {
           </div>
           <br/>
           <br/>
-        <input type="hidden" name="_id" value={props.editButton_id}/>
+        <input type="hidden" name="_id" value={props.editEntry._id}/>
 
         <input type="text" name="band" id="band" required placeholder="band" value={formSettings.band} />
         <br/>

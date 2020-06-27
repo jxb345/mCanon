@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const Entry = (props) => {
-  const [element, setElement] = useState({album: ''})
+  const [element, setElement] = useState({_id: ''})
 
   const handleDelete = (e) => {
     console.log('id', e)
@@ -37,9 +37,10 @@ const Entry = (props) => {
     }
 
   const hoverElement = (e) => {
-    console.log('e.current', e.currentTarget.childNodes[1].innerHTML)
-    let albumTitle = e.currentTarget.childNodes[1].innerHTML;
-    setElement({album: albumTitle})
+    console.log('props.entry._id', props.entry._id)
+    // console.log('e.current', e.currentTarget.childNodes[1].innerHTML)
+    // let albumTitle = e.currentTarget.childNodes[1].innerHTML;
+    setElement({_id: props.entry._id})
   }
 
 

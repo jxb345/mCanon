@@ -40,11 +40,15 @@ const deleteEntry = (entry) => {
 
 const editEntry = (entry) => {
   console.log('entry in editEntry', entry)
-  let album = entry.album;
+  let id = entry._id;
   return new Promise((resolve, reject) => {
-    model.findByIdAndUpdate({ album }, update, (err) => {
-      if (err) { throw err; }
-      resolve();
+    findOne(id)
+      .then(result => {
+        console.log('result in edit entry', result)
+        model.findByIdAndUpdate({ result }, update, (err) => {
+          if (err) { throw err; }
+          resolve();
+        })
     })
   })
 }
@@ -84,7 +88,7 @@ const filter = (filters) => {
 const findOne = (query) => {
   console.log('q', query)
   return new Promise((resolve, reject) => {
-    model.findOne({"album": query }, (err, docs) => {
+    model.findOne({"_id": query }, (err, docs) => {
       if (err) { throw err }
       resolve(docs);
     })

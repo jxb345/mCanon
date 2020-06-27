@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.text());
 
 app.post('/get-one-entry', (req, res) => {
-  let queryOne = req.body.album;
+  let queryOne = req.body._id;
   console.log('queryOne', queryOne)
   findOne(queryOne)
     .then((data) => {
