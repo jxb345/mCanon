@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express')
 const app = express();
 const PORT = 3000;
-const { addEntry, deleteEntry, editEntry, findOne, filter, search } = require('./models.js');
+const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -63,8 +63,11 @@ app.post('/delete-entry', (req, res) => {
 app.post('/edit-entry', (req, res) => {
   const edit = req.body;
   console.log('edit', edit)
-  editEntry(edit)
-    .then(res.status(200).send('entry edited!'));
+  findUpdate(edit)
+    .then((result) => {
+      editEntry(result)
+      .then(res.status(200).send('entry edited!'));
+    })
 })
 
 app.listen(PORT, () => {

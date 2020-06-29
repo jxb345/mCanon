@@ -38,32 +38,42 @@ const deleteEntry = (entry) => {
   })
 }
 
-const editEntry = (entry) => {
-  console.log('entry in editEntry', entry)
+const findUpdate = (entry) => {
   let id = entry._id;
   return new Promise((resolve, reject) => {
     findOne(id)
-      .then(result => {
-        return compareTwoEntries(result, entry)
-      })
-      .then(modified => {
-        console.log('modified', modified)
-        model.findByIdAndUpdate({ _id: id }, modified, (err) => {
+    .then(result => {
+      console.log('result of findOne in findUpdate', result);
+      resolve(compareTwoEntries(result, entry))
+    })
+  })
+}
+
+  const editEntry = (entry) => {
+    console.log('entry in editEntry', entry)
+    return new Promise((resolve, reject) => {
+      model.findByIdAndUpdate({ _id: entry[0] }, entry[1], (err) => {
         if (err) { throw err; }
         resolve();
-      })})
+      })
     })
-  }
+  };
 
 const compareTwoEntries = (original, edited) => {
-
+  let updateQuery = [];
   let difference = {};
+  console.log('edited', edited)
   for (category in original) {
-    if (original[category] !== edited[category]) {
-      difference[category] = edited[category]
+    if (typeof original[category] === 'string' && category !== 'id') {
+      console.log('typeof', typeof original[category])
+      if (original[category] !== edited[category]) {
+        difference[category] = edited[category]
+      }
     }
   }
-  return difference;
+  updateQuery.push(original._id, difference);
+  console.log('udateQuery', updateQuery)
+  return updateQuery
 }
 
 const capitalize = (name) => {
@@ -150,5 +160,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, editEntry, filter, findOne, deleteEntry, search }
+module.exports = { addEntry, editEntry, filter, findOne, findUpdate, deleteEntry, search }
 
