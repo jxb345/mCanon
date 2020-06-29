@@ -11,30 +11,62 @@ const lorem = new LoremIpsum({
 })
 
 const genres = [
-
+  'rock',
+  'rap',
+  'jazz',
+  'blues',
+  'funk',
+  'punk rock',
+  'rhythm and blues',
+  'electronic',
+  'country'
 ];
 
 const mood = [
-
+  'chill',
+  'upbeat',
+  'daytime',
 ];
 
+const instrumental = [
+  'yes',
+  'no'
+]
 
+const book = [
+  'canon',
+  'research'
+];
 
-let entries = []
-for (let i = 0; i < 200; i += 1) {
-  let singleEntry = {};
-
-  singleEntry.band = lorem.generateSentences(1);
-  singleEntry.album =  lorem.generateSentences(1)
-  singleEntry.genre =  'country',
-  singleEntry.mood =  'chill',
-  singleEntry.instrumental =  'no',
-  singleEntry.year =  1939,
-  singleEntry.rating =  1,
-  singleEntry.book =  'canon',
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive
 }
 
 
-model.insertMany
+const fillDatabase = (numOfEntries) => {
 
+
+  let entries = []
+  for (let i = 0; i < numOfEntries; i += 1) {
+    let singleEntry = {};
+
+    singleEntry.band = lorem.generateSentences(1);
+    singleEntry.album =  lorem.generateSentences(1)
+    singleEntry.genre =  genres[getRandom(0,8)],
+    singleEntry.mood =  mood[getRandom(0,2)],
+    singleEntry.instrumental =  instrumental[getRandom(0,1)],
+    singleEntry.year =  getRandom(1900, 2020),
+    singleEntry.rating = getRandom(1,3),
+    singleEntry.book = book[getRandom(0,1)],
+    entries.push(singleEntry)
+  }
+
+  model.insertMany(entries, (err) => {
+    if (err) { console.log('err', err) }
+  })
+}
+
+fillDatabase(200);
 
