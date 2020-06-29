@@ -20,8 +20,6 @@ const Form = (props) => {
 
 
   useEffect(() => {
-    console.log('props in form', props)
-    console.log('_id', props.editEntry_id)
     if (props.editButton) {
       setFormSettings({
         formAction: '/edit-entry',
@@ -36,7 +34,9 @@ const Form = (props) => {
         bookSelected: props.editEntry.book,
         instrumentalSelected: props.editEntry.instrumental,
       })
-      setEditBand(formSettings.band)
+      setEditBand(props.editEntry.band);
+      setEditAlbum(props.editEntry.album);
+      setEditYear(props.editEntry.year);
 
     } else {
       setFormSettings({
@@ -53,10 +53,21 @@ const Form = (props) => {
     }
   }, [props.editButton])
 
-  // const handleChange = (e) => {
-  //   setEditBand(e.target.value);
-  //   console.log('editBand', editBand)
-  // }
+  const handleChange = (e) => {
+    const targetId = e.target.id;
+    const targetValue = e.target.value;
+    if (targetId === 'band-input') {
+      setEditBand(targetValue);
+    } else if (targetId === 'album-input') {
+      setEditAlbum(targetValue);
+      console.log('edit album', editAlbum)
+    } else {
+      let convertedYear = parseInt(targetValue)
+      console.log('convertedYear', typeof convertedYear)
+      setEditYear(parseInt(convertedYear));
+
+    }
+  }
 
   return (
     <div className="form">
@@ -69,13 +80,13 @@ const Form = (props) => {
           <br/>
         <input type="hidden" name="_id" value={props.editEntry._id}/>
 
-        <input type="text" name="band" id="band" required placeholder={formSettings.band} />
+        <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange}/>
         <br/>
         <br/>
-        <input type="text" name="album" id="album" required placeholder={formSettings.album} />
+        <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} />
         <br/>
         <br/>
-        <input type="number" name="year" id="year" min="1900" max="2030" required placeholder={formSettings.year} />
+        <input type="number" name="year" id="year-input" min="1900" max="2030" required placeholder="year" value={editYear} onChange={handleChange} />
         <br/>
         <br/>
         <select type="text" name="genre" id="genre" required>

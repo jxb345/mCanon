@@ -12,10 +12,8 @@ app.use(bodyParser.text());
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
-  console.log('queryOne', queryOne)
   findOne(queryOne)
     .then((data) => {
-      console.log('data', data)
       res.status(200).send(data)
     })
 })
@@ -62,7 +60,6 @@ app.post('/delete-entry', (req, res) => {
 
 app.post('/edit-entry', (req, res) => {
   const edit = req.body;
-  console.log('edit', edit)
   findUpdate(edit)
     .then((result) => {
       editEntry(result)

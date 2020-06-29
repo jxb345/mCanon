@@ -20,9 +20,6 @@ const App = () => {
   }
 
   const handleClick = (e) => {
-
-    console.log('click', clicked)
-
      fetch('/delete-entry', {
        method: 'POST',
        headers: {
@@ -35,7 +32,6 @@ const App = () => {
    }
 
     useEffect(() => {
-      console.log('edit button', editButton)
 
       console.log('fetching...')
       fetch('/query-entries', {

@@ -43,14 +43,12 @@ const findUpdate = (entry) => {
   return new Promise((resolve, reject) => {
     findOne(id)
     .then(result => {
-      console.log('result of findOne in findUpdate', result);
       resolve(compareTwoEntries(result, entry))
     })
   })
 }
 
   const editEntry = (entry) => {
-    console.log('entry in editEntry', entry)
     return new Promise((resolve, reject) => {
       model.findByIdAndUpdate({ _id: entry[0] }, entry[1], (err) => {
         if (err) { throw err; }
@@ -62,17 +60,25 @@ const findUpdate = (entry) => {
 const compareTwoEntries = (original, edited) => {
   let updateQuery = [];
   let difference = {};
-  console.log('edited', edited)
+  let categories = [
+    'band',
+    'album',
+    'year',
+    'genre',
+    'mood',
+    'rating',
+    'book',
+    'instrumental'
+  ]
+
   for (category in original) {
-    if (typeof original[category] === 'string' && category !== 'id') {
-      console.log('typeof', typeof original[category])
+    if (categories.includes(category)) {
       if (original[category] !== edited[category]) {
         difference[category] = edited[category]
       }
     }
   }
   updateQuery.push(original._id, difference);
-  console.log('udateQuery', updateQuery)
   return updateQuery
 }
 
@@ -91,8 +97,6 @@ const capitalize = (name) => {
 }
 
 const filter = (filters) => {
-  console.log('filters', filters)
-
     for (let key in filters) {
       if (filters[key] === 'clear') {
         delete filters[key]
@@ -102,14 +106,12 @@ const filter = (filters) => {
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }
-      console.log('docs', docs)
       resolve(docs);
     })
   })
 }
 
 const findOne = (query) => {
-  console.log('q', query)
   return new Promise((resolve, reject) => {
     model.findOne({"_id": query }, (err, docs) => {
       if (err) { throw err }
@@ -117,37 +119,6 @@ const findOne = (query) => {
     })
   })
 }
-
-// const findFilter = (filter) => {
-//   let selectedFilter = '';
-//   const allFilters = {
-//     bookOptions: ['research', 'canon'],
-//     moodOptions: ['chill', 'upbeat', 'daytime'],
-//     instrumentalOptions: ['yes', 'no'],
-//     genreOptions: ['rock', 'rap', 'jazz', 'blues', 'funk', 'rhythm and blues', 'electronic', 'country'],
-//     ratingOptions: [1, 2, 3]
-//   }
-
-//   for (const oneFilter in allFilters) {
-//     if (allFilters[oneFilter].includes(filter)) {
-//       selectedFilter = oneFilter;
-//       break;
-//     }
-//   }
-
-//   switch (selectedFilter) {
-//     case 'bookOptions':
-//       return { book: filter };
-//     case 'moodOptions':
-//       return { mood: filter };
-//     case 'instrumentalOptions':
-//       return { instrumental: filter };
-//     case 'genreOptions':
-//       return { genre: filter };
-//     default:
-//       return {};
-//   }
-// }
 
 const search = (query) => {
   return new Promise((resolve, reject) => {
