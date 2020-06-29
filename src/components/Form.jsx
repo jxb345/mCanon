@@ -14,6 +14,10 @@ const Form = (props) => {
       bookSelected: '',
       instrumentalSelected: ''
     })
+    const [editBand, setEditBand] = useState('');
+    const [editAlbum, setEditAlbum] = useState('');
+    const [editYear, setEditYear] = useState('');
+
 
   useEffect(() => {
     console.log('props in form', props)
@@ -32,6 +36,7 @@ const Form = (props) => {
         bookSelected: props.editEntry.book,
         instrumentalSelected: props.editEntry.instrumental,
       })
+      setEditBand(formSettings.band)
 
     } else {
       setFormSettings({
@@ -48,25 +53,29 @@ const Form = (props) => {
     }
   }, [props.editButton])
 
+  // const handleChange = (e) => {
+  //   setEditBand(e.target.value);
+  //   console.log('editBand', editBand)
+  // }
+
   return (
     <div className="form">
       <form action={formSettings.formAction} method="post">
-        {/* <div className="form"> */}
-          <div className="form-title">
+        <div className="form-title">
          {formSettings.title}
 
-          </div>
+        </div>
           <br/>
           <br/>
         <input type="hidden" name="_id" value={props.editEntry._id}/>
 
-        <input type="text" name="band" id="band" required placeholder="band" value={formSettings.band} />
+        <input type="text" name="band" id="band" required placeholder={formSettings.band} />
         <br/>
         <br/>
-        <input type="text" name="album" id="album" required placeholder="album" value={formSettings.album} />
+        <input type="text" name="album" id="album" required placeholder={formSettings.album} />
         <br/>
         <br/>
-        <input type="number" name="year" id="year" min="1900" max="2030" required placeholder="year" value={formSettings.year} />
+        <input type="number" name="year" id="year" min="1900" max="2030" required placeholder={formSettings.year} />
         <br/>
         <br/>
         <select type="text" name="genre" id="genre" required>
