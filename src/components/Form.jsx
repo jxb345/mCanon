@@ -53,6 +53,12 @@ const Form = (props) => {
     }
   }, [props.editButton])
 
+  const handleCancel = () => {
+    const popup = document.getElementsByClassName("new-entry-popup")[0];
+    popup.style.display = "none";
+  }
+
+
   const handleChange = (e) => {
     const targetId = e.target.id;
     const targetValue = e.target.value;
@@ -135,6 +141,7 @@ const Form = (props) => {
         </select>
         <br/>
         <br/>
+          <button onClick={handleCancel}>CANCEL</button>
           <button>{formSettings.button}</button>
         {/* </div> */}
       </form>

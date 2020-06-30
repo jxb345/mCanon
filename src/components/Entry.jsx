@@ -27,7 +27,6 @@ const Entry = (props) => {
       .then((data) => {
         props.setEditEntry(data);
         const popup = document.getElementsByClassName("new-entry-popup")[0];
-        console.log('popup', popup)
         popup.style.display = "block";
         props.setEditButton(true)
       })
