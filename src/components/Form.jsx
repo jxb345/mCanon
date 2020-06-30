@@ -145,10 +145,10 @@ const Form = (props) => {
           <button>{formSettings.button}</button>
         {/* </div> */}
       </form>
-      <form action="/upload-csv" method="post">
+      <form action="/upload-csv" method="post" encType="multipart/form-data">
       <div className="upload-file">
-        <input type="file" id="csv"/>
-        <button onClick={handleUpload}>UPLOAD</button>
+        <input type="file" id="csv-file"/>
+        <button type="submit">UPLOAD</button>
       </div>
 
       </form>

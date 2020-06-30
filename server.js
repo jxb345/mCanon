@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express')
+const multer = require('multer');
 const app = express();
 const PORT = 3000;
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
@@ -69,7 +70,9 @@ app.post('/edit-entry', (req, res) => {
 
 app.post('/upload-csv', (req, res) => {
   const file = req.body;
+  console.log('file', file)
   console.log('upload csv endpoint')
+  res.status(200).send('file received!')
 })
 
 app.listen(PORT, () => {
