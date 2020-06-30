@@ -4,8 +4,6 @@ const Entry = (props) => {
   const [element, setElement] = useState({_id: ''})
 
   const handleDelete = (e) => {
-    console.log('id', e)
-    console.log('trash button!')
     fetch('/delete-entry', {
       method: 'POST',
       headers: {
@@ -31,15 +29,11 @@ const Entry = (props) => {
         const popup = document.getElementsByClassName("new-entry-popup")[0];
         console.log('popup', popup)
         popup.style.display = "block";
-        console.log('data from get-one-entry', data);
         props.setEditButton(true)
       })
     }
 
   const hoverElement = (e) => {
-    console.log('props.entry._id', props.entry._id)
-    // console.log('e.current', e.currentTarget.childNodes[1].innerHTML)
-    // let albumTitle = e.currentTarget.childNodes[1].innerHTML;
     setElement({_id: props.entry._id})
   }
 
