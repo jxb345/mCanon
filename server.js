@@ -67,6 +67,11 @@ app.post('/edit-entry', (req, res) => {
     })
 })
 
+app.post('/upload-csv', (req, res) => {
+  const file = req.body;
+  console.log('upload csv endpoint')
+})
+
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })

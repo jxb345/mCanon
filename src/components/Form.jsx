@@ -75,12 +75,12 @@ const Form = (props) => {
     }
   }
 
+
   return (
     <div className="form">
       <form action={formSettings.formAction} method="post">
         <div className="form-title">
          {formSettings.title}
-
         </div>
           <br/>
           <br/>
@@ -144,6 +144,13 @@ const Form = (props) => {
           <button onClick={handleCancel}>CANCEL</button>
           <button>{formSettings.button}</button>
         {/* </div> */}
+      </form>
+      <form action="/upload-csv" method="post">
+      <div className="upload-file">
+        <input type="file" id="csv"/>
+        <button onClick={handleUpload}>UPLOAD</button>
+      </div>
+
       </form>
     </div>
   )
