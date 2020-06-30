@@ -1,6 +1,9 @@
 const path = require('path');
-const express = require('express')
+const fs = require('fs');
+const csv = require('csv-parser');
+const express = require('express');
 const multer = require('multer');
+const upload = multer({dest: './uploads'});
 const app = express();
 const PORT = 3000;
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
@@ -68,8 +71,8 @@ app.post('/edit-entry', (req, res) => {
     })
 })
 
-app.post('/upload-csv', (req, res) => {
-  const file = req.body;
+app.post('/upload-csv', upload.single('csv'), (req, res) => {
+  const file = req.file;
   console.log('file', file)
   console.log('upload csv endpoint')
   res.status(200).send('file received!')
