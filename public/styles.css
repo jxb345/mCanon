@@ -56,9 +56,10 @@ thead th, tfoot th {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-th, td {
+/* th, td {
   width: 20%;
-}
+  padding: 8px 16px;
+} */
 
 
 thead {
@@ -180,7 +181,7 @@ tr .entries:hover {
   padding: 20px;
   border: 1px solid #888;
   width: 35%;
-  height: 75%;
+  height: 85%;
   border-radius: 5px;
   text-align: center;
 }
@@ -196,6 +197,18 @@ tr .entries:hover {
   grid-column: 2;
   grid-row: 2 / 4;
 }
+
+.table-entries {
+overflow-y: auto;
+height: 100px;
+}
+
+.table-entries thead th {
+  position: sticky;
+  top: 0;
+}
+
+
 
 .title {
   /* background-color: black;
