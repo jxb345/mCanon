@@ -6,6 +6,7 @@ const multer = require('multer');
 const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
+const HOME = 'http://localhost:3000/';
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 
@@ -46,13 +47,12 @@ app.post('/query-entries', (req, res) => {
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
   addEntry(entry)
-    .then(res.status(200).send('<p>new entry added</p><a href="localhost:3000">return</a>'));
+    .then(res.status(301).redirect(HOME));
 
 })
 
 app.post('/delete-entry', (req, res) => {
   const remove = req.body;
-
   deleteEntry(remove)
     .then((entries) => {
       res.status(200).send(entries)
@@ -67,7 +67,7 @@ app.post('/edit-entry', (req, res) => {
   findUpdate(edit)
     .then((result) => {
       editEntry(result)
-      .then(res.status(200).send('entry edited!'));
+      .then(res.status(301).redirect(HOME));
     })
 })
 
@@ -81,7 +81,7 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
       addEntry(row)
     })
     .on('end', () => {
-      res.status(200).send('file received!')
+      res.status(301).redirect(HOME)
     })
 })
 

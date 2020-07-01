@@ -57,7 +57,7 @@ const Entry = (props) => {
               </button>
               &nbsp;
               <button onClick={handleDelete}>
-                <img src="./trash-can.png" alt="pencil-image" height="20" width="20"/>
+                <img src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
               </button>
             </div>
           </div>

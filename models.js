@@ -27,8 +27,9 @@ const addEntry = (entry) => {
 }
 
 const deleteEntry = (entry) => {
+  console.log('entry', entry)
   return new Promise((resolve, reject) => {
-    model.findOneAndDelete({ album: entry.album }, (err) => {
+    model.findOneAndDelete({ "_id": entry._id }, (err) => {
       if (err) { throw err }
       model.find({}, (err, docs) => {
         if (err) { throw err; }
