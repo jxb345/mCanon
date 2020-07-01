@@ -3,7 +3,7 @@ const fs = require('fs');
 const csv = require('csv-parser');
 const express = require('express');
 const multer = require('multer');
-const upload = multer({dest: './uploads'});
+const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
@@ -71,11 +71,19 @@ app.post('/edit-entry', (req, res) => {
     })
 })
 
-app.post('/upload-csv', upload.single('csv'), (req, res) => {
+app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   const file = req.file;
   console.log('file', file)
-  console.log('upload csv endpoint')
-  res.status(200).send('file received!')
+  fs.createReadStream(file.path, 'utf-8')
+    .pipe(csv())
+    .on('data', (row) => {
+      console.log('row', row)
+      addEntry(row)
+    })
+    .on('end', () => {
+      console.log('all done w/ csv')
+      res.status(200).send('file received!')
+    })
 })
 
 app.listen(PORT, () => {
