@@ -81,7 +81,6 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
       addEntry(row)
     })
     .on('end', () => {
-      console.log('all done w/ csv')
       res.status(200).send('file received!')
     })
 })
