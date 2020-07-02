@@ -214,12 +214,31 @@ height: 100px;
 
 .tab-content-upload {
   display: none;
+  margin-top: 100px;
+}
+
+.tabs-new-entry-links {
+  overflow: hidden;
+  background-color:rgb(120, 166, 240);
+  margin-bottom: 15px;
+  width: 60%;
+  text-align: center;
+}
+
+.tabs-new-entry-links button {
+  background-color:rgb(120, 166, 240);
+  transition: 0.3s;
+  border: none;
+  margin: 0;
+  border-radius: 1px;
+}
+
+.tabs-new-entry-links button:hover {
+  background-color: rgb(79, 138, 233);
 }
 
 
 .title {
-  /* background-color: black;
-  color:white; */
   border-bottom: 2px solid black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 800;
@@ -227,7 +246,6 @@ height: 100px;
   padding: 5px;
   padding-left: 10px;
   color: rgb(149, 186, 245);
-  /* margin-left:10px; */
 }
 
 .hover-class .run,
