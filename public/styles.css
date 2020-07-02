@@ -208,6 +208,13 @@ height: 100px;
   top: 0;
 }
 
+.tab-content-manual {
+  display: block;
+}
+
+.tab-content-upload {
+  display: none;
+}
 
 
 .title {
