@@ -77,15 +77,25 @@ const Form = (props) => {
 
   const handleTabs = (action) => {
     const manual = document.getElementsByClassName("tab-content-manual")[0];
+    const manualButton = document.getElementById("add-one-button");
     const upload = document.getElementsByClassName("tab-content-upload")[0];
+    const uploadButton = document.getElementById("upload-button");
+    const uploadForm = document.getElementById("upload-csv-tab");
+    const addOneForm = document.getElementById("add-one-entry");
+
     console.log('action', action)
     if (action === 'add-one') {
       manual.style.display = 'block';
+      manualButton.style.backgroundColor = 'rgb(120, 166, 240)';
+      uploadButton.style.backgroundColor = 'lightgray'
       upload.style.display = 'none';
     } else {
       console.log('manual', manual)
       manual.style.display = 'none';
+      manualButton.style.backgroundColor = 'lightgray';
+      console.log('manualButton', manualButton)
       upload.style.display = 'block';
+      uploadButton.style.backgroundColor = 'rgb(120, 166, 240)';
     }
   }
 
@@ -97,17 +107,19 @@ const Form = (props) => {
           {formSettings.title}
           </div>
           <div className="tabs-new-entry-links">
-            <button type="button" onClick={() => { handleTabs('add-one')}}>
+            <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one')}}>
               ADD ONE
             </button>
-            <button type="button" onClick={() => { handleTabs('upload')}}>
+            <button type="button" id="upload-button" onClick={() => { handleTabs('upload')}}>
               UPLOAD CSV
             </button>
             </div>
 
           <div id="add-one-entry" className="tab-content-manual">
           <input type="hidden" name="_id" value={props.editEntry._id}/>
-
+          <div>
+            Add One Entry
+          </div>
           <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange}/>
           <br/>
           <br/>
