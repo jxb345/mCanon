@@ -171,7 +171,9 @@ const Form = (props) => {
         <div id="upload-csv-tab" className="tab-content-upload">
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
           <div className="upload-file">
+            <a href=""  />
             <input type="file" name="csv-file"/>
+            <br/>
             <button >UPLOAD</button>
           </div>
           </form>
