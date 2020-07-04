@@ -110,11 +110,14 @@ tr .entries:hover {
 }
 
 .form-title {
-  border-bottom: 3px solid black;
+  /* border-bottom: 8px solid white; */
+  border-radius: 4px;
+  background-color: rgb(120, 166, 240);
+  color: white;
   font-weight: 500;
   font-size: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  padding-bottom: 2px;
+  padding: 10px;
 }
 
 .gray-entry {
@@ -182,7 +185,7 @@ tr .entries:hover {
   border: 1px solid #888;
   width: 35%;
   height: 85%;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   text-align: center;
 }
 
@@ -214,7 +217,7 @@ height: 100px;
 
 .tab-content-upload {
   display: none;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 
 .tabs-new-entry-links {

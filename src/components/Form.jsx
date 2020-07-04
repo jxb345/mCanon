@@ -80,8 +80,6 @@ const Form = (props) => {
     const manualButton = document.getElementById("add-one-button");
     const upload = document.getElementsByClassName("tab-content-upload")[0];
     const uploadButton = document.getElementById("upload-button");
-    const uploadForm = document.getElementById("upload-csv-tab");
-    const addOneForm = document.getElementById("add-one-entry");
 
     console.log('action', action)
     if (action === 'add-one') {
@@ -187,6 +185,9 @@ const Form = (props) => {
             <input type="file" name="csv-file"/>
             <br/>
             <button >UPLOAD</button>
+            <br/>
+            <br/>
+            <a href="data:text/csv;charset=utf-8," download="mcanon-template.csv">download CSV template</a>
           </div>
           </form>
         </div>
