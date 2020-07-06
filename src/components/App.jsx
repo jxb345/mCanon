@@ -49,7 +49,7 @@ const App = () => {
       }, [selectedFilters])
 
   return (
-    <div>
+    <div className="whole-app">
       <div className="title">
         mCanon
       </div>

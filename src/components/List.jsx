@@ -7,8 +7,8 @@ const List = (props) => {
 
 
   return (
-    <div>
-      <table className="fixed">
+    <div className="fixed-table">
+      <table>
         <thead>
           <tr className="entries-headers">
             <th>band</th>

@@ -34,26 +34,50 @@ input, input[placeholder] {
   border-radius: 3px;
 }
 
-/* all .fixed additions as per advice on fixing table header */
-.fixed {
-  display: block;
+table {
+  overflow: scroll;
 }
 
-.fixed thead {
+.whole-app {
   display: block;
   position: sticky;
   top: 0;
 }
 
-.fixed tbody, thead tr {
+/* thead {
+  display: inline-block;
+  position: sticky;
+  top: 0;
+} */
+
+/* .fixed-table thead th {
+  position: sticky;
+  top: 0;
+} */
+
+
+/* .fixed-table th {
+  position: sticky;
+  left: 0;
+} */
+
+/* all .fixed additions as per advice on fixing table header */
+/* .fixed {
+  display: block;
+} */
+
+/* .fixed thead {
+  display: block;
+ position: sticky;
+  top: 0;
+} */
+
+/* .fixed tbody, thead tr {
   display: table;
   width: 100%;
-  /* table-layout: fixed; */
-}
-
-/* .fixed td {
-  border:1px solid;
 } */
+
+
 
 .form select {
   height: 33px;
@@ -84,9 +108,9 @@ thead th, tfoot th {
 
 
 thead {
-  padding: 20px;
+  /* padding: 20px;
   letter-spacing: 2px;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid black; */
   color: white;
   background-color: rgb(120, 166, 240);
 }
@@ -220,15 +244,15 @@ tr .entries:hover {
   grid-row: 2 / 4;
 }
 
-.table-entries {
+/* .table-entries {
 overflow-y: auto;
 height: 100px;
-}
+} */
 
-.table-entries thead th {
+/* .table-entries thead th {
   position: sticky;
   top: 0;
-}
+} */
 
 .tab-content-manual {
   display: block;
