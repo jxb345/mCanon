@@ -34,6 +34,24 @@ input, input[placeholder] {
   border-radius: 3px;
 }
 
+.fixed {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.fixed tbody {
+  display: block;
+  overflow: auto;
+  height: 200px;
+  width: 100%;
+}
+
+.fixed thead tr {
+  display: block;
+}
+
+
+
 .form select {
   height: 33px;
   width: 255px;
@@ -237,9 +255,9 @@ height: 100px;
 }
 
 
-.tabs-new-entry-links button:hover {
+/* .tabs-new-entry-links button:hover {
   background-color: rgb(79, 138, 233);
-}
+} */
 
 
 .title {
@@ -274,4 +292,8 @@ height: 100px;
 #upload-button {
   background-color: lightgray;
   color: white;
+}
+
+#upload-button:hover {
+  background-color: rgb(79, 138, 233);
 }
