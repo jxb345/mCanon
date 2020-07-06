@@ -34,23 +34,26 @@ input, input[placeholder] {
   border-radius: 3px;
 }
 
+/* all .fixed additions as per advice on fixing table header */
 .fixed {
-  table-layout: fixed;
-  border-collapse: collapse;
+  display: block;
 }
 
-.fixed tbody {
+.fixed thead {
   display: block;
-  overflow: auto;
-  height: 200px;
+  position: sticky;
+  top: 0;
+}
+
+.fixed tbody, thead tr {
+  display: table;
   width: 100%;
+  /* table-layout: fixed; */
 }
 
-.fixed thead tr {
-  display: block;
-}
-
-
+/* .fixed td {
+  border:1px solid;
+} */
 
 .form select {
   height: 33px;
@@ -115,8 +118,6 @@ tr .entries:hover {
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
-
-
 
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -253,11 +254,6 @@ height: 100px;
   margin: 0;
   width: 50%
 }
-
-
-/* .tabs-new-entry-links button:hover {
-  background-color: rgb(79, 138, 233);
-} */
 
 
 .title {
