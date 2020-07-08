@@ -7,8 +7,8 @@ const List = (props) => {
 
 
   return (
-    <div className="fixed-table">
-      <table>
+    <div>
+    <table className="outer-box">
         <thead>
           <tr className="entries-headers">
             <th>band</th>
@@ -21,22 +21,24 @@ const List = (props) => {
             <th></th>
           </tr>
         </thead>
+      <div className="entries-container">
       {
-      props.entries.map((entry, i) => {
+        props.entries.map((entry, i) => {
           return <Entry
-                    entry={entry}
-                    key={i}
-                    handleClick={props.handleClick}
-                    clicked={props.clicked}
-                    setClicked={props.setClicked}
-                    setEntries={props.setEntries}
-                    setEditButton={props.setEditButton}
-                    setEditEntry={props.setEditEntry}
-                    // hoverElement={hoverElement}
-                    // ref={ref => refs[i] = ref}
-                  />
-      })
+          entry={entry}
+          key={i}
+          handleClick={props.handleClick}
+          clicked={props.clicked}
+          setClicked={props.setClicked}
+          setEntries={props.setEntries}
+          setEditButton={props.setEditButton}
+          setEditEntry={props.setEditEntry}
+          // hoverElement={hoverElement}
+          // ref={ref => refs[i] = ref}
+          />
+        })
       }
+      </div>
       </table>
     </div>
   )
