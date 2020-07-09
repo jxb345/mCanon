@@ -34,43 +34,6 @@ input, input[placeholder] {
   border-radius: 3px;
 }
 
-
-
-/* thead {
-  display: inline-block;
-  position: sticky;
-  top: 0;
-} */
-
-/* .fixed-table thead th {
-  position: sticky;
-  top: 0;
-} */
-
-
-/* .fixed-table th {
-  position: sticky;
-  left: 0;
-} */
-
-/* all .fixed additions as per advice on fixing table header */
-/* .fixed {
-  display: block;
-} */
-
-/* .fixed thead {
-  display: block;
- position: sticky;
-  top: 0;
-} */
-
-/* .fixed tbody, thead tr {
-  display: table;
-  width: 100%;
-} */
-
-
-
 .form select {
   height: 33px;
   width: 255px;
@@ -82,30 +45,7 @@ input, input[placeholder] {
   border-radius: 3px;
 }
 
-table {
-  border-collapse: collapse;
-  border: 2px solid black;
-  position: fixed;
-  height: 100%;
-}
 
-thead th, tfoot th {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-/* th, td {
-  width: 20%;
-  padding: 8px 16px;
-} */
-
-
-thead {
-  /* padding: 20px;
-  letter-spacing: 2px;
-  border-bottom: 2px solid black; */
-  color: white;
-  background-color: rgb(120, 166, 240);
-}
 
 th {
   height: 60px;
@@ -126,7 +66,7 @@ p {
 }
 
 tr .entries:hover {
-  background-color: #ffffe0;
+  background-color: yellow;
   cursor: pointer;
 }
 
@@ -252,16 +192,6 @@ tr .entries:hover {
   grid-row: 2 / 4;
 }
 
-/* .table-entries {
-overflow-y: auto;
-height: 100px;
-} */
-
-/* .table-entries thead th {
-  position: sticky;
-  top: 0;
-} */
-
 .tab-content-manual {
   display: block;
 }
@@ -287,6 +217,27 @@ height: 100px;
   width: 50%
 }
 
+
+.table-container {
+  overflow-y: auto;
+  height: 700px;
+}
+
+.table-container th {
+  position: sticky;
+  top: 0;
+}
+
+
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  width: 100%;
+}
+
+thead {
+  background-color: red;
+}
 
 .title {
   border-bottom: 2px solid black;
@@ -316,11 +267,6 @@ height: 100px;
   padding: 0;
   border: none;
 }
-/*
-.whole-app {
-  position: fixed;
-} */
-
 
 #upload-button {
   background-color: lightgray;
