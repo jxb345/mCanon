@@ -9,7 +9,6 @@ const List = (props) => {
   return (
     <div className="table-container">
     <table>
-        <thead>
           <tr className="entries-headers">
             <th className="sticky-header">band</th>
             <th className="sticky-header">album</th>
@@ -20,10 +19,6 @@ const List = (props) => {
             <th className="sticky-header">rating</th>
             <th className="sticky-header"></th>
           </tr>
-        </thead>
-      {/* <div className=
-      "entries-container"
-      > */}
       {
         props.entries.map((entry, i) => {
           return <Entry
@@ -40,7 +35,6 @@ const List = (props) => {
           />
         })
       }
-      {/* </div> */}
       </table>
     </div>
   )
