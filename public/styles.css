@@ -5,7 +5,7 @@ button {
   border-radius: 4px;
   border-color: transparent;
   font-weight: 700;
-  background-color: rgb(120, 166, 240);
+  background-color: black;
   color: white;
   align-content: center;
 }
@@ -36,14 +36,14 @@ table {
 }
 
 thead {
-  background-color: red;
+  border: 2px solid black
 }
 
 td {
   padding: 20px;
   letter-spacing: 1px;;
   border-bottom: 1px solid black;
-  height: 33px;
+  height: 35px;
 }
 
 #upload-button {
@@ -77,11 +77,7 @@ tr .entries:hover {
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
 }
-
-.entries-headers {
-  background-color: red;
-}
-
+ s
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
@@ -154,6 +150,7 @@ tr .entries:hover {
   margin-right: 320px;
   margin-left: 80px;
   margin-bottom: 50px;
+  background-color: #e60000;
 }
 
 
@@ -211,6 +208,10 @@ tr .entries:hover {
 }
 
 .tabs-new-entry-links button {
+  background-color: red;
+}
+
+.tabs-new-entry-links button {
   background-color:rgb(120, 166, 240);
   border-radius: 0px;
   transition: 0.3s;
@@ -225,9 +226,11 @@ tr .entries:hover {
 }
 
  .table-container th {
+   height: 60px;
   position: sticky;
   top: 0;
-  background-color: red;
+  background-color: black;
+  color: white;
 }
 
 .test {
@@ -237,6 +240,7 @@ tr .entries:hover {
 .three {
   grid-column: 2;
   grid-row: 2 / 4;
+  border-top: 2px solid black;
 }
 
 
@@ -247,7 +251,7 @@ tr .entries:hover {
   text-align: left;
   padding: 5px;
   padding-left: 10px;
-  color: rgb(149, 186, 245);
+  color:black;
 }
 
 .two {

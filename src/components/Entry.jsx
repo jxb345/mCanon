@@ -37,7 +37,7 @@ const Entry = (props) => {
   }
 
   return (
-    <tr className="fixed-table" onMouseEnter={hoverElement}>
+    <tr className="entries" onMouseEnter={hoverElement}>
         <td  id="band-edit" >{props.entry.band}</td>
         <td  id="album-edit">{props.entry.album}</td>
         <td  id="year-edit">{props.entry.year}</td>
@@ -48,7 +48,7 @@ const Entry = (props) => {
         <td>
             <div className="hover-class">
             <div className="test">
-              icons
+              trash edit icons
             </div>
             <div className="run">
               <button onClick={handleEdit}>

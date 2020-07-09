@@ -32,8 +32,6 @@ const List = (props) => {
           setEntries={props.setEntries}
           setEditButton={props.setEditButton}
           setEditEntry={props.setEditEntry}
-          // hoverElement={hoverElement}
-          // ref={ref => refs[i] = ref}
           />
         })
       }
