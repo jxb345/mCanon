@@ -9,16 +9,18 @@ const List = (props) => {
   return (
     <div className="table-container">
     <table>
+        <thead>
           <tr className="entries-headers">
-            <th className="sticky-header">band</th>
-            <th className="sticky-header">album</th>
-            <th className="sticky-header">year</th>
-            <th className="sticky-header">genre</th>
-            <th className="sticky-header">mood</th>
-            <th className="sticky-header">instrumental</th>
-            <th className="sticky-header">rating</th>
-            <th className="sticky-header"></th>
+            <th>band</th>
+            <th>album</th>
+            <th>year</th>
+            <th>genre</th>
+            <th>mood</th>
+            <th>instrumental</th>
+            <th>rating</th>
+            <th></th>
           </tr>
+        </thead>
       {
         props.entries.map((entry, i) => {
           return <Entry

@@ -18,35 +18,25 @@ input {
 }
 
 input, input[placeholder] {
-  /* text-align: center; */
   font-size: 13px;
   padding-left: 10px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.filters select {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  height: 30px;
-  width: 150px;
-  margin-top: 4px;
-  color:rgb(71, 68, 68);
-  border: 1px solid gray;
-  border-radius: 3px;
+
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-align: center;
 }
 
-.form select {
-  height: 33px;
-  width: 255px;
-  font-size: 13px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-right: 20px;
-  color: gray;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
+table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  width: 100%;
 }
 
-th {
-  height: 60px;
+thead {
+  background-color: red;
 }
 
 td {
@@ -54,13 +44,28 @@ td {
   letter-spacing: 1px;;
   border-bottom: 1px solid black;
   height: 33px;
-  /* width: 10px; */
 }
 
+#upload-button {
+  background-color: lightgray;
+  color: white;
+}
 
-p {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
+#upload-button:hover {
+  background-color: rgb(79, 138, 233);
+}
+
+.edit-entry-popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7);
 }
 
 tr .entries:hover {
@@ -82,12 +87,32 @@ tr .entries:hover {
   text-align: center;
 }
 
+.filters select {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  height: 30px;
+  width: 150px;
+  margin-top: 4px;
+  color:rgb(71, 68, 68);
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
 .form {
   padding: 10px;
 }
 
+.form select {
+  height: 33px;
+  width: 255px;
+  font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-right: 20px;
+  color: gray;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
 .form-title {
-  /* border-bottom: 8px solid white; */
   border-radius: 4px;
   background-color: rgb(120, 166, 240);
   color: white;
@@ -107,22 +132,18 @@ tr .entries:hover {
   grid-auto-rows: 80px 500px;
 }
 
+.hover-class .run,
+.hover-class:hover .test {
+  display: none;
+}
+
+.hover-class:hover .run {
+  display: inline
+}
+
 .input-search {
   margin: auto;
 }
-
-.one {
-  grid-column: 1 / 5;
-  grid-row: 1;
-  padding-top: 25px;
-  margin-bottom: 20px;
-}
-
-/* .title div {
-  position: fixed;
-  top: 0;
-} */
-
 
 .new-entry-btn {
   border-radius: 50%;
@@ -133,6 +154,17 @@ tr .entries:hover {
   margin-right: 320px;
   margin-left: 80px;
   margin-bottom: 50px;
+}
+
+
+.new-entry-form {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35%;
+  height: 85%;
+  text-align: center;
 }
 
 .new-entry-popup {
@@ -148,45 +180,17 @@ tr .entries:hover {
   background-color: rgba(0,0,0,0.7);
 }
 
-.edit-entry-popup {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 100px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.7);
+.one {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  padding-top: 25px;
+  margin-bottom: 20px;
 }
 
-.new-entry-form {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 35%;
-  height: 85%;
-  /* border-radius: 5px; */
-  text-align: center;
-}
-
-.two {
-  grid-column: 1;
-  grid-row: 2 / 4;
-  border-top: 2px solid gray;
-  border-right: 2px solid gray;
-}
-
-/* .two div {
-  position: sticky;
-  top: 0
-} */
-
-.three {
-  grid-column: 2;
-  grid-row: 2 / 4;
+.run button {
+  background-color: white;
+  padding: 0;
+  border: none;
 }
 
 .tab-content-manual {
@@ -223,18 +227,18 @@ tr .entries:hover {
  .table-container th {
   position: sticky;
   top: 0;
-}
-
-
-table {
-  border-collapse: collapse;
-  border: 2px solid black;
-  width: 100%;
-}
-
-thead {
   background-color: red;
 }
+
+.test {
+  color: white
+}
+
+.three {
+  grid-column: 2;
+  grid-row: 2 / 4;
+}
+
 
 .title {
   border-bottom: 2px solid black;
@@ -246,31 +250,11 @@ thead {
   color: rgb(149, 186, 245);
 }
 
-.hover-class .run,
-.hover-class:hover .test {
-  display: none;
+.two {
+  grid-column: 1;
+  grid-row: 2 / 4;
+  border-top: 2px solid gray;
+  border-right: 2px solid gray;
 }
 
-.hover-class:hover .run {
-  display: inline
-}
-
-.test {
-  color: white
-}
-
-.run button {
-  background-color: white;
-  padding: 0;
-  border: none;
-}
-
-#upload-button {
-  background-color: lightgray;
-  color: white;
-}
-
-#upload-button:hover {
-  background-color: rgb(79, 138, 233);
-}
 
