@@ -187,7 +187,7 @@ const Form = (props) => {
             <button >UPLOAD</button>
             <br/>
             <br/>
-            <a href="./mcanon-template.csv">download CSV template</a>
+            <a href="./../../mcanon-template.csv" download>download CSV template</a>
           </div>
           </form>
         </div>
