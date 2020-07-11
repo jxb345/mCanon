@@ -21,6 +21,9 @@ const Form = (props) => {
 
   useEffect(() => {
     if (props.editButton) {
+      // need to account for entry having "" for either mood,
+      // genre, or instrumental; if that is the case, then
+      // need to replace "" with 'mood', 'genre', or 'instrumental'
       setFormSettings({
         formAction: '/edit-entry',
         title: 'EDIT ENTRY',
@@ -124,10 +127,10 @@ const Form = (props) => {
           <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} />
           <br/>
           <br/>
-          <input type="number" name="year" id="year-input" min="1900" max="2030" required placeholder="year" value={editYear} onChange={handleChange} />
+          <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} />
           <br/>
           <br/>
-          <select type="text" name="genre" id="genre" required>
+          <select type="text" name="genre" id="genre">
             <option selected>{formSettings.genreSelected}</option>
             <option value="rock">rock</option>
             <option value="rap">rap</option>
@@ -142,7 +145,7 @@ const Form = (props) => {
           </select>
           <br/>
           <br/>
-          <select type="text" name="mood" id="mood" required>
+          <select type="text" name="mood" id="mood">
             <option selected>{formSettings.moodSelected}</option>
             <option value="chill">chill</option>
             <option value="upbeat">upbeat</option>
@@ -151,7 +154,7 @@ const Form = (props) => {
           </select>
           <br/>
           <br/>
-          <select type="text" name="rating" id="rating" required>
+          <select type="text" name="rating" id="rating">
             <option selected>{formSettings.ratingSelected}</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -159,14 +162,14 @@ const Form = (props) => {
           </select>
           <br/>
           <br/>
-          <select type="text" name="book" id="book" required>
+          <select type="text" name="book" id="book">
           <option selected>{formSettings.bookSelected}</option>
             <option value="canon">canon</option>
             <option value="research">research</option>
           </select>
           <br/>
           <br/>
-          <select type="text" name="instrumental" id="instrumental" required>
+          <select type="text" name="instrumental" id="instrumental">
             <option selected>{formSettings.instrumentalSelected}</option>
             <option value="no">no</option>
             <option value="yes">yes</option>

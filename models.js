@@ -5,17 +5,32 @@ const model = mongoose.model('Page', Entry);
 
 const addEntry = (entry) => {
 
+  // what if band / album is purposefully NOT
+  //   supposed to be capitalized (edit I guess?)
   entry.band = capitalize(entry.band);
   entry.album = capitalize(entry.album);
+
+  if (entry.genre === "genre") {
+    entry.genre = "";
+  }
+
+  if (entry.mood === "mood") {
+    entry.mood = "";
+  }
+
+  if (entry.instrumental === "instrumental") {
+    entry.instrumental = "";
+  }
+
   const create = new model({
     band: entry.band,
     album: entry.album,
-    genre: entry.genre,
-    mood: entry.mood,
-    instrumental: entry.instrumental,
-    year: entry.year,
-    rating: entry.rating,
-    book: entry.book,
+    genre: entry.genre || "",
+    mood: entry.mood || "",
+    instrumental: entry.instrumental || "",
+    year: entry.year || null,
+    rating: entry.rating || null,
+    book: entry.book || "",
   })
 
   return new Promise((resolve, reject) => {
