@@ -58,6 +58,7 @@ const Form = (props) => {
 
   const handleCancel = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
+    console.log('cancel', popup)
     popup.style.display = "none";
   }
 
@@ -118,9 +119,6 @@ const Form = (props) => {
 
           <div id="add-one-entry" className="tab-content-manual">
           <input type="hidden" name="_id" value={props.editEntry._id}/>
-          <div>
-            Add One Entry
-          </div>
           <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange}/>
           <br/>
           <br/>
@@ -184,15 +182,16 @@ const Form = (props) => {
         <div id="upload-csv-tab" className="tab-content-upload">
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
           <div className="upload-file">
+            <a href="./../../mcanon-template.csv" download>download CSV template</a>
+            <br/>
+            <br/>
             <a href=""  />
             <input type="file" name="csv-file"/>
             <br/>
             <button >UPLOAD</button>
-            <br/>
-            <br/>
-            <a href="./../../mcanon-template.csv" download>download CSV template</a>
           </div>
           </form>
+            <button onClick={handleCancel}>CANCEL</button>
         </div>
       </div>
     </div>
