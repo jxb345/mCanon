@@ -22,15 +22,20 @@ const addEntry = (entry) => {
     entry.instrumental = "";
   }
 
+  if (entry.book === "book") {
+    entry.book = "";
+  }
+
+
   const create = new model({
     band: entry.band,
     album: entry.album,
-    genre: entry.genre || "",
-    mood: entry.mood || "",
-    instrumental: entry.instrumental || "",
+    genre: entry.genre,
+    mood: entry.mood,
+    instrumental: entry.instrumental,
     year: entry.year || null,
     rating: entry.rating || null,
-    book: entry.book || "",
+    book: entry.book,
   })
 
   return new Promise((resolve, reject) => {

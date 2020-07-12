@@ -58,10 +58,8 @@ const Form = (props) => {
 
   const handleCancel = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
-    console.log('cancel', popup)
     popup.style.display = "none";
   }
-
 
   const handleChange = (e) => {
     const targetId = e.target.id;
@@ -70,12 +68,9 @@ const Form = (props) => {
       setEditBand(targetValue);
     } else if (targetId === 'album-input') {
       setEditAlbum(targetValue);
-      console.log('edit album', editAlbum)
     } else {
       let convertedYear = parseInt(targetValue)
-      console.log('convertedYear', typeof convertedYear)
       setEditYear(parseInt(convertedYear));
-
     }
   }
 
@@ -85,17 +80,14 @@ const Form = (props) => {
     const upload = document.getElementsByClassName("tab-content-upload")[0];
     const uploadButton = document.getElementById("upload-button");
 
-    console.log('action', action)
     if (action === 'add-one') {
       manual.style.display = 'block';
       manualButton.style.backgroundColor = 'rgb(120, 166, 240)';
       uploadButton.style.backgroundColor = 'lightgray'
       upload.style.display = 'none';
     } else {
-      console.log('manual', manual)
       manual.style.display = 'none';
       manualButton.style.backgroundColor = 'lightgray';
-      console.log('manualButton', manualButton)
       upload.style.display = 'block';
       uploadButton.style.backgroundColor = 'rgb(120, 166, 240)';
     }
@@ -181,7 +173,7 @@ const Form = (props) => {
         </form>
         <div id="upload-csv-tab" className="tab-content-upload">
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
-          <div className="upload-file">
+          <div>
             <a href="./../../mcanon-template.csv" download>download CSV template</a>
             <br/>
             <br/>
@@ -192,6 +184,11 @@ const Form = (props) => {
           </div>
           </form>
             <button onClick={handleCancel}>CANCEL</button>
+            <div className="tip-upload-csv">
+              <div className="tip-upload-csv-question">
+                info
+              </div>
+            </div>
         </div>
       </div>
     </div>
