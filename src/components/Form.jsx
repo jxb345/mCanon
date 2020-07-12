@@ -174,7 +174,13 @@ const Form = (props) => {
         <div id="upload-csv-tab" className="tab-content-upload">
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
           <div>
+            <div className="tip-upload-csv">
             <a href="./../../mcanon-template.csv" download>download CSV template</a>
+              <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px"/>
+              <div className="tip-upload-csv-question">
+                tooltip
+              </div>
+            </div>
             <br/>
             <br/>
             <a href=""  />
@@ -184,11 +190,6 @@ const Form = (props) => {
           </div>
           </form>
             <button onClick={handleCancel}>CANCEL</button>
-            <div className="tip-upload-csv">
-              <div className="tip-upload-csv-question">
-                info
-              </div>
-            </div>
         </div>
       </div>
     </div>
