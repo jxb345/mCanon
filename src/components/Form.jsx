@@ -3,20 +3,20 @@ import React, { useState, useEffect } from 'react';
 const Form = (props) => {
   const [formSettings, setFormSettings] = useState({
     formAction: '',
-     title: '',
-      button: '',
-      band: '',
-      album: '',
-      year: '',
-      genreSelected: '',
-      moodSelected: '',
-      ratingSelected: '',
-      bookSelected: '',
-      instrumentalSelected: ''
-    })
-    const [editBand, setEditBand] = useState('');
-    const [editAlbum, setEditAlbum] = useState('');
-    const [editYear, setEditYear] = useState('');
+    title: '',
+    button: '',
+    band: '',
+    album: '',
+    year: '',
+    genreSelected: '',
+    moodSelected: '',
+    ratingSelected: '',
+    bookSelected: '',
+    instrumentalSelected: ''
+  })
+  const [editBand, setEditBand] = useState('');
+  const [editAlbum, setEditAlbum] = useState('');
+  const [editYear, setEditYear] = useState('');
 
 
   useEffect(() => {
@@ -82,14 +82,14 @@ const Form = (props) => {
 
     if (action === 'add-one') {
       manual.style.display = 'block';
-      manualButton.style.backgroundColor = 'rgb(120, 166, 240)';
+      manualButton.style.backgroundColor = 'rgb(0, 0, 0)';
       uploadButton.style.backgroundColor = 'lightgray'
       upload.style.display = 'none';
     } else {
       manual.style.display = 'none';
       manualButton.style.backgroundColor = 'lightgray';
       upload.style.display = 'block';
-      uploadButton.style.backgroundColor = 'rgb(120, 166, 240)';
+      uploadButton.style.backgroundColor = 'rgb(0, 0, 0)';
     }
   }
 
@@ -98,98 +98,99 @@ const Form = (props) => {
       <div className="form">
         <form action={formSettings.formAction} method="post">
           <div className="form-title">
-          {formSettings.title}
+            {formSettings.title}
           </div>
           <div className="tabs-new-entry-links">
-            <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one')}}>
+            <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one') }}>
               ADD ONE
             </button>
-            <button type="button" id="upload-button" onClick={() => { handleTabs('upload')}}>
+            <button type="button" id="upload-button" onClick={() => { handleTabs('upload') }}>
               UPLOAD CSV
             </button>
-            </div>
+          </div>
 
           <div id="add-one-entry" className="tab-content-manual">
-          <input type="hidden" name="_id" value={props.editEntry._id}/>
-          <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange}/>
-          <br/>
-          <br/>
-          <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} />
-          <br/>
-          <br/>
-          <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} />
-          <br/>
-          <br/>
-          <select type="text" name="genre" id="genre">
-            <option selected>{formSettings.genreSelected}</option>
-            <option value="rock">rock</option>
-            <option value="rap">rap</option>
-            <option value="jazz">jazz</option>
-            <option value="blues">blues</option>
-            <option value="funk">funk</option>
-            <option value="punk rock">punk rock</option>
-            <option value="rhythmAndlues">rhythm and blues</option>
-            <option value="electronic">electronic</option>
-            <option value="country">country</option>
-            <option value="+-genre">+ genre</option>
-          </select>
-          <br/>
-          <br/>
-          <select type="text" name="mood" id="mood">
-            <option selected>{formSettings.moodSelected}</option>
-            <option value="chill">chill</option>
-            <option value="upbeat">upbeat</option>
-            <option value="daytime">daytime</option>
-            <option value="+-mood">+ mood</option>
-          </select>
-          <br/>
-          <br/>
-          <select type="text" name="rating" id="rating">
-            <option selected>{formSettings.ratingSelected}</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-          </select>
-          <br/>
-          <br/>
-          <select type="text" name="book" id="book">
-          <option selected>{formSettings.bookSelected}</option>
-            <option value="canon">canon</option>
-            <option value="research">research</option>
-          </select>
-          <br/>
-          <br/>
-          <select type="text" name="instrumental" id="instrumental">
-            <option selected>{formSettings.instrumentalSelected}</option>
-            <option value="no">no</option>
-            <option value="yes">yes</option>
-          </select>
-          <br/>
-          <br/>
-            <button onClick={handleCancel}>CANCEL</button>
+            <input type="hidden" name="_id" value={props.editEntry._id} />
+            <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange} />
+            <br />
+            <br />
+            <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} />
+            <br />
+            <br />
+            <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} />
+            <br />
+            <br />
+            <select type="text" name="genre" id="genre">
+              <option selected>{formSettings.genreSelected}</option>
+              <option value="rock">rock</option>
+              <option value="rap">rap</option>
+              <option value="jazz">jazz</option>
+              <option value="blues">blues</option>
+              <option value="funk">funk</option>
+              <option value="punk rock">punk rock</option>
+              <option value="rhythmAndlues">rhythm and blues</option>
+              <option value="electronic">electronic</option>
+              <option value="country">country</option>
+              <option value="+-genre">+ genre</option>
+            </select>
+            <br />
+            <br />
+            <select type="text" name="mood" id="mood">
+              <option selected>{formSettings.moodSelected}</option>
+              <option value="chill">chill</option>
+              <option value="upbeat">upbeat</option>
+              <option value="daytime">daytime</option>
+              <option value="+-mood">+ mood</option>
+            </select>
+            <br />
+            <br />
+            <select type="text" name="rating" id="rating">
+              <option selected>{formSettings.ratingSelected}</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+            <br />
+            <br />
+            <select type="text" name="book" id="book">
+              <option selected>{formSettings.bookSelected}</option>
+              <option value="canon">canon</option>
+              <option value="research">research</option>
+            </select>
+            <br />
+            <br />
+            <select type="text" name="instrumental" id="instrumental">
+              <option selected>{formSettings.instrumentalSelected}</option>
+              <option value="no">no</option>
+              <option value="yes">yes</option>
+            </select>
+            <br />
+            <br />
+            <button type="button" onClick={handleCancel}>CANCEL</button>
             <button>{formSettings.button}</button>
-          {/* </div> */}
+            {/* </div> */}
           </div>
         </form>
         <div id="upload-csv-tab" className="tab-content-upload">
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
-          <div>
-            <div className="tip-upload-csv">
-            <a href="./../../mcanon-template.csv" download>download CSV template</a>
-              <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px"/>
-              <div className="tip-upload-csv-question">
-                tooltip
-              </div>
+            <div>
+              <br />
+              <br />
+              <a href="" />
+              <input type="file" name="csv-file" />
+              <br />
+              <button type="button" onClick={handleCancel}>CANCEL</button>
+              <button >UPLOAD</button>
             </div>
-            <br/>
-            <br/>
-            <a href=""  />
-            <input type="file" name="csv-file"/>
-            <br/>
-            <button >UPLOAD</button>
-          </div>
           </form>
-            <button onClick={handleCancel}>CANCEL</button>
+        </div>
+        <br />
+        <div className="tip-upload-csv">
+          <a href="./../../mcanon-template.csv" download>download CSV template</a>
+          <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
+          <div className="tip-upload-csv-question">
+            tooltip
+              </div>
         </div>
       </div>
     </div>

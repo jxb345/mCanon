@@ -52,7 +52,7 @@ td {
 }
 
 #upload-button:hover {
-  background-color: rgb(79, 138, 233);
+  background-color: rgb(41, 39, 39)
 }
 
 .edit-entry-popup {
@@ -110,7 +110,7 @@ tr .entries:hover {
 
 .form-title {
   border-radius: 4px;
-  background-color: rgb(120, 166, 240);
+  background-color:black;
   color: white;
   font-weight: 500;
   font-size: 20px;
@@ -201,7 +201,7 @@ tr .entries:hover {
 
 .tabs-new-entry-links {
   overflow: hidden;
-  background-color:rgb(120, 166, 240);
+  background-color: black;
   margin-bottom: 15px;
   width: 100%;
   text-align: center;
@@ -212,7 +212,7 @@ tr .entries:hover {
 }
 
 .tabs-new-entry-links button {
-  background-color:rgb(120, 166, 240);
+  background-color:black;
   border-radius: 0px;
   transition: 0.3s;
   margin: 0;
