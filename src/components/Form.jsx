@@ -183,8 +183,6 @@ const Form = (props) => {
               <button >UPLOAD</button>
             </div>
           </form>
-        </div>
-        <br />
         <div className="tip-upload-csv">
           <a href="./../../mcanon-template.csv" download>download CSV template</a>
           <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
@@ -223,6 +221,8 @@ const Form = (props) => {
                        </i>
             <br />
           </div>
+        </div>
+        <br />
         </div>
       </div>
     </div>
