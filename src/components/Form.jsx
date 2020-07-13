@@ -183,6 +183,8 @@ const Form = (props) => {
               <button >UPLOAD</button>
             </div>
           </form>
+          <br/>
+          <br/>
         <div className="tip-upload-csv">
           <a href="./../../mcanon-template.csv" download>download CSV template</a>
           <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
@@ -191,38 +193,38 @@ const Form = (props) => {
             <strong> To Use The CSV Template File: </strong><br />
             </div>
             <div>
-              1. Download the template file. <br />
+              1. Click the link above to download. <br />
               2. Open the template file. <br />
               3. Fill in the template file for each row:
               <br />
             </div>
             <div className="tip-upload-csv-items">
-                  - BAND: <i>name of the band</i> <br />
-                  - ALBUM: <i>
+                   BAND: <i>name of the band</i> <br />
+                   ALBUM: <i>
               title of the album
                      </i>
             <br />
-                  - YEAR: <i>
+                   YEAR: <i>
               four digit number (i.e., 1991)
                     </i>
             <br />
-                  - GENRE: <i>
+                   GENRE: <i>
               see dropdown for all options
                      </i>
             <br />
-                  - MOOD: <i>
+                   MOOD: <i>
               upbeat, daytime, or chill
                      </i>
             <br />
-                  - RATING: <i>
+                   RATING: <i>
               1, 2, or 3
                      </i>
             <br />
-                  - BOOK: <i>
+                   BOOK: <i>
               canon or research
                    </i>
             <br />
-                - INSTRUMENTAL: <i>
+                 INSTRUMENTAL: <i>
               yes or no
                        </i>
             <br />

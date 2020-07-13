@@ -18,8 +18,8 @@ const Filters = (props) => {
           <br></br>
         <select type="text" name="book" id="book" onChange={props.handleFilterChange} >
           <option value="clear">BOTH BOOKS</option>
-          <option value="book"></option>
-          <option value="research"></option>
+          <option value="book">book</option>
+          <option value="research">research</option>
         </select>
         </p>
         <div>
@@ -58,8 +58,8 @@ const Filters = (props) => {
             <br/>
         <select type="text" name="instrumental" id="instrumental" onChange={props.handleFilterChange} >
           <option value="clear">ALL</option>
-          <option value="yes"></option>
-          <option value="no"></option>
+          <option value="yes">yes</option>
+          <option value="no">no</option>
         </select>
             </p>
         </div>
