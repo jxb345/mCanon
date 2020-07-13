@@ -189,8 +189,40 @@ const Form = (props) => {
           <a href="./../../mcanon-template.csv" download>download CSV template</a>
           <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
           <div className="tip-upload-csv-question">
-            tooltip
-              </div>
+            <strong> To Use The CSV Template File: </strong><br />
+              1. Download the template file. <br />
+              2. Open the template file. <br />
+              3. Fill in the template file for each row: <br />
+                  - BAND: <i>name of the band</i> <br />
+                  - ALBUM: <i>
+              name of the album
+                     </i>
+            <br />
+                  - YEAR: <i>
+              four digit number (i.e., 1991)
+                    </i>
+            <br />
+                  - GENRE: <i>
+              see dropdown menu for all options
+                     </i>
+            <br />
+                  - MOOD: <i>
+              upbeat, daytime, or chill
+                     </i>
+            <br />
+                  - RATING: <i>
+              1, 2, or 3
+                     </i>
+            <br />
+                  - BOOK: <i>
+              canon or research
+                   </i>
+            <br />
+                - INSTRUMENTAL: <i>
+              yes or no
+                       </i>
+            <br />
+          </div>
         </div>
       </div>
     </div>

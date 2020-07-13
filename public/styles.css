@@ -8,6 +8,7 @@ button {
   background-color: black;
   color: white;
   align-content: center;
+  cursor: pointer;
 }
 
 input {
@@ -251,10 +252,18 @@ tr .entries:hover {
 .tip-upload-csv .tip-upload-csv-question {
   visibility: hidden;
   position: absolute;
-  width: 200px;
-  height: 200px;
-  text-align: center;
+  top: 35px;
+  left: -110px;
+  width: 325px;
+  height: 220px;
+  text-align: justify;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  padding-left: 40%;
+  padding-top: 7%;
+  border: solid black 1px;
   border-radius: 4px;
+  background-color: #F7F7F7;
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
