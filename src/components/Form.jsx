@@ -187,13 +187,19 @@ const Form = (props) => {
           <a href="./../../mcanon-template.csv" download>download CSV template</a>
           <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
           <div className="tip-upload-csv-question">
+            <div className="tip-upload-csv-title">
             <strong> To Use The CSV Template File: </strong><br />
+            </div>
+            <div>
               1. Download the template file. <br />
               2. Open the template file. <br />
-              3. Fill in the template file for each row: <br />
+              3. Fill in the template file for each row:
+              <br />
+            </div>
+            <div className="tip-upload-csv-items">
                   - BAND: <i>name of the band</i> <br />
                   - ALBUM: <i>
-              name of the album
+              title of the album
                      </i>
             <br />
                   - YEAR: <i>
@@ -201,7 +207,7 @@ const Form = (props) => {
                     </i>
             <br />
                   - GENRE: <i>
-              see dropdown menu for all options
+              see dropdown for all options
                      </i>
             <br />
                   - MOOD: <i>
@@ -220,6 +226,7 @@ const Form = (props) => {
               yes or no
                        </i>
             <br />
+            </div>
           </div>
         </div>
         <br />

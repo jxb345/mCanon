@@ -255,18 +255,28 @@ tr .entries:hover {
   top: 35px;
   left: -110px;
   width: 325px;
-  height: 220px;
+  height: 240px;
   text-align: justify;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;
   padding-left: 40%;
   padding-top: 7%;
-  border: solid black 1px;
+  border: solid lightgray 2px;
   border-radius: 4px;
   background-color: #F7F7F7;
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
+}
+
+.tip-upload-csv-title {
+  padding-left: -24px;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.tip-upload-csv-items {
+  margin-top: 3px;
 }
 
 .tip-upload-csv:hover .tip-upload-csv-question {
