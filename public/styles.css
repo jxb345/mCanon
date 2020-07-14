@@ -143,17 +143,17 @@ tr .entries:hover {
 
 .input-search {
   margin: auto;
+  display: inline;
+  /* align-self: center;
+  justify-self: center; */
 }
+
 
 .new-entry-btn {
   border-radius: 50%;
   height: 40px;
   width: 40px;
   font-size: 15px;
-  float: left;
-  margin-right: 320px;
-  margin-left: 80px;
-  margin-bottom: 50px;
   background-color: #e60000;
 }
 
@@ -184,8 +184,9 @@ tr .entries:hover {
 .one {
   grid-column: 1 / 5;
   grid-row: 1;
-  padding-top: 25px;
-  margin-bottom: 20px;
+  /* justify-items: end; */
+align-items: center;      /* padding-top: 25px;
+  margin-bottom: 20px; */
 }
 
 .run button {
