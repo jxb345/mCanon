@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 const Search = (props) => {
   const [query, setQuery] = useState('');
 
-  const displayForm = () => {
-    const popup = document.getElementsByClassName("new-entry-popup")[0];
-    console.log('popup', popup)
-    popup.style.display = "block";
-  }
+  // moved to App.jsx
+  // const displayForm = () => {
+  //   const popup = document.getElementsByClassName("new-entry-popup")[0];
+  //   console.log('popup', popup)
+  //   popup.style.display = "block";
+  // }
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -48,7 +49,8 @@ const Search = (props) => {
 
   return (
     <div>
-     <button className="new-entry-btn" onClick={displayForm}>+</button>
+      {/* moved to App.Jsx
+     <button className="new-entry-btn" onClick={displayForm}>+</button> */}
       <div className="input-search">
       <input type="text" placeholder="band or album" onChange={handleChange} />
       </div>

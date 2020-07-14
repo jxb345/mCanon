@@ -13,6 +13,13 @@ const App = () => {
   const [editButton, setEditButton] = useState(false);
   const [editEntry, setEditEntry] = useState([]);
 
+  // moved FROM Search.jsx
+  const displayForm = () => {
+    const popup = document.getElementsByClassName("new-entry-popup")[0];
+    console.log('popup', popup)
+    popup.style.display = "block";
+  }
+
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
@@ -54,6 +61,9 @@ const App = () => {
         mCanon
       </div>
       <div className="grid">
+        <div className="new-area">
+          <button className="new-entry-btn" onClick={displayForm}>+</button>
+        </div>
         <div className="one">
           <Search  entries={entries} setEntries={setEntries} />
         </div>
