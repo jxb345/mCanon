@@ -48,7 +48,7 @@ const Search = (props) => {
 
   return (
     <div>
-      <button className="new-entry-btn" onClick={displayForm}>+</button>
+     <button className="new-entry-btn" onClick={displayForm}>+</button>
       <div className="input-search">
       <input type="text" placeholder="band or album" onChange={handleChange} />
       </div>
