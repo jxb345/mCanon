@@ -46,11 +46,11 @@ const Entry = (props) => {
         <td>{props.entry.instrumental}</td>
         <td  id="rating-edit">{props.entry.rating}</td>
         <td>
-            <div className="hover-class">
-            <div className="test">
+          <div className="hover-class">
+            <div className="icons-container">
               trash edit icons
             </div>
-            <div className="run">
+            <div className="icons">
               <button onClick={handleEdit}>
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>

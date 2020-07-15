@@ -171,12 +171,12 @@ tr .entries:hover {
   margin-right: 80px;
 }
 
-.hover-class .run,
-.hover-class:hover .test {
+.hover-class .icons,
+.hover-class:hover .icons-container {
   display: none;
 }
 
-.hover-class:hover .run {
+.hover-class:hover .icons {
   display: inline
 }
 
@@ -216,7 +216,7 @@ tr .entries:hover {
 }
 
 
-.run button {
+.icons button {
   background-color: white;
   padding: 0;
   border: none;
@@ -267,7 +267,7 @@ tr .entries:hover {
 
 }
 
-.test {
+.icons-container {
   color: white
 }
 
