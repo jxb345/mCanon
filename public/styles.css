@@ -50,6 +50,10 @@ td {
   height: 35px;
 }
 
+tr:hover {
+  background-color: lightyellow;
+}
+
 #add-one-button:hover, #upload-button:hover {
   background-color: gray;
 }
@@ -177,7 +181,6 @@ tr .entries:hover {
 }
 
 .input-search {
-  /* margin: auto; */
   display: inline;
 }
 
@@ -187,8 +190,6 @@ tr .entries:hover {
   width: 40px;
   font-size: 15px;
   background-color:#ccc;
-  /* color: black; */
-  /* border-color: lightgray; */
 }
 
 .new-entry-form {

@@ -179,7 +179,7 @@ const Form = (props) => {
               <a href="" />
               <input type="file" name="csv-file" />
               <br />
-              <button type="button" onClick={handleCancel}>CANCEL</button>
+              <button id="upload-cancel-button" type="button" onClick={handleCancel}>CANCEL</button>
               <button >UPLOAD</button>
             </div>
           </form>
