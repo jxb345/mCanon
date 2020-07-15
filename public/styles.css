@@ -6,7 +6,7 @@ button {
   border-color: transparent;
   outline-color: lightgray;
   font-weight: 700;
-  background-color: black;
+  background-color: gray;
   color: white;
   align-content: center;
   cursor: pointer;
@@ -50,16 +50,18 @@ td {
   height: 35px;
 }
 
+#add-one-button:hover, #upload-button:hover {
+  background-color: gray;
+}
+
 #upload-button {
   background-color: lightgray;
   color: white;
 }
 
-#upload-button:hover {
-  background-color: rgb(41, 39, 39)
+#upload-cancel-button {
+  margin-left: -50px;
 }
-
-
 .edit-entry-popup {
   display: none;
   position: fixed;
@@ -119,7 +121,7 @@ tr .entries:hover {
 
 .form-title {
   border-radius: 4px;
-  background-color:black;
+  background-color:gray;
   color: white;
   font-weight: 500;
   font-size: 20px;
@@ -231,7 +233,7 @@ tr .entries:hover {
 
 .tabs-new-entry-links {
   overflow: hidden;
-  background-color: black;
+  background-color: gray;
   margin-bottom: 15px;
   width: 100%;
   text-align: center;
@@ -242,7 +244,7 @@ tr .entries:hover {
 }
 
 .tabs-new-entry-links button {
-  background-color:black;
+  background-color:gray;
   border-radius: 0px;
   transition: 0.3s;
   margin: 0;
