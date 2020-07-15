@@ -61,16 +61,16 @@ const App = () => {
         mCanon
       </div>
       <div className="grid">
-        <div className="new-area">
+        <div className="grid-new-button">
           <button className="new-entry-btn" onClick={displayForm}>+</button>
         </div>
-        <div className="one">
+        <div className="grid-search">
           <Search  entries={entries} setEntries={setEntries} />
         </div>
-        <div className="two">
+        <div className="grid-filters">
           <Filters handleFilterChange={handleFilterChange} filter={filter}  setEditButton={setEditButton} editButton={editButton} editEntry={editEntry}/>
           </div>
-        <div className="three">
+        <div className="grid-list">
           <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setEditButton={setEditButton} setEditEntry={setEditEntry}  />
           </div>
       </div>
