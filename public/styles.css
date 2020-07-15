@@ -14,15 +14,16 @@ button {
 
 input {
   height: 30px;
-  width: 240px;
+  width: 220px;
   border-radius: 3px;
   border:1px solid #ccc;
 }
 
 input, input[placeholder] {
   font-size: 13px;
-  padding-left: 10px;
+  padding-right: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
 }
 
 
@@ -84,14 +85,16 @@ tr .entries:hover {
 
 .filters {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  text-align: center;
 }
+
 
 .filters select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align-last: center;
+  /* margin: auto; */
   height: 30px;
   width: 150px;
-  margin-top: 4px;
+  /* margin-top: 4px; */
   color:rgb(71, 68, 68);
   border: 1px solid gray;
   border-radius: 3px;
@@ -111,6 +114,7 @@ tr .entries:hover {
   color: gray;
   border: 1px solid lightgrey;
   border-radius: 3px;
+  text-align-last: center;
 }
 
 .form-title {
@@ -121,10 +125,6 @@ tr .entries:hover {
   font-size: 20px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   padding: 10px;
-}
-
-.gray-entry {
-  background-color: red;
 }
 
 .grid {
@@ -184,7 +184,9 @@ tr .entries:hover {
   height: 40px;
   width: 40px;
   font-size: 15px;
-  background-color: #e60000;
+  background-color:#ccc;
+  /* color: black; */
+  /* border-color: lightgray; */
 }
 
 .new-entry-form {
@@ -256,10 +258,9 @@ tr .entries:hover {
   height: 60px;
   position: sticky;
   top: -1px;
-  background-color: black;
+  background-color: gray;
   color: white;
-  /* border: 1px solid blue;
-  border-collapse: collapse; */
+
 
 }
 
@@ -314,7 +315,7 @@ tr .entries:hover {
   text-align: left;
   padding: 5px;
   padding-left: 10px;
-  color:black;
+  color:gray;
 }
 
 

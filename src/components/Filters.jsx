@@ -17,7 +17,7 @@ const Filters = (props) => {
           book
           <br></br>
         <select type="text" name="book" id="book" onChange={props.handleFilterChange} >
-          <option value="clear">BOTH BOOKS</option>
+          <option value="clear">ALL</option>
           <option value="book">book</option>
           <option value="research">research</option>
         </select>
@@ -27,7 +27,7 @@ const Filters = (props) => {
             mood
             <br/>
           <select type="text" name="mood" id="mood" onChange={props.handleFilterChange}>
-            <option value="clear">ALL MOODS</option>
+            <option value="clear">ALL</option>
             <option value="chill">chill</option>
             <option value="upbeat">upbeat</option>
             <option value="daytime">daytime</option>
@@ -39,7 +39,7 @@ const Filters = (props) => {
             genre
             <br/>
           <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
-            <option value="clear">ALL GENRES</option>
+            <option value="clear">ALL</option>
             <option value="rock">rock</option>
             <option value="rap">rap</option>
             <option value="jazz">jazz</option>
