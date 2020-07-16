@@ -69,18 +69,27 @@ tr:hover {
   margin-left: -50px;
 }
 
+.confirm-delete-form {
+  background-color: #fefefe;
+  margin: auto;
+  border: 1px solid #888;
+  width: 35%;
+  height: 20%;
+  text-align: center;
+  border-radius: 3px;
+}
+
 .confirm-delete-popup {
   display: none;
   position: fixed;
   z-index: 1;
-  /* padding-top: 100px; */
-  /* left: 0;
-  top: 0; */
   height: 100%;
   width: 100%;
+  padding: 100px;
+  left: 0;
+  top: 0;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.7);
-
 }
 
 .edit-entry-popup {
@@ -114,10 +123,8 @@ tr .entries:hover {
 .filters select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align-last: center;
-  /* margin: auto; */
   height: 30px;
   width: 150px;
-  /* margin-top: 4px; */
   color:rgb(71, 68, 68);
   border: 1px solid gray;
   border-radius: 3px;
@@ -129,7 +136,7 @@ tr .entries:hover {
 }
 
 .form select {
-  height: 33px;
+  height: 30px;
   width: 255px;
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -141,7 +148,7 @@ tr .entries:hover {
 }
 
 .form-title {
-  border-radius: 4px;
+  border-radius: 1px;
   background-color:gray;
   color: white;
   font-weight: 500;
@@ -214,6 +221,7 @@ tr .entries:hover {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 3px;
   width: 35%;
   height: 85%;
   text-align: center;
