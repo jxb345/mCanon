@@ -3,13 +3,6 @@ import React, { useState, useEffect } from 'react';
 const Search = (props) => {
   const [query, setQuery] = useState('');
 
-  // moved to App.jsx
-  // const displayForm = () => {
-  //   const popup = document.getElementsByClassName("new-entry-popup")[0];
-  //   console.log('popup', popup)
-  //   popup.style.display = "block";
-  // }
-
   const handleChange = (e) => {
     setQuery(e.target.value);
     console.log('query---', query)
@@ -52,7 +45,7 @@ const Search = (props) => {
       {/* moved to App.Jsx
      <button className="new-entry-btn" onClick={displayForm}>+</button> */}
       <div className="input-search">
-      <input type="text" placeholder="band or album" onChange={handleChange} />
+      <input type="text" placeholder="search for band or album" onChange={handleChange} />
       </div>
     </div>
   )

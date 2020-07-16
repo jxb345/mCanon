@@ -68,6 +68,13 @@ tr:hover {
 #upload-cancel-button {
   margin-left: -50px;
 }
+
+.confirm-delete-popup {
+  display: none;
+  height: 40%;
+  width: 60%;
+}
+
 .edit-entry-popup {
   display: none;
   position: fixed;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Entry from './Entry.jsx';
+import Delete from './Delete.jsx';
 
 const List = (props) => {
 
@@ -8,6 +9,7 @@ const List = (props) => {
 
   return (
     <div className="table-container">
+      <Delete />
     <table>
         <thead>
           <tr className="entries-headers">

@@ -3,6 +3,11 @@ import React, { useState, useEffect } from 'react';
 const Entry = (props) => {
   const [element, setElement] = useState({_id: ''})
 
+  const handleConfirmDelete = (e) => {
+    const deletePopup = document.getElementsByClassName("confirm-delete-popup"[0]);
+    deletePopup.style.block = 'display'
+  }
+
   const handleDelete = (e) => {
       fetch('/delete-entry', {
         method: 'POST',
@@ -55,7 +60,7 @@ const Entry = (props) => {
                 <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
               </button>
               &nbsp;
-              <button onClick={handleDelete}>
+              <button onClick={handleConfirmDelete}>
                 <img src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
               </button>
             </div>

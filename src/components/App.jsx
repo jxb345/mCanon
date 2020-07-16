@@ -56,7 +56,7 @@ const App = () => {
       }, [selectedFilters])
 
   return (
-    <div className="whole-app">
+    <div>
       <div className="title">
         mCanon
       </div>
