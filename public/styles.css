@@ -14,15 +14,16 @@ button {
 
 input {
   height: 30px;
-  width: 220px;
+  width: 227px;
   border-radius: 3px;
   border:1px solid #ccc;
+  font-size: 13px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-left: 10px;
 }
 
-input, input[placeholder] {
-  font-size: 13px;
-  padding-right: 30px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+#add-one-entry input[placeholder] {
+  padding-right: 18px;
   text-align: center;
 }
 
@@ -53,6 +54,7 @@ td {
 tr:hover {
   background-color: lightyellow;
 }
+
 
 #add-one-button:hover, #upload-button:hover {
   background-color: gray;
@@ -104,7 +106,7 @@ tr .entries:hover {
   color:rgb(71, 68, 68);
   border: 1px solid gray;
   border-radius: 3px;
-  background-color: #f7f7f7;
+  background-color: #F7F6F6;
 }
 
 .form {
@@ -128,8 +130,8 @@ tr .entries:hover {
   background-color:gray;
   color: white;
   font-weight: 500;
-  font-size: 20px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 25px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding: 10px;
 }
 
@@ -171,12 +173,12 @@ tr .entries:hover {
   margin-right: 80px;
 }
 
-.hover-class .icons,
-.hover-class:hover .icons-container {
+.icons-hover .icons,
+.icons-hover:hover .icons-container {
   display: none;
 }
 
-.hover-class:hover .icons {
+.icons-hover:hover .icons {
   display: inline
 }
 
@@ -231,6 +233,10 @@ tr .entries:hover {
   display: none;
   margin-top: 10px;
 }
+
+/* .tab-content-upload button {
+  margin-left: 20px;
+} */
 
 .tabs-new-entry-links {
   overflow: hidden;
@@ -304,6 +310,7 @@ tr .entries:hover {
 
 .tip-upload-csv-items {
   margin-top: 3px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .tip-upload-csv:hover .tip-upload-csv-question {
@@ -313,7 +320,7 @@ tr .entries:hover {
 
 .title {
   border-bottom: 2px solid lightgray;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Rockwell;
   font-weight: 800;
   text-align: left;
   padding: 5px;

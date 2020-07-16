@@ -46,7 +46,7 @@ const Entry = (props) => {
         <td>{props.entry.instrumental}</td>
         <td  id="rating-edit">{props.entry.rating}</td>
         <td>
-          <div className="hover-class">
+          <div className="icons-hover">
             <div className="icons-container">
               trash edit icons
             </div>
