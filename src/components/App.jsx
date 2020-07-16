@@ -16,7 +16,7 @@ const App = () => {
   // moved FROM Search.jsx
   const displayForm = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
-    console.log('popup', popup)
+    console.log('popup.style', popup.style)
     popup.style.display = "block";
   }
 

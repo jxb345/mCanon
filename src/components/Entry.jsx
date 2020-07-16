@@ -4,8 +4,9 @@ const Entry = (props) => {
   const [element, setElement] = useState({_id: ''})
 
   const handleConfirmDelete = (e) => {
-    const deletePopup = document.getElementsByClassName("confirm-delete-popup"[0]);
-    deletePopup.style.block = 'display'
+    const deletePopup = document.getElementsByClassName("confirm-delete-popup")[0];
+    deletePopup.style.display = "block";
+    console.log('deletePopup', deletePopup.style)
   }
 
   const handleDelete = (e) => {
