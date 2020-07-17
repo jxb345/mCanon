@@ -8,11 +8,11 @@ const Filters = (props) => {
 
   return (
     <div>
-      <div className="confirm-delete-popup">
+      {/* <div className="confirm-delete-popup">
         <div className="confirm-delete-form">
           <Delete />
         </div>
-      </div>
+      </div> */}
       <div className="new-entry-popup">
         <div className="new-entry-form">
           <Form setEditButton={props.setEditButton} editButton={props.editButton} editEntry={props.editEntry} />

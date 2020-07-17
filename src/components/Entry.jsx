@@ -5,8 +5,8 @@ const Entry = (props) => {
 
   const handleConfirmDelete = (e) => {
     const deletePopup = document.getElementsByClassName("confirm-delete-popup")[0];
-    deletePopup.style.display = "block";
     console.log('deletePopup', deletePopup.style)
+    deletePopup.style.display = "block";
   }
 
   const handleDelete = (e) => {
@@ -43,31 +43,42 @@ const Entry = (props) => {
   }
 
   return (
-    <tr className="entries" onMouseEnter={hoverElement}>
-        <td  id="band-edit" >{props.entry.band}</td>
-        <td  id="album-edit">{props.entry.album}</td>
-        <td  id="year-edit">{props.entry.year}</td>
-        <td  id="genre-edit">{props.entry.genre}</td>
-        <td  id="mood-edit">{props.entry.mood}</td>
-        <td>{props.entry.instrumental}</td>
-        <td  id="rating-edit">{props.entry.rating}</td>
-        <td>
-          <div className="icons-hover">
-            <div className="icons-container">
-              trash edit icons
+      <tr className="entries" onMouEnter={hoverElement}>
+          <td  id="band-edit" >{props.entry.band}</td>
+          <td  id="album-edit">{props.entry.album}</td>
+          <td  id="year-edit">{props.entry.year}</td>
+          <td  id="genre-edit">{props.entry.genre}</td>
+          <td  id="mood-edit">{props.entry.mood}</td>
+          <td>{props.entry.instrumental}</td>
+          <td  id="rating-edit">{props.entry.rating}</td>
+          <td>
+            <div className="icons-hover">
+              <div className="icons-container">
+                trash edit icons
+              </div>
+              <div className="icons">
+                <button onClick={handleEdit}>
+                  <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
+                </button>
+                &nbsp;
+                <button onClick={handleConfirmDelete}>
+                  <img src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
+                </button>
+              </div>
             </div>
-            <div className="icons">
-              <button onClick={handleEdit}>
-                <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
-              </button>
-              &nbsp;
-              <button onClick={handleConfirmDelete}>
-                <img src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
-              </button>
-            </div>
+            </td>
+        <div className="confirm-delete-popup">
+          <div className="confirm-delete-form">
+            <br/>
+            <h4>
+              Delete this item?
+            </h4>
+            <button>CANCEL</button>
+            <button onClick={handleDelete}>DELETE</button>
           </div>
-          </td>
-      </tr>
+        </div>
+        </tr>
+
   )
 }
 

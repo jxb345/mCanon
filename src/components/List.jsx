@@ -9,8 +9,7 @@ const List = (props) => {
 
   return (
     <div className="table-container">
-      {/* <Delete /> */}
-    <table>
+      <table>
         <thead>
           <tr className="entries-headers">
             <th>band</th>
