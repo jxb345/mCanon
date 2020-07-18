@@ -32,7 +32,7 @@ const List = (props) => {
           clicked={props.clicked}
           setClicked={props.setClicked}
           setEntries={props.setEntries}
-          setEditButton={props.setEditButton}
+          setButtonClicked={props.setButtonClicked}
           setEditEntry={props.setEditEntry}
           />
         })

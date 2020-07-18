@@ -20,7 +20,7 @@ const Form = (props) => {
 
 
   useEffect(() => {
-    if (props.editButton) {
+    if (props.buttonClicked === 'edit') {
       // need to account for entry having "" for either mood,
       // genre, or instrumental; if that is the case, then
       // need to replace "" with 'mood', 'genre', or 'instrumental'
@@ -41,7 +41,7 @@ const Form = (props) => {
       setEditAlbum(props.editEntry.album);
       setEditYear(props.editEntry.year);
 
-    } else {
+    } else if (props.buttonClicked === 'new') {
       setFormSettings({
         formAction: '/new-entry',
         title: 'NEW ENTRY',
@@ -53,8 +53,10 @@ const Form = (props) => {
         instrumentalSelected: 'instrumental',
         button: 'ADD'
       })
+    } else {
+      // delete button settings
     }
-  }, [props.editButton])
+  }, [props.buttonClicked])
 
   const handleCancel = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];

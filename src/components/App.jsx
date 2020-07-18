@@ -11,7 +11,11 @@ const App = () => {
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [clicked, setClicked] = useState({});
-  const [editButton, setEditButton] = useState(false);
+  // commenting out buttonClicked and using buttonClicked instead
+  // to account for three possible buttons: delete, edit,
+  // and new entry
+  // const [buttonClicked, setButtonClicked] = useState(false);
+  const [buttonClicked, setButtonClicked] = useState('');
   const [editEntry, setEditEntry] = useState([]);
 
   // moved FROM Search.jsx
@@ -73,10 +77,10 @@ const App = () => {
           <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="grid-filters">
-          <Filters handleFilterChange={handleFilterChange} filter={filter}  setEditButton={setEditButton} editButton={editButton} editEntry={editEntry}/>
+          <Filters handleFilterChange={handleFilterChange} filter={filter}  setButtonClicked={setButtonClicked} buttonClicked={buttonClicked} editEntry={editEntry}/>
           </div>
         <div className="grid-list">
-          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setEditButton={setEditButton} setEditEntry={setEditEntry}  />
+          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setButtonClicked={setButtonClicked} setEditEntry={setEditEntry}  />
           </div>
       </div>
     </div>
