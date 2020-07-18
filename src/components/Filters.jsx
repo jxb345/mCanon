@@ -15,7 +15,7 @@ const Filters = (props) => {
       </div> */}
       <div className="new-entry-popup">
         <div className="new-entry-form">
-          <Form setEditButton={props.setEditButton} editButton={props.editButton} editEntry={props.editEntry} />
+          <Form setButtonClicked={props.setButtonClicked} buttonClicked={props.buttonClicked} editEntry={props.editEntry} />
         </div>
       </div>
       <div className="filters">

@@ -22,6 +22,7 @@ const Entry = (props) => {
   }
 
     const handleEdit = (e) => {
+      const iconClicked = e.target.id;
       fetch('/get-one-entry', {
         method: 'POST',
         headers: {
@@ -34,16 +35,21 @@ const Entry = (props) => {
         props.setEditEntry(data);
         const popup = document.getElementsByClassName("new-entry-popup")[0];
         popup.style.display = "block";
-        props.setButtonClicked('edit')
+        if (iconClicked === "edit-pencil") {
+          props.setButtonClicked('edit')
+        } else {
+          props.setButtonClicked('delete')
+        }
       })
     }
 
   const hoverElement = (e) => {
+    console.log('hover')
     setElement({_id: props.entry._id})
   }
 
   return (
-      <tr className="entries" onMouEnter={hoverElement}>
+      <tr className="entries" onMouseEnter={hoverElement}>
           <td  id="band-edit" >{props.entry.band}</td>
           <td  id="album-edit">{props.entry.album}</td>
           <td  id="year-edit">{props.entry.year}</td>
@@ -58,11 +64,11 @@ const Entry = (props) => {
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>
-                  <img src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
+                  <img id="edit-pencil" src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
                 </button>
                 &nbsp;
-                <button onClick={handleConfirmDelete}>
-                  <img src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
+                <button onClick={handleEdit}>
+                  <img id="delete-trash-can" src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
                 </button>
               </div>
             </div>

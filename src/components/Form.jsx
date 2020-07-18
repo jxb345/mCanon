@@ -55,6 +55,23 @@ const Form = (props) => {
       })
     } else {
       // delete button settings
+      setFormSettings({
+        formAction: '/edit-entry',
+        title: 'DELETE ENTRY',
+        button: 'DELETE',
+        band: props.editEntry.band,
+        album: props.editEntry.album,
+        year: props.editEntry.year,
+        genreSelected: props.editEntry.genre,
+        moodSelected: props.editEntry.mood,
+        ratingSelected: props.editEntry.rating,
+        bookSelected: props.editEntry.book,
+        instrumentalSelected: props.editEntry.instrumental,
+      })
+      setEditBand(props.editEntry.band);
+      setEditAlbum(props.editEntry.album);
+      setEditYear(props.editEntry.year);
+
     }
   }, [props.buttonClicked])
 
