@@ -21,6 +21,10 @@ const App = () => {
     popup.style.display = "block";
   }
 
+  const divStyle = {
+    color: 'rgb(254, 35, 35)'
+  }
+
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
@@ -59,7 +63,7 @@ const App = () => {
   return (
     <div>
       <div className="title">
-        mCanon
+        m<span style={divStyle}>C</span>anon
       </div>
       <div className="grid">
         <div className="grid-new-button">
