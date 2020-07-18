@@ -9,6 +9,7 @@ const List = (props) => {
 
   return (
     <div className="table-container">
+
       <table>
         <thead>
           <tr className="entries-headers">
