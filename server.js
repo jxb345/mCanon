@@ -54,9 +54,7 @@ app.post('/new-entry', (req, res) => {
 app.post('/delete-entry', (req, res) => {
   const remove = req.body;
   deleteEntry(remove)
-    .then((entries) => {
-      res.status(200).send(entries)
-    })
+    .then(res.status(301).redirect(HOME))
     .catch(error => {
       console.error(error.message)
     })
