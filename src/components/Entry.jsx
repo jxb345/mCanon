@@ -3,11 +3,12 @@ import React, { useState, useEffect } from 'react';
 const Entry = (props) => {
   const [element, setElement] = useState({_id: ''})
 
-  const handleConfirmDelete = (e) => {
-    const deletePopup = document.getElementsByClassName("confirm-delete-popup")[0];
-    console.log('deletePopup', deletePopup.style)
-    deletePopup.style.display = "block";
-  }
+  // Probably Okay to remove this function
+  // const handleConfirmDelete = (e) => {
+  //   const deletePopup = document.getElementsByClassName("confirm-delete-popup")[0];
+  //   console.log('deletePopup', deletePopup.style)
+  //   deletePopup.style.display = "block";
+  // }
 
   const handleDelete = (e) => {
       fetch('/delete-entry', {
@@ -22,6 +23,7 @@ const Entry = (props) => {
   }
 
     const handleEdit = (e) => {
+      console.log('element in handleEdit', element)
       const iconClicked = e.target.id;
       fetch('/get-one-entry', {
         method: 'POST',
@@ -44,9 +46,12 @@ const Entry = (props) => {
     }
 
   const hoverElement = (e) => {
-    console.log('hover')
     setElement({_id: props.entry._id})
   }
+
+  useEffect( ()=> {
+    console.log('element on pageload', element)
+  }, [element])
 
   return (
       <tr className="entries" onMouseEnter={hoverElement}>
