@@ -56,7 +56,7 @@ const Form = (props) => {
     } else {
       // delete button settings
       setFormSettings({
-        formAction: '/edit-entry',
+        formAction: '/delete-entry',
         title: 'DELETE ENTRY',
         button: 'DELETE',
         band: props.editEntry.band,
@@ -156,7 +156,7 @@ const Form = (props) => {
               <option value="blues">blues</option>
               <option value="funk">funk</option>
               <option value="punk rock">punk rock</option>
-              <option value="rhythmAndlues">rhythm and blues</option>
+              <option value="rhythmAndBlues">rhythm and blues</option>
               <option value="electronic">electronic</option>
               <option value="country">country</option>
               <option value="+-genre">+ genre</option>

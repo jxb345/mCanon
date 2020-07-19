@@ -215,7 +215,7 @@ tr .entries:hover {
   height: 40px;
   width: 40px;
   font-size: 15px;
-  background-color:#ccc;
+  background-color:#B25353;
 }
 
 .new-entry-form {
@@ -292,7 +292,7 @@ tr .entries:hover {
   height: 60px;
   position: sticky;
   top: -1px;
-  background-color: gray;
+  background-color:#C7C7C7;
   color: white;
 
 
