@@ -20,12 +20,13 @@ const App = () => {
 
   // moved FROM Search.jsx
   const displayForm = () => {
+    setButtonClicked('new');
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     console.log('popup.style', popup.style)
     popup.style.display = "block";
   }
 
-  const divStyle = {
+  const titleStyle = {
     color: 'rgb(254, 35, 35)'
   }
 
@@ -60,14 +61,14 @@ const App = () => {
         .then(response => response.json())
         .then(data => setEntries((data)));
         return () => {
-          console.log('filter end')
+          console.log('buttonClicked', buttonClicked)
         }
       }, [selectedFilters])
 
   return (
     <div>
       <div className="title">
-        m<span style={divStyle}>C</span>anon
+        m<span style={titleStyle}>C</span>anon
       </div>
       <div className="grid">
         <div className="grid-new-button">
