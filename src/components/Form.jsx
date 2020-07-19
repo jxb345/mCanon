@@ -119,14 +119,23 @@ const Form = (props) => {
           <div className="form-title">
             {formSettings.title}
           </div>
-          <div className="tabs-new-entry-links">
-            <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one') }}>
-              ADD ONE
-            </button>
-            <button type="button" id="upload-button" onClick={() => { handleTabs('upload') }}>
-              UPLOAD CSV
-            </button>
-          </div>
+          {
+            props.buttonClicked === 'new' ?
+              <div className="tabs-new-entry-links">
+                <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one') }}>
+                  ADD ONE
+                </button>
+                <button type="button" id="upload-button" onClick={() => { handleTabs('upload') }}>
+                  UPLOAD CSV
+                </button>
+              </div>
+              :
+              <div>
+                <br/>
+                <br/>
+              </div>
+          }
+
 
           <div id="add-one-entry" className="tab-content-manual">
             <input type="hidden" name="_id" value={props.editEntry._id} />
