@@ -149,8 +149,10 @@ tr .entries:hover {
 
 .form-title {
   border-radius: 1px;
-  background-color:gray;
-  color: white;
+  /* background-color:gray; */
+  border: 1px solid gray;
+  /* border-color: gray; */
+  color: gray;
   font-weight: 500;
   font-size: 25px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -222,7 +224,7 @@ tr .entries:hover {
   padding: 20px;
   border: 1px solid #888;
   border-radius: 3px;
-  width: 35%;
+  width: 30%;
   height: 85%;
   text-align: center;
 }

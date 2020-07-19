@@ -17,7 +17,6 @@ app.use(bodyParser.text());
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
-  console.log('queryOne', queryOne)
   findOne(queryOne)
     .then((data) => {
       res.status(200).send(data)
