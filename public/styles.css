@@ -60,6 +60,10 @@ tr:hover {
   background-color: gray;
 }
 
+#form-action-button {
+  margin-right: 25px;
+}
+
 #upload-button {
   background-color: lightgray;
   color: white;
@@ -149,7 +153,7 @@ tr .entries:hover {
 
 .form-title {
   border-radius: 1px;
-  /* background-color:gray; */
+  /* background-color: #F9F7F7; */
   border: 1px solid gray;
   /* border-color: gray; */
   color: gray;
@@ -223,7 +227,7 @@ tr .entries:hover {
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  border-radius: 3px;
+  border-radius: 4px;
   width: 30%;
   height: 85%;
   text-align: center;

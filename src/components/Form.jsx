@@ -194,9 +194,10 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <button type="button" onClick={handleCancel}>CANCEL</button>
-            <button>{formSettings.button}</button>
-            {/* </div> */}
+            <div>
+              <button type="button" onClick={handleCancel}>CANCEL</button>
+              <button id="form-action-button">{formSettings.button}</button>
+            </div>
           </div>
         </form>
         <div id="upload-csv-tab" className="tab-content-upload">
