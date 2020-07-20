@@ -7,8 +7,14 @@ const addEntry = (entry) => {
 
   // what if band / album is purposefully NOT
   //   supposed to be capitalized (edit I guess?)
-  entry.band = capitalize(entry.band);
-  entry.album = capitalize(entry.album);
+
+  if (entry.band !== '') {
+    entry.band = capitalize(entry.band);
+  }
+
+  if (entry.album !== '') {
+    entry.album = capitalize(entry.album);
+  }
 
   if (entry.genre === "genre") {
     entry.genre = "";
@@ -104,6 +110,7 @@ const compareTwoEntries = (original, edited) => {
 }
 
 const capitalize = (name) => {
+  console.log('name', name)
   let capital = name[0].toUpperCase();
   for (let i = 1; i < name.length; i += 1) {
     if (name[i] === ' ') {
@@ -114,7 +121,7 @@ const capitalize = (name) => {
       capital += name[i];
     }
   }
-  return capital;
+  return capital || name;
 }
 
 const filter = (filters) => {

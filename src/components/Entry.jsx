@@ -49,9 +49,9 @@ const Entry = (props) => {
     setElement({_id: props.entry._id})
   }
 
-  useEffect( ()=> {
-    console.log('element on pageload', element)
-  }, [element])
+  // useEffect( ()=> {
+  //   console.log('element on pageload', element)
+  // }, [element])
 
   return (
       <tr className="entries" onMouseEnter={hoverElement}>
