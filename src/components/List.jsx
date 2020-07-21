@@ -34,7 +34,6 @@ const List = (props) => {
           setEntries={props.setEntries}
           setButtonClicked={props.setButtonClicked}
           setEditEntry={props.setEditEntry}
-          editEntry={props.editEntry}
           />
         })
       }

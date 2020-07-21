@@ -34,7 +34,6 @@ const Entry = (props) => {
       })
       .then(response => response.json())
       .then((data) => {
-        console.log('data', data)
         props.setEditEntry(data);
         const popup = document.getElementsByClassName("new-entry-popup")[0];
         popup.style.display = "block";
@@ -49,10 +48,6 @@ const Entry = (props) => {
   const hoverElement = (e) => {
     setElement({_id: props.entry._id})
   }
-
-  // useEffect( ()=> {
-  //   console.log('element on pageload', element)
-  // }, [element])
 
   return (
       <tr className="entries" onMouseEnter={hoverElement}>

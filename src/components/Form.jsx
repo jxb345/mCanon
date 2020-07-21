@@ -36,6 +36,7 @@ const Form = (props) => {
         ratingSelected: props.editEntry.rating,
         bookSelected: props.editEntry.book,
         instrumentalSelected: props.editEntry.instrumental,
+        disabled: ''
       })
       setEditBand(props.editEntry.band);
       setEditAlbum(props.editEntry.album);
@@ -51,7 +52,8 @@ const Form = (props) => {
         ratingSelected: 'rating',
         bookSelected: 'book',
         instrumentalSelected: 'instrumental',
-        button: 'ADD'
+        button: 'ADD',
+        disabled: ''
       })
     } else {
       // delete button settings
@@ -67,6 +69,7 @@ const Form = (props) => {
         ratingSelected: props.editEntry.rating,
         bookSelected: props.editEntry.book,
         instrumentalSelected: props.editEntry.instrumental,
+        disabled: 'disabled'
       })
       setEditBand(props.editEntry.band);
       setEditAlbum(props.editEntry.album);
@@ -139,16 +142,16 @@ const Form = (props) => {
 
           <div id="add-one-entry" className="tab-content-manual">
             <input type="hidden" name="_id" value={props.editEntry._id} />
-            <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange} />
+            <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange} disabled={formSettings.disabled} />
             <br />
             <br />
-            <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} />
+            <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} disabled={formSettings.disabled} />
             <br />
             <br />
-            <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} />
+            <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} disabled={formSettings.disabled} />
             <br />
             <br />
-            <select type="text" name="genre" id="genre">
+            <select type="text" name="genre" id="genre" disabled={formSettings.disabled}>
               <option selected>{formSettings.genreSelected}</option>
               <option value="rock">rock</option>
               <option value="rap">rap</option>
@@ -163,7 +166,7 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <select type="text" name="mood" id="mood">
+            <select type="text" name="mood" id="mood" disabled={formSettings.disabled}>
               <option selected>{formSettings.moodSelected}</option>
               <option value="chill">chill</option>
               <option value="upbeat">upbeat</option>
@@ -172,7 +175,7 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <select type="text" name="rating" id="rating">
+            <select type="text" name="rating" id="rating" disabled={formSettings.disabled}>
               <option selected>{formSettings.ratingSelected}</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -180,14 +183,14 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <select type="text" name="book" id="book">
+            <select type="text" name="book" id="book" disabled={formSettings.disabled}>
               <option selected>{formSettings.bookSelected}</option>
               <option value="canon">canon</option>
               <option value="research">research</option>
             </select>
             <br />
             <br />
-            <select type="text" name="instrumental" id="instrumental">
+            <select type="text" name="instrumental" id="instrumental" disabled={formSettings.disabled}>
               <option selected>{formSettings.instrumentalSelected}</option>
               <option value="no">no</option>
               <option value="yes">yes</option>
