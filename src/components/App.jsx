@@ -81,7 +81,7 @@ const App = () => {
           <Filters handleFilterChange={handleFilterChange} filter={filter}  setButtonClicked={setButtonClicked} buttonClicked={buttonClicked} editEntry={editEntry}/>
           </div>
         <div className="grid-list">
-          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setButtonClicked={setButtonClicked} setEditEntry={setEditEntry}  />
+          <List setEntries={setEntries} editEntry={editEntry} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setButtonClicked={setButtonClicked} setEditEntry={setEditEntry}  />
           </div>
       </div>
     </div>

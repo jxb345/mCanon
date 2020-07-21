@@ -73,7 +73,7 @@ const Form = (props) => {
       setEditYear(props.editEntry.year);
 
     }
-  }, [props.buttonClicked])
+  }, [props.buttonClicked, props.editEntry])
 
   const handleCancel = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
