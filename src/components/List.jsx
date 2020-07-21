@@ -13,14 +13,14 @@ const List = (props) => {
       <table>
         <thead>
           <tr className="entries-headers">
-            <th>band</th>
-            <th>album</th>
-            <th>year</th>
-            <th>genre</th>
-            <th>mood</th>
-            <th>instrumental</th>
-            <th>rating</th>
-            <th></th>
+            <th className="column-icons"></th>
+            <th className="column-wide">band</th>
+            <th className="column-wide">album</th>
+            <th className="column-slim">year</th>
+            <th className="column-slim">genre</th>
+            <th className="column-slim">mood</th>
+            <th className="column-slim">instrumental</th>
+            <th className="column-slim">rating</th>
           </tr>
         </thead>
       {

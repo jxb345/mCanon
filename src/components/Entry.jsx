@@ -55,17 +55,12 @@ const Entry = (props) => {
 
   return (
       <tr className="entries" onMouseEnter={hoverElement}>
-          <td  id="band-edit" >{props.entry.band}</td>
-          <td  id="album-edit">{props.entry.album}</td>
-          <td  id="year-edit">{props.entry.year}</td>
-          <td  id="genre-edit">{props.entry.genre}</td>
-          <td  id="mood-edit">{props.entry.mood}</td>
-          <td>{props.entry.instrumental}</td>
-          <td  id="rating-edit">{props.entry.rating}</td>
           <td>
             <div className="icons-hover">
               <div className="icons-container">
-                trash edit icons
+               <span>
+               &nbsp;&nbsp;&nbsp;&nbsp;
+                </span>
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>
@@ -78,6 +73,13 @@ const Entry = (props) => {
               </div>
             </div>
             </td>
+          <td  id="band-edit" >{props.entry.band}</td>
+          <td  id="album-edit">{props.entry.album}</td>
+          <td  id="year-edit">{props.entry.year}</td>
+          <td  id="genre-edit">{props.entry.genre}</td>
+          <td  id="mood-edit">{props.entry.mood}</td>
+          <td>{props.entry.instrumental}</td>
+          <td  id="rating-edit">{props.entry.rating}</td>
         <div className="confirm-delete-popup">
           <div className="confirm-delete-form">
             <br/>

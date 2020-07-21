@@ -52,12 +52,20 @@ td {
 }
 
 tr:hover {
-  background-color: lightyellow;
+  background-color: #FFFAFA;
+  /* background-color: #FFE6E6; */
 }
-
 
 #add-one-button:hover, #upload-button:hover {
   background-color: gray;
+}
+
+#album-edit {
+  text-align: left;
+}
+
+#band-edit {
+  text-align: left;
 }
 
 #form-action-button {
@@ -71,6 +79,22 @@ tr:hover {
 
 #upload-cancel-button {
   margin-left: -50px;
+}
+
+.columns-icons {
+  width: 8%;
+}
+
+.column-slim {
+  width: 10%;
+}
+
+.column-wide {
+  width: 20%;
+  text-align: left;
+  /* the padding-left fixed the th elements for band and album
+  but it doesn't quite look right - need a better solution */
+  padding-left: 30px;
 }
 
 .confirm-delete-form {
@@ -110,7 +134,7 @@ tr:hover {
 }
 
 tr .entries:hover {
-  background-color: yellow;
+  background-color: #FFF4F4;
   cursor: pointer;
 }
 
@@ -200,6 +224,10 @@ tr .entries:hover {
   justify-items: center;
   margin-right: 80px;
 }
+
+/* .icons {
+  table-layout: fixed;
+} */
 
 .icons-hover .icons,
 .icons-hover:hover .icons-container {
@@ -303,7 +331,7 @@ tr .entries:hover {
 }
 
 .icons-container {
-  color: white
+  color: white;
 }
 
 .tip-upload-csv {
