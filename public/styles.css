@@ -234,13 +234,12 @@ tr .entries:hover {
   display: none;
 }
 
-
 /* .icons-hover:hover .icons */
 .entries:hover .icons {
-  display: inline
+  display: inline;
 }
 
-.input-search {
+.input-search input {
   display: inline;
 }
 

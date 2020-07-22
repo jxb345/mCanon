@@ -158,6 +158,7 @@ const Form = (props) => {
               <option value="jazz">jazz</option>
               <option value="blues">blues</option>
               <option value="funk">funk</option>
+              <option value="folk">folk</option>
               <option value="punk rock">punk rock</option>
               <option value="rhythmAndBlues">rhythm and blues</option>
               <option value="electronic">electronic</option>
