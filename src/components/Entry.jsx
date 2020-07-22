@@ -3,13 +3,6 @@ import React, { useState, useEffect } from 'react';
 const Entry = (props) => {
   const [element, setElement] = useState({_id: ''})
 
-  // Probably Okay to remove this function
-  // const handleConfirmDelete = (e) => {
-  //   const deletePopup = document.getElementsByClassName("confirm-delete-popup")[0];
-  //   console.log('deletePopup', deletePopup.style)
-  //   deletePopup.style.display = "block";
-  // }
-
   const handleDelete = (e) => {
       fetch('/delete-entry', {
         method: 'POST',

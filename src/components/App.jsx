@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import List from './List.jsx';
 import Search from './Search.jsx';
 import Filters from './Filters.jsx';
-import Delete from './Delete.jsx';
 
 const App = () => {
 

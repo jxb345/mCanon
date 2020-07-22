@@ -1,10 +1,7 @@
 import React from 'react';
 import Form from './Form.jsx';
-import Delete from './Delete.jsx';
-
 
 const Filters = (props) => {
-
 
   return (
     <div>
