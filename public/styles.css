@@ -35,7 +35,7 @@ p {
 
 table {
   border-collapse: collapse;
-  border: 1px solid lightgray;
+  border: 1px solid #c2b5b4;
   width: 100%;
 }
 
@@ -247,7 +247,8 @@ tr .entries:hover {
   height: 40px;
   width: 40px;
   font-size: 15px;
-  background-color:#B25353;
+  background-color: #bd5d57;
+  /* #B25353; */
 }
 
 .new-entry-form {
@@ -324,7 +325,8 @@ tr .entries:hover {
   height: 60px;
   position: sticky;
   top: -1px;
-  background-color:#C7C7C7;
+  background-color: #c2b5b4;
+  /* #C7C7C7; */
   color: white;
 
 
@@ -353,7 +355,8 @@ tr .entries:hover {
   padding-top: 7%;
   border: solid lightgray 2px;
   border-radius: 4px;
-  background-color: #F7F7F7;
+  background-color: #c2b5b4;
+  /* #F7F7F7; */
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
