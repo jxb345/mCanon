@@ -9,7 +9,6 @@ const Search = (props) => {
   }
 
   useEffect( () => {
-    console.log('query', query);
     if (query.length && query.length > 0) {
       fetch('/search', {
         method: 'POST',

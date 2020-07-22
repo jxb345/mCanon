@@ -67,7 +67,7 @@ const Entry = (props) => {
           <td  id="year-edit">{props.entry.year}</td>
           <td  id="genre-edit">{props.entry.genre}</td>
           <td  id="mood-edit">{props.entry.mood}</td>
-          <td>{props.entry.instrumental}</td>
+          <td  id="instrumental-edit">{props.entry.instrumental}</td>
           <td  id="rating-edit">{props.entry.rating}</td>
         <div className="confirm-delete-popup">
           <div className="confirm-delete-form">
