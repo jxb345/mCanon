@@ -10,12 +10,12 @@ const App = () => {
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
   const [clicked, setClicked] = useState({});
-  // commenting out buttonClicked and using buttonClicked instead
-  // to account for three possible buttons: delete, edit,
-  // and new entry
-  // const [buttonClicked, setButtonClicked] = useState(false);
   const [buttonClicked, setButtonClicked] = useState('');
   const [editEntry, setEditEntry] = useState([]);
+  const [onChangeAttribute, setOnChangeAttribute] = useState('');
+  const [disabledAttribute, setDisabledAttribute] = useState('');
+  const [option, setOption] = useState('')
+  const [filterSelect, setFilterSelect] = useState(true)
 
   // moved FROM Search.jsx
   const displayForm = () => {
@@ -77,7 +77,21 @@ const App = () => {
           <Search  entries={entries} setEntries={setEntries} />
         </div>
         <div className="grid-filters">
-          <Filters handleFilterChange={handleFilterChange} filter={filter}  setButtonClicked={setButtonClicked} buttonClicked={buttonClicked} editEntry={editEntry}/>
+          <Filters
+            handleFilterChange={handleFilterChange}
+            filter={filter}
+            setButtonClicked={setButtonClicked}
+            buttonClicked={buttonClicked}
+            editEntry={editEntry}
+            option={option}
+            setOption={setOption}
+            onChangeAttribute={onChangeAttribute}
+            setOnChangeAttribute={setOnChangeAttribute}
+            disabledAttribute={disabledAttribute}
+            setDisabledAttribute={setDisabledAttribute}
+            filterSelect={filterSelect}
+          />
+
           </div>
         <div className="grid-list">
           <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setButtonClicked={setButtonClicked} setEditEntry={setEditEntry}  />

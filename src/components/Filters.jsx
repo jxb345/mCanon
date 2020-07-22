@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form.jsx';
+import Genres from './Genres.jsx'
 
 const Filters = (props) => {
 
@@ -41,7 +42,17 @@ const Filters = (props) => {
           <p>
             genre
             <br/>
-          <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
+          <Genres
+          handleFilterChange={props.handleFilterChange}
+          option={props.option}
+          setOption={props.setOption}
+          onChangeAttribute={props.onChangeAttribute}
+          setOnChangeAttribute={props.setOnChangeAttribute}
+          disabledAttribute={props.disabledAttribute}
+          setDisabledAttribute={props.setDisabledAttribute}
+          filterSelect={props.filterSelect}
+          />
+          {/* <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
             <option value="clear">ALL</option>
             <option value="rock">rock</option>
             <option value="rap">rap</option>
@@ -53,7 +64,7 @@ const Filters = (props) => {
             <option value="rhythmAndlues">rhythm and blues</option>
             <option value="electronic">electronic</option>
             <option value="country">country</option>
-          </select>
+          </select> */}
           </p>
         </div>
         <div>
