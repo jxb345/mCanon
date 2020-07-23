@@ -45,15 +45,21 @@ table {
 } */
 
 td {
-  padding: 20px;
+  /* padding: 20px; */
   letter-spacing: 1px;;
   border-bottom: 1px solid lightgray;
   height: 35px;
+  vertical-align: middle;
 }
 
-tr:hover {
+/* commenting out the 'tr:hover' b/c I added
+padding to the icons elements so that they
+were aligned with text - and since the padding
+is white, it looked unacceptable; I'd like to
+find an actual fix for the misaligned iconss
+/* tr:hover {
   background-color: #FFFAFA;
-}
+} */
 
 #add-one-button:hover, #upload-button:hover {
   background-color: gray;
@@ -93,7 +99,7 @@ tr:hover {
   text-align: left;
   /* the padding-left fixed the th elements for band and album
   but it doesn't quite look right - need a better solution */
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 .confirm-delete-form {
@@ -229,14 +235,28 @@ tr .entries:hover {
   table-layout: fixed;
 } */
 
-.icons-hover .icons,
+/* .icons-hover .icons,
 .icons-hover:hover .icons-container {
+  display: none;
+} */
+
+/* .icons-hover:hover .icons */
+ /* .entries:hover .icons {
+  display: inline; */
+/* }   */
+
+tr:hover .icons {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.icons {
   display: none;
 }
 
-/* .icons-hover:hover .icons */
-.entries:hover .icons {
-  display: inline;
+img {
+  vertical-align: middle;
+  padding-bottom: 18px;
 }
 
 .input-search input {
