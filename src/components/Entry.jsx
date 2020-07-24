@@ -53,7 +53,7 @@ const Entry = (props) => {
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>
-                  <img id="edit-pencil" src="./edit-pencil.png" alt="pencil-image" height="20" width="20"/>
+                  <img id="edit-pencil" src="./edit-pencil.png" alt="pencil-image" height="19" width="19"/>
                 </button>
                 &nbsp;
                 <button onClick={handleEdit}>
