@@ -73,11 +73,9 @@ app.post('/edit-entry', (req, res) => {
 
 app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   const file = req.file;
-  // /csv$/
   const fileExtension = /csv$/
-  console.log('file.originalname', file.originalname)
   if (!fileExtension.test(file.originalname)) {
-    res.status(403).send('Please only upload files with a .csv extension. Thanks!')
+    res.status(403).send('<h3>Please only upload files with a .csv extension. Thanks!')
   }
   fs.createReadStream(file.path, 'utf-8')
     .pipe(csv())
