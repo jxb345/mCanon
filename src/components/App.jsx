@@ -26,7 +26,7 @@ const App = () => {
   }
 
   const titleStyle = {
-    color: 'rgb(189, 150, 146)'
+    color: 'rgb(145, 159, 182)'
   }
 
   const handleFilterChange = (e) => {

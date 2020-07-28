@@ -4,19 +4,20 @@ button {
   padding: 10px;
   border-radius: 4px;
   border-color: transparent;
-  outline-color: lightgray;
+  /* outline-color: lightgray;¬ */
   font-weight: 700;
-  background-color: #9F9F9F;
+  background-color: #919FB6;
   color: white;
   align-content: center;
   cursor: pointer;
 }
 
 input {
-  height: 30px;
+  height: 33px;
   width: 227px;
   border-radius: 4px;
-  border:1px solid #ccc;
+  border:1px solid white;
+  background-color: #F1F1F1;
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-left: 10px;
@@ -56,7 +57,7 @@ find an actual fix for the misaligned iconss
 } */
 
 #add-one-button:hover, #upload-button:hover {
-  filter: brightness(75%);
+  filter: brightness(90%);
 }
 
 #album-edit {
@@ -148,12 +149,13 @@ tr .entries:hover {
 .filters select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align-last: center;
-  height: 30px;
+  height: 35px;
   width: 150px;
-  color:rgb(71, 68, 68);
-  border: 1px solid gray;
+  color: black;
+  /* rgb(71, 68, 68); */
+  border: 1px solid white;
   border-radius: 3px;
-  background-color: #F7F6F6;
+  background-color: #F1F1F1;
 }
 
 .form {
@@ -161,21 +163,22 @@ tr .entries:hover {
 }
 
 .form select {
-  height: 30px;
+  height: 33px;
   width: 255px;
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-right: 20px;
   color: gray;
-  border: 1px solid lightgrey;
+  background-color: #F1F1F1;
+  border: 1px solid white;
   border-radius: 3px;
   text-align-last: center;
 }
 
 .form-title {
   border-radius: 1px;
-  /* border: 1px solid #BFA7A5; */
-  /* background-color: #BFA7A5; */
+  /* border: 1px solid #919FB6; */
+  /* background-color: #919FB6; */
   /* color: white; */
   font-weight: 600;
   font-size: 27px;
@@ -254,7 +257,7 @@ img {
   font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid white;
-  background-color: #F7F6F6;
+  background-color: #F1F1F1;
 }
 
 .new-entry-btn {
@@ -262,7 +265,7 @@ img {
   height: 43px;
   width: 43px;
   font-size: 15px;
-  background-color: #BFA7A5;
+  background-color: #919FB6;
   border: 1px solid lightgray;
   /* #bd5d57; */
   /* #B25353; */
@@ -276,7 +279,7 @@ img {
 .new-entry-form {
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid #888;
   border-radius: 4px;
   width: 30%;
@@ -331,7 +334,7 @@ img {
 }
 
 .tabs-new-entry-links button {
-  background-color: #BFA7A5;
+  background-color: #919FB6;
   border-radius: 0px;
   transition: 0.3s;
   margin: 0;
@@ -347,7 +350,8 @@ img {
   height: 60px;
   position: sticky;
   top: -1px;
-  background-color: #BFA7A5;
+  background-color: #919FB6;
+  border-radius: 2px;
   /* #C7C7C7; */
   color: white;
 }
@@ -373,9 +377,10 @@ img {
   font-size: 14px;
   padding-left: 40%;
   padding-top: 7%;
-  border: solid lightgray 2px;
+  /* border: solid lightgray 2px; */
   border-radius: 4px;
-  background-color: #c2b5b4;
+  background-color: #919FB6;
+  color: white;
   /* #F7F7F7; */
   z-index: 1;
   opacity: 0;
@@ -404,7 +409,7 @@ img {
   font-weight: 800;
   text-align: left;
   padding: 5px;
-  padding-left: 20px;
+  padding-left: 65px;
   color:gray;
 }
 
