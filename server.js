@@ -72,12 +72,13 @@ app.post('/edit-entry', (req, res) => {
 })
 
 app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
-  const file = req.file;
-  const fileExtension = /csv$/
-  if (!fileExtension.test(file.originalname)) {
+  const uploadedFile = req.file || 'nofile';
+  const fileName = uploadedFile.originalname || 'noFileName';
+  const extension = /csv$/;
+  if (!extension.test(fileName)) {
     res.status(403).send('<h3>Please only upload files with a .csv extension. Thanks!')
   }
-  fs.createReadStream(file.path, 'utf-8')
+  fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
       console.log('row', row)
