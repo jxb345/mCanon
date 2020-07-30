@@ -1,10 +1,14 @@
+a {
+  color: gray;
+  text-decoration: underline;
+  text-decoration-color: gray;
+}
 
 button {
   margin: 5px;
   padding: 10px;
   border-radius: 4px;
   border-color: transparent;
-  /* outline-color: lightgray;¬ */
   font-weight: 700;
   background-color: #919FB6;
   color: white;
@@ -20,7 +24,7 @@ input {
   background-color: #F1F1F1;
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding-left: 10px;
+  /* padding-left: 10px; */
 }
 
 input[type="file"] {
@@ -60,12 +64,17 @@ padding to the icons elements so that they
 were aligned with text - and since the padding
 is white, it looked unacceptable; I'd like to
 find an actual fix for the misaligned iconss
+*/
 /* tr:hover {
-  background-color: #FFFAFA;
+  background-color: #FBFCFE;
 } */
 
+/* commenting out this filter on hover b/c
+the button that is currently selected will
+still darken as if the user can click on
+the button - this is obviously confusing
 /* #add-one-button:hover, #upload-button:hover {
-  filter: brightness(70%);
+  filter: brightness(90%);
 } */
 
 #album-edit {
@@ -132,12 +141,16 @@ find an actual fix for the misaligned iconss
   /* font-weight: 600; */
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  border: 1px solid white;
+  border: 1px solid lightgray;
   border-radius: 4px;
   background-color: #F4F4F4;
   /* padding: 6px 12px; */
   padding-top: 10px;
   cursor: pointer;
+}
+
+.edit-delete-form {
+  border-top: 1px solid lightgray;
 }
 
 .edit-entry-popup {
@@ -200,13 +213,12 @@ tr .entries:hover {
 
 .form-title {
   border-radius: 1px;
-  /* border: 1px solid #919FB6; */
-  /* background-color: #919FB6; */
-  /* color: white; */
+  color: gray;
   font-weight: 600;
-  font-size: 27px;
+  font-size: 26px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding: 10px;
+  letter-spacing: 0.04em;
 }
 
 .grid {
@@ -266,6 +278,7 @@ img {
   font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid white;
+  padding-left: 10px;
   background-color: #F4F4F4;
 }
 
@@ -287,11 +300,12 @@ img {
 
 .new-entry-form {
   background-color: #fefefe;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.18);
   margin: auto;
   /* padding: 30px; */
-  border: 1px solid white;
+  border-top: 10px solid #919FB6;
   border-radius: 4px;
-  width: 35%;
+  width: 32%;
   height: 90%;
   text-align: center;
 }
@@ -358,6 +372,9 @@ img {
   background-color: #919FB6;
   /* #C7C7C7; */
   color: white;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .icons-container {
@@ -375,7 +392,7 @@ img {
   top: 35px;
   left: -110px;
   width: 325px;
-  height: 240px;
+  height: 260px;
   text-align: justify;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 14px;

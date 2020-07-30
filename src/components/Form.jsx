@@ -134,13 +134,13 @@ const Form = (props) => {
                   ADD ONE
                 </button>
                 <button type="button" id="upload-button" onClick={() => { handleTabs('upload') }}>
-                  UPLOAD CSV
+                  ADD MANY
                 </button>
               </div>
               :
-              <div>
+              <div className="edit-delete-form">
                 <br/>
-                <br/>
+                {/* <br/> */}
               </div>
           }
 
@@ -228,16 +228,16 @@ const Form = (props) => {
           <br />
           <div className="tip-upload-csv">
             <a href="./../../mcanon-template.csv" download>download CSV template</a>
-            <img src="./../../info-ic.png" alt="information-icon" height="20px" width="20px" />
+            <img src="./../../info-icon.jpg" alt="information-icon" height="17px" width="17px" />
             <div className="tip-upload-csv-question">
               <div className="tip-upload-csv-title">
                 <strong> To Use The CSV Template File: </strong><br />
               </div>
               <div>
-                1. Click the link above to download. <br />
+              1. Click the link above to download. <br />
               2. Open the template file. <br />
-              3. Fill in the template file for each row:
-              <br />
+              3. Fill in the template file for each row. <br />
+              4. Select and upload your edited file. <br />
               </div>
               <div className="tip-upload-csv-items">
                 BAND: <i>name of the band</i> <br />
