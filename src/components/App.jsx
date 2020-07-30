@@ -26,7 +26,8 @@ const App = () => {
   }
 
   const titleStyle = {
-    color: 'rgb(145, 159, 182)'
+    color: 'rgb(145, 159, 182)',
+    fontSize: '16px'
   }
 
   const handleFilterChange = (e) => {
@@ -94,7 +95,15 @@ const App = () => {
 
           </div>
         <div className="grid-list">
-          <List setEntries={setEntries} entries={entries} handleClick={handleClick} clicked={clicked} setClicked={setClicked} setButtonClicked={setButtonClicked} setEditEntry={setEditEntry}  />
+          <List
+            setEntries={setEntries}
+            entries={entries}
+            handleClick={handleClick}
+            clicked={clicked}
+            setClicked={setClicked}
+            setButtonClicked={setButtonClicked}
+            setEditEntry={setEditEntry}
+          />
           </div>
       </div>
     </div>

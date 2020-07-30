@@ -159,7 +159,7 @@ tr .entries:hover {
   /* rgb(71, 68, 68); */
   border: 1px solid white;
   border-radius: 3px;
-  background-color: #F1F1F1;
+  background-color: #F4F4F4;
 }
 
 .form {
@@ -206,7 +206,7 @@ tr .entries:hover {
 .grid-list {
   grid-column: 2;
   grid-row: 2 / 4;
-  border-top: 1px solid lightgray;
+  /* border-top: 1px solid lightgray; */
 }
 
 .grid-new-button {
@@ -226,20 +226,6 @@ tr .entries:hover {
   margin-right: 80px;
 }
 
-/* .icons {
-  table-layout: fixed;
-} */
-
-/* .icons-hover .icons,
-.icons-hover:hover .icons-container {
-  display: none;
-} */
-
-/* .icons-hover:hover .icons */
- /* .entries:hover .icons {
-  display: inline; */
-/* }   */
-
 tr:hover .icons {
   display: inline-block;
   vertical-align: middle;
@@ -256,18 +242,18 @@ img {
 
 .input-search input {
   display: inline-block;
-  height: 40px;
-  width: 300px;
+  height: 45px;
+  width: 350px;
   font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid white;
-  background-color: #F1F1F1;
+  background-color: #F4F4F4;
 }
 
 .new-entry-btn {
   border-radius: 50%;
-  height: 43px;
-  width: 43px;
+  height: 40px;
+  width: 40px;
   font-size: 15px;
   background-color: #919FB6;
   border: 1px solid lightgray;

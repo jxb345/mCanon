@@ -6,14 +6,12 @@ const Filters = (props) => {
 
   return (
     <div>
-      {/* <div className="confirm-delete-popup">
-        <div className="confirm-delete-form">
-          <Delete />
-        </div>
-      </div> */}
       <div className="new-entry-popup">
         <div className="new-entry-form">
-          <Form setButtonClicked={props.setButtonClicked} buttonClicked={props.buttonClicked} editEntry={props.editEntry} />
+          <Form
+            setButtonClicked={props.setButtonClicked}
+            buttonClicked={props.buttonClicked}
+            editEntry={props.editEntry} />
         </div>
       </div>
       <div className="filters">

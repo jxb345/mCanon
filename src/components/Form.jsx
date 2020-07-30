@@ -17,7 +17,10 @@ const Form = (props) => {
   const [editBand, setEditBand] = useState('');
   const [editAlbum, setEditAlbum] = useState('');
   const [editYear, setEditYear] = useState('');
-
+  const manual = document.getElementsByClassName("tab-content-manual")[0];
+  const manualButton = document.getElementById("add-one-button");
+  const upload = document.getElementsByClassName("tab-content-upload")[0];
+  const uploadButton = document.getElementById("upload-button");
 
   useEffect(() => {
     if (props.buttonClicked === 'edit') {
@@ -81,6 +84,10 @@ const Form = (props) => {
   const handleCancel = () => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     popup.style.display = "none";
+    manual.style.display = 'block';
+    manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
+    uploadButton.style.backgroundColor = 'lightgray'
+    upload.style.display = 'none';
   }
 
   const handleChange = (e) => {
@@ -97,11 +104,6 @@ const Form = (props) => {
   }
 
   const handleTabs = (action) => {
-    const manual = document.getElementsByClassName("tab-content-manual")[0];
-    const manualButton = document.getElementById("add-one-button");
-    const upload = document.getElementsByClassName("tab-content-upload")[0];
-    const uploadButton = document.getElementById("upload-button");
-
     if (action === 'add-one') {
       manual.style.display = 'block';
       manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
