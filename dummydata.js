@@ -33,9 +33,9 @@ const instrumental = [
   'no'
 ]
 
-const book = [
+const musicCollection = [
   'canon',
-  'research'
+  'nominee'
 ];
 
 function getRandom(min, max) {

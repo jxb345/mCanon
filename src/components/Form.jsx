@@ -192,7 +192,7 @@ const Form = (props) => {
             <select type="text" name="collection" id="collection" disabled={formSettings.disabled}>
               <option selected>{formSettings.musicCollectionSelected}</option>
               <option value="canon">canon</option>
-              <option value="research">research</option>
+              <option value="nominee">nominee</option>
             </select>
             <br />
             <br />
@@ -261,8 +261,8 @@ const Form = (props) => {
                   1, 2, or 3
                      </i>
                 <br />
-                   BOOK: <i>
-                  canon or research
+                   COLLECTION: <i>
+                  canon or nominee
                    </i>
                 <br />
                  INSTRUMENTAL: <i>

@@ -21,7 +21,7 @@ const Filters = (props) => {
         <select type="text" name="collection" id="collection" onChange={props.handleFilterChange} >
           <option value="clear">ALL</option>
           <option value="canon">canon</option>
-          <option value="research">research</option>
+          <option value="nominee">nominee</option>
         </select>
         </p>
         <div>
