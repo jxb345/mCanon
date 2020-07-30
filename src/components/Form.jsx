@@ -104,14 +104,14 @@ const Form = (props) => {
 
     if (action === 'add-one') {
       manual.style.display = 'block';
-      manualButton.style.backgroundColor = 'rgb(191, 167, 165)';
+      manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
       uploadButton.style.backgroundColor = 'lightgray'
       upload.style.display = 'none';
     } else {
       manual.style.display = 'none';
       manualButton.style.backgroundColor = 'lightgray';
       upload.style.display = 'block';
-      uploadButton.style.backgroundColor = 'rgb(191, 167, 165)';
+      uploadButton.style.backgroundColor = 'rgb(145, 159, 182)';
     }
   }
 

@@ -36,13 +36,17 @@ p {
 
 table {
   border-collapse: collapse;
-  border: 1px solid #c2b5b4;
+  border-right: 1px solid #E9E9E9;
   width: 100%;
+}
+
+th {
+  font-size: 17px;
 }
 
 td {
   letter-spacing: 1px;;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #E9E9E9;
   /* height: 30px; */
   vertical-align: middle;
 }
@@ -195,8 +199,8 @@ tr .entries:hover {
 .grid-filters {
   grid-column: 1;
   grid-row: 2 / 5;
-  border-top: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border-top: 1px solid #E9E9E9;
+  border-right: 1px solid #E9E9E9;
 }
 
 .grid-list {
@@ -273,17 +277,17 @@ img {
 }
 
 .new-entry-btn:hover {
-  background-color: #C00000 ;
+  background-color: #607EB2 ;
 }
 
 .new-entry-form {
   background-color: #fefefe;
   margin: auto;
-  padding: 30px;
-  border: 1px solid #888;
+  /* padding: 30px; */
+  border: 1px solid white;
   border-radius: 4px;
-  width: 30%;
-  height: 85%;
+  width: 35%;
+  height: 90%;
   text-align: center;
 }
 
@@ -344,6 +348,7 @@ img {
 .table-container {
   overflow-y: auto;
   height: 700px;
+  border-radius: 4px;
 }
 
  .table-container th {
@@ -351,7 +356,6 @@ img {
   position: sticky;
   top: -1px;
   background-color: #919FB6;
-  border-radius: 2px;
   /* #C7C7C7; */
   color: white;
 }
@@ -404,7 +408,7 @@ img {
 }
 
 .title {
-  border-bottom: 2px solid lightgray;
+  border-bottom: 1px solid lightgray;
   font-family: Rockwell;
   font-weight: 800;
   text-align: left;
