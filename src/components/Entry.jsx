@@ -42,6 +42,14 @@ const Entry = (props) => {
     setElement({_id: props.entry._id})
   }
 
+  const displayInstrumental = () => {
+    if (props.entry.instrumental === 'yes') {
+      return <span>
+          <img id="checkmark" src="./checkmark.jpg" alt="checkmark" height="19" width="19" />
+    </span>
+}
+  }
+
   const displayRating = () => {
     if (props.entry.rating === 1) {
         return <span>
@@ -54,13 +62,15 @@ const Entry = (props) => {
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
     </span>
 }
-    else {
+    else if (props.entry.rating === 3) {
       return <span>
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
     </span>
-}
+    } else {
+      return '';
+    }
   }
 
   return (
@@ -91,7 +101,7 @@ const Entry = (props) => {
           <td  id="year-edit">{props.entry.year}</td>
           <td  id="genre-edit">{props.entry.genre}</td>
           <td  id="mood-edit">{props.entry.mood}</td>
-          <td  id="instrumental-edit">{props.entry.instrumental}</td>
+          <td  id="instrumental-edit">{displayInstrumental()}</td>
           <td  id="rating-edit">{displayRating()}</td>
         <div className="confirm-delete-popup">
           <div className="confirm-delete-form">

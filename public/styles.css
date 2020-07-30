@@ -89,6 +89,10 @@ the button - this is obviously confusing
   margin-right: 25px;
 }
 
+#instrumental-edit {
+  padding-top: 15px;
+}
+
 #rating-edit {
   padding-top: 15px;
 }
