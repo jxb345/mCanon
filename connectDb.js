@@ -11,7 +11,7 @@ const Entry = new Schema({
   instrumental: String,
   year: Number,
   rating: Number,
-  book: String,
+  musicCollection: String,
 })
 
 module.exports = { Entry }

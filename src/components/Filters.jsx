@@ -16,11 +16,11 @@ const Filters = (props) => {
       </div>
       <div className="filters">
         <p>
-          book
+          collection
           <br></br>
-        <select type="text" name="book" id="book" onChange={props.handleFilterChange} >
+        <select type="text" name="collection" id="collection" onChange={props.handleFilterChange} >
           <option value="clear">ALL</option>
-          <option value="book">book</option>
+          <option value="canon">canon</option>
           <option value="research">research</option>
         </select>
         </p>

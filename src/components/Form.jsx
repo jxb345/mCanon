@@ -11,7 +11,7 @@ const Form = (props) => {
     genreSelected: '',
     moodSelected: '',
     ratingSelected: '',
-    bookSelected: '',
+    musicCollectionSelected: '',
     instrumentalSelected: ''
   })
   const [editBand, setEditBand] = useState('');
@@ -37,7 +37,7 @@ const Form = (props) => {
         genreSelected: props.editEntry.genre,
         moodSelected: props.editEntry.mood,
         ratingSelected: props.editEntry.rating,
-        bookSelected: props.editEntry.book,
+        musicCollectionSelected: props.editEntry.musicCollection,
         instrumentalSelected: props.editEntry.instrumental,
         disabled: ''
       })
@@ -53,7 +53,7 @@ const Form = (props) => {
         genreSelected: 'genre',
         moodSelected: 'mood',
         ratingSelected: 'rating',
-        bookSelected: 'book',
+        musicCollectionSelected: 'collection',
         instrumentalSelected: 'instrumental',
         button: 'ADD',
         disabled: ''
@@ -70,7 +70,7 @@ const Form = (props) => {
         genreSelected: props.editEntry.genre,
         moodSelected: props.editEntry.mood,
         ratingSelected: props.editEntry.rating,
-        bookSelected: props.editEntry.book,
+        musicCollectionSelected: props.editEntry.musicCollection,
         instrumentalSelected: props.editEntry.instrumental,
         disabled: 'disabled'
       })
@@ -189,8 +189,8 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <select type="text" name="book" id="book" disabled={formSettings.disabled}>
-              <option selected>{formSettings.bookSelected}</option>
+            <select type="text" name="collection" id="collection" disabled={formSettings.disabled}>
+              <option selected>{formSettings.musicCollectionSelected}</option>
               <option value="canon">canon</option>
               <option value="research">research</option>
             </select>

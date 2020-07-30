@@ -59,7 +59,7 @@ const fillDatabase = (numOfEntries) => {
     singleEntry.instrumental =  instrumental[getRandom(0,1)],
     singleEntry.year =  getRandom(1900, 2020),
     singleEntry.rating = getRandom(1,3),
-    singleEntry.book = book[getRandom(0,1)],
+    singleEntry.musicCollection = musicCollection[getRandom(0,1)],
     entries.push(singleEntry)
   }
 

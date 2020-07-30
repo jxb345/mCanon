@@ -28,8 +28,8 @@ const addEntry = (entry) => {
     entry.instrumental = "";
   }
 
-  if (entry.book === "book") {
-    entry.book = "";
+  if (entry.musicCollection === "collection") {
+    entry.musicCollection = "";
   }
 
 
@@ -41,7 +41,7 @@ const addEntry = (entry) => {
     instrumental: entry.instrumental,
     year: entry.year || null,
     rating: entry.rating || null,
-    book: entry.book,
+    musicCollection: entry.musicCollection,
   })
 
   return new Promise((resolve, reject) => {
@@ -94,7 +94,7 @@ const compareTwoEntries = (original, edited) => {
     'genre',
     'mood',
     'rating',
-    'book',
+    'collection',
     'instrumental'
   ]
 
