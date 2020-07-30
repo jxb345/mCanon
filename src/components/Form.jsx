@@ -85,8 +85,9 @@ const Form = (props) => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     popup.style.display = "none";
     manual.style.display = 'block';
-    manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
-    uploadButton.style.backgroundColor = 'lightgray'
+    manualButton.style.opacity = '100%'
+    // manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
+    uploadButton.style.opacity = '40%'
     upload.style.display = 'none';
   }
 
@@ -105,15 +106,17 @@ const Form = (props) => {
 
   const handleTabs = (action) => {
     if (action === 'add-one') {
+      manualButton.style.opacity = '100%'
       manual.style.display = 'block';
-      manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
-      uploadButton.style.backgroundColor = 'lightgray'
+      // manualButton.style.opacity = '40%(145, 159, 182)';
+      uploadButton.style.opacity = '40%'
       upload.style.display = 'none';
     } else {
       manual.style.display = 'none';
-      manualButton.style.backgroundColor = 'lightgray';
+      manualButton.style.opacity = '40%';
       upload.style.display = 'block';
-      uploadButton.style.backgroundColor = 'rgb(145, 159, 182)';
+      uploadButton.style.opacity = '100%'
+      // uploadButton.style.backgroundColor = 'rgb(145, 159, 182)';
     }
   }
 
@@ -210,9 +213,12 @@ const Form = (props) => {
           <form action="/upload-csv" method="post" enctype="multipart/form-data">
             <div>
               <br />
-              <br />
+              {/* <br /> */}
               <a href="" />
-              <input type="file" name="csv-file" />
+              <label for='file-upload' className="custom-file-upload">
+                select CSV file
+              </label>
+              <input id="file-upload" type="file" name="csv-file" />
               <br />
               <button id="upload-cancel-button" type="button" onClick={handleCancel}>CANCEL</button>
               <button >UPLOAD</button>

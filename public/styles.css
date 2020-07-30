@@ -23,6 +23,10 @@ input {
   padding-left: 10px;
 }
 
+input[type="file"] {
+  display: none;
+}
+
 #add-one-entry input[placeholder] {
   padding-right: 18px;
   text-align: center;
@@ -60,9 +64,9 @@ find an actual fix for the misaligned iconss
   background-color: #FFFAFA;
 } */
 
-#add-one-button:hover, #upload-button:hover {
-  filter: brightness(90%);
-}
+/* #add-one-button:hover, #upload-button:hover {
+  filter: brightness(70%);
+} */
 
 #album-edit {
   text-align: left;
@@ -77,12 +81,12 @@ find an actual fix for the misaligned iconss
 }
 
 #upload-button {
-  background-color: lightgray;
-  color: white;
+  background-color: #919FB6;
+  opacity: 45%;
 }
 
 #upload-cancel-button {
-  margin-left: -50px;
+  margin-left: -5px;
 }
 
 .columns-icons {
@@ -119,6 +123,21 @@ find an actual fix for the misaligned iconss
   top: 0;
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.7);
+}
+
+.custom-file-upload {
+  display: inline-block;
+  width: 210px;
+  height: 30px;
+  /* font-weight: 600; */
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: #F4F4F4;
+  /* padding: 6px 12px; */
+  padding-top: 10px;
+  cursor: pointer;
 }
 
 .edit-entry-popup {
@@ -307,13 +326,8 @@ img {
   margin-top: 10px;
 }
 
-/* .tab-content-upload button {
-  margin-left: 20px;
-} */
-
 .tabs-new-entry-links {
   overflow: hidden;
-  /* background-color: gray; */
   margin-bottom: 15px;
   width: 100%;
   text-align: center;
