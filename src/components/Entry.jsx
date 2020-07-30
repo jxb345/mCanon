@@ -42,6 +42,27 @@ const Entry = (props) => {
     setElement({_id: props.entry._id})
   }
 
+  const displayRating = () => {
+    if (props.entry.rating === 1) {
+        return <span>
+                <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+              </span>
+     }
+    else if (props.entry.rating === 2) {
+      return <span>
+      <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+      <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+    </span>
+}
+    else {
+      return <span>
+      <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+      <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+      <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
+    </span>
+}
+  }
+
   return (
       <tr className="entries" onMouseEnter={hoverElement}>
           <td>
@@ -53,22 +74,25 @@ const Entry = (props) => {
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>
-                  <img id="edit-pencil" src="./edit-pencil.png" alt="pencil-image" height="19" width="19"/>
+                  <img id="edit-pencil" src="./edit-pencil.jpg" alt="pencil-image" height="19" width="19"/>
                 </button>
                 &nbsp;
                 <button onClick={handleEdit}>
-                  <img id="delete-trash-can" src="./trash-can.png" alt="trash-can-image" height="20" width="20"/>
+                  <img id="delete-trash-can" src="./trash-can.jpg" alt="trash-can-image" height="20" width="20"/>
                 </button>
               </div>
             </div>
             </td>
+            {
+            console.log('dR', displayRating)
+}
           <td  id="band-edit" >{props.entry.band}</td>
           <td  id="album-edit">{props.entry.album}</td>
           <td  id="year-edit">{props.entry.year}</td>
           <td  id="genre-edit">{props.entry.genre}</td>
           <td  id="mood-edit">{props.entry.mood}</td>
           <td  id="instrumental-edit">{props.entry.instrumental}</td>
-          <td  id="rating-edit">{props.entry.rating}</td>
+          <td  id="rating-edit">{displayRating()}</td>
         <div className="confirm-delete-popup">
           <div className="confirm-delete-form">
             <br/>

@@ -31,12 +31,6 @@ input[type="file"] {
   display: none;
 }
 
-#add-one-entry input[placeholder] {
-  padding-right: 18px;
-  text-align: center;
-}
-
-
 p {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   text-align: center;
@@ -77,6 +71,12 @@ the button - this is obviously confusing
   filter: brightness(90%);
 } */
 
+#add-one-entry input[placeholder] {
+  padding-right: 18px;
+  text-align: center;
+}
+
+
 #album-edit {
   text-align: left;
 }
@@ -87,6 +87,10 @@ the button - this is obviously confusing
 
 #form-action-button {
   margin-right: 25px;
+}
+
+#rating-edit {
+  padding-top: 15px;
 }
 
 #upload-button {
