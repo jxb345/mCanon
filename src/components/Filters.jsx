@@ -1,6 +1,5 @@
 import React from 'react';
 import Form from './Form.jsx';
-import Genres from './Genres.jsx'
 
 const Filters = (props) => {
 

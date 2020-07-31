@@ -32,9 +32,7 @@ const App = () => {
 
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
-    console.log('currentFilterValue', currentFilterValue)
     let currentFilterId = e.target.id
-    console.log('currentFilterId', currentFilterId)
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
   }
 
