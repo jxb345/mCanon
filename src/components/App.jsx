@@ -68,6 +68,8 @@ const App = () => {
   return (
     <div>
       <div className="title">
+        <img src="./cannon.jpg" alt="cannon-icon" height="32px" width="32px"/>
+        <br />
         m<span style={titleStyle}>C</span>anon
       </div>
       <div className="grid">
