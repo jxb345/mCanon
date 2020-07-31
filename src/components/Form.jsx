@@ -189,7 +189,7 @@ const Form = (props) => {
             </select>
             <br />
             <br />
-            <select type="text" name="collection" id="collection" disabled={formSettings.disabled}>
+            <select type="text" name="musicCollection" id="musicCollection" disabled={formSettings.disabled}>
               <option selected>{formSettings.musicCollectionSelected}</option>
               <option value="canon">canon</option>
               <option value="nominee">nominee</option>

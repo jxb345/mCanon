@@ -125,12 +125,17 @@ const capitalize = (name) => {
 }
 
 const filter = (filters) => {
-    for (let key in filters) {
-      if (filters[key] === 'clear') {
-        delete filters[key]
-      }
+  for (let key in filters) {
+    if (key === 'collection') {
+      filters.musicCollection = filters[key];
+      delete filters.collection;
     }
+    if (filters[key] === 'clear') {
+      delete filters[key]
+    }
+  }
 
+  console.log('filters', filters)
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }

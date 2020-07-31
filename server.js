@@ -34,6 +34,7 @@ app.post('/search', (req, res) => {
 
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
+  console.log('filters', filters)
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
@@ -48,6 +49,10 @@ app.post('/query-entries', (req, res) => {
 
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
+  console.log('r', req.body.collection)
+  // entry.musicCollection = mColl;
+  delete entry.collection;
+  console.log('entry', entry)
   addEntry(entry)
     .then(res.status(301).redirect(HOME));
 

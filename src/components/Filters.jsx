@@ -40,18 +40,8 @@ const Filters = (props) => {
           <p>
             genre
             <br/>
-          <Genres
-          handleFilterChange={props.handleFilterChange}
-          option={props.option}
-          setOption={props.setOption}
-          onChangeAttribute={props.onChangeAttribute}
-          setOnChangeAttribute={props.setOnChangeAttribute}
-          disabledAttribute={props.disabledAttribute}
-          setDisabledAttribute={props.setDisabledAttribute}
-          filterSelect={props.filterSelect}
-          />
-          {/* <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
-            <option value="clear">ALL</option>
+          <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
+            {/* <option value="clear">ALL</option>
             <option value="rock">rock</option>
             <option value="rap">rap</option>
             <option value="jazz">jazz</option>
@@ -61,8 +51,30 @@ const Filters = (props) => {
             <option value="punk rock">punk rock</option>
             <option value="rhythmAndlues">rhythm and blues</option>
             <option value="electronic">electronic</option>
+            <option value="country">country</option> */}
+            <option value="clear">ALL</option>
+            <option value="bachata">bachata</option>
+            <option value="bassaNova">bassa nova</option>
+            <option value="blues">blues</option>
+            <option value="bolero">bolero</option>
+            <option value="classical">classical</option>
             <option value="country">country</option>
-          </select> */}
+            <option value="electronic">electronic</option>
+            <option value="funk">funk</option>
+            <option value="folk">folk</option>
+            <option value="gospel">gospel</option>
+            <option value="jazz">jazz</option>
+            <option value="metal">metal</option>
+            <option value="musicalTheater">musical theater</option>
+            <option value="pop">pop</option>
+            <option value="punk rock">punk rock</option>
+            <option value="reggae">reggae</option>
+            <option value="rap">rap</option>
+            <option value="rhythmAndlues">rhythm and blues</option>
+            <option value="rock">rock</option>
+            <option value="salsa">salsa</option>
+            <option value="soul">soul</option>
+          </select>
           </p>
         </div>
         <div>

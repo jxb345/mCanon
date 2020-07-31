@@ -88,14 +88,11 @@ const Entry = (props) => {
                 </button>
                 &nbsp;
                 <button onClick={handleEdit}>
-                  <img id="delete-trash-can" src="./trash-can.jpg" alt="trash-can-image" height="18px" width="18px"/>
+                  <img id="delete-trash-can" src="./trash-can.jpg" alt="trash-can-image" height="17px" width="17px"/>
                 </button>
               </div>
             </div>
             </td>
-            {
-            console.log('dR', displayRating)
-}
           <td  id="band-edit" >{props.entry.band}</td>
           <td  id="album-edit">{props.entry.album}</td>
           <td  id="year-edit">{props.entry.year}</td>
