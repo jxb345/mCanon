@@ -135,7 +135,6 @@ const filter = (filters) => {
     }
   }
 
-  console.log('filters', filters)
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }

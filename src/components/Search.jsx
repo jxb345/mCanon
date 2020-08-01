@@ -44,7 +44,7 @@ const Search = (props) => {
       {/* moved to App.Jsx
      <button className="new-entry-btn" onClick={displayForm}>+</button> */}
       <div className="input-search">
-      <input type="text" placeholder="search for band or album" onChange={handleChange} />
+      <input type="text" onChange={handleChange} />
       </div>
     </div>
   )

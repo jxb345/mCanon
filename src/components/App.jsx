@@ -33,6 +33,7 @@ const App = () => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
+    console.log('currentFilterId', currentFilterId)
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
   }
 
@@ -68,9 +69,9 @@ const App = () => {
   return (
     <div>
       <div className="title">
-        <img src="./cannon.jpg" alt="cannon-icon" height="32px" width="32px"/>
-        <br />
-        m<span style={titleStyle}>C</span>anon
+        {/* <img src="./cd.jpg" alt="cannon-icon" height="35px" width="35px"/> */}
+        m
+        <span style={titleStyle}>C</span>anon
       </div>
       <div className="grid">
         <div className="grid-new-button">
