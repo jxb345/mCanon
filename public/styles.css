@@ -285,15 +285,15 @@ img {
   height: 45px;
   width: 350px;
   font-size: 14px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 1px solid white;
   padding-left: 10px;
   background-color: #F4F4F4;
   background-image: url('./search-icon.png');
+  background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
   /* background-origin: content-box; */
-  text-indent: 20px;
 }
 
 .input-search input:focus {
