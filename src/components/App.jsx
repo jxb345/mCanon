@@ -50,7 +50,6 @@ const App = () => {
    }
 
     useEffect(() => {
-
       console.log('fetching...')
       fetch('/query-entries', {
         method: 'POST',

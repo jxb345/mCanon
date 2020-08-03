@@ -23,6 +23,8 @@ const Form = (props) => {
   const uploadButton = document.getElementById("upload-button");
 
   useEffect(() => {
+    console.log('buttonClicked', props.buttonClicked)
+
     if (props.buttonClicked === 'edit') {
       // need to account for entry having "" for either mood,
       // genre, or instrumental; if that is the case, then
@@ -82,12 +84,13 @@ const Form = (props) => {
   }, [props.buttonClicked, props.editEntry])
 
   const handleCancel = () => {
+    props.setButtonClicked('');
+    // console.log('props', props)
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     popup.style.display = "none";
     manual.style.display = 'block';
-    manualButton.style.opacity = '100%'
-    // manualButton.style.backgroundColor = 'rgb(145, 159, 182)';
-    uploadButton.style.opacity = '40%'
+    // manualButton.style.opacity = '100%'
+    // uploadButton.style.opacity = '40%'
     upload.style.display = 'none';
   }
 
@@ -108,7 +111,6 @@ const Form = (props) => {
     if (action === 'add-one') {
       manualButton.style.opacity = '100%'
       manual.style.display = 'block';
-      // manualButton.style.opacity = '40%(145, 159, 182)';
       uploadButton.style.opacity = '40%'
       upload.style.display = 'none';
     } else {
@@ -116,7 +118,6 @@ const Form = (props) => {
       manualButton.style.opacity = '40%';
       upload.style.display = 'block';
       uploadButton.style.opacity = '100%'
-      // uploadButton.style.backgroundColor = 'rgb(145, 159, 182)';
     }
   }
 
