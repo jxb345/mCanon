@@ -24,6 +24,7 @@ const Form = (props) => {
 
   useEffect(() => {
     console.log('buttonClicked', props.buttonClicked)
+    console.log('formSettings', formSettings)
 
     if (props.buttonClicked === 'edit') {
       // need to account for entry having "" for either mood,
@@ -47,20 +48,7 @@ const Form = (props) => {
       setEditAlbum(props.editEntry.album);
       setEditYear(props.editEntry.year);
 
-    } else if (props.buttonClicked === 'new') {
-      setFormSettings({
-        formAction: '/new-entry',
-        title: 'NEW ENTRY',
-        button: 'ADD',
-        genreSelected: 'genre',
-        moodSelected: 'mood',
-        ratingSelected: 'rating',
-        musicCollectionSelected: 'collection',
-        instrumentalSelected: 'instrumental',
-        button: 'ADD',
-        disabled: ''
-      })
-    } else {
+    } else if (props.buttonClicked === 'delete') {
       // delete button settings
       setFormSettings({
         formAction: '/delete-entry',
@@ -76,6 +64,20 @@ const Form = (props) => {
         instrumentalSelected: props.editEntry.instrumental,
         disabled: 'disabled'
       })
+} else {
+      console.log('hi from new buttonClicked')
+      setFormSettings({
+        formAction: '/new-entry',
+        title: 'NEW ENTRY',
+        button: 'ADD',
+        genreSelected: 'genre',
+        moodSelected: 'mood',
+        ratingSelected: 'rating',
+        musicCollectionSelected: 'collection',
+        instrumentalSelected: 'instrumental',
+        button: 'ADD',
+        disabled: ''
+      })
       setEditBand(props.editEntry.band);
       setEditAlbum(props.editEntry.album);
       setEditYear(props.editEntry.year);
@@ -85,6 +87,7 @@ const Form = (props) => {
 
   const handleCancel = () => {
     props.setButtonClicked('');
+
     // console.log('props', props)
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     popup.style.display = "none";
@@ -92,6 +95,19 @@ const Form = (props) => {
     // manualButton.style.opacity = '100%'
     // uploadButton.style.opacity = '40%'
     upload.style.display = 'none';
+    setFormSettings({
+      formAction: '',
+      title: '',
+      button: '',
+      band: '',
+      album: '',
+      year: '',
+      genreSelected: '',
+      moodSelected: '',
+      ratingSelected: '',
+      musicCollectionSelected: '',
+      instrumentalSelected: ''
+    })
   }
 
   const handleChange = (e) => {
