@@ -64,6 +64,9 @@ const Form = (props) => {
         instrumentalSelected: props.editEntry.instrumental,
         disabled: 'disabled'
       })
+      setEditBand(props.editEntry.band);
+      setEditAlbum(props.editEntry.album);
+      setEditYear(props.editEntry.year);
 } else {
       console.log('hi from new buttonClicked')
       setFormSettings({
@@ -78,9 +81,9 @@ const Form = (props) => {
         button: 'ADD',
         disabled: ''
       })
-      setEditBand(props.editEntry.band);
-      setEditAlbum(props.editEntry.album);
-      setEditYear(props.editEntry.year);
+      setEditBand('');
+      setEditAlbum('');
+      setEditYear('');
 
     }
   }, [props.buttonClicked, props.editEntry])
@@ -108,9 +111,10 @@ const Form = (props) => {
       musicCollectionSelected: '',
       instrumentalSelected: ''
     })
-    setEditBand('');
-    setEditAlbum('');
-    setEditYear('');
+      //  setEditBand(props.editEntry.band);
+      // setEditAlbum(props.editEntry.album);
+      // setEditYear(props.editEntry.year);
+
   }
 
   const handleChange = (e) => {
