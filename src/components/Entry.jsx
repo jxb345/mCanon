@@ -84,11 +84,11 @@ const Entry = (props) => {
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>
-                  <img id="edit-pencil" src="./edit-pencil.jpg" alt="pencil-image" height="17px" width="17px"/>
+                  <img id="edit-pencil" src="./edit-pencil.png" alt="pencil-image" height="17px" width="17px"/>
                 </button>
                 &nbsp;
                 <button onClick={handleEdit}>
-                  <img id="delete-trash-can" src="./trash-can.jpg" alt="trash-can-image" height="17px" width="17px"/>
+                  <img id="delete-trash-can" src="./trash-can.png" alt="trash-can-image" height="17px" width="17px"/>
                 </button>
               </div>
             </div>
