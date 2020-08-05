@@ -98,19 +98,19 @@ const Form = (props) => {
     // manualButton.style.opacity = '100%'
     // uploadButton.style.opacity = '40%'
     upload.style.display = 'none';
-    setFormSettings({
-      formAction: '',
-      title: '',
-      button: '',
-      band: '',
-      album: '',
-      year: '',
-      genreSelected: '',
-      moodSelected: '',
-      ratingSelected: '',
-      musicCollectionSelected: '',
-      instrumentalSelected: ''
-    })
+    // setFormSettings({
+    //   formAction: '',
+    //   title: '',
+    //   button: '',
+    //   band: '',
+    //   album: '',
+    //   year: '',
+    //   genreSelected: '',
+    //   moodSelected: '',
+    //   ratingSelected: '',
+    //   musicCollectionSelected: '',
+    //   instrumentalSelected: ''
+    // })
       //  setEditBand(props.editEntry.band);
       // setEditAlbum(props.editEntry.album);
       // setEditYear(props.editEntry.year);
