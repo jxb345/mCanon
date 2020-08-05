@@ -108,6 +108,9 @@ const Form = (props) => {
       musicCollectionSelected: '',
       instrumentalSelected: ''
     })
+    setEditBand('');
+    setEditAlbum('');
+    setEditYear('');
   }
 
   const handleChange = (e) => {
