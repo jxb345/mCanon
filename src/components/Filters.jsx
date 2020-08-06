@@ -4,7 +4,7 @@ import Form from './Form.jsx';
 const Filters = (props) => {
 
   const resetFilters = () => {
-
+    props.setSelectedFilters([])
   }
 
   return (

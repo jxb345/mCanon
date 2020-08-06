@@ -82,6 +82,7 @@ const App = () => {
         <div className="grid-filters">
           <Filters
             handleFilterChange={handleFilterChange}
+            setSelectedFilters={setSelectedFilters}
             filter={filter}
             setButtonClicked={setButtonClicked}
             buttonClicked={buttonClicked}
