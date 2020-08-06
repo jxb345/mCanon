@@ -5,7 +5,20 @@ const Filters = (props) => {
 
   const resetFilters = () => {
     props.setSelectedFilters([])
-  }
+    const collectionSelect = document.getElementById("collection-select");
+    const moodSelect = document.getElementById("mood-select");
+    const genreSelect = document.getElementById("genre-select");
+    const instrumentalSelect = document.getElementById("instrumental-select");
+
+    // m.options.selectedIndex = -1
+    moodSelect.options[0].selected = true;
+    collectionSelect.options[0].selected = true;
+    genreSelect.options[0].selected = true;
+    instrumentalSelect.options[0].selected = true;
+
+
+    console.log('m.options[0].selected', m.options[0].selected)
+   }
 
   return (
     <div>
@@ -21,8 +34,8 @@ const Filters = (props) => {
         <p>
           collection
           <br></br>
-        <select type="text" name="collection" id="collection" onChange={props.handleFilterChange} >
-          <option value="clear">ALL</option>
+        <select type="text" name="collection" id="collection-select" onChange={props.handleFilterChange} >
+          <option value="clear" selected>ALL</option>
           <option value="canon">canon</option>
           <option value="nominee">nominee</option>
         </select>
@@ -31,8 +44,8 @@ const Filters = (props) => {
           <p>
             mood
             <br/>
-          <select type="text" name="mood" id="mood" onChange={props.handleFilterChange}>
-            <option value="clear">ALL</option>
+          <select type="text" name="mood" id="mood-select" onChange={props.handleFilterChange}>
+            <option  value="clear" selected>ALL</option>
             <option value="chill">chill</option>
             <option value="upbeat">upbeat</option>
             <option value="daytime">daytime</option>
@@ -43,7 +56,7 @@ const Filters = (props) => {
           <p>
             genre
             <br/>
-          <select type="text" name="genre" id="genre" onChange={props.handleFilterChange}>
+          <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
             {/* <option value="clear">ALL</option>
             <option value="rock">rock</option>
             <option value="rap">rap</option>
@@ -55,7 +68,7 @@ const Filters = (props) => {
             <option value="rhythmAndlues">rhythm and blues</option>
             <option value="electronic">electronic</option>
             <option value="country">country</option> */}
-            <option value="clear">ALL</option>
+            <option value="clear" selected>ALL</option>
             <option value="bachata">bachata</option>
             <option value="bassaNova">bassa nova</option>
             <option value="blues">blues</option>
@@ -84,8 +97,8 @@ const Filters = (props) => {
           <p>
             instrumental
             <br/>
-        <select type="text" name="instrumental" id="instrumental" onChange={props.handleFilterChange} >
-          <option value="clear">ALL</option>
+        <select type="text" name="instrumental" id="instrumental-select" onChange={props.handleFilterChange} >
+          <option value="clear" selected>ALL</option>
           <option value="yes">yes</option>
           <option value="no">no</option>
         </select>

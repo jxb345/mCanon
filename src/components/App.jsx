@@ -33,6 +33,15 @@ const App = () => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
+    if (currentFilterId === 'collection-select') {
+      currentFilterId = 'collection';
+    } else if (currentFilterId === 'mood-select') {
+      currentFilterId = 'mood';
+    } else if (currentFilterId === 'genre-select') {
+      currentFilterId = 'genre';
+    } else {
+      currentFilterId = 'instrumental';
+    }
     console.log('currentFilterId', currentFilterId)
     setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
   }
