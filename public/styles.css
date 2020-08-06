@@ -24,6 +24,7 @@ input {
   background-color: #F1F1F1;
   font-size: 13px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* text-align: center; */
   /* padding-left: 10px; */
 }
 
@@ -60,7 +61,7 @@ is white, it looked unacceptable; I'd like to
 find an actual fix for the misaligned iconss
 */
 /* tr:hover {
-  background-color: #FBFCFE;
+  background-color: #FEFFDB;
 } */
 
 /* commenting out this filter on hover b/c
@@ -74,6 +75,7 @@ the button - this is obviously confusing
 #add-one-entry input[placeholder] {
   padding-right: 18px;
   text-align: center;
+  width: 250px;
 }
 
 

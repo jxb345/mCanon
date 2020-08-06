@@ -3,6 +3,10 @@ import Form from './Form.jsx';
 
 const Filters = (props) => {
 
+  const resetFilters = () => {
+
+  }
+
   return (
     <div>
       <div className="new-entry-popup">
@@ -87,6 +91,9 @@ const Filters = (props) => {
         </select>
             </p>
         </div>
+      </div>
+      <div>
+        <button onClick={resetFilters}>RESET</button>
       </div>
     </div>
   )

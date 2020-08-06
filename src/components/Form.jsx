@@ -93,8 +93,8 @@ const Form = (props) => {
     const popup = document.getElementsByClassName("new-entry-popup")[0];
     popup.style.display = "none";
     manual.style.display = 'block';
-    // manualButton.style.opacity = '100%'
-    // uploadButton.style.opacity = '40%'
+    manualButton.style.opacity = '100%'
+    uploadButton.style.opacity = '40%'
     upload.style.display = 'none';
   }
 
