@@ -104,9 +104,9 @@ const Filters = (props) => {
         </select>
             </p>
         </div>
+      <div className="clear-button">
+        <button onClick={resetFilters}>CLEAR</button>
       </div>
-      <div>
-        <button onClick={resetFilters}>RESET</button>
       </div>
     </div>
   )

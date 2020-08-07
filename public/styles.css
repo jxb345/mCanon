@@ -108,6 +108,26 @@ the button - this is obviously confusing
   margin-left: -5px;
 }
 
+.clear-button {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.clear-button button {
+  color: #919FB6;
+  outline-color: #919FB6;
+  border: 2px solid #919FB6;
+  background-color: white;
+  width: 80px;
+}
+
+.clear-button button:hover {
+  transition: 0.3s;
+  background-color: #919FB6;
+  color: white
+}
+
 .columns-icons {
   width: 8%;
 }
@@ -243,6 +263,7 @@ tr .entries:hover {
   grid-row: 2 / 5;
   border-top: 1px solid #E9E9E9;
   border-right: 1px solid #E9E9E9;
+  /* display: grid; */
 }
 
 .grid-list {
