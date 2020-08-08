@@ -75,7 +75,7 @@ the button - this is obviously confusing
 #add-one-entry input[placeholder] {
   padding-right: 18px;
   text-align: center;
-  width: 250px;
+  width: 232px;
 }
 
 
@@ -310,6 +310,7 @@ img {
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: 1px solid white;
+  border-radius: 3px;
   padding-left: 10px;
   background-color: #F4F4F4;
   background-image: url('./search-icon.png');
@@ -412,7 +413,6 @@ img {
   position: sticky;
   top: -1px;
   background-color: #919FB6;
-  /* #C7C7C7; */
   color: white;
   text-transform: uppercase;
   font-size: 13px;
