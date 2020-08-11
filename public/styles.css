@@ -133,6 +133,10 @@ input:-ms-input-placeholder {
   margin-left: -5px;
 }
 
+.band-album-input input[placeholder] {
+  padding-left: -30px;
+}
+
 .clear-button {
   display: grid;
   align-items: center;
@@ -374,7 +378,7 @@ button:hover {
   border-top: 10px solid #919FB6;
   border-radius: 4px;
   width: 32%;
-  height: 80%;
+  height: 82%;
   text-align: center;
 }
 

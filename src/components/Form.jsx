@@ -152,10 +152,13 @@ const Form = (props) => {
 
           <div id="add-one-entry" className="tab-content-manual">
             <input type="hidden" name="_id" value={props.editEntry._id} />
+            <span className="band-album-input">
+
             <input type="text" name="band" id="band-input" required placeholder="band" value={editBand} onChange={handleChange} disabled={formSettings.disabled} />
             <br />
             <br />
             <input type="text" name="album" id="album-input" required placeholder="album" value={editAlbum} onChange={handleChange} disabled={formSettings.disabled} />
+            </span>
             <br />
             <br />
             <input type="number" name="year" id="year-input" min="1900" max="2030" placeholder="year" value={editYear} onChange={handleChange} disabled={formSettings.disabled} />
