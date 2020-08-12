@@ -9,6 +9,7 @@ const PORT = 3000;
 const HOME = 'http://localhost:3000/';
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
+const { use } = require('./passport.js')
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
@@ -92,6 +93,10 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
     .on('end', () => {
       res.status(301).redirect(HOME)
     })
+})
+
+app.post('/login', (passport) => {
+
 })
 
 app.listen(PORT, () => {
