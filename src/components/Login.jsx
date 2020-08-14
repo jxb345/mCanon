@@ -5,6 +5,9 @@ const Login = () => {
 
   return (
     <div>
+      <div className="title">
+        mCanon
+      </div>
       <form action="/login" method="post">
         <div>
           <label>Username:</label>
