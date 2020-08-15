@@ -1,7 +1,7 @@
 const { Entry } = require('./connectDb.js');
 const mongoose = require('mongoose');
-
 const model = mongoose.model('Page', Entry);
+const { v4: uuidv4 } = require('uuid');
 
 const addEntry = (entry) => {
 

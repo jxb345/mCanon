@@ -20,4 +20,17 @@ const use = passport.use(new LocalStrategy(
   }
 ))
 
-module.exports = { use };
+
+const serialize = passport.serializeUser(function(user, cb) {
+  cb(null, user.id);
+});
+
+const deserialize = passport.deserializeUser(function(id, cb) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return cb(err); }
+    cb(null, user);
+  });
+});
+
+
+module.exports = { deserialize, serialize, use };

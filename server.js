@@ -10,15 +10,15 @@ const HOME = 'http://localhost:3000/';
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 const passport = require('passport');
-const { use } = require('./passport.js');
-
-
-
+const { deserialize, serialize, use } = require('./passport.js');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
