@@ -8,6 +8,7 @@ const Login = () => {
       <div className="title">
         mCanon
       </div>
+      <br/>
       <form action="/login" method="post">
         <div>
           <label>Username:</label>

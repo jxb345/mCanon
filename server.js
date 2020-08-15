@@ -9,7 +9,11 @@ const PORT = 3000;
 const HOME = 'http://localhost:3000/';
 const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
-const { use } = require('./passport.js')
+const passport = require('passport');
+const { use } = require('./passport.js');
+
+
+
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
@@ -95,9 +99,11 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
     })
 })
 
-app.post('/login', (passport) => {
-
-})
+app.post('/login',
+  passport.authenticate('local', { failureRedirect: '/login'},
+  function(req, res) {
+    res.status(301).redirect(HOME)
+  }))
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
