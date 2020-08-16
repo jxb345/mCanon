@@ -52,6 +52,7 @@ const addEntry = (entry) => {
   });
 }
 
+
 const deleteEntry = (entry) => {
   console.log('entry', entry)
   return new Promise((resolve, reject) => {

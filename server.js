@@ -99,11 +99,21 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
     })
 })
 
+app.post('/signup', (req, res) => {
+  const username = req.username;
+  const password = req.password;
+
+})
+
 app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login'},
   function(req, res) {
     res.status(301).redirect(HOME)
   }))
+
+app.get('/logout')
+
+
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
