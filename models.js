@@ -52,6 +52,22 @@ const addEntry = (entry) => {
   });
 }
 
+const createUser = (user, password) => {
+
+  const user = new model({
+    username: user,
+    password: password,
+    userId: uuidv4()
+  })
+
+  return new Promise((resolve, reject) => {
+    createUser.save((err, createUser) => {
+      if (err) return console.error(err);
+      console.log('createUser', createUser)
+      resolve();
+    })
+  })
+}
 
 const deleteEntry = (entry) => {
   console.log('entry', entry)
