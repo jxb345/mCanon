@@ -7,7 +7,7 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
+const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
 var bodyParser = require('body-parser');
 const passport = require('passport');
 const { deserialize, serialize, use } = require('./passport.js');
@@ -102,6 +102,8 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 app.post('/signup', (req, res) => {
   const username = req.username;
   const password = req.password;
+  createUser(username, password)
+    .then(res.status(301).redirect(HOME));
 
 })
 

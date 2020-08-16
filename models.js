@@ -180,5 +180,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, editEntry, filter, findOne, findUpdate, deleteEntry, model, search }
+module.exports = { addEntry, createUser, editEntry, filter, findOne, findUpdate, deleteEntry, model, search }
 
