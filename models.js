@@ -2,6 +2,8 @@ const { Entry } = require('./connectDb.js');
 const mongoose = require('mongoose');
 const model = mongoose.model('Page', Entry);
 const { v4: uuidv4 } = require('uuid');
+const bcrypt = require('bcrypt');
+
 
 const addEntry = (entry) => {
 
@@ -52,20 +54,26 @@ const addEntry = (entry) => {
   });
 }
 
-const createUser = (user, password) => {
-
-  const user = new model({
-    username: user,
-    password: password,
-    userId: uuidv4()
-  })
-
+const createUser = (user, ps) => {
   return new Promise((resolve, reject) => {
-    createUser.save((err, createUser) => {
-      if (err) return console.error(err);
-      console.log('createUser', createUser)
-      resolve();
-    })
+    // below is generateHash function def, but need to
+    // actually invoke it
+    const generateHash = () => {
+      bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.hash(ps, salt, (err, hash) => {
+          const user = new model({
+            username: user,
+            password: hash,
+            userId: uuidv4()
+          })
+          createUser.save((err, createUser) => {
+            if (err) return console.error(err);
+            console.log('createUser', createUser)
+            resolve();
+          })
+        })
+     })
+    }
   })
 }
 
@@ -91,6 +99,14 @@ const findUpdate = (entry) => {
     })
   })
 }
+
+// const generateHash = () => {
+//   bcrypt.genSalt(10, (err, salt) => {
+//     bcrypt.hash(plainText, salt, (err, hash) => {
+
+//     })
+//   })
+// }
 
   const editEntry = (entry) => {
     return new Promise((resolve, reject) => {
