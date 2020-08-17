@@ -18,7 +18,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-
+app.use(express.session({secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -26,8 +26,7 @@ passport.use(new LocalStrategy(
   function(username, password, done) {
     console.log('username', username);
     console.log('password', password);
-    model.findOne({"username": username}), (err, user) => {
-      console.log('in find!')
+    model.findOne({"username": username}, (err, user) => {
       if (err) return done(err);
 
       if (!user) {
@@ -37,8 +36,11 @@ passport.use(new LocalStrategy(
       if (!user.validPassword(password)) {
         return done(null, false, { message: 'Incorrect password.'});
       }
+
+      console.log('user', user)
       return done( null, user);
-    }
+    })
+    console.log('end of passport.use')
   }
 ))
 
@@ -137,8 +139,8 @@ app.get('/login', (req, res) =>
 
 app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login'},
-  (req, res) => {
-    res.status(301).redirect(HOME)
+  function (req, res) {
+    res.redirect(HOME)
   }))
 
 app.get('/logout')
