@@ -1,4 +1,4 @@
-const { Entry } = require('./connectDb.js');
+const { Entry, User} = require('./connectDb.js');
 const mongoose = require('mongoose');
 const model = mongoose.model('Page', Entry);
 const { v4: uuidv4 } = require('uuid');
@@ -55,26 +55,39 @@ const addEntry = (entry) => {
 }
 
 const createUser = (user, ps) => {
+  console.log('user', user)
+
+  // const saveUser = new User({
+  //   username: user,
+  //   password: ps
+  // })
+
   return new Promise((resolve, reject) => {
+
+    User.create({ username: user, password: ps}, (err) => {
+      if (err) return console.error(err);
+      console.log('user saved')
+      resolve();
+    })
     // below is generateHash function def, but need to
     // actually invoke it
-    const generateHash = () => {
-      bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(ps, salt, (err, hash) => {
-          const user = new model({
-            username: user,
-            password: hash,
-            userId: uuidv4()
-          })
-          generateHash()
-          createUser.save((err, createUser) => {
-            if (err) return console.error(err);
-            console.log('createUser', createUser)
-            resolve();
-          })
-        })
-     })
-    }
+    // const generateHash = () => {
+    //   bcrypt.genSalt(10, (err, salt) => {
+    //     bcrypt.hash(ps, salt, (err, hash) => {
+    //       const user = new model({
+    //         username: user,
+    //         password: hash,
+    //         userId: uuidv4()
+    //       })
+    //       generateHash()
+    //       createUser.save((err, createUser) => {
+    //         if (err) return console.error(err);
+    //         console.log('createUser', createUser)
+    //         resolve();
+    //       })
+    //     })
+    //  })
+    // }
   })
 }
 

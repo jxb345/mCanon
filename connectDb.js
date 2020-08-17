@@ -17,4 +17,12 @@ const Entry = new Schema({
   musicCollection: String,
 })
 
-module.exports = { Entry }
+const Users = new Schema({
+  uId: Number,
+  username: String,
+  password: String
+})
+
+const User = mongoose.model('testusers', Users)
+
+module.exports = { Entry, User }

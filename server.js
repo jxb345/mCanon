@@ -8,9 +8,11 @@ const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
 const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, search } = require('./models.js');
-var bodyParser = require('body-parser');
+const { User } = require('./connectDb.js')
+const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const session = require('express-session')
 
 const { deserialize, serialize, use } = require('./passport.js');
 
@@ -18,7 +20,7 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(express.session({secret: 'keyboard cat' }));
+app.use(session({secret: 'keyboard cat' }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -26,11 +28,12 @@ passport.use(new LocalStrategy(
   function(username, password, done) {
     console.log('username', username);
     console.log('password', password);
-    model.findOne({"username": username}, (err, user) => {
+    User.findOne({"username": username}, (err, user) => {
       if (err) return done(err);
 
       if (!user) {
-        return done(null, false, { message: 'Incorrect username.'});
+        // return done(null, false, { message: 'Incorrect username.'});
+
       }
 
       if (!user.validPassword(password)) {
@@ -125,8 +128,8 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
-  const username = req.username;
-  const password = req.password;
+  const username = req.body.username;
+  const password = req.body.password;
   createUser(username, password)
     .then(res.status(301).redirect(HOME));
 
@@ -138,7 +141,7 @@ app.get('/login', (req, res) =>
 })
 
 app.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login'},
+  passport.authenticate('local', { failureRedirect: '/login', failureFlash: true} ,
   function (req, res) {
     res.redirect(HOME)
   }))
