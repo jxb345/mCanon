@@ -29,7 +29,7 @@ const Login = () => {
           <input type="text" name="password"/>
         </div>
         <div>
-          <input type="submit" value="Log In"/>
+          <input type="submit" value="LogIn"/>
         </div>
 
       </form>

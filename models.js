@@ -66,6 +66,7 @@ const createUser = (user, ps) => {
             password: hash,
             userId: uuidv4()
           })
+          generateHash()
           createUser.save((err, createUser) => {
             if (err) return console.error(err);
             console.log('createUser', createUser)

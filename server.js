@@ -7,9 +7,11 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, search } = require('./models.js');
+const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, search } = require('./models.js');
 var bodyParser = require('body-parser');
 const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+
 const { deserialize, serialize, use } = require('./passport.js');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -19,6 +21,27 @@ app.use(bodyParser.text());
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    console.log('username', username);
+    console.log('password', password);
+    model.findOne({"username": username}), (err, user) => {
+      console.log('in find!')
+      if (err) return done(err);
+
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.'});
+      }
+
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.'});
+      }
+      return done( null, user);
+    }
+  }
+))
+
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
@@ -107,9 +130,14 @@ app.post('/signup', (req, res) => {
 
 })
 
+app.get('/login', (req, res) =>
+{
+  res.send('error')
+})
+
 app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login'},
-  function(req, res) {
+  (req, res) => {
     res.status(301).redirect(HOME)
   }))
 
