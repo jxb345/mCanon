@@ -1,4 +1,4 @@
-const { Entry, User} = require('./connectDb.js');
+const { Entry, Users } = require('./connectDb.js');
 const mongoose = require('mongoose');
 const model = mongoose.model('Page', Entry);
 const { v4: uuidv4 } = require('uuid');
@@ -57,14 +57,15 @@ const addEntry = (entry) => {
 const createUser = (user, ps) => {
   console.log('user', user)
 
-  // const saveUser = new User({
-  //   username: user,
-  //   password: ps
-  // })
+  const saveUser = new Users({
+    username: user,
+    password: ps,
+    uId: uuidv4()
+  })
 
   return new Promise((resolve, reject) => {
 
-    User.create({ username: user, password: ps}, (err) => {
+    saveUser.save((err) => {
       if (err) return console.error(err);
       console.log('user saved')
       resolve();

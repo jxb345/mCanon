@@ -8,44 +8,54 @@ const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
 const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, search } = require('./models.js');
-const { User } = require('./connectDb.js')
+const { Users } = require('./connectDb.js')
+const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const session = require('express-session')
-
-const { deserialize, serialize, use } = require('./passport.js');
+const session = require('express-session');
+let currentUser = '';
+const { UserId } = require('./userId.js');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(express.urlencoded( { extended: true }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
-app.use(session({secret: 'keyboard cat' }));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    console.log('username', username);
-    console.log('password', password);
-    User.findOne({"username": username}, (err, user) => {
+    Users.findOne({"username": username}, (err, user) => {
       if (err) return done(err);
+      console.log('user', user)
 
       if (!user) {
-        // return done(null, false, { message: 'Incorrect username.'});
-
+        return done(null, false, { message: 'Incorrect username.'});
       }
 
-      if (!user.validPassword(password)) {
+      if (user.password !== password) {
         return done(null, false, { message: 'Incorrect password.'});
       }
-
-      console.log('user', user)
-      return done( null, user);
+      currentUser = new UserId(user.uId);
+      return done(null, user);
     })
     console.log('end of passport.use')
   }
 ))
+
+passport.serializeUser(function(user, done) {
+  console.log('user', user);
+  done(null, user.id)
+})
+
+passport.deserializeUser(function(id, done) {
+  Users.findOne({"uId": id}, (err, user) => {
+    if (err) { return done(err)}
+    done(null, user)
+  })
+})
 
 
 app.post('/get-one-entry', (req, res) => {
@@ -137,14 +147,16 @@ app.post('/signup', (req, res) => {
 
 app.get('/login', (req, res) =>
 {
-  res.send('error')
+  res.send('<p>error</p>')
 })
 
 app.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login', failureFlash: true} ,
+  passport.authenticate('local', { failureRedirect: '/login', failureFlash: true}) ,
   function (req, res) {
-    res.redirect(HOME)
-  }))
+    console.log('currentU', currentUser)
+
+    res.send('<p>loggedin</p>')
+  })
 
 app.get('/logout')
 

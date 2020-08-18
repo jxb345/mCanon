@@ -17,12 +17,12 @@ const Entry = new Schema({
   musicCollection: String,
 })
 
-const Users = new Schema({
-  uId: Number,
+const User = new Schema({
+  uId: String,
   username: String,
   password: String
 })
 
-const User = mongoose.model('testusers', Users)
+const Users = mongoose.model('users', User)
 
-module.exports = { Entry, User }
+module.exports = { Entry, Users }
