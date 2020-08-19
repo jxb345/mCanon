@@ -59,6 +59,8 @@ th {
 td {
   letter-spacing: 1px;;
   border-bottom: 1px solid #E9E9E9;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
   /* height: 30px; */
   vertical-align: middle;
 }
@@ -69,9 +71,10 @@ were aligned with text - and since the padding
 is white, it looked unacceptable; I'd like to
 find an actual fix for the misaligned iconss
 */
-/* tr:hover {
-  background-color: #FEFFDB;
-} */
+tr:hover {
+  /* background-color: #FEFFDB; */
+  box-shadow: 0.1em 0.1em 0.1em 0.1em #E9E9E9;
+}
 
 /* commenting out this filter on hover b/c
 the button that is currently selected will

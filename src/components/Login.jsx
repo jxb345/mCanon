@@ -1,4 +1,9 @@
 import React from 'react';
+import App from './App.jsx';
+const BrowserRouter = require("react-router-dom").BrowserRouter;
+const Route = require("react-router-dom").Route;
+const Link = require("react-router-dom").Link;
+const { Switch } = require('react-router-dom');
 
 
 const Login = () => {
@@ -49,6 +54,18 @@ const Login = () => {
 
       </form>
     </div>
+    </div>
+    <div>
+    <Route>
+      <div>
+      <Link to='/home'>App</Link>
+      </div>
+      <Switch>
+        <Route path="/home">
+          <App />
+        </Route>
+      </Switch>
+    </Route>
     </div>
     </div>
   )
