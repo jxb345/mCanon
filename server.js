@@ -155,7 +155,7 @@ app.post('/login',
   function (req, res) {
     console.log('currentU', currentUser)
 
-    res.send('<p>loggedin</p>')
+    res.redirect('/home')
   })
 
 app.get('/logout')

@@ -1,17 +1,51 @@
 import React from 'react';
 import App from './App.jsx';
-const BrowserRouter = require("react-router-dom").BrowserRouter;
-const Route = require("react-router-dom").Route;
-const Link = require("react-router-dom").Link;
-const { Switch } = require('react-router-dom');
+// const BrowserRouter = require("react-router-dom").BrowserRouter;
+// const Route = require("react-router-dom").Route;
+// const Link = require("react-router-dom").Link;
+// const { Switch } = require('react-router-dom');
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 const Login = () => {
 
+  const redirectToHome = false;
+
+  const login = () => {
+    fetch('/login', {
+      method: 'post',
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify(),
+    })
+    .then(data => {
+      console.log('data')
+    })
+  }
+
+
   return (
+    <Router>
     <div>
       <div className="title">
         mCanon
+        <Route>
+      <div>
+      <Link to='/home'>Home</Link>
+      </div>
+      <Switch>
+        <Route path="/home">
+          <App />
+        </Route>
+      </Switch>
+    </Route>
+
       </div>
       <br/>
       <div className="tabs-new-entry">
@@ -24,7 +58,7 @@ const Login = () => {
                   SIGN UP
                 </button>
               </div>
-      <form action="/login" method="post">
+      <div>
         <div>
           <label>Username:</label>
           <input type="text" name="username"/>
@@ -34,10 +68,10 @@ const Login = () => {
           <input type="text" name="password"/>
         </div>
         <div>
-          <input type="submit" value="LogIn"/>
+          <button onSubmit={login} type="submit" value="LogIn"/>
         </div>
 
-      </form>
+      </div>
 
       <form action="/signup" method="post">
         <div>
@@ -56,18 +90,9 @@ const Login = () => {
     </div>
     </div>
     <div>
-    <Route>
-      <div>
-      <Link to='/home'>App</Link>
-      </div>
-      <Switch>
-        <Route path="/home">
-          <App />
-        </Route>
-      </Switch>
-    </Route>
     </div>
     </div>
+    </Router>
   )
 }
 
