@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import App from './App.jsx';
 // const BrowserRouter = require("react-router-dom").BrowserRouter;
 // const Route = require("react-router-dom").Route;
@@ -10,11 +10,29 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import passport from 'passport';
 
 
 const Login = () => {
 
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+
   const redirectToHome = false;
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    console.log('e.id', e.target.id)
+    if (e.target.id === 'login-username' || e.target.id === 'signup-username') {
+      setUsername(e.target.value, ...username)
+      console.log('username', username);
+    } else {
+      setPassword(e.target.value, ...password)
+      console.log('password', password);
+
+    }
+  }
+
 
   const login = () => {
     fetch('/login', {
@@ -22,10 +40,11 @@ const Login = () => {
       headers: {
         'Content-type': 'application/x-www-form-urlencoded'
       },
-      body: JSON.stringify(),
+      body: JSON.stringify(state),
     })
     .then(data => {
-      console.log('data')
+      console.log('data',)
+      state.redirectToHome = true;
     })
   }
 
@@ -35,16 +54,6 @@ const Login = () => {
     <div>
       <div className="title">
         mCanon
-        <Route>
-      <div>
-      <Link to='/home'>Home</Link>
-      </div>
-      <Switch>
-        <Route path="/home">
-          <App />
-        </Route>
-      </Switch>
-    </Route>
 
       </div>
       <br/>
@@ -61,11 +70,11 @@ const Login = () => {
       <div>
         <div>
           <label>Username:</label>
-          <input type="text" name="username"/>
+          <input type="text" name="username" id="login-username" onChange={handleChange}/>
         </div>
         <div>
         <label>Password:</label>
-          <input type="text" name="password"/>
+          <input type="text" name="password" id="lgoin-password" onChange={handleChange} />
         </div>
         <div>
           <button onSubmit={login} type="submit" value="LogIn"/>
@@ -76,11 +85,11 @@ const Login = () => {
       <form action="/signup" method="post">
         <div>
           <label>Username:</label>
-          <input type="text" name="username"/>
+          <input type="text" name="username" id="signup-username" onChange={handleChange}/>
         </div>
         <div>
         <label>Password:</label>
-          <input type="text" name="password"/>
+          <input type="text" name="password" id="signup-password" onChange={handleChange}/>
         </div>
         <div>
           <input type="submit" value="SignUp"/>
@@ -92,6 +101,17 @@ const Login = () => {
     <div>
     </div>
     </div>
+    <Route>
+      <div>
+      <Link to='/home'>Home</Link>
+      </div>
+      <Switch>
+        <Route path="/home">
+          <App />
+        </Route>
+      </Switch>
+    </Route>
+
     </Router>
   )
 }
