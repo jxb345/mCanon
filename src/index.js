@@ -1,10 +1,10 @@
 const ReactDOM = require('react-dom');
 const React = require('react');
 import App from './components/App.jsx';
-import Login from './components/Login.jsx'
+import Welcome from './components/Welcome.jsx'
 
 ReactDOM.render(
-<Login />
+<Welcome />
 // {/* <App /> */}
 , document.getElementById('root'));
 
