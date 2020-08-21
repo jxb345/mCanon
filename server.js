@@ -27,6 +27,7 @@ app.use(passport.session());
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
+    console.log('in passport use ---------------------------')
     Users.findOne({"username": username}, (err, user) => {
       if (err) return done(err);
       console.log('user', user)
@@ -153,6 +154,7 @@ app.get('/login', (req, res) =>
 app.post('/login',
   passport.authenticate('local', { failureRedirect: '/login', failureFlash: true}) ,
   function (req, res) {
+    console.log('req.body', req.body)
     console.log('currentU', currentUser)
 
     res.redirect('/home')

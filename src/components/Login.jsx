@@ -18,7 +18,7 @@ const Login = () => {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
 
-  const redirectToHome = false;
+  let redirectToHome = false;
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -35,72 +35,79 @@ const Login = () => {
 
 
   const login = () => {
+    const credentials = {
+      username: username,
+      password: password
+    }
+    console.log('creditials------', credentials)
     fetch('/login', {
       method: 'post',
       headers: {
-        'Content-type': 'application/x-www-form-urlencoded'
+        'Content-type': 'application/json'
       },
-      body: JSON.stringify(state),
+      body: JSON.stringify(credentials),
     })
     .then(data => {
       console.log('data',)
-      state.redirectToHome = true;
+      redirectToHome = true;
+      console.log('redirectToHome', redirectToHome)
     })
   }
 
 
   return (
     <Router>
-    <div>
-      <div className="title">
-        mCanon
+      {!redirectToHome ?
 
-      </div>
-      <br/>
-      <div className="tabs-new-entry">
-      <div className="form">
-      <div className="tabs-new-entry-links">
-                <button type="button" id="login">
-                  LOGIN
-                </button>
-                <button type="button" id="sign-up" >
-                  SIGN UP
-                </button>
-              </div>
-      <div>
         <div>
-          <label>Username:</label>
-          <input type="text" name="username" id="login-username" onChange={handleChange}/>
-        </div>
-        <div>
-        <label>Password:</label>
-          <input type="text" name="password" id="lgoin-password" onChange={handleChange} />
-        </div>
-        <div>
-          <button onSubmit={login} type="submit" value="LogIn"/>
-        </div>
+          <div className="title">
+            mCanon
+          </div>
+          <br/>
+          <div className="tabs-new-entry">
+          <div className="form">
+          <div className="tabs-new-entry-links">
+            <button type="button" id="login">
+              LOGIN
+            </button>
+            <button type="button" id="sign-up" >
+              SIGN UP
+            </button>
+          </div>
+          <div>
+            <div>
+              <label>Username:</label>
+              <input type="text" name="username" id="login-username" onChange={handleChange}/>
+            </div>
+            <div>
+            <label>Password:</label>
+              <input type="text" name="password" id="lgoin-password" onChange={handleChange} />
+            </div>
+            <div>
+              <button onClick={login} type="submit" value="LogIn"/>
+            </div>
+          </div>
 
-      </div>
+          <form action="/signup" method="post">
+            <div>
+              <label>Username:</label>
+              <input type="text" name="username" id="signup-username" onChange={handleChange}/>
+            </div>
+            <div>
+            <label>Password:</label>
+              <input type="text" name="password" id="signup-password" onChange={handleChange}/>
+            </div>
+            <div>
+              <input type="submit" value="SignUp"/>
+            </div>
+          </form>
+        </div>
+        </div>
+        <div>
+        </div>
+    </div>
 
-      <form action="/signup" method="post">
-        <div>
-          <label>Username:</label>
-          <input type="text" name="username" id="signup-username" onChange={handleChange}/>
-        </div>
-        <div>
-        <label>Password:</label>
-          <input type="text" name="password" id="signup-password" onChange={handleChange}/>
-        </div>
-        <div>
-          <input type="submit" value="SignUp"/>
-        </div>
-
-      </form>
-    </div>
-    </div>
-    <div>
-    </div>
-    </div>
+    :
     <Route>
       <div>
       <Link to='/home'>Home</Link>
@@ -111,7 +118,7 @@ const Login = () => {
         </Route>
       </Switch>
     </Route>
-
+  }
     </Router>
   )
 }
