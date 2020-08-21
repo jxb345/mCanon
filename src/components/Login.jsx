@@ -56,8 +56,8 @@ const Login = () => {
 
 
   return (
-    <Router>
-      {!redirectToHome ?
+
+      !redirectToHome ?
 
         <div>
           <div className="title">
@@ -108,18 +108,18 @@ const Login = () => {
     </div>
 
     :
-    <Route>
-      <div>
-      <Link to='/home'>Home</Link>
-      </div>
-      <Switch>
-        <Route path="/home">
-          <App />
-        </Route>
-      </Switch>
-    </Route>
-  }
-    </Router>
+    // <Router>
+    // <Route>
+    //   <div>
+    //   <Link to='/home'>Home</Link>
+    //   </div>
+    //   <Switch>
+    //     <Route path="/home">
+    //       <App />
+    //     </Route>
+    //   </Switch>
+    // </Route>
+    // </Router>
   )
 }
 
