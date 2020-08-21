@@ -22,3 +22,5 @@ const Redirect = () => {
     </Router>
   )
 }
+
+export default Redirect
