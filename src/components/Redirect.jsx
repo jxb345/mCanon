@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import App from './App.jsx'
 
 const Redirect = () => {
   return (
