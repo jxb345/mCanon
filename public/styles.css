@@ -406,7 +406,7 @@ button:hover {
 }
 
 .sign-out-button {
-  height: 22px;
+  height: 25px;
   width: 75px;
   margin: 0;
   padding: 0
@@ -513,10 +513,12 @@ button:hover {
   letter-spacing: 0.03em;
   /* padding: 5px; */
   padding-left: 65px;
+  padding-bottom: 10px;
   color:gray;
 }
 
 .username {
   position: absolute;
-  right: 8%;
+  right: 2%;
+  font-weight: 400;
 }

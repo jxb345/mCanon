@@ -86,7 +86,6 @@ const App = (props) => {
             sign out
           </button>
         </span>
-        <br/>
       </div>
       <div className="grid">
         <div className="grid-new-button">
