@@ -8,10 +8,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import Login from './Login.jsx'
-import Redirect from './Redirect.jsx';
+// import Redirect from './Redirect.jsx';
 
 
 const Welcome = () => {
@@ -49,7 +50,7 @@ const Welcome = () => {
     })
     .then(data => {
       setRedirect(true)
-      console.log('redirectToHome', redirectToHome)
+      console.log('redirect', redirect)
     })
   }
 
@@ -61,7 +62,14 @@ const Welcome = () => {
         verifyLogin={verifyLogin}
       />
     :
-       <Redirect />
+      <Router>
+          <Redirect to="/home" />
+          <Switch>
+            <Route path="/home">
+              <App />
+            </Route>
+          </Switch>
+      </Router>
   )
 }
 
