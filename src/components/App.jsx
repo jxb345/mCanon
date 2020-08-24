@@ -77,12 +77,16 @@ const App = (props) => {
   return (
     <div>
       <div className="title">
-        {/* <img src="./cd.jpg" alt="cannon-icon" height="35px" width="35px"/> */}
         m
         <span style={titleStyle}>C</span>anon
         <span className="username">
-        {props.username}
+          {props.username}
+          &nbsp;&nbsp;&nbsp;
+          <button className="sign-out-button">
+            sign out
+          </button>
         </span>
+        <br/>
       </div>
       <div className="grid">
         <div className="grid-new-button">

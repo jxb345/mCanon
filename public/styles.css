@@ -405,6 +405,13 @@ button:hover {
   border: none;
 }
 
+.sign-out-button {
+  height: 22px;
+  width: 75px;
+  margin: 0;
+  padding: 0
+}
+
 
 .tab-content-manual {
   display: block;
@@ -511,5 +518,5 @@ button:hover {
 
 .username {
   position: absolute;
-  right: 4%;
+  right: 8%;
 }
