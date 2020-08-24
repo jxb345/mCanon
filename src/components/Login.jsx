@@ -71,7 +71,7 @@ const Login = (props) => {
             </div>
           </div>
 
-          <form action="/signup" method="post">
+          {/* <form action="/signup" method="post"> */}
             <div>
               <label>Username:</label>
               <input type="text" name="username" id="signup-username" onChange={props.handleChange}/>
@@ -81,9 +81,9 @@ const Login = (props) => {
               <input type="text" name="password" id="signup-password" onChange={props.handleChange}/>
             </div>
             <div>
-              <input type="submit" value="SignUp"/>
+              <button onClick={props.verifyLogin} value="SignUp"/>
             </div>
-          </form>
+          {/* </form> */}
         </div>
         </div>
         <div>

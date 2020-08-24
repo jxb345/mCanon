@@ -30,13 +30,21 @@ const Welcome = () => {
   }
 
 
-  const verifyLogin = () => {
+  const verifyLogin = (e) => {
+    let endpoint = '';
+    console.log('e.target.value', e.target.value)
     const credentials = {
       username: username,
       password: password
     }
+
+    if (e.target.value === 'SignUp') {
+      endpoint = '/signup';
+    } else {
+      endpoint = '/login';
+    }
     console.log('creditials------', credentials)
-    fetch('/login', {
+    fetch(endpoint, {
       method: 'post',
       headers: {
         'Content-type': 'application/json'
