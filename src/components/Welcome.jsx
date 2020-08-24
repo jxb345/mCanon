@@ -30,7 +30,7 @@ const Welcome = () => {
   }
 
 
-  const verifyLogin = (e) => {
+  const verifyAuth = (e) => {
     let endpoint = '';
     console.log('e.target.value', e.target.value)
     const credentials = {
@@ -62,7 +62,7 @@ const Welcome = () => {
     !redirect ?
       <Login
         handleChange={handleChange}
-        verifyLogin={verifyLogin}
+        verifyAuth={verifyAuth}
       />
     :
       <Router>
