@@ -15,12 +15,13 @@ const Entry = new Schema({
   year: Number,
   rating: Number,
   musicCollection: String,
+  uId: String
 })
 
 const User = new Schema({
   uId: String,
   username: String,
-  password: String
+  password: String,
 })
 
 const Users = mongoose.model('users', User)

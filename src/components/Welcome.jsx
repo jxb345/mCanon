@@ -21,18 +21,14 @@ const Welcome = () => {
     console.log('e.id', e.target.id)
     if (e.target.id === 'login-username' || e.target.id === 'signup-username') {
       setUsername(e.target.value, ...username)
-      console.log('username', username);
     } else {
       setPassword(e.target.value, ...password)
-      console.log('password', password);
-
     }
   }
 
 
   const verifyAuth = (e) => {
     let endpoint = '';
-    console.log('e.target.value', e.target.value)
     const credentials = {
       username: username,
       password: password
@@ -43,7 +39,7 @@ const Welcome = () => {
     } else {
       endpoint = '/login';
     }
-    console.log('creditials------', credentials)
+
     fetch(endpoint, {
       method: 'post',
       headers: {

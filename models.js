@@ -3,9 +3,17 @@ const mongoose = require('mongoose');
 const model = mongoose.model('Page', Entry);
 const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
+const { getUserId } = require('./server.js')
+const { UserId } = require('./userId.js');
+let user = '';
+let currentUserId = ''
+
 
 
 const addEntry = (entry) => {
+
+
+  // currentUserId
 
   // what if band / album is purposefully NOT
   //   supposed to be capitalized (edit I guess?)
@@ -44,6 +52,7 @@ const addEntry = (entry) => {
     year: entry.year || null,
     rating: entry.rating || null,
     musicCollection: entry.musicCollection,
+    uId: currentUserId
   })
 
   return new Promise((resolve, reject) => {
@@ -67,7 +76,11 @@ const createUser = (user, ps) => {
 
     saveUser.save((err) => {
       if (err) return console.error(err);
+      user = new UserId(saveUser.uId)
+      currentUserId = user.get();
+
       console.log('user saved')
+
       resolve();
     })
     // below is generateHash function def, but need to
@@ -182,7 +195,8 @@ const filter = (filters) => {
       delete filters[key]
     }
   }
-
+  console.log('filters', filters)
+  filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }

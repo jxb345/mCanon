@@ -15,6 +15,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 let currentUser = '';
+let getUserId = ''
 const { UserId } = require('./userId.js');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
@@ -40,6 +41,9 @@ passport.use(new LocalStrategy(
         return done(null, false, { message: 'Incorrect password.'});
       }
       currentUser = new UserId(user.uId);
+      getId = currentUser.get();
+      console.log('getId', getId)
+      console.log('currerntUser', currentUser)
       return done(null, user);
     })
     console.log('end of passport.use')
@@ -143,7 +147,6 @@ app.post('/signup', (req, res) => {
   const password = req.body.password;
   createUser(username, password)
     .then(res.status(301).redirect(HOME));
-
 })
 
 app.get('/login', (req, res) =>
@@ -166,3 +169,5 @@ app.get('/logout')
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })
+
+module.exports = { currentUser }
