@@ -509,4 +509,7 @@ button:hover {
   color:gray;
 }
 
-
+.username {
+  position: absolute;
+  right: 4%;
+}

@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import App from './App.jsx';
-// const BrowserRouter = require("react-router-dom").BrowserRouter;
-// const Route = require("react-router-dom").Route;
-// const Link = require("react-router-dom").Link;
-// const { Switch } = require('react-router-dom');
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +8,6 @@ import {
   Redirect
 } from "react-router-dom";
 import Login from './Login.jsx'
-// import Redirect from './Redirect.jsx';
 
 
 const Welcome = () => {
@@ -66,7 +61,7 @@ const Welcome = () => {
           <Redirect to="/home" />
           <Switch>
             <Route path="/home">
-              <App />
+              <App username={username} />
             </Route>
           </Switch>
       </Router>

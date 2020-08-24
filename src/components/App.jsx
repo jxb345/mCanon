@@ -3,7 +3,7 @@ import List from './List.jsx';
 import Search from './Search.jsx';
 import Filters from './Filters.jsx';
 
-const App = () => {
+const App = (props) => {
 
   const filter = useRef('');
   const [entries, setEntries] = useState([]);
@@ -80,6 +80,9 @@ const App = () => {
         {/* <img src="./cd.jpg" alt="cannon-icon" height="35px" width="35px"/> */}
         m
         <span style={titleStyle}>C</span>anon
+        <span className="username">
+        {props.username}
+        </span>
       </div>
       <div className="grid">
         <div className="grid-new-button">
