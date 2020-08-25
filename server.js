@@ -40,6 +40,8 @@ passport.use(new LocalStrategy(
       if (user.password !== password) {
         return done(null, false, { message: 'Incorrect password.'});
       }
+
+
       currentUser = new UserId(user.uId);
       getId = currentUser.get();
       console.log('getId', getId)
@@ -102,7 +104,7 @@ app.post('/new-entry', (req, res) => {
   delete entry.collection;
   console.log('entry', entry)
   addEntry(entry)
-    .then(res.status(301).redirect(HOME));
+    .then(res.status(204));
 
 })
 
@@ -170,4 +172,4 @@ app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);
 })
 
-module.exports = { currentUser }
+module.exports = { currentUser, getUserId}

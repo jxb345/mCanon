@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import App from './App.jsx';
 import {
   BrowserRouter as Router,
@@ -49,9 +49,13 @@ const Welcome = () => {
     })
     .then(data => {
       setRedirect(true)
-      console.log('redirect', redirect)
+      console.log('redirect ------res', redirect)
     })
   }
+
+  useEffect(() =>{
+    console.log('redirect ---- uE', redirect)
+  })
 
 
   return (
@@ -65,7 +69,7 @@ const Welcome = () => {
           <Redirect to="/home" />
           <Switch>
             <Route path="/home">
-              <App username={username} />
+              <App username={username} redirect={redirect} />
             </Route>
           </Switch>
       </Router>

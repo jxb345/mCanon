@@ -47,18 +47,19 @@ const App = (props) => {
   }
 
   const handleClick = (e) => {
-     fetch('/delete-entry', {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json'
-       },
-       body: JSON.stringify(clicked)
-     })
-     .then(response => response.json())
-     .then(data => console.log('data', data));
-   }
+    fetch('/delete-entry', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(clicked)
+    })
+    .then(response => response.json())
+    .then(data => console.log('data', data));
+  }
 
-    useEffect(() => {
+  useEffect(() => {
+    console.log('redirect in app: ---', props.redirect)
       console.log('fetching...')
       fetch('/query-entries', {
         method: 'POST',
