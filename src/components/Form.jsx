@@ -128,7 +128,7 @@ const Form = (props) => {
   return (
     <div className="tabs-new-entry">
       <div className="form">
-        <form action={formSettings.formAction} method="post">
+        <form action={formSettings.formAction} method="post" target="_parent">
           <div className="form-title">
             {formSettings.title}
           </div>

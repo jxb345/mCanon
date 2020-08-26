@@ -64,10 +64,10 @@ const Login = (props) => {
             </div>
             <div>
             <label>Password:</label>
-              <input type="text" name="password" id="lgoin-password" onChange={props.handleChange} />
+              <input type="text" name="password" id="login-password" onChange={props.handleChange} />
             </div>
             <div>
-              <button onClick={props.verifyAuth} type="submit" value="LogIn"/>
+              <button onClick={props.verifyAuth} type="submit" value="login"/>
             </div>
           </div>
 
@@ -81,7 +81,7 @@ const Login = (props) => {
               <input type="text" name="password" id="signup-password" onChange={props.handleChange}/>
             </div>
             <div>
-              <button onClick={props.verifyAuth} value="SignUp"/>
+              <button onClick={props.verifyAuth} value="signup"/>
             </div>
           {/* </form> */}
         </div>

@@ -14,7 +14,7 @@ const Welcome = () => {
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ redirect, setRedirect ] = useState(false);
+  const [ redirect, setRedirect ] = useState(null);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -28,17 +28,18 @@ const Welcome = () => {
 
 
   const verifyAuth = (e) => {
-    let endpoint = '';
+    let endpoint = '/' + e.target.value;
     const credentials = {
       username: username,
       password: password
     }
 
-    if (e.target.value === 'SignUp') {
-      endpoint = '/signup';
-    } else {
-      endpoint = '/login';
-    }
+    console.log('endpoint', endpoint)
+    // if (e.target.value === 'SignUp') {
+    //   endpoint = '/signup';
+    // } else {
+    //   endpoint = '/login';
+    // }
 
     fetch(endpoint, {
       method: 'post',
@@ -49,7 +50,7 @@ const Welcome = () => {
     })
     .then(data => {
       setRedirect(true)
-      console.log('redirect ------res', redirect)
+      console.log('redirect ------response', redirect)
     })
   }
 
@@ -67,11 +68,11 @@ const Welcome = () => {
     :
       <Router>
           <Redirect to="/home" />
-          <Switch>
+          // <Switch>
             <Route path="/home">
               <App username={username} redirect={redirect} />
             </Route>
-          </Switch>
+          // </Switch>
       </Router>
   )
 }
