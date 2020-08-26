@@ -64,6 +64,13 @@ passport.deserializeUser(function(id, done) {
   })
 })
 
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, 'path/to/your/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
@@ -104,7 +111,9 @@ app.post('/new-entry', (req, res) => {
   delete entry.collection;
   console.log('entry', entry)
   addEntry(entry)
-    .then(res.status(204));
+      // .then(res.status(301).redirect(HOME));
+    .then(res.status(301).redirect('http://localhost:3000/home'));
+
 
 })
 
@@ -149,6 +158,8 @@ app.post('/signup', (req, res) => {
   const password = req.body.password;
   createUser(username, password)
     .then(res.status(301).redirect(HOME));
+    // .then(res.status(301).redirect('http://localhost:3000/home'));
+
 })
 
 app.get('/login', (req, res) =>

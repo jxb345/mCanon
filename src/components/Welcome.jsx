@@ -5,7 +5,9 @@ import {
   Switch,
   Route,
   Link,
-  Redirect
+  Redirect,
+  useHistory,
+  useLocation
 } from "react-router-dom";
 import Login from './Login.jsx'
 
@@ -14,7 +16,7 @@ const Welcome = () => {
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ redirect, setRedirect ] = useState(false);
+  const [ redirect, setRedirect ] = useState(null);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -26,18 +28,14 @@ const Welcome = () => {
     }
   }
 
+  let history = useHistory();
+  // let location = useLocation();
 
   const verifyAuth = (e) => {
-    let endpoint = '';
+    let endpoint = '/' + e.target.value;
     const credentials = {
       username: username,
       password: password
-    }
-
-    if (e.target.value === 'SignUp') {
-      endpoint = '/signup';
-    } else {
-      endpoint = '/login';
     }
 
     fetch(endpoint, {
@@ -48,6 +46,7 @@ const Welcome = () => {
       body: JSON.stringify(credentials),
     })
     .then(data => {
+      console.log('data', data)
       setRedirect(true)
       console.log('redirect ------res', redirect)
     })
@@ -55,6 +54,10 @@ const Welcome = () => {
 
   useEffect(() =>{
     console.log('redirect ---- uE', redirect)
+
+    // console.log('history.location', history.location)
+    // console.log('location', this.props.location)
+
   })
 
 
@@ -67,11 +70,11 @@ const Welcome = () => {
     :
       <Router>
           <Redirect to="/home" />
-          <Switch>
+          // <Switch>
             <Route path="/home">
-              <App username={username} redirect={redirect} />
+              <App username={username} redirect={redirect}  />
             </Route>
-          </Switch>
+          // </Switch>
       </Router>
   )
 }
