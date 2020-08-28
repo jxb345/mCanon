@@ -47,6 +47,8 @@ const Login = (props) => {
             mCanon
           </div>
           <br/>
+          <div className="login-popup">
+
           <div className="tabs-new-entry">
           <div className="form">
           <div className="tabs-new-entry-links">
@@ -88,6 +90,7 @@ const Login = (props) => {
         </div>
         <div>
         </div>
+          </div>
     </div>
 
   )

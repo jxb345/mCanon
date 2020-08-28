@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback} from 'react';
 import App from './App.jsx';
 import {
   BrowserRouter as Router,
@@ -16,7 +16,7 @@ const Welcome = () => {
 
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ redirect, setRedirect ] = useState(null);
+  const [ redirect, setRedirect ] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -31,7 +31,12 @@ const Welcome = () => {
   let history = useHistory();
   // let location = useLocation();
 
+  const changeRedirect = () => {
+    setRedirect(true)
+  };
+
   const verifyAuth = (e) => {
+
     let endpoint = '/' + e.target.value;
     const credentials = {
       username: username,
@@ -47,35 +52,35 @@ const Welcome = () => {
     })
     .then(data => {
       console.log('data', data)
-      setRedirect(true)
+      changeRedirect();
       console.log('redirect ------res', redirect)
     })
-  }
+}
 
   useEffect(() =>{
     console.log('redirect ---- uE', redirect)
-
-    // console.log('history.location', history.location)
-    // console.log('location', this.props.location)
-
-  })
+  }, [redirect])
 
 
   return (
-    !redirect ?
-      <Login
-        handleChange={handleChange}
-        verifyAuth={verifyAuth}
-      />
-    :
-      <Router>
-          <Redirect to="/home" />
-          // <Switch>
-            <Route path="/home">
-              <App username={username} redirect={redirect}  />
-            </Route>
-          // </Switch>
-      </Router>
+    <div>
+    {
+      !redirect ?
+        <Login
+          handleChange={handleChange}
+          verifyAuth={verifyAuth}
+        />
+      :
+        <Router>
+            <Redirect to="/home" />
+              {/* <Switch> */}
+              <Route path="/home">
+                <App username={username} redirect={redirect} />
+              </Route>
+              {/* </Switch> */}
+        </Router>
+    }
+    </div>
   )
 }
 

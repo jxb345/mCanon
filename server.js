@@ -65,7 +65,7 @@ passport.deserializeUser(function(id, done) {
 })
 
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'path/to/your/index.html'), function(err) {
+  res.sendFile(path.join(__dirname, 'public/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
@@ -111,9 +111,9 @@ app.post('/new-entry', (req, res) => {
   delete entry.collection;
   console.log('entry', entry)
   addEntry(entry)
-      // .then(res.status(301).redirect(HOME));
-    .then(res.status(301).redirect('http://localhost:3000/home'));
-
+      .then(res.status(301).redirect(HOME));
+    // .then(res.status(301).redirect('http://localhost:3000/home'));
+    // .then(res.redirect('back'))
 
 })
 
@@ -157,8 +157,8 @@ app.post('/signup', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   createUser(username, password)
-    .then(res.status(301).redirect(HOME));
-    // .then(res.status(301).redirect('http://localhost:3000/home'));
+    // .then(res.status(301).redirect(HOME));
+    .then(res.status(301).redirect('http://localhost:3000/home'));
 
 })
 
