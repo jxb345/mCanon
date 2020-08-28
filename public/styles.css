@@ -424,7 +424,62 @@ button:hover {
   margin: 0;
   padding: 0
 }
+/*
+move the following to the proper
+location in the css file
+*/
 
+.login-credentials {
+  display: block;
+}
+
+.signup-credentials {
+  display: none;
+}
+
+#signup {
+  background-color: #919FB6;
+  opacity: 45%;
+
+}
+
+.tabs-login-signin-links button {
+  background-color: #919FB6;
+  border-radius: 3px;
+  transition: 0.3s;
+  margin: 0;
+  width: 10%;
+}
+
+.login-signup-form {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.login-signup-form label {
+  line-height: 175%;
+}
+
+
+
+.login-signup-popup {
+  display: block;
+  /* position: fixed;
+  z-index: 1;
+  padding-top: 75px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.7); */
+  text-align: center;
+}
+
+
+/*
+end of what has to be moved
+to the proper spot
+*/
 
 .tab-content-manual {
   display: block;
