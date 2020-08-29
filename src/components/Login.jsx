@@ -36,12 +36,23 @@ const Login = (props) => {
       <div className="grid-welcome">
       <div className="grid-welcome-top"></div>
         <div className="grid-welcome-left">
+          <div className="welcome-info">
+            <div className="welcome-text">
+              Your Canon
+              <br/>
+            </div>
+            <div className="welcome-sub-text">
+                A List of Albums To Browse, Shuffle, and Filter
+            </div>
+            {/* <div>
+              <img src="./cannon.png" alt=""/>
+            </div> */}
+          </div>
         </div>
         <div className="grid-welcome-main">
         <div className="login-signup-popup">
           <div className="tabs-new-entry">
             <div className="login-signup-form">
-              <br/>
               <br/>
               <br/>
               <div className="tabs-login-signin-links">
@@ -65,7 +76,6 @@ const Login = (props) => {
                 </button>
               </div>
               <div className="login-credentials">
-                <br />
                 <br/>
                 <label>Username</label>
                 <br />
@@ -92,13 +102,12 @@ const Login = (props) => {
                     type="submit"
                     value="login"
                   >
-                    login
+                    LOGIN!
                   </button>
                 </div>
               </div>
               <div className="signup-credentials">
                 <br />
-                <br/>
                 <label>Email</label>
                 <br />
                 <input
@@ -129,7 +138,7 @@ const Login = (props) => {
                 <br/>
                 <div className="login-signup-button">
                   <button onClick={props.verifyAuth} value="signup">
-                    signup
+                    SIGN UP!
                   </button>
                 </div>
               </div>

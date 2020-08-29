@@ -140,6 +140,7 @@ input:-ms-input-placeholder {
   padding-left: -30px;
 }
 
+
 .clear-button {
   display: grid;
   align-items: center;
@@ -461,6 +462,7 @@ location in the css file
 
 
 
+
 .login-signup-popup {
   display: block;
   width: 75%;
@@ -485,20 +487,20 @@ location in the css file
 
 .grid-welcome {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1.5fr .75fr 1fr;
   grid-template-rows: 100px 420px 200px;
 }
 
 .grid-welcome-top {
   grid-row: 1;
   grid-column: span 3;
-  background-color: #919FB6;
+  background-color: #94AAD0;
 }
 
 .grid-welcome-left {
   grid-column: 1 / 3 ;
   grid-row: 2;
-  background-color: #919FB6
+  background-color: #94AAD0
 
 }
 
@@ -507,20 +509,20 @@ location in the css file
   grid-row: 2;
   background-color: white;
   border-radius: 4px;
-  /* background-color: #919FB6; */
+  /* background-color: #94AAD0; */
 }
 
 .grid-welcome-right {
   grid-column: 3 / 3 ;
   grid-row: 2;
-  background-color: #919FB6
+  background-color: #94AAD0
 
 }
 
 .grid-welcome-bottom {
   grid-row: 3;
   grid-column: span 3;
-  background-color: #919FB6
+  background-color: #94AAD0
 
 }
 
@@ -632,6 +634,25 @@ to the proper spot
   padding-left: 65px;
   padding-bottom: 10px;
   color:gray;
+}
+
+.welcome-info {
+  position: absolute;
+  top: 220px;
+  left: 65px
+}
+
+.welcome-text {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 50px;
+  color: #FFFFFF;
+  line-height: 1.1em;
+}
+
+.welcome-sub-text {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 .username {
