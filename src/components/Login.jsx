@@ -42,7 +42,9 @@ const Login = (props) => {
               <br/>
             </div>
             <div className="welcome-sub-text">
-                A List of Albums To Browse, Shuffle, and Filter
+                One Place To Keep Your Definitive List
+                <br/>
+                Of Albums To Browse, Shuffle, and Filter
             </div>
             {/* <div>
               <img src="./cannon.png" alt=""/>

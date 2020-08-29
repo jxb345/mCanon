@@ -638,8 +638,8 @@ to the proper spot
 
 .welcome-info {
   position: absolute;
-  top: 220px;
-  left: 65px
+  top: 250px;
+  left: 205px
 }
 
 .welcome-text {
@@ -651,8 +651,9 @@ to the proper spot
 
 .welcome-sub-text {
   color: #FFFFFF;
-  font-size: 20px;
-  font-family:Arial, Helvetica, sans-serif
+  font-size: 18px;
+  font-family:Arial, Helvetica, sans-serif;
+  line-height: 1.6em
 }
 
 .username {
