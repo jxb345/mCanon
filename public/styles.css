@@ -485,8 +485,8 @@ location in the css file
 
 .grid-welcome {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1.5fr;
-  grid-template-rows: 100px 450px 150px;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 100px 420px 200px;
 }
 
 .grid-welcome-top {
