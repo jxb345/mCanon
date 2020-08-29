@@ -46,9 +46,9 @@ const Login = (props) => {
                 <br/>
                 Of Albums To Browse, Shuffle, and Filter
             </div>
-            {/* <div>
-              <img src="./cannon.png" alt=""/>
-            </div> */}
+            <div className="canon-image">
+              <img src="./cannon.png" alt="canon image" />
+            </div>
           </div>
         </div>
         <div className="grid-welcome-main">
@@ -115,7 +115,7 @@ const Login = (props) => {
                 <input
                   type="text"
                   name="username"
-                  id="signup-email"
+                  id="email"
                   onChange={props.handleChange}
                 />
                 <br />

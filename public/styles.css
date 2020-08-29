@@ -526,6 +526,12 @@ location in the css file
 
 }
 
+.canon-image {
+  position: absolute;
+  left: 100px;
+  bottom: -120px;
+}
+
 
 /*
 end of what has to be moved

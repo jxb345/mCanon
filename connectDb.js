@@ -19,6 +19,7 @@ const Entry = new Schema({
 })
 
 const User = new Schema({
+  email: String,
   uId: String,
   username: String,
   password: String,

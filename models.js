@@ -63,10 +63,11 @@ const addEntry = (entry) => {
   });
 }
 
-const createUser = (user, ps) => {
+const createUser = (email, user, ps) => {
   console.log('user', user)
 
   const saveUser = new Users({
+    email: email,
     username: user,
     password: ps,
     uId: uuidv4()

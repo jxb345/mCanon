@@ -154,9 +154,11 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 })
 
 app.post('/signup', (req, res) => {
+  const email = req.body.email;
   const username = req.body.username;
   const password = req.body.password;
-  createUser(username, password)
+  console.log('req.body', req.body)
+  createUser(email, username, password)
     // .then(res.status(301).redirect(HOME));
     .then(res.status(301).redirect('http://localhost:3000/home'));
 
