@@ -430,6 +430,7 @@ move the following to the proper
 location in the css file
 */
 
+
 .login-credentials {
   display: block;
 }
@@ -546,6 +547,19 @@ location in the css file
  padding-left: 5px;
 }
 
+.more-info-button {
+  background-color: white;
+  color: #919FB6;
+  margin-left: 50px;
+  border-radius: 4px;
+}
+
+.more-info-button:hover {
+  background-color: #919FB6;
+  color: white;
+  box-shadow: 0 0 1pt 1pt white;
+  transition: 0.3s;
+}
 
 /*
 end of what has to be moved
@@ -672,9 +686,10 @@ to the proper spot
 
 .welcome-sub-text {
   color: #FFFFFF;
-  font-size: 18px;
-  font-family:Arial, Helvetica, sans-serif;
-  line-height: 1.6em
+  font-size: 17px;
+  font-weight: 700;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.4em
 }
 
 .username {

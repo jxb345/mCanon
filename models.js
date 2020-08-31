@@ -74,14 +74,10 @@ const createUser = (email, user, ps) => {
   })
 
   return new Promise((resolve, reject) => {
-
     saveUser.save((err) => {
       if (err) return console.error(err);
       user = new UserId(saveUser.uId)
       currentUserId = user.get();
-
-      console.log('user saved')
-
       resolve();
     })
     // below is generateHash function def, but need to

@@ -30,6 +30,7 @@ const Login = (props) => {
     }
   };
 
+
   return (
     <div>
       <div className="title">mCanon</div>
@@ -41,14 +42,22 @@ const Login = (props) => {
                Canon
               <br/>
             </div> */}
-            {/* <div className="welcome-sub-text">
-                One Place To Keep Your Definitive List
+            <div className="welcome-sub-text">
+                Keep Your Definitive Albums' List
                 <br/>
-                Of Albums To Browse, Shuffle, and Filter
+                To Browse, Shuffle, and Filter
             </div>
-            <div className="canon-image">
+            <div>
+              <br/>
+              <a href="http://localhost:3000/info">
+                <button
+                  className="more-info-button">Tell Me More
+                </button>
+              </a>
+            </div>
+            {/* <div className="canon-image">
               <img src="./cannon.png" alt="canon image" />
-            </div> */}
+            </div>  */}
           </div>
         </div>
         <div className="grid-welcome-main">
@@ -116,7 +125,7 @@ const Login = (props) => {
                 <label>Email</label>
                 <br />
                 <input
-                  type="text"
+                  type="email"
                   name="username"
                   id="email"
                   required

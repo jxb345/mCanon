@@ -4,9 +4,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Entry = new Schema({
-  // userId = Number,
-  // // username: String,
-  // password: String,
   band: String,
   album: String,
   genre: String,

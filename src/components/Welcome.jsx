@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback} from 'react';
 import App from './App.jsx';
+import Info from './Info.jsx';
 import {
   BrowserRouter as Router,
   Switch,
@@ -78,13 +79,16 @@ const Welcome = () => {
       :
         <Router>
             <Redirect to="/home" />
-              {/* <Switch> */}
+              <Switch>
               <Route path="/home">
                 <App
                 username={username}
                 redirect={redirect} />
               </Route>
-              {/* </Switch> */}
+              <Route path="info">
+                <Info />
+              </Route>
+              </Switch>
         </Router>
     }
     </div>
