@@ -37,18 +37,18 @@ const Login = (props) => {
       <div className="grid-welcome-top"></div>
         <div className="grid-welcome-left">
           <div className="welcome-info">
-            <div className="welcome-text">
-              Your Canon
+            {/* <div className="welcome-text">
+               Canon
               <br/>
-            </div>
-            <div className="welcome-sub-text">
+            </div> */}
+            {/* <div className="welcome-sub-text">
                 One Place To Keep Your Definitive List
                 <br/>
                 Of Albums To Browse, Shuffle, and Filter
             </div>
             <div className="canon-image">
               <img src="./cannon.png" alt="canon image" />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="grid-welcome-main">
@@ -85,15 +85,18 @@ const Login = (props) => {
                   type="text"
                   name="username"
                   id="login-username"
+                  required
                   onChange={props.handleChange}
                 />
                 <div>
                   <label>Password</label>
                   <br />
                   <input
-                    type="text"
+                    type="password"
+                    minLength="8"
                     name="password"
                     id="login-password"
+                    required
                     onChange={props.handleChange}
                   />
                 </div>
@@ -116,6 +119,7 @@ const Login = (props) => {
                   type="text"
                   name="username"
                   id="email"
+                  required
                   onChange={props.handleChange}
                 />
                 <br />
@@ -125,15 +129,18 @@ const Login = (props) => {
                   type="text"
                   name="username"
                   id="signup-username"
+                  required
                   onChange={props.handleChange}
                 />
                 <div>
                   <label>Password</label>
                   <br />
                   <input
-                    type="text"
-                    name="password"
+                    type="password"
+                    minLength="8"
+                    name="signup-pass"
                     id="signup-password"
+                    required
                     onChange={props.handleChange}
                   />
                 </div>
