@@ -31,7 +31,7 @@ passport.use(new LocalStrategy(
     console.log('in passport use ---------------------------')
     Users.findOne({"username": username}, (err, user) => {
       if (err) return done(err);
-      console.log('user', user)
+      // console.log('user', user)
 
       if (!user) {
         return done(null, false, { message: 'Incorrect username.'});
@@ -44,11 +44,10 @@ passport.use(new LocalStrategy(
 
       currentUser = new UserId(user.uId);
       getId = currentUser.get();
-      console.log('getId', getId)
-      console.log('currerntUser', currentUser)
+      // console.log('getId', getId)
+      // console.log('currerntUser', currentUser)
       return done(null, user);
     })
-    console.log('end of passport.use')
   }
 ))
 
@@ -170,10 +169,13 @@ app.get('/login', (req, res) =>
 })
 
 app.post('/login',
-  passport.authenticate('local', { failureRedirect: '/login', failureFlash: true}) ,
+  passport.authenticate('local'
+  ,
+  { failureRedirect: '/login', failureFlash: true}
+  ) ,
   function (req, res) {
-    console.log('req.body', req.body)
-    console.log('currentU', currentUser)
+    // console.log('req.body', req.body)
+    console.log('currentU---------', currentUser)
     res.redirect('/home')
   })
 

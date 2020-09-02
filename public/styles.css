@@ -550,14 +550,18 @@ location in the css file
 .more-info-button {
   background-color: white;
   color: #919FB6;
-  margin-left: 50px;
   border-radius: 4px;
+  /* display: grid;
+  align-items: center;
+  justify-items: center; */
+  margin-left: 110px;
+
 }
 
 .more-info-button:hover {
   background-color: #919FB6;
   color: white;
-  box-shadow: 0 0 1pt 1pt white;
+  box-shadow: 0 0 0.1em 0.1em white;
   transition: 0.3s;
 }
 
@@ -672,8 +676,9 @@ to the proper spot
 
 .welcome-info {
   position: absolute;
-  top: 250px;
-  left: 205px
+  top: 170px;
+  left: 205px;
+  display: grid
 }
 
 .welcome-text {
@@ -686,10 +691,12 @@ to the proper spot
 
 .welcome-sub-text {
   color: #FFFFFF;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 700;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  line-height: 1.4em
+  line-height: 1.4em;
+  text-align: center;
+
 }
 
 .username {

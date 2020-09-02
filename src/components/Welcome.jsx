@@ -18,7 +18,13 @@ const Welcome = () => {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
-  const [ redirect, setRedirect ] = useState(false);
+  const [ redirect, setRedirect ] = useState(false)
+
+
+  const Auth = {
+    isAuthenticated: false,
+
+  }
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -56,42 +62,66 @@ const Welcome = () => {
       },
       body: JSON.stringify(credentials),
     })
-    .then(data => {
-      console.log('data', data)
-      changeRedirect();
-      console.log('redirect ------res', redirect)
-    })
-}
+    return () => {
+      console.log('hi')
+      setRedirect(true)
+    }
+      // .then(response => response.json())
+      // .then(data => setRedirect(true))
+      //   console.log('data', data))
+        // Auth.isAuthenticated = true;
+        // console.log('auth in fetch: ', Auth.isAuthenticated)
+        // // changeRedirect();
+        // console.log('redirect ------res', redirect)
+        // return () => {
+        //   setRedirect(true);
+        // }
+      }
+
 
   useEffect(() =>{
+    console.log('auth', Auth.isAuthenticated)
     console.log('redirect ---- uE', redirect)
-  }, [redirect])
+  }
+  , [redirect]
+  // , [Auth.isAuthenticated]
+  )
 
 
   return (
+      <Router>
     <div>
     {
       !redirect ?
-        <Login
-          handleChange={handleChange}
-          verifyAuth={verifyAuth}
-        />
+      // !Auth.isAuthenticated ?
+       ( <div>
+
+        {/* <Redirect to="/login" />
+          <Route path="/login"> */}
+            <Login
+            handleChange={handleChange}
+            verifyAuth={verifyAuth}
+            />
+          {/* </Route> */}
+            </div>
+       )
       :
-        <Router>
+        (
+            <div>
             <Redirect to="/home" />
-              <Switch>
               <Route path="/home">
                 <App
                 username={username}
-                redirect={redirect} />
+                // redirect={redirect}
+                />
               </Route>
-              <Route path="info">
-                <Info />
-              </Route>
-              </Switch>
-        </Router>
+                </div>
+        )
     }
+
+
     </div>
+    </Router>
   )
 }
 

@@ -60,7 +60,7 @@ const App = (props) => {
 
   useEffect(() => {
     // console.log('history', this.props.history.location)
-    console.log('redirect in app: ---', props.redirect)
+    // console.log('redirect in app: ---', props.redirect)
 
     console.log('fetching...')
       fetch('/query-entries', {

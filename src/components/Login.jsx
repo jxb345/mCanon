@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from "react";
+import Info from './Info.jsx';
+import Welcome from './Welcome.jsx';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+  useHistory,
+  useLocation
+} from "react-router-dom";
 
 const Login = (props) => {
   // copied directly from Form.jsx - probably move this to
@@ -32,6 +43,7 @@ const Login = (props) => {
 
 
   return (
+    <Router>
     <div>
       <div className="title">mCanon</div>
       <div className="grid-welcome">
@@ -42,18 +54,19 @@ const Login = (props) => {
                Canon
               <br/>
             </div> */}
-            <div className="welcome-sub-text">
+            {/* <div className="welcome-sub-text">
                 Keep Your Definitive Albums' List
                 <br/>
                 To Browse, Shuffle, and Filter
-            </div>
+            </div> */}
             <div>
               <br/>
-              <a href="http://localhost:3000/info">
-                <button
-                  className="more-info-button">Tell Me More
-                </button>
-              </a>
+                {/* <Link to="/info">
+                  <button
+                    className="more-info-button">
+                      SAY MORE
+                  </button>
+                </Link> */}
             </div>
             {/* <div className="canon-image">
               <img src="./cannon.png" alt="canon image" />
@@ -166,9 +179,10 @@ const Login = (props) => {
         </div>
         <div className="grid-welcome-right"></div>
         <div className="grid-welcome-bottom"></div>
-
       </div>
     </div>
+
+    </Router>
   );
 };
 
