@@ -18,13 +18,8 @@ const Welcome = () => {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ email, setEmail ] = useState('');
-  const [ redirect, setRedirect ] = useState(false)
-
-
-  const Auth = {
-    isAuthenticated: false,
-
-  }
+  const [ redirect, setRedirect ] = useState(false);
+  const [ userId, setUserId ] = useState('')
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -42,8 +37,8 @@ const Welcome = () => {
   let history = useHistory();
   // let location = useLocation();
 
-  const changeRedirect = () => {
-    setRedirect(true)
+  const changeRedirect = (value) => {
+    return setRedirect(value)
   };
 
   const verifyAuth = (e) => {
@@ -62,30 +57,23 @@ const Welcome = () => {
       },
       body: JSON.stringify(credentials),
     })
-    return () => {
-      console.log('hi')
-      setRedirect(true)
+      .then(response => response.json())
+      .then((data) => {
+        setUserId(data.id);
+        setRedirect(data.redirect)
+      })
     }
-      // .then(response => response.json())
-      // .then(data => setRedirect(true))
-      //   console.log('data', data))
-        // Auth.isAuthenticated = true;
-        // console.log('auth in fetch: ', Auth.isAuthenticated)
-        // // changeRedirect();
-        // console.log('redirect ------res', redirect)
-        // return () => {
-        //   setRedirect(true);
-        // }
-      }
 
+    useEffect(() =>{
+      console.log('redirect ---- uE', redirect)
+      console.log('userId', userId)
+      // if (userId.length > 2) {
+      //   changeRedirect(true);
+      // }
 
-  useEffect(() =>{
-    console.log('auth', Auth.isAuthenticated)
-    console.log('redirect ---- uE', redirect)
-  }
-  , [redirect]
-  // , [Auth.isAuthenticated]
-  )
+    }
+    // , [userId]
+    )
 
 
   return (

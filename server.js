@@ -176,7 +176,8 @@ app.post('/login',
   function (req, res) {
     // console.log('req.body', req.body)
     console.log('currentU---------', currentUser)
-    res.redirect('/home')
+    currentUser.redirect = true;
+    res.status(200).send(currentUser)
   })
 
 app.get('/logout')

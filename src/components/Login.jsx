@@ -50,24 +50,24 @@ const Login = (props) => {
       <div className="grid-welcome-top"></div>
         <div className="grid-welcome-left">
           <div className="welcome-info">
-            {/* <div className="welcome-text">
+            {/* <h1 className="welcome-text">
                Canon
               <br/>
-            </div> */}
-            {/* <div className="welcome-sub-text">
+            </h1>
+            <h5 className="welcome-sub-text">
                 Keep Your Definitive Albums' List
                 <br/>
                 To Browse, Shuffle, and Filter
-            </div> */}
+            </h5>
             <div>
               <br/>
-                {/* <Link to="/info">
+                <Link to="/info">
                   <button
                     className="more-info-button">
-                      SAY MORE
+                      TELL ME MORE
                   </button>
-                </Link> */}
-            </div>
+                </Link>
+            </div> */}
             {/* <div className="canon-image">
               <img src="./cannon.png" alt="canon image" />
             </div>  */}
