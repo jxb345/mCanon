@@ -60,11 +60,16 @@ const Welcome = () => {
       .then(response => response.json())
       .then((data) => {
         setUserId(data.id);
-        setRedirect(data.redirect)
+        // setRedirect(data.redirect)
+        localStorage.setItem('redirect', 'true')
       })
     }
 
     useEffect(() =>{
+      console.log('localtStorage', localStorage.getItem('redirect'))
+      if (localStorage.getItem('redirect') === undefined) {
+        localStorage.setItem('redirect', 'false')
+      }
       console.log('redirect ---- uE', redirect)
       console.log('userId', userId)
       // if (userId.length > 2) {
@@ -77,10 +82,10 @@ const Welcome = () => {
 
 
   return (
-      <Router>
+      // <Router>
     <div>
     {
-      !redirect ?
+       localStorage.getItem('redirect') === 'false' ?
       // !Auth.isAuthenticated ?
        ( <div>
 
@@ -96,20 +101,20 @@ const Welcome = () => {
       :
         (
             <div>
-            <Redirect to="/home" />
-              <Route path="/home">
+            {/* <Redirect to="/home" />
+              <Route path="/home"> */}
                 <App
                 username={username}
                 // redirect={redirect}
                 />
-              </Route>
+              {/* </Route> */}
                 </div>
         )
     }
 
 
     </div>
-    </Router>
+    /* </Router> */
   )
 }
 

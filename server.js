@@ -63,13 +63,13 @@ passport.deserializeUser(function(id, done) {
   })
 })
 
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'public/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, 'public/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
@@ -176,7 +176,7 @@ app.post('/login',
   function (req, res) {
     // console.log('req.body', req.body)
     console.log('currentU---------', currentUser)
-    currentUser.redirect = true;
+    // currentUser.redirect = true;
     res.status(200).send(currentUser)
   })
 
