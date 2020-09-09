@@ -4,7 +4,8 @@ import App from './components/App.jsx';
 import Welcome from './components/Welcome.jsx'
 
 ReactDOM.render(
-<Welcome />
-// {/* <App /> */}
-, document.getElementById('root'));
+/* <Welcome /> */
+<App />
+,
+document.getElementById('root'));
 
