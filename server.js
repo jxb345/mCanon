@@ -105,8 +105,7 @@ app.post('/new-entry', (req, res) => {
   delete entry.collection;
   console.log('entry', entry)
   addEntry(entry)
-    .then(res.status(204));
-
+  .then(res.status(301).redirect(HOME))
 })
 
 app.post('/delete-entry', (req, res) => {

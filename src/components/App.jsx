@@ -59,7 +59,6 @@ const App = (props) => {
   }
 
   useEffect(() => {
-    console.log('redirect in app: ---', props.redirect)
       console.log('fetching...')
       fetch('/query-entries', {
         method: 'POST',
@@ -80,13 +79,14 @@ const App = (props) => {
       <div className="title">
         m
         <span style={titleStyle}>C</span>anon
-        <span className="username">
-          {props.username}
-          &nbsp;&nbsp;&nbsp;
-          <button className="sign-out-button">
-            sign out
-          </button>
-        </span>
+         {/* commented out as it is for authentication  */}
+              {/* <span className="username">
+                {props.username}
+                &nbsp;&nbsp;&nbsp;
+                <button className="sign-out-button">
+                  sign out
+                </button>
+              </span> */}
       </div>
       <div className="grid">
         <div className="grid-new-button">

@@ -55,6 +55,7 @@ const addEntry = (entry) => {
     uId: currentUserId
   })
 
+  console.log('create', create)
   return new Promise((resolve, reject) => {
     create.save((err, create) => {
       if (err) return console.error(err);
@@ -186,6 +187,7 @@ const capitalize = (name) => {
 }
 
 const filter = (filters) => {
+  console.log('filters in filter', filters)
   for (let key in filters) {
     if (key === 'collection') {
       filters.musicCollection = filters[key];
