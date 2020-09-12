@@ -9,12 +9,15 @@ const Filters = (props) => {
     const moodSelect = document.getElementById("mood-select");
     const genreSelect = document.getElementById("genre-select");
     const instrumentalSelect = document.getElementById("instrumental-select");
+    const ratingSelect = document.getAnimations("rating-select");
 
     // m.options.selectedIndex = -1
     moodSelect.options[0].selected = true;
     collectionSelect.options[0].selected = true;
     genreSelect.options[0].selected = true;
     instrumentalSelect.options[0].selected = true;
+    ratingSelect.options[0].selected = true;
+
 
 
     console.log('m.options[0].selected', m.options[0].selected)
@@ -57,17 +60,6 @@ const Filters = (props) => {
             genre
             <br/>
           <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
-            {/* <option value="clear">ALL</option>
-            <option value="rock">rock</option>
-            <option value="rap">rap</option>
-            <option value="jazz">jazz</option>
-            <option value="blues">blues</option>
-            <option value="funk">funk</option>
-            <option value="folk">folk</option>
-            <option value="punk rock">punk rock</option>
-            <option value="rhythmAndlues">rhythm and blues</option>
-            <option value="electronic">electronic</option>
-            <option value="country">country</option> */}
             <option value="clear" selected>ALL</option>
             <option value="bachata">bachata</option>
             <option value="bassaNova">bassa nova</option>
@@ -104,6 +96,19 @@ const Filters = (props) => {
         </select>
             </p>
         </div>
+        <div>
+          <p>
+            rating
+            <br/>
+          <select type="text" name="rating" id="rating-select" onChange={props.handleFilterChange}>
+            <option  value="clear" selected>ALL</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+          </p>
+        </div>
+
       <div className="clear-button">
         <button onClick={resetFilters}>CLEAR</button>
       </div>

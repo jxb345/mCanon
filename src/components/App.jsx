@@ -39,6 +39,8 @@ const App = (props) => {
       currentFilterId = 'mood';
     } else if (currentFilterId === 'genre-select') {
       currentFilterId = 'genre';
+    } else if (currentFilterId === 'rating-select') {
+      currentFilterId = 'rating';
     } else {
       currentFilterId = 'instrumental';
     }
