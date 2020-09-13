@@ -33,19 +33,29 @@ const App = (props) => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
-    if (currentFilterId === 'collection-select') {
-      currentFilterId = 'collection';
-    } else if (currentFilterId === 'mood-select') {
-      currentFilterId = 'mood';
-    } else if (currentFilterId === 'genre-select') {
-      currentFilterId = 'genre';
-    } else if (currentFilterId === 'rating-select') {
-      currentFilterId = 'rating';
+    console.log('cF', currentFilterValue)
+    if (currentFilterValue === 'add') {
+      // pop up for to add [currentFilterId]
+      const optionPopup = document.getElementsByClassName("new-option-popup");
+      console.log('optionPopup.style', optionPopup.style)
+      optionPopup.style.display = "block";
+
     } else {
-      currentFilterId = 'instrumental';
+
+      if (currentFilterId === 'collection-select') {
+        currentFilterId = 'collection';
+      } else if (currentFilterId === 'mood-select') {
+        currentFilterId = 'mood';
+      } else if (currentFilterId === 'genre-select') {
+        currentFilterId = 'genre';
+      } else if (currentFilterId === 'rating-select') {
+        currentFilterId = 'rating';
+      } else {
+        currentFilterId = 'instrumental';
+      }
+      console.log('currentFilterId', currentFilterId)
+      setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
     }
-    console.log('currentFilterId', currentFilterId)
-    setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
   }
 
   const handleClick = (e) => {

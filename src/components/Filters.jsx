@@ -52,6 +52,8 @@ const Filters = (props) => {
             <option value="chill">chill</option>
             <option value="upbeat">upbeat</option>
             <option value="daytime">daytime</option>
+            <option value="add">add mood</option>
+
           </select>
           </p>
         </div>
