@@ -249,6 +249,7 @@ tr .entries:hover {
 
 .filters select {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
   text-align-last: center;
   height: 35px;
   width: 150px;
@@ -256,6 +257,10 @@ tr .entries:hover {
   border: 1px solid white;
   border-radius: 3px;
   background-color: #F4F4F4;
+}
+
+option {
+  text-align: left;
 }
 
 .form {
