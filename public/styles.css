@@ -253,7 +253,6 @@ tr .entries:hover {
   text-align-last: center;
   height: 35px;
   width: 150px;
-  /* rgb(71, 68, 68); */
   border: 1px solid white;
   border-radius: 3px;
   background-color: #F4F4F4;
@@ -301,13 +300,11 @@ option {
   grid-row: 2 / 5;
   border-top: 1px solid #E9E9E9;
   border-right: 1px solid #E9E9E9;
-  /* display: grid; */
 }
 
 .grid-list {
   grid-column: 2;
   grid-row: 2 / 4;
-  /* border-top: 1px solid lightgray; */
 }
 
 .grid-new-button {
@@ -356,7 +353,6 @@ img {
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: center center;
-  /* background-origin: content-box; */
 }
 
 .input-search input:focus {
@@ -484,11 +480,9 @@ button:hover {
   font-size: 14px;
   padding-left: 40%;
   padding-top: 7%;
-  /* border: solid lightgray 2px; */
   border-radius: 4px;
   background-color: #919FB6;
   color: white;
-  /* #F7F7F7; */
   z-index: 1;
   opacity: 0;
   transition: opacity 0.3s;
@@ -516,7 +510,6 @@ button:hover {
   font-weight: 800;
   text-align: left;
   letter-spacing: 0.03em;
-  /* padding: 5px; */
   padding-left: 65px;
   padding-bottom: 10px;
   color:gray;
