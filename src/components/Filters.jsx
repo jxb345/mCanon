@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form.jsx';
+import AddForm from './AddForm.jsx';
 
 const Filters = (props) => {
 
@@ -35,7 +36,9 @@ const Filters = (props) => {
       </div>
       <div className="new-add-popup">
         <div className="new-add-form">
-          <AddForm />
+          <AddForm
+            addId={props.addId}
+          />
         </div>
       </div>
       <div className="filters">

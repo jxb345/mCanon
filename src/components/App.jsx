@@ -6,6 +6,7 @@ import Filters from './Filters.jsx';
 const App = (props) => {
 
   const filter = useRef('');
+  const [addId, setAddId] = useState('');
   const [entries, setEntries] = useState([]);
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
@@ -38,8 +39,10 @@ const App = (props) => {
   const handleFilterChange = (e) => {
     let currentFilterValue = e.target.value;
     let currentFilterId = e.target.id
-    console.log('cF', currentFilterValue)
+    let currentName = e.target.name;
+    console.log('cN', currentName)
     if (currentFilterValue === 'add') {
+      setAddId(currentName)
       displayAdd()
     } else {
       if (currentFilterId === 'collection-select') {
@@ -122,6 +125,7 @@ const App = (props) => {
             disabledAttribute={disabledAttribute}
             setDisabledAttribute={setDisabledAttribute}
             filterSelect={filterSelect}
+            addId={addId}
           />
 
           </div>
