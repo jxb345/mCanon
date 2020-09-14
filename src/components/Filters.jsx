@@ -50,7 +50,10 @@ const Filters = (props) => {
           <AddForm
             addId={props.addId}
             setMoods={setMoods}
+            moods={moods}
             setGenres={setGenres}
+            genres={genres}
+
           />
         </div>
       </div>

@@ -6,10 +6,11 @@ const AddForm = (props) => {
   const [ add, setAdd ] = useState('');
 
   const handleAdd = () => {
+    console.log('handleAdd')
     if (props.addId === 'genre') {
-      props.setGenres(add)
+      props.setGenres(add => add, ...props.genres)
     } else {
-      props.setMoods(add)
+      props.setMoods(add => add, ...props.moods)
     }
   }
 
@@ -26,8 +27,8 @@ const handleAddChange = (e) => {
       </div>
       <input type="text" onChange={handleAddChange} />
       <br/>
-      <button type="submit">Add</button>
-      <button type="button" onClick={handleAdd} >Cancel</button>
+      <button type="button" onClick={() => { handleAdd() }}>ADD</button>
+      <button type="button" >Cancel</button>
     </div>
   )
 }
