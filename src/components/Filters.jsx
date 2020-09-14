@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './Form.jsx';
 import AddForm from './AddForm.jsx';
 
 const Filters = (props) => {
+
+  const initialGenres = [
+    'blues', 'classical', 'country', 'electronic', 'folk', 'funk', 'rock', 'jazz', 'pop', 'rap', 'rock', 'soul'
+  ]
+
+  const [ moods, setMoods ] = useState(['upbeat', 'daytime','chill'])
+  const [ genres, setGenres ] = useState(initialGenres)
 
   const resetFilters = () => {
     props.setSelectedFilters([])
@@ -24,6 +31,10 @@ const Filters = (props) => {
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
+   useEffect(() => {
+    console.log('filters uE')
+   })
+
   return (
     <div>
       <div className="new-entry-popup">
@@ -38,6 +49,8 @@ const Filters = (props) => {
         <div className="new-add-form">
           <AddForm
             addId={props.addId}
+            setMoods={setMoods}
+            setGenres={setGenres}
           />
         </div>
       </div>
@@ -57,10 +70,15 @@ const Filters = (props) => {
             <br/>
           <select type="text" name="mood" id="mood-select" onChange={props.handleFilterChange}>
             <option  value="clear" selected>ALL</option>
-            <option value="chill">chill</option>
+            {
+              moods.map((mood) => {
+                return <option value={mood}>{mood}</option>
+              })
+            }
+            {/* <option value="chill">chill</option>
             <option value="upbeat">upbeat</option>
-            <option value="daytime">daytime</option>
-            <option value="add">add mood</option>
+            <option value="daytime">daytime</option> */}
+            <option value="add">ADD MOOD</option>
 
           </select>
           </p>
@@ -71,27 +89,33 @@ const Filters = (props) => {
             <br/>
           <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
             <option value="clear" selected>ALL</option>
-            <option value="bachata">bachata</option>
-            <option value="bassaNova">bassa nova</option>
-            <option value="blues">blues</option>
-            <option value="bolero">bolero</option>
-            <option value="classical">classical</option>
+            {
+              genres.map((genre) => {
+                return <option value={genre}>{genre}</option>
+              })
+            }
+            {/* <option value="bachata">bachata</option>
+            <option value="bassaNova">bassa nova</option> */}
+            {/* <option value="blues">blues</option> */}
+            {/* <option value="bolero">bolero</option> */}
+            {/* <option value="classical">classical</option>
             <option value="country">country</option>
             <option value="electronic">electronic</option>
             <option value="funk">funk</option>
-            <option value="folk">folk</option>
-            <option value="gospel">gospel</option>
-            <option value="jazz">jazz</option>
-            <option value="metal">metal</option>
-            <option value="musicalTheater">musical theater</option>
-            <option value="pop">pop</option>
-            <option value="punk rock">punk rock</option>
-            <option value="reggae">reggae</option>
-            <option value="rap">rap</option>
-            <option value="rhythmAndlues">rhythm and blues</option>
-            <option value="rock">rock</option>
-            <option value="salsa">salsa</option>
-            <option value="soul">soul</option>
+            <option value="folk">folk</option> */}
+            {/* <option value="gospel">gospel</option> */}
+            {/* <option value="jazz">jazz</option> */}
+            {/* <option value="metal">metal</option> */}
+            {/* <option value="musicalTheater">musical theater</option> */}
+            {/* <option value="pop">pop</option> */}
+            {/* <option value="punk rock">punk rock</option> */}
+            {/* <option value="reggae">reggae</option> */}
+            {/* <option value="rap">rap</option> */}
+            {/* <option value="rhythmAndlues">rhythm and blues</option> */}
+            {/* <option value="rock">rock</option> */}
+            {/* <option value="salsa">salsa</option> */}
+            {/* <option value="soul">soul</option> */}
+            <option value="add">ADD GENRE</option>
           </select>
           </p>
         </div>
