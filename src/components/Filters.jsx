@@ -34,6 +34,9 @@ const Filters = (props) => {
         </div>
       </div>
       <div className="new-add-popup">
+        <div className="new-add-form">
+          <AddForm />
+        </div>
       </div>
       <div className="filters">
         <p>
