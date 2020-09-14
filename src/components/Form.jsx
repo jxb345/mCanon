@@ -132,9 +132,10 @@ const Form = (props) => {
           <div className="form-title">
             {formSettings.title}
           </div>
+
           {
             props.buttonClicked === 'new' ?
-              <div className="tabs-new-entry-links">
+            <div className="tabs-new-entry-links">
                 <button type="button" id="add-one-button" onClick={() => { handleTabs('add-one') }}>
                   ADD ONE
                 </button>
@@ -144,8 +145,8 @@ const Form = (props) => {
               </div>
               :
               <div className="edit-delete-form">
-                <br/>
-                {/* <br/> */}
+              <br/>
+              {/* <br/> */}
               </div>
           }
 

@@ -33,6 +33,8 @@ const Filters = (props) => {
             editEntry={props.editEntry} />
         </div>
       </div>
+      <div className="new-add-popup">
+      </div>
       <div className="filters">
         <p>
           collection

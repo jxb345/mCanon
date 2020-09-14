@@ -19,10 +19,15 @@ const App = (props) => {
 
   // moved FROM Search.jsx
   const displayForm = () => {
-    setButtonClicked('new');
-    const popup = document.getElementsByClassName("new-entry-popup")[0];
-    console.log('popup.style', popup.style)
-    popup.style.display = "block";
+      const popup = document.getElementsByClassName("new-entry-popup")[0];
+      console.log('popup.style', popup.style)
+      popup.style.display = "block";
+  }
+
+  const displayAdd = () => {
+    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+    console.log('addPopup.style', addPopup.style)
+    addPopup.style.display = "block";
   }
 
   const titleStyle = {
@@ -35,13 +40,8 @@ const App = (props) => {
     let currentFilterId = e.target.id
     console.log('cF', currentFilterValue)
     if (currentFilterValue === 'add') {
-      // pop up for to add [currentFilterId]
-      const optionPopup = document.getElementsByClassName("new-option-popup");
-      console.log('optionPopup.style', optionPopup.style)
-      optionPopup.style.display = "block";
-
+      displayAdd()
     } else {
-
       if (currentFilterId === 'collection-select') {
         currentFilterId = 'collection';
       } else if (currentFilterId === 'mood-select') {
