@@ -11,6 +11,11 @@ const AddForm = (props) => {
       props.setGenres([add, ...props.genres])
     } else {
       props.setMoods([add, ...props.moods])
+      const query = document.querySelectorAll('mood-select option')
+      for (var i = 0, l = query.length; i < l; i++) {
+        console.log('query[i[', query[i])
+        query[i].selected = query[i].defaultSelected;
+      }
     }
     const addPopup = document.getElementsByClassName("new-add-popup")[0];
     addPopup.style.display = "none";

@@ -68,9 +68,6 @@ const Filters = (props) => {
                 return <option value={mood}>{mood}</option>
               })
             }
-            {/* <option value="chill">chill</option>
-            <option value="upbeat">upbeat</option>
-            <option value="daytime">daytime</option> */}
             <option value="add">ADD MOOD</option>
 
           </select>
