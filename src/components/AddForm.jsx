@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 
 const AddForm = (props) => {
@@ -8,16 +8,16 @@ const AddForm = (props) => {
   const handleAdd = () => {
     console.log('handleAdd')
     if (props.addId === 'genre') {
-      props.setGenres(add => add, ...props.genres)
+      props.setGenres([add, ...props.genres])
     } else {
-      props.setMoods(add => add, ...props.moods)
+      props.setMoods([add, ...props.moods])
     }
   }
 
 const handleAddChange = (e) => {
-    console.log('add', add)
     setAdd(e.target.value, ...add)
   }
+
 
 
   return (
