@@ -4,9 +4,6 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 
 const Entry = new Schema({
-  // userId = Number,
-  // // username: String,
-  // password: String,
   band: String,
   album: String,
   genre: String,
@@ -24,6 +21,14 @@ const User = new Schema({
   password: String,
 })
 
-const Users = mongoose.model('users', User)
+const GenreMood = new Schema({
+  uId: String,
+  genres: Array,
+  moods: Array
+})
 
-module.exports = { Entry, Users }
+const Users = mongoose.model('users', User)
+const GenresMoods = mongoose.model('genresMoods', GenreMood)
+
+
+module.exports = { Entry, GenresMoods, Users }

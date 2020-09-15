@@ -126,6 +126,13 @@ app.post('/edit-entry', (req, res) => {
     })
 })
 
+
+app.post('/genres-moods', (req, res) => {
+
+  console.log('genres-moods-endpoints');
+
+})
+
 app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   const uploadedFile = req.file || 'nofile';
   const fileName = uploadedFile.originalname || 'noFileName';
