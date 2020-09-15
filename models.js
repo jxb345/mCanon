@@ -5,10 +5,9 @@ const { v4: uuidv4 } = require('uuid');
 const bcrypt = require('bcrypt');
 const { getUserId } = require('./server.js')
 const { UserId } = require('./userId.js');
+const { genres, moods} = require('./genresMoods.js');
 let user = '';
 let currentUserId = ''
-
-
 
 const addEntry = (entry) => {
 

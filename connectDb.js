@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/canon', { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
+const { genres, moods} = require('./genresMoods.js');
 
 const Entry = new Schema({
   band: String,
@@ -28,7 +29,18 @@ const GenreMood = new Schema({
 })
 
 const Users = mongoose.model('users', User)
-const GenresMoods = mongoose.model('genresMoods', GenreMood)
+const GenresMoods = mongoose.model('genresmoods', GenreMood)
+
+const initialDbSetup = {
+    uId: 'genresMoods',
+    genres: genres,
+    moods: moods
+}
+
+GenresMoods.findOneAndUpdate({ uId: "genresMoods" }, initialDbSetup, { upsert: true }, (err, docs) => {
+  if (err) console.log('error')
+  console.log('docs', docs)
+})
 
 
 module.exports = { Entry, GenresMoods, Users }
