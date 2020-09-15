@@ -131,6 +131,10 @@ const App = (props) => {
             setDisabledAttribute={setDisabledAttribute}
             filterSelect={filterSelect}
             addId={addId}
+            moods={moods}
+            genres={genres}
+            setGenres={setGenres}
+            setMoods={setMoods}
           />
 
           </div>

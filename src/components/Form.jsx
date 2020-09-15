@@ -167,7 +167,12 @@ const Form = (props) => {
             <br />
             <select type="text" name="genre" id="genre" disabled={formSettings.disabled}>
               <option selected>{formSettings.genreSelected}</option>
-            <option value="bachata">bachata</option>
+              {
+              props.genres.map((genre) => {
+                return <option value={genre}>{genre}</option>
+              })
+            }
+            {/* <option value="bachata">bachata</option>
             <option value="bassaNova">bassa nova</option>
             <option value="blues">blues</option>
             <option value="bolero">bolero</option>
@@ -187,15 +192,20 @@ const Form = (props) => {
             <option value="rhythmAndlues">rhythm and blues</option>
             <option value="rock">rock</option>
             <option value="salsa">salsa</option>
-            <option value="soul">soul</option>
+            <option value="soul">soul</option> */}
             </select>
             <br />
             <br />
             <select type="text" name="mood" id="mood" disabled={formSettings.disabled}>
               <option selected>{formSettings.moodSelected}</option>
-              <option value="chill">chill</option>
+              {
+              props.moods.map((mood) => {
+                return <option value={mood}>{mood}</option>
+              })
+            }
+              {/* <option value="chill">chill</option>
               <option value="upbeat">upbeat</option>
-              <option value="daytime">daytime</option>
+              <option value="daytime">daytime</option> */}
             </select>
             <br />
             <br />

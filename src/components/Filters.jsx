@@ -32,9 +32,6 @@ const Filters = (props) => {
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
-   useEffect(() => {
-    console.log('moods', moods)
-   })
 
   return (
     <div>
@@ -43,17 +40,20 @@ const Filters = (props) => {
           <Form
             setButtonClicked={props.setButtonClicked}
             buttonClicked={props.buttonClicked}
-            editEntry={props.editEntry} />
+            editEntry={props.editEntry}
+            moods={props.moods}
+            genres={props.genres}
+          />
         </div>
       </div>
       <div className="new-add-popup">
         <div className="new-add-form">
           <AddForm
             addId={props.addId}
-            setMoods={setMoods}
-            moods={moods}
-            setGenres={setGenres}
-            genres={genres}
+            setMoods={props.setMoods}
+            moods={props.moods}
+            setGenres={props.setGenres}
+            genres={props.genres}
 
           />
         </div>
@@ -75,7 +75,7 @@ const Filters = (props) => {
           <select type="text" name="mood" id="mood-select" onChange={props.handleFilterChange}>
             <option  value="clear" selected>ALL</option>
             {
-              moods.map((mood) => {
+              props.moods.map((mood) => {
                 return <option value={mood}>{mood}</option>
               })
             }
@@ -94,7 +94,7 @@ const Filters = (props) => {
           <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
             <option value="clear" selected>ALL</option>
             {
-              genres.map((genre) => {
+              props.genres.map((genre) => {
                 return <option value={genre}>{genre}</option>
               })
             }
