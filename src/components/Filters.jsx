@@ -4,13 +4,6 @@ import AddForm from './AddForm.jsx';
 
 const Filters = (props) => {
 
-  // moved to App.jsx so Form can also have access
-  // const initialGenres = [
-  //   'blues', 'classical', 'country', 'electronic', 'folk', 'funk', 'rock', 'jazz', 'pop', 'rap', 'rock', 'soul'
-  // ]
-
-  // const [ moods, setMoods ] = useState(['upbeat', 'daytime','chill'])
-  // const [ genres, setGenres ] = useState(initialGenres)
 
   const resetFilters = () => {
     props.setSelectedFilters([])
@@ -26,9 +19,6 @@ const Filters = (props) => {
     genreSelect.options[0].selected = true;
     instrumentalSelect.options[0].selected = true;
     ratingSelect.options[0].selected = true;
-
-
-
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
@@ -54,7 +44,6 @@ const Filters = (props) => {
             moods={props.moods}
             setGenres={props.setGenres}
             genres={props.genres}
-
           />
         </div>
       </div>

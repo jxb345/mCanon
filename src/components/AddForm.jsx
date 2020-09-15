@@ -12,12 +12,18 @@ const AddForm = (props) => {
     } else {
       props.setMoods([add, ...props.moods])
     }
+    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+    addPopup.style.display = "none";
   }
 
 const handleAddChange = (e) => {
     setAdd(e.target.value, ...add)
   }
 
+  const handleCancel = () => {
+    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+    addPopup.style.display = "none";
+  }
 
 
   return (
@@ -28,7 +34,7 @@ const handleAddChange = (e) => {
       <input type="text" onChange={handleAddChange} />
       <br/>
       <button type="button" onClick={() => { handleAdd() }}>ADD</button>
-      <button type="button" >Cancel</button>
+      <button type="button" onClick={() => { handleCancel()}} >Cancel</button>
     </div>
   )
 }
