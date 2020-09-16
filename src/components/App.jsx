@@ -5,9 +5,6 @@ import Filters from './Filters.jsx';
 
 const App = (props) => {
 
-  const initialGenres = [
-    'blues', 'classical', 'country', 'electronic', 'folk', 'funk', 'rock', 'jazz', 'pop', 'rap', 'rock', 'soul'
-  ]
   const filter = useRef('');
   const [addId, setAddId] = useState('');
   const [entries, setEntries] = useState([]);
@@ -20,8 +17,8 @@ const App = (props) => {
   const [disabledAttribute, setDisabledAttribute] = useState('');
   const [option, setOption] = useState('')
   const [filterSelect, setFilterSelect] = useState(true)
-  const [ moods, setMoods ] = useState(['upbeat', 'daytime','chill'])
-  const [ genres, setGenres ] = useState(initialGenres)
+  const [ moods, setMoods ] = useState([ ])
+  const [ genres, setGenres ] = useState([])
 
   // moved FROM Search.jsx
   const displayForm = () => {
@@ -88,7 +85,13 @@ const App = (props) => {
         body: JSON.stringify(selectedFilters)
       })
         .then(response => response.json())
-        .then(data => setEntries((data)));
+        .then((data) => {
+          console.log('data', data)
+          setEntries((data.entries));
+          setGenres(data.genres);
+          setMoods(data.moods);
+        }
+          );
         return () => {
           console.log('buttonClicked', buttonClicked)
         }

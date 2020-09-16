@@ -6,6 +6,10 @@ const List = (props) => {
   const options = document.getElementsByClassName("options");
 
 
+  useEffect(() => {
+    console.log('props.entries', props.entries)
+  })
+
   return (
     <div className="table-container">
 
@@ -23,19 +27,23 @@ const List = (props) => {
           </tr>
         </thead>
       {
-        props.entries.map((entry, i) => {
-          return <Entry
-          entry={entry}
-          key={i}
-          handleClick={props.handleClick}
-          clicked={props.clicked}
-          setClicked={props.setClicked}
-          setEntries={props.setEntries}
-          setButtonClicked={props.setButtonClicked}
-          setEditEntry={props.setEditEntry}
-          />
-        })
-      }
+        props.entries.length > 0?
+
+          props.entries.map((entry, i) => {
+            return <Entry
+            entry={entry}
+            key={i}
+            handleClick={props.handleClick}
+            clicked={props.clicked}
+            setClicked={props.setClicked}
+            setEntries={props.setEntries}
+            setButtonClicked={props.setButtonClicked}
+            setEditEntry={props.setEditEntry}
+            />
+          })
+          :
+          <span></span>
+        }
       </table>
     </div>
   )

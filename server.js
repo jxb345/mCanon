@@ -7,7 +7,7 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, search } = require('./models.js');
+const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
 const { Users } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
@@ -85,13 +85,22 @@ app.post('/search', (req, res) => {
 
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
+  let entriesGenresMoods = {};
   console.log('filters', filters)
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
   filter(filters)
     .then((entries) => {
-      res.status(200).send(entries)
+      console.log('entreis in filters', entries)
+      entriesGenresMoods.entries = entries;
+      // res.status(200).send(entries)
+    })
+  queryGenresMoods()
+    .then((genresMoods) => {
+    entriesGenresMoods.genres = genresMoods.genres;
+    entriesGenresMoods.moods = genresMoods.moods
+    res.status(200).send(entriesGenresMoods)
     })
     .catch(error => {
       console.error(error.message)

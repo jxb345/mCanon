@@ -1,4 +1,4 @@
-const { Entry, Users } = require('./connectDb.js');
+const { Entry, GenresMoods, Users } = require('./connectDb.js');
 const mongoose = require('mongoose');
 const model = mongoose.model('Page', Entry);
 const { v4: uuidv4 } = require('uuid');
@@ -215,6 +215,15 @@ const findOne = (query) => {
   })
 }
 
+const queryGenresMoods = () => {
+  return new Promise((resolve, reject) => {
+    GenresMoods.findOne({ uId: "genresMoods"}, (err, docs) => {
+      if (err) { throw err };
+      resolve(docs)
+    })
+  })
+}
+
 const search = (query) => {
   return new Promise((resolve, reject) => {
     const wildcard = capitalize(query) + ".*";
@@ -226,5 +235,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, createUser, editEntry, filter, findOne, findUpdate, deleteEntry, model, search }
+module.exports = { addEntry, createUser, editEntry, filter, findOne, findUpdate, deleteEntry, model, queryGenresMoods, search }
 
