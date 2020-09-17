@@ -137,8 +137,8 @@ app.post('/edit-entry', (req, res) => {
 
 
 app.post('/genres-moods', (req, res) => {
-
-  console.log('genres-moods-endpoints');
+  const addition = req.body;
+  console.log('additon', addition)
 
 })
 

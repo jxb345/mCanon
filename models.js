@@ -63,6 +63,16 @@ const addEntry = (entry) => {
   });
 }
 
+const addGenreMood = (addition) => {
+  let genreMood = addition.id;
+  let add = addition.add;
+
+  return new Promise ((resolve, reject) => {
+    GenresMoods.findOneAndUpdate( { uId: "genresmoods"},
+    { $push: { genreMood: add}})
+  })
+}
+
 const createUser = (user, ps) => {
   console.log('user', user)
 
@@ -235,5 +245,5 @@ const search = (query) => {
   })
 }
 
-module.exports = { addEntry, createUser, editEntry, filter, findOne, findUpdate, deleteEntry, model, queryGenresMoods, search }
+module.exports = { addEntry, addGenreMood, createUser, editEntry, filter, findOne, findUpdate, deleteEntry, model, queryGenresMoods, search }
 
