@@ -5,14 +5,8 @@ const List = (props) => {
 
   const options = document.getElementsByClassName("options");
 
-
-  useEffect(() => {
-    console.log('props.entries', props.entries)
-  })
-
   return (
     <div className="table-container">
-
       <table>
         <thead>
           <tr className="entries-headers">
