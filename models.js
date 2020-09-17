@@ -63,13 +63,15 @@ const addEntry = (entry) => {
   });
 }
 
-const addGenreMood = (addition) => {
-  let genreMood = addition.id;
-  let add = addition.add;
-
+const addGenreMood = (filter, addition) => {
+  console.log('filter', filter);
+  console.log('addition', addition)
   return new Promise ((resolve, reject) => {
-    GenresMoods.findOneAndUpdate( { uId: "genresmoods"},
-    { $push: { genreMood: add}})
+    GenresMoods.findOneAndUpdate( { uId: "genresMoods" },
+    { $push: { filter: addition}}, (err) => {
+      if (err) throw err;
+      resolve();
+    })
   })
 }
 

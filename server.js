@@ -7,7 +7,7 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
+const { addEntry, addGenreMood, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
 const { Users } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
@@ -137,8 +137,11 @@ app.post('/edit-entry', (req, res) => {
 
 
 app.post('/genres-moods', (req, res) => {
-  const addition = req.body;
+  const filter = req.body.id + 's';
+  const addition = req.body.add;
   console.log('additon', addition)
+  addGenreMood(filter, addition)
+    .then(res.status(301).redirect(HOME));
 
 })
 
