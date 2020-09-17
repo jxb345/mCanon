@@ -25,6 +25,7 @@ const App = (props) => {
 
   // moved FROM Search.jsx
   const displayForm = () => {
+      setButtonClicked('new');
       const popup = document.getElementsByClassName("new-entry-popup")[0];
       console.log('popup.style', popup.style)
       popup.style.display = "block";
