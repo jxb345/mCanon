@@ -64,11 +64,12 @@ const addEntry = (entry) => {
 }
 
 const addGenreMood = (filter, addition) => {
-  console.log('filter', filter);
-  console.log('addition', addition)
+  let query = {};
+  query[filter] = addition;
+  console.log('query', query)
   return new Promise ((resolve, reject) => {
     GenresMoods.findOneAndUpdate( { uId: "genresMoods" },
-    { $push: { filter: addition}}, (err) => {
+    { $push: query }, (err) => {
       if (err) throw err;
       resolve();
     })
