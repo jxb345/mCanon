@@ -17,7 +17,7 @@ const App = (props) => {
   const [disabledAttribute, setDisabledAttribute] = useState('');
   const [option, setOption] = useState('')
   const [filterSelect, setFilterSelect] = useState(true)
-  const [ moods, setMoods ] = useState([ ])
+  const [ moods, setMoods ] = useState([])
   const [ genres, setGenres ] = useState([])
 
   // moved FROM Search.jsx
@@ -77,7 +77,7 @@ const App = (props) => {
   }
 
   useEffect(() => {
-      console.log('fetching...')
+      console.log('moods ---- before fetch', moods)
       fetch('/query-entries', {
         method: 'POST',
         headers: {
@@ -88,14 +88,13 @@ const App = (props) => {
         .then(response => response.json())
         .then((data) => {
           console.log('data', data)
+          console.log('moods ---- AFTER fetch', moods)
+
           setEntries((data.entries));
           setGenres(data.genres);
           setMoods(data.moods);
         }
           );
-        return () => {
-          console.log('buttonClicked', buttonClicked)
-        }
       }, [selectedFilters])
 
   return (

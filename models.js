@@ -232,6 +232,7 @@ const queryGenresMoods = () => {
   return new Promise((resolve, reject) => {
     GenresMoods.findOne({ uId: "genresMoods"}, (err, docs) => {
       if (err) { throw err };
+      console.log('docs', docs)
       resolve(docs)
     })
   })

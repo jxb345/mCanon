@@ -21,7 +21,7 @@ const List = (props) => {
           </tr>
         </thead>
       {
-        props.entries.length > 0?
+        props.entries && props.entries.length > 0?
 
           props.entries.map((entry, i) => {
             return <Entry

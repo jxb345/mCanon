@@ -6,12 +6,6 @@ const AddForm = (props) => {
   const [ add, setAdd ] = useState('');
 
   const handleAdd = () => {
-    console.log('pId', props.addId)
-    // if (props.addId === 'genre') {
-    //   props.setGenres([add, ...props.genres])
-    // } else {
-    //   props.setMoods([add, ...props.moods])
-
     let addition = {
       id: props.addId,
       add: add
@@ -26,13 +20,6 @@ const AddForm = (props) => {
     })
     .then(response => response.json)
     .then(data => console.log('data', data))
-      // attempt to reset select element to selected option
-      // const query = document.querySelectorAll('mood-select option')
-      // for (var i = 0, l = query.length; i < l; i++) {
-      //   console.log('query[i[]', query[i])
-      //   query[i].selected = query[i].defaultSelected;
-      // }
-
       let queryOption = '';
 
       if (props.addId === 'genre') {
@@ -40,6 +27,7 @@ const AddForm = (props) => {
       } else {
         queryOption = "#mood-select option"
       }
+
       const revertToSelected = document.querySelectorAll(queryOption);
       for (let i = 0; i < revertToSelected.length; i += 1) {
         console.log('revertToSelected[i].value', revertToSelected[i].value)
