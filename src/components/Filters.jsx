@@ -22,7 +22,6 @@ const Filters = (props) => {
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
-
   return (
     <div>
       <div className="new-entry-popup">
@@ -64,8 +63,8 @@ const Filters = (props) => {
           <select type="text" name="mood" id="mood-select" onChange={props.handleFilterChange}>
             <option  value="clear" selected>ALL</option>
             {
-              props.moods.map((mood) => {
-                return <option value={mood}>{mood}</option>
+              props.moods.map((mood, i) => {
+                return <option value={mood} key={i}>{mood}</option>
               })
             }
             <option value="add">ADD MOOD</option>
@@ -80,8 +79,8 @@ const Filters = (props) => {
           <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
             <option value="clear" selected>ALL</option>
             {
-              props.genres.map((genre) => {
-                return <option value={genre}>{genre}</option>
+              props.genres.map((genre, i) => {
+                return <option value={genre} key={i}>{genre}</option>
               })
             }
             {/* <option value="bachata">bachata</option>

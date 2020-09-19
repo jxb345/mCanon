@@ -238,12 +238,12 @@ const Form = (props) => {
           </div>
         </form>
         <div id="upload-csv-tab" className="tab-content-upload">
-          <form action="/upload-csv" method="post" enctype="multipart/form-data">
+          <form action="/upload-csv" method="post" encType="multipart/form-data">
             <div>
               <br />
               {/* <br /> */}
               <a href="" />
-              <label for='file-upload' className="custom-file-upload">
+              <label htmlFor='file-upload' className="custom-file-upload">
                 select CSV file
               </label>
               <input id="file-upload" type="file" name="csv-file" />

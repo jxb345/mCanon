@@ -36,7 +36,7 @@ const List = (props) => {
             />
           })
           :
-          <span></span>
+          <div></div>
         }
       </table>
     </div>
