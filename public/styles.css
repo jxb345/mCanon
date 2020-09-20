@@ -250,8 +250,13 @@ tr .entries:hover {
   background-color: #F4F4F4;
 }
 
-option {
-  text-align: left;
+.style-select select{
+  display: none;
+}
+
+.style-select {
+  position: relative;
+  background-color: green;
 }
 
 .form {

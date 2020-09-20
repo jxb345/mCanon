@@ -50,7 +50,7 @@ const Filters = (props) => {
         <p>
           collection
           <br></br>
-        <select type="text" name="collection" id="collection-select" onChange={props.handleFilterChange} >
+        <select className="style-select" type="text" name="collection" id="collection-select" onChange={props.handleFilterChange} >
           <option value="clear" selected>ALL</option>
           <option value="canon">canon</option>
           <option value="nominee">nominee</option>
