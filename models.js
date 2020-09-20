@@ -54,7 +54,6 @@ const addEntry = (entry) => {
     uId: currentUserId
   })
 
-  console.log('create', create)
   return new Promise((resolve, reject) => {
     create.save((err, create) => {
       if (err) return console.error(err);
@@ -66,7 +65,6 @@ const addEntry = (entry) => {
 const addGenreMood = (filter, addition) => {
   let query = {};
   query[filter] = addition;
-  console.log('query', query)
   return new Promise ((resolve, reject) => {
     GenresMoods.findOneAndUpdate( { uId: "genresMoods" },
     { $push: query }, (err) => {
@@ -77,7 +75,6 @@ const addGenreMood = (filter, addition) => {
 }
 
 const createUser = (user, ps) => {
-  console.log('user', user)
 
   const saveUser = new Users({
     username: user,
@@ -91,9 +88,6 @@ const createUser = (user, ps) => {
       if (err) return console.error(err);
       user = new UserId(saveUser.uId)
       currentUserId = user.get();
-
-      console.log('user saved')
-
       resolve();
     })
     // below is generateHash function def, but need to
@@ -119,7 +113,6 @@ const createUser = (user, ps) => {
 }
 
 const deleteEntry = (entry) => {
-  console.log('entry', entry)
   return new Promise((resolve, reject) => {
     model.findOneAndDelete({ "_id": entry._id }, (err) => {
       if (err) { throw err }
@@ -184,7 +177,6 @@ const compareTwoEntries = (original, edited) => {
 }
 
 const capitalize = (name) => {
-  console.log('name', name)
   let capital = name[0].toUpperCase();
   for (let i = 1; i < name.length; i += 1) {
     if (name[i] === ' ') {
@@ -199,7 +191,6 @@ const capitalize = (name) => {
 }
 
 const filter = (filters) => {
-  console.log('filters in filter', filters)
   for (let key in filters) {
     if (key === 'collection') {
       filters.musicCollection = filters[key];
@@ -209,7 +200,7 @@ const filter = (filters) => {
       delete filters[key]
     }
   }
-  console.log('filters', filters)
+
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
@@ -232,7 +223,6 @@ const queryGenresMoods = () => {
   return new Promise((resolve, reject) => {
     GenresMoods.findOne({ uId: "genresMoods"}, (err, docs) => {
       if (err) { throw err };
-      console.log('docs', docs)
       resolve(docs)
     })
   })

@@ -71,7 +71,6 @@ app.post('/get-one-entry', (req, res) => {
   console.log('queryOne', queryOne)
   findOne(queryOne)
     .then((data) => {
-      console.log('data in get-one-entry', data)
       res.status(200).send(data)
     })
 })
@@ -86,15 +85,12 @@ app.post('/search', (req, res) => {
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
   let entriesGenresMoods = {};
-  console.log('filters', filters)
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
   filter(filters)
     .then((entries) => {
-      console.log('entreis in filters', entries)
       entriesGenresMoods.entries = entries;
-      // res.status(200).send(entries)
     })
   queryGenresMoods()
     .then((genresMoods) => {
@@ -109,10 +105,7 @@ app.post('/query-entries', (req, res) => {
 
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
-  console.log('r', req.body.collection)
-  // entry.musicCollection = mColl;
   delete entry.collection;
-  console.log('entry', entry)
   addEntry(entry)
   .then(res.status(301).redirect(HOME))
 })
@@ -155,7 +148,6 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
-      console.log('row', row)
       addEntry(row)
     })
     .on('end', () => {

@@ -3,7 +3,7 @@ import List from './List.jsx';
 import Search from './Search.jsx';
 import Filters from './Filters.jsx';
 
-const App = (props) => {
+const App = () => {
 
   const filter = useRef('');
   const [addId, setAddId] = useState('');
