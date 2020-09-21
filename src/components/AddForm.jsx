@@ -5,6 +5,22 @@ const AddForm = (props) => {
 
   const [ add, setAdd ] = useState('');
 
+  const revert = () => {
+    let queryOption = '';
+    if (props.addId === 'genre') {
+     queryOption = "#genre-select option";
+    } else {
+      queryOption = "#mood-select option"
+    }
+    const revertToSelected = document.querySelectorAll(queryOption);
+    for (let i = 0; i < revertToSelected.length; i += 1) {
+      console.log('revertToSelected[i].value', revertToSelected[i].value)
+      if (revertToSelected[i].value === 'clear') {
+        revertToSelected[i].selected = revertToSelected[i];
+      }
+    }
+  }
+
   const handleAdd = () => {
     let addition = {
       id: props.addId,
@@ -20,22 +36,22 @@ const AddForm = (props) => {
     })
     .then(response => response.json)
     .then(data => console.log('data', data))
-      let queryOption = '';
+      // let queryOption = '';
 
-      if (props.addId === 'genre') {
-       queryOption = "#genre-select option";
-      } else {
-        queryOption = "#mood-select option"
-      }
+      // if (props.addId === 'genre') {
+      //  queryOption = "#genre-select option";
+      // } else {
+      //   queryOption = "#mood-select option"
+      // }
 
-      const revertToSelected = document.querySelectorAll(queryOption);
-      for (let i = 0; i < revertToSelected.length; i += 1) {
-        console.log('revertToSelected[i].value', revertToSelected[i].value)
-        if (revertToSelected[i].value === 'clear') {
-          revertToSelected[i].selected = revertToSelected[i];
-        }
-      }
-
+      // const revertToSelected = document.querySelectorAll(queryOption);
+      // for (let i = 0; i < revertToSelected.length; i += 1) {
+      //   console.log('revertToSelected[i].value', revertToSelected[i].value)
+      //   if (revertToSelected[i].value === 'clear') {
+      //     revertToSelected[i].selected = revertToSelected[i];
+      //   }
+      // }
+    revert();
     const addPopup = document.getElementsByClassName("new-add-popup")[0];
     addPopup.style.display = "none";
     setAdd('')
@@ -45,9 +61,10 @@ const handleAddChange = (e) => {
     setAdd(e.target.value, ...add)
   }
 
-  const handleCancel = () => {
+  const handleCancel = (e) => {
     const addPopup = document.getElementsByClassName("new-add-popup")[0];
     addPopup.style.display = "none";
+    revert();
   }
 
 
