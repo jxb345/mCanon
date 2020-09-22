@@ -85,17 +85,20 @@ app.post('/search', (req, res) => {
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
   let entriesGenresMoods = {};
+  console.log('filters', filters)
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
   filter(filters)
     .then((entries) => {
+      console.log('number of entries', entries.length)
       entriesGenresMoods.entries = entries;
     })
   queryGenresMoods()
     .then((genresMoods) => {
     entriesGenresMoods.genres = genresMoods.genres;
     entriesGenresMoods.moods = genresMoods.moods
+    console.log('number of entriesGenresMoods.entries', entriesGenresMoods.entries.length)
     res.status(200).send(entriesGenresMoods)
     })
     .catch(error => {

@@ -87,7 +87,7 @@ const App = () => {
       })
         .then(response => response.json())
         .then((data) => {
-          console.log('data', data)
+          console.log('data.entries', data.entries)
           console.log('moods ---- AFTER fetch', moods)
 
           setEntries((data.entries));

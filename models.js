@@ -191,6 +191,7 @@ const capitalize = (name) => {
 }
 
 const filter = (filters) => {
+  console.log('filters in filter --------', filters)
   for (let key in filters) {
     if (key === 'collection') {
       filters.musicCollection = filters[key];
@@ -205,6 +206,7 @@ const filter = (filters) => {
   return new Promise((resolve, reject) => {
     model.find(filters, (err, docs) => {
       if (err) { throw err }
+      console.log('num of results of filters query', docs.length)
       resolve(docs);
     })
   })

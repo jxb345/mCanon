@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 const AddForm = (props) => {
 
   const [ add, setAdd ] = useState('');
+  const addPopup = document.getElementsByClassName("new-add-popup")[0];
 
   const revert = () => {
     let queryOption = '';
@@ -36,23 +37,7 @@ const AddForm = (props) => {
     })
     .then(response => response.json)
     .then(data => console.log('data', data))
-      // let queryOption = '';
-
-      // if (props.addId === 'genre') {
-      //  queryOption = "#genre-select option";
-      // } else {
-      //   queryOption = "#mood-select option"
-      // }
-
-      // const revertToSelected = document.querySelectorAll(queryOption);
-      // for (let i = 0; i < revertToSelected.length; i += 1) {
-      //   console.log('revertToSelected[i].value', revertToSelected[i].value)
-      //   if (revertToSelected[i].value === 'clear') {
-      //     revertToSelected[i].selected = revertToSelected[i];
-      //   }
-      // }
     revert();
-    const addPopup = document.getElementsByClassName("new-add-popup")[0];
     addPopup.style.display = "none";
     setAdd('')
   }
@@ -62,8 +47,8 @@ const handleAddChange = (e) => {
   }
 
   const handleCancel = (e) => {
-    const addPopup = document.getElementsByClassName("new-add-popup")[0];
     addPopup.style.display = "none";
+    setAdd('')
     revert();
   }
 
