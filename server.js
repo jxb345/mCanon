@@ -89,18 +89,17 @@ app.post('/query-entries', (req, res) => {
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
-  filter(filters)
-    .then((entries) => {
-      console.log('number of entries', entries.length)
-      entriesGenresMoods.entries = entries;
-    })
-  queryGenresMoods()
-    .then((genresMoods) => {
-    entriesGenresMoods.genres = genresMoods.genres;
-    entriesGenresMoods.moods = genresMoods.moods
-    console.log('number of entriesGenresMoods.entries', entriesGenresMoods.entries.length)
-    res.status(200).send(entriesGenresMoods)
-    })
+  Promise.all([filter(filters), queryGenresMoods()]).then((results) => {
+    let entries = results[0];
+    let genres = results[1].genres;
+    let moods = results[1].moods;
+    entriesGenresMoods.entries = entries;
+    entriesGenresMoods.genres = genres;
+    entriesGenresMoods.moods = moods;
+    console.log('eGM----length', entriesGenresMoods.entries.length)
+    res.status(200).send(entriesGenresMoods);
+
+  })
     .catch(error => {
       console.error(error.message)
     })
