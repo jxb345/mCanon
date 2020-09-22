@@ -67,7 +67,7 @@ is white, it looked unacceptable; I'd like to
 find an actual fix for the misaligned iconss
 */
 tr:hover {
-  box-shadow: 0.1em 0.1em 0.1em 0.1em #EEEEEE;
+  box-shadow: 0.1em 0.1em 0.1em 0.15em #EEEEEE;
 }
 
 /* commenting out this filter on hover b/c

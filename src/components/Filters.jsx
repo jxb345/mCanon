@@ -11,11 +11,11 @@ const Filters = (props) => {
     const moodSelect = document.getElementById("mood-select");
     const genreSelect = document.getElementById("genre-select");
     const instrumentalSelect = document.getElementById("instrumental-select");
-    const ratingSelect = document.getAnimations("rating-select");
+    const ratingSelect = document.getElementById("rating-select");
 
     // m.options.selectedIndex = -1
-    moodSelect.options[0].selected = true;
     collectionSelect.options[0].selected = true;
+    moodSelect.options[0].selected = true;
     genreSelect.options[0].selected = true;
     instrumentalSelect.options[0].selected = true;
     ratingSelect.options[0].selected = true;
@@ -83,27 +83,6 @@ const Filters = (props) => {
                 return <option value={genre} key={i}>{genre}</option>
               })
             }
-            {/* <option value="bachata">bachata</option>
-            <option value="bassaNova">bassa nova</option> */}
-            {/* <option value="blues">blues</option> */}
-            {/* <option value="bolero">bolero</option> */}
-            {/* <option value="classical">classical</option>
-            <option value="country">country</option>
-            <option value="electronic">electronic</option>
-            <option value="funk">funk</option>
-            <option value="folk">folk</option> */}
-            {/* <option value="gospel">gospel</option> */}
-            {/* <option value="jazz">jazz</option> */}
-            {/* <option value="metal">metal</option> */}
-            {/* <option value="musicalTheater">musical theater</option> */}
-            {/* <option value="pop">pop</option> */}
-            {/* <option value="punk rock">punk rock</option> */}
-            {/* <option value="reggae">reggae</option> */}
-            {/* <option value="rap">rap</option> */}
-            {/* <option value="rhythmAndlues">rhythm and blues</option> */}
-            {/* <option value="rock">rock</option> */}
-            {/* <option value="salsa">salsa</option> */}
-            {/* <option value="soul">soul</option> */}
             <option value="add">ADD GENRE</option>
           </select>
           </p>
