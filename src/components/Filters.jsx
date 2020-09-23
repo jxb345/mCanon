@@ -43,6 +43,8 @@ const Filters = (props) => {
             moods={props.moods}
             setGenres={props.setGenres}
             genres={props.genres}
+            setAddButton={props.setAddButton}
+            addButton={props.addButton}
           />
         </div>
       </div>

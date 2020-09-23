@@ -23,6 +23,7 @@ const AddForm = (props) => {
   }
 
   const handleAdd = () => {
+    console.log('add', add)
     let addition = {
       id: props.addId,
       add: add
@@ -38,8 +39,9 @@ const AddForm = (props) => {
     .then(response => response.json)
     .then(data => console.log('data', data))
     revert();
-    addPopup.style.display = "none";
     setAdd('')
+    addPopup.style.display = "none";
+    props.setAddButton(!props.addButton)
   }
 
 const handleAddChange = (e) => {

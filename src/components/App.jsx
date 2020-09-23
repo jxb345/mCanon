@@ -19,6 +19,7 @@ const App = () => {
   const [filterSelect, setFilterSelect] = useState(true)
   const [ moods, setMoods ] = useState([])
   const [ genres, setGenres ] = useState([])
+  const [ addButton, setAddButton ] = useState(false)
 
   // moved FROM Search.jsx
   const displayForm = () => {
@@ -87,15 +88,14 @@ const App = () => {
       })
         .then(response => response.json())
         .then((data) => {
-          console.log('data.entries', data.entries)
-          console.log('moods ---- AFTER fetch', moods)
+          console.log('data.moods--------', data.moods)
 
           setEntries((data.entries));
           setGenres(data.genres);
           setMoods(data.moods);
         }
           );
-      }, [selectedFilters])
+      }, [selectedFilters, addButton])
 
   return (
     <div>
@@ -138,6 +138,8 @@ const App = () => {
             genres={genres}
             setGenres={setGenres}
             setMoods={setMoods}
+            setAddButton={setAddButton}
+            addButton={addButton}
           />
 
           </div>
