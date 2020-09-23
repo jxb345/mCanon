@@ -7,6 +7,7 @@ const AddForm = (props) => {
   const addPopup = document.getElementsByClassName("new-add-popup")[0];
 
   const revert = () => {
+    setAdd('')
     let queryOption = '';
     if (props.addId === 'genre') {
      queryOption = "#genre-select option";
@@ -39,7 +40,6 @@ const AddForm = (props) => {
     .then(response => response.json)
     .then(data => console.log('data', data))
     revert();
-    setAdd('')
     addPopup.style.display = "none";
     props.setAddButton(!props.addButton)
   }
@@ -50,7 +50,6 @@ const handleAddChange = (e) => {
 
   const handleCancel = (e) => {
     addPopup.style.display = "none";
-    setAdd('')
     revert();
   }
 

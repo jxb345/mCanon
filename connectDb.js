@@ -31,16 +31,4 @@ const GenreMood = new Schema({
 const Users = mongoose.model('users', User)
 const GenresMoods = mongoose.model('genresmoods', GenreMood)
 
-const initialDbSetup = {
-    uId: 'genresMoods',
-    genres: genres,
-    moods: moods
-}
-
-GenresMoods.findOneAndUpdate({ uId: "genresMoods" }, initialDbSetup, { upsert: true }, (err, docs) => {
-  if (err) console.log('error')
-  console.log('docs', docs)
-})
-
-
 module.exports = { Entry, GenresMoods, Users }
