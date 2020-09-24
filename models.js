@@ -8,16 +8,16 @@ const { UserId } = require('./userId.js');
 const { genres, moods} = require('./genresMoods.js');
 let user = '';
 let currentUserId = ''
-const initialDbSetup = {
-  uId: 'genresMoods',
-  genres: genres,
-  moods: moods
-}
+// const initialDbSetup = {
+//   uId: 'genresMoods',
+//   genres: genres,
+//   moods: moods
+// }
 
-GenresMoods.findOneAndUpdate({ uId: "genresMoods" }, initialDbSetup, { upsert: true }, (err, docs) => {
-    if (err) console.log('error')
-    console.log('docs', docs)
-  })
+// GenresMoods.update({ uId: "genresMoods" }, initialDbSetup, { upsert: true }, (err, docs) => {
+//     if (err) console.log('error')
+//     console.log('docs', docs)
+//   })
 
 
 const addEntry = (entry) => {

@@ -31,4 +31,23 @@ const GenreMood = new Schema({
 const Users = mongoose.model('users', User)
 const GenresMoods = mongoose.model('genresmoods', GenreMood)
 
+const initialDbSetup = {
+  uId: 'genresMoods',
+  genres: genres,
+  moods: moods
+}
+
+GenresMoods.find({ uId: "genresMoods" },
+ (err, docs) => {
+    if (err) console.log('error', err)
+    console.log('docs.l', docs.length)
+    if (docs.length === 0) {
+      GenresMoods.create(initialDbSetup, (err, results) => {
+        if (err) console.log('error', err)
+        console.log('results', results)
+      })
+    }
+  })
+
+
 module.exports = { Entry, GenresMoods, Users }
