@@ -21,6 +21,11 @@ const App = () => {
   const [ genres, setGenres ] = useState([])
   const [ addButton, setAddButton ] = useState(false)
 
+
+  const alphabetize = (group) => {
+    return group.sort();
+  }
+
   // moved FROM Search.jsx
   const displayForm = () => {
       setButtonClicked('new');
@@ -88,11 +93,12 @@ const App = () => {
       })
         .then(response => response.json())
         .then((data) => {
-          console.log('data.moods--------', data.moods)
+
+          console.log('alphao', alphabetize(data.moods))
 
           setEntries((data.entries));
-          setGenres(data.genres);
-          setMoods(data.moods);
+          setGenres(alphabetize(data.genres));
+          setMoods(alphabetize(data.moods));
         }
           );
       }, [selectedFilters, addButton])
