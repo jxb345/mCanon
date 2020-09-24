@@ -21,7 +21,12 @@ const AddForm = (props) => {
         revertToSelected[i].selected = revertToSelected[i];
       }
     }
+    setAdd('')
   }
+
+  useEffect(() => {
+    console.log('add uE', add)
+  })
 
   const handleAdd = () => {
     console.log('add', add)
@@ -59,10 +64,10 @@ const handleAddChange = (e) => {
       <div className="form-title">
         ADD {props.addId}
       </div>
-      <input type="text" onChange={handleAddChange} />
+      <input type="text" onChange={handleAddChange} value={add} autoFocus />
       <br/>
+      <button type="button" onClick={() => { handleCancel()}} >CANCEL</button>
       <button type="button" onClick={() => { handleAdd() }}>ADD</button>
-      <button type="button" onClick={() => { handleCancel()}} >Cancel</button>
     </div>
   )
 }
