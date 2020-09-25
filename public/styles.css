@@ -547,7 +547,7 @@ button:hover {
 }
 
 
-/* easydropdown flax.css template */
+/* ---------------- easydropdown flax.css template ------------------------ */
 @import '//fonts.googleapis.com/css?family=Roboto:300,400"';
 
 .edd-root,
@@ -584,7 +584,7 @@ button:hover {
     left: 0;
     right: 0;
     height: 2px;
-    background: #45bce7;
+    background: #919FB6;
     transition: transform 150ms ease-out;
     transform: scaleX(0);
 }
@@ -601,7 +601,7 @@ button:hover {
 .edd-head {
     position: relative;
     overflow: hidden;
-    border-bottom: 1px solid #ddd;
+    /* border-bottom: 1px solid #ddd; */
     transition: border-color 200ms;
 }
 
@@ -613,7 +613,7 @@ button:hover {
     width: 100%;
     display: inline-block;
     vertical-align: middle;
-    padding: 8px 25px 8px 0;
+    padding: 8px 0 8px 0;
     background-color: #F4F4F4;;
 }
 
@@ -739,7 +739,7 @@ button:hover {
 
 .edd-option {
     position: relative;
-    padding: 4px 8px 4px 22px;
+    padding: 4px 8px 4px 6px;
 }
 
 .edd-option-selected {
@@ -751,15 +751,15 @@ button:hover {
     position: absolute;
     width: 8px;
     height: 4px;
-    border-bottom: 2px solid #4ac5f1;
-    border-left: 2px solid #4ac5f1;
+    border-bottom: 2px solid #919FB6;
+    border-left: 2px solid #919FB6;
     left: 6px;
     top: calc(50% - 4px);
     transform: rotate(-45deg);
 }
 
 .edd-option-focused:not(.edd-option-disabled) {
-    color: #4ac5f1;
+    color: #919FB6;
 }
 
 .edd-option-disabled,
