@@ -23,6 +23,10 @@ const Filters = (props) => {
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
+   const styleMood = {
+    backgroundColor: 'yellow'
+  }
+
    useEffect(() => {
     const edd = easydropdown.all({
       behavior: {
@@ -79,7 +83,8 @@ const Filters = (props) => {
                 return <option value={mood} key={i}>{mood}</option>
               })
             }
-            <option value="add">ADD MOOD</option>
+              <option value="add" data-stat>
+               -- ADD MOOD --</option>
 
           </select>
           </p>
@@ -95,7 +100,7 @@ const Filters = (props) => {
                 return <option value={genre} key={i}>{genre}</option>
               })
             }
-            <option value="add">ADD GENRE</option>
+            <option value="add">-- ADD GENRE --</option>
           </select>
           </p>
         </div>

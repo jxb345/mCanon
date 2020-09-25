@@ -568,7 +568,7 @@ button:hover {
     user-select: none;
     font-family: 'Roboto', arial, helvetica, sans-serif;
     font-weight: 300;
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
 }
 
@@ -740,6 +740,10 @@ button:hover {
 .edd-option {
     position: relative;
     padding: 4px 8px 4px 6px;
+}
+
+#add-mood-button   {
+  background-color: green;
 }
 
 .edd-option-selected {
