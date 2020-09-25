@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Form from './Form.jsx';
 import AddForm from './AddForm.jsx';
+import easydropdown from 'easydropdown';
 
 const Filters = (props) => {
 
@@ -21,6 +22,15 @@ const Filters = (props) => {
     ratingSelect.options[0].selected = true;
     console.log('m.options[0].selected', m.options[0].selected)
    }
+
+   useEffect(() => {
+    const edd = easydropdown.all({
+      behavior: {
+        liveUpdates: true
+      }
+    })
+
+   })
 
   return (
     <div>
