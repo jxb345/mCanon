@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import easydropdown from 'easydropdown';
+
 
 const Form = (props) => {
   const [formSettings, setFormSettings] = useState({
@@ -146,7 +148,6 @@ const Form = (props) => {
               :
               <div className="edit-delete-form">
               <br/>
-              {/* <br/> */}
               </div>
           }
 
@@ -172,27 +173,6 @@ const Form = (props) => {
                 return <option value={genre}>{genre}</option>
               })
             }
-            {/* <option value="bachata">bachata</option>
-            <option value="bassaNova">bassa nova</option>
-            <option value="blues">blues</option>
-            <option value="bolero">bolero</option>
-            <option value="classical">classical</option>
-            <option value="country">country</option>
-            <option value="electronic">electronic</option>
-            <option value="funk">funk</option>
-            <option value="folk">folk</option>
-            <option value="gospel">gospel</option>
-            <option value="jazz">jazz</option>
-            <option value="metal">metal</option>
-            <option value="musicalTheater">musical theater</option>
-            <option value="pop">pop</option>
-            <option value="punk rock">punk rock</option>
-            <option value="reggae">reggae</option>
-            <option value="rap">rap</option>
-            <option value="rhythmAndlues">rhythm and blues</option>
-            <option value="rock">rock</option>
-            <option value="salsa">salsa</option>
-            <option value="soul">soul</option> */}
             </select>
             <br />
             <br />
@@ -203,9 +183,6 @@ const Form = (props) => {
                 return <option value={mood}>{mood}</option>
               })
             }
-              {/* <option value="chill">chill</option>
-              <option value="upbeat">upbeat</option>
-              <option value="daytime">daytime</option> */}
             </select>
             <br />
             <br />
