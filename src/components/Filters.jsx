@@ -27,14 +27,14 @@ const Filters = (props) => {
     backgroundColor: 'yellow'
   }
 
-   useEffect(() => {
-    const edd = easydropdown.all({
-      behavior: {
-        liveUpdates: true
-      }
-    })
-
-   })
+  //  useEffect(() => {
+  //   const edd = easydropdown.all(
+  //       {
+  //     behavior: {
+  //       liveUpdates: true
+  //     }
+  //   })
+  // })
 
   return (
     <div>

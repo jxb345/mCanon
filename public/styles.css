@@ -268,7 +268,7 @@ tr .entries:hover {
 .form select {
   height: 35px;
   width: 255px;
-  font-size: 13px;
+  /* font-size: 13px; */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding-right: 20px;
   color: gray;
@@ -763,8 +763,10 @@ button:hover {
 }
 
 .edd-option-focused:not(.edd-option-disabled) {
-    color: #919FB6;
-}
+    /* color: #919FB6; */
+    background-color: #F1F1F1;
+  }
+
 
 .edd-option-disabled,
 .edd-group-disabled .edd-option {
@@ -813,5 +815,4 @@ button:hover {
 .edd-body-scrollable.edd-body-at-bottom .edd-gradient-bottom {
     opacity: 0;
 }
-
 
