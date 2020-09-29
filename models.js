@@ -215,11 +215,14 @@ const filter = (filters) => {
 
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
-    model.find(filters).sort({band: 1}).exec((err, docs) => {
+    model.find(filters
+      ).sort({band: 1}).exec(
+      (err, docs) => {
       if (err) { throw err }
       console.log('num of results of filters query', docs.length)
       resolve(docs);
     })
+    // reject(new Error('error querying db using filter function'));
   })
 }
 

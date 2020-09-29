@@ -73,6 +73,7 @@ app.post('/get-one-entry', (req, res) => {
     .then((data) => {
       res.status(200).send(data)
     })
+    .catch(error => console.error(error));
 })
 
 app.post('/search', (req, res) => {
@@ -80,6 +81,7 @@ app.post('/search', (req, res) => {
     .then((results) => {
       res.status(200).send(results)
     })
+    .catch(error => console.error(error));
 })
 
 app.post('/query-entries', (req, res) => {
@@ -110,6 +112,7 @@ app.post('/new-entry', (req, res) => {
   delete entry.collection;
   addEntry(entry)
   .then(res.status(301).redirect(HOME))
+  .catch(error => console.error(error));
 })
 
 app.post('/delete-entry', (req, res) => {
@@ -128,6 +131,7 @@ app.post('/edit-entry', (req, res) => {
       editEntry(result)
       .then(res.status(301).redirect(HOME));
     })
+    .catch(error => console.error(error));
 })
 
 
@@ -136,8 +140,8 @@ app.post('/genres-moods', (req, res) => {
   const addition = req.body.add;
   console.log('additon', addition)
   addGenreMood(filter, addition)
-    .then(res.status(301).redirect(HOME));
-
+    .then(res.status(301).redirect(HOME))
+    .catch(error => console.error(error));
 })
 
 app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
