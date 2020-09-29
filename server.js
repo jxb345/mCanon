@@ -134,7 +134,6 @@ app.post('/edit-entry', (req, res) => {
     .catch(error => console.error(error));
 })
 
-
 app.post('/genres-moods', (req, res) => {
   const filter = req.body.id + 's';
   const addition = req.body.add;

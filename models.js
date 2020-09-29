@@ -68,7 +68,8 @@ const addEntry = (entry) => {
   return new Promise((resolve, reject) => {
     create.save((err, create) => {
       if (err) return console.error(err);
-      resolve()
+      resolve();
+      reject(new Error('error in addEntry'));
     })
   });
 }
@@ -81,6 +82,7 @@ const addGenreMood = (filter, addition) => {
     { $push: query }, (err) => {
       if (err) throw err;
       resolve();
+      reject(new Error('error in addGenreMood'));
     })
   })
 }
@@ -100,6 +102,7 @@ const createUser = (user, ps) => {
       user = new UserId(saveUser.uId)
       currentUserId = user.get();
       resolve();
+      reject(new Error('error in createUser'));
     })
     // below is generateHash function def, but need to
     // actually invoke it
@@ -129,7 +132,8 @@ const deleteEntry = (entry) => {
       if (err) { throw err }
       model.find({}, (err, docs) => {
         if (err) { throw err; }
-        resolve(docs)
+        resolve(docs);
+        reject(new Error('error in deleteEntry'));
       })
     })
   })
@@ -141,6 +145,7 @@ const findUpdate = (entry) => {
     findOne(id)
     .then(result => {
       resolve(compareTwoEntries(result, entry))
+      reject(new Error('error in findUpdate'));
     })
   })
 }
@@ -158,6 +163,7 @@ const findUpdate = (entry) => {
       model.findByIdAndUpdate({ _id: entry[0] }, entry[1], (err) => {
         if (err) { throw err; }
         resolve();
+        reject(new Error('error in editEntry'));
       })
     })
   };
@@ -221,8 +227,8 @@ const filter = (filters) => {
       if (err) { throw err }
       console.log('num of results of filters query', docs.length)
       resolve(docs);
+      reject(new Error('error in fitler'));
     })
-    // reject(new Error('error querying db using filter function'));
   })
 }
 
@@ -231,6 +237,7 @@ const findOne = (query) => {
     model.findOne({"_id": query }, (err, docs) => {
       if (err) { throw err }
       resolve(docs);
+      reject(new Error('error in findOne'));
     })
   })
 }
@@ -240,6 +247,7 @@ const queryGenresMoods = () => {
     GenresMoods.findOne({ uId: "genresMoods"}, (err, docs) => {
       if (err) { throw err };
       resolve(docs)
+      reject(new Error('error in queryGenresMoods'));
     })
   })
 }
@@ -251,6 +259,7 @@ const search = (query) => {
     model.find({ $or: [{ "band": regex }, { "album": regex }] }).exec(function (err, docs) {
       if (err) { console.log('err: ', err); }
       resolve(docs);
+      reject(new Error('error in search'));
     })
   })
 }
