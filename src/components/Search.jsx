@@ -5,7 +5,7 @@ const Search = (props) => {
   const [placeholder, setPlaceholder] = useState('');
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
+    setQuery(e.target.value, ...query);
     console.log('query---', query)
   }
 
@@ -19,6 +19,7 @@ const Search = (props) => {
 
   useEffect( () => {
     if (query.length && query.length > 0) {
+      console.log('in /search')
       fetch('/search', {
         method: 'POST',
         headers: {
@@ -32,18 +33,23 @@ const Search = (props) => {
         console.log('search - set entries', props.entries)
       }
     } else {
-      fetch('/query-entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
-      })
-        .then(response => response.json())
-        .then(data => props.setEntries((data)));
-        return () => {
-          console.log('search query: 0 characters')
-        }
+      console.log('in /query-entries')
+      props.handleForce()
+      // fetch('/query-entries', {
+
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({})
+      // })
+      //   .then(response => response.json())
+      //   .then((data) => {
+      //   props.setEntries(data);
+      //   })
+      //   return () => {
+      //     console.log('search query: 0 characters')
+      //   }
 
     }
   }, [query])

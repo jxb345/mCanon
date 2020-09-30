@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useReducer, useEffect, useState, useRef } from 'react';
 import List from './List.jsx';
 import Search from './Search.jsx';
 import Filters from './Filters.jsx';
@@ -20,7 +20,11 @@ const App = () => {
   const [ moods, setMoods ] = useState([])
   const [ genres, setGenres ] = useState([])
   const [ addButton, setAddButton ] = useState(false)
+  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
 
+  function handleForce() {
+    forceUpdate();
+  }
 
   const alphabetize = (group) => {
     return group.sort();
@@ -122,7 +126,11 @@ const App = () => {
           <button className="new-entry-btn" onClick={displayForm}>+</button>
         </div>
         <div className="grid-search">
-          <Search  entries={entries} setEntries={setEntries} />
+          <Search
+            entries={entries}
+            setEntries={setEntries}
+            handleForce={handleForce}
+           />
         </div>
         <div className="grid-filters">
           <Filters
