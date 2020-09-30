@@ -160,6 +160,7 @@ const findUpdate = (entry) => {
 
   const editEntry = (entry) => {
     return new Promise((resolve, reject) => {
+      console.log('entry in editEntry', entry)
       model.findByIdAndUpdate({ _id: entry[0] }, entry[1], (err) => {
         if (err) { throw err; }
         resolve();
@@ -227,7 +228,7 @@ const filter = (filters) => {
       if (err) { throw err }
       console.log('num of results of filters query', docs.length)
       resolve(docs);
-      reject(new Error('error in fitler'));
+      reject(new Error('error in filter'));
     })
   })
 }
