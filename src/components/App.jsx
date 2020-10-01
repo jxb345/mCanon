@@ -21,10 +21,6 @@ const App = () => {
   const [ genres, setGenres ] = useState([])
   const [ addButton, setAddButton ] = useState(false)
 
-  const alphabetize = (group) => {
-    return group.sort();
-  }
-
   // moved FROM Search.jsx
   const displayForm = () => {
       setButtonClicked('new');
@@ -81,22 +77,30 @@ const App = () => {
     .then(data => console.log('data', data));
   }
 
+  const queryEntries = () => {
+
+    const alphabetize = (group) => {
+      return group.sort();
+    }
+
+    fetch('/query-entries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(selectedFilters)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        setEntries((data.entries));
+        setGenres(alphabetize(data.genres));
+        setMoods(alphabetize(data.moods));
+      }
+        );
+  }
+
   useEffect(() => {
-      console.log('moods ---- before fetch', moods)
-      fetch('/query-entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(selectedFilters)
-      })
-        .then(response => response.json())
-        .then((data) => {
-          setEntries((data.entries));
-          setGenres(alphabetize(data.genres));
-          setMoods(alphabetize(data.moods));
-        }
-          );
+    queryEntries();
       }, [selectedFilters, addButton])
 
   return (
@@ -121,9 +125,10 @@ const App = () => {
           <Search
             entries={entries}
             setEntries={setEntries}
-            setGenres={setGenres}
-            setMoods={setMoods}
-            alphabetize={alphabetize}
+            queryEntries={queryEntries}
+            // setGenres={setGenres}
+            // setMoods={setMoods}
+            // alphabetize={alphabetize}
             />
         </div>
         <div className="grid-filters">

@@ -34,21 +34,22 @@ const Search = (props) => {
       }
     } else {
       console.log('in /query-entries')
-      fetch('/query-entries', {
+      props.queryEntries();
+      // fetch('/query-entries', {
 
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
-      })
-        .then(response => response.json())
-        .then((data) => {
-        console.log('entries length in q-e Search', data.entries.length)
-        props.setEntries((data.entries));
-        props.setGenres(props.alphabetize(data.genres));
-        props.setMoods(props.alphabetize(data.moods));
-      })
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify({})
+      // })
+      //   .then(response => response.json())
+      //   .then((data) => {
+      //   console.log('entries length in q-e Search', data.entries.length)
+      //   props.setEntries((data.entries));
+      //   props.setGenres(props.alphabetize(data.genres));
+      //   props.setMoods(props.alphabetize(data.moods));
+      // })
         return () => {
           console.log('search query: 0 characters')
         }
