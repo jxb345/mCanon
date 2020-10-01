@@ -18,7 +18,7 @@ const Search = (props) => {
   }
 
   useEffect( () => {
-    if (query.length && query.length > 0) {
+    if (query !== '') {
       console.log('in /search')
       fetch('/search', {
         method: 'POST',
@@ -34,22 +34,24 @@ const Search = (props) => {
       }
     } else {
       console.log('in /query-entries')
-      props.handleForce()
-      // fetch('/query-entries', {
+      fetch('/query-entries', {
 
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   body: JSON.stringify({})
-      // })
-      //   .then(response => response.json())
-      //   .then((data) => {
-      //   props.setEntries(data);
-      //   })
-      //   return () => {
-      //     console.log('search query: 0 characters')
-      //   }
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      })
+        .then(response => response.json())
+        .then((data) => {
+        console.log('entries length in q-e Search', data.entries.length)
+        props.setEntries((data.entries));
+        props.setGenres(props.alphabetize(data.genres));
+        props.setMoods(props.alphabetize(data.moods));
+      })
+        return () => {
+          console.log('search query: 0 characters')
+        }
 
     }
   }, [query])

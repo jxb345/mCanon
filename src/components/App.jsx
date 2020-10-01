@@ -20,11 +20,6 @@ const App = () => {
   const [ moods, setMoods ] = useState([])
   const [ genres, setGenres ] = useState([])
   const [ addButton, setAddButton ] = useState(false)
-  const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
-
-  function handleForce() {
-    forceUpdate();
-  }
 
   const alphabetize = (group) => {
     return group.sort();
@@ -97,9 +92,6 @@ const App = () => {
       })
         .then(response => response.json())
         .then((data) => {
-
-          console.log('alphao', alphabetize(data.moods))
-
           setEntries((data.entries));
           setGenres(alphabetize(data.genres));
           setMoods(alphabetize(data.moods));
@@ -129,8 +121,10 @@ const App = () => {
           <Search
             entries={entries}
             setEntries={setEntries}
-            handleForce={handleForce}
-           />
+            setGenres={setGenres}
+            setMoods={setMoods}
+            alphabetize={alphabetize}
+            />
         </div>
         <div className="grid-filters">
           <Filters
