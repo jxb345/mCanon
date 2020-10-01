@@ -126,9 +126,7 @@ const App = () => {
             entries={entries}
             setEntries={setEntries}
             queryEntries={queryEntries}
-            // setGenres={setGenres}
-            // setMoods={setMoods}
-            // alphabetize={alphabetize}
+            selectedFilters={selectedFilters}
             />
         </div>
         <div className="grid-filters">

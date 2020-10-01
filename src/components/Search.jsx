@@ -20,12 +20,16 @@ const Search = (props) => {
   useEffect( () => {
     if (query !== '') {
       console.log('in /search')
+      let queryFetch = {
+        queryFilters: props.selectedFilters,
+        queryString: query
+      }
       fetch('/search', {
         method: 'POST',
         headers: {
-          'Content-type': 'text/plain'
+          'Content-type': 'application/json'
         },
-        body: query
+        body: JSON.stringify(queryFetch)
       })
       .then(response => response.json())
       .then(data => props.setEntries(data))

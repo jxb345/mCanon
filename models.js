@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const { getUserId } = require('./server.js')
 const { UserId } = require('./userId.js');
 const { genres, moods} = require('./genresMoods.js');
+const { query } = require('express');
 let user = '';
 let currentUserId = ''
 // const initialDbSetup = {
@@ -208,7 +209,22 @@ const capitalize = (name) => {
   return capital || name;
 }
 
-const filter = (filters) => {
+const filter = (filters, query = '') => {
+
+  const searchFilter = (query) => {
+    const wildcard = capitalize(query) + ".*";
+    const regex = new RegExp(wildcard);
+    console.log('regex----', regex)
+    return { $or: [{ "band": regex }, { "album": regex }] };
+    // return new Promise((resolve, reject) => {
+    //   model.find({ $or: [{ "band": regex }, { "album": regex }] }).exec(function (err, docs) {
+    //     if (err) { console.log('err: ', err); }
+    //     resolve(docs);
+    //     reject(new Error('error in search'));
+    //   })
+    // })
+  }
+
   console.log('filters in filter --------', filters)
   for (let key in filters) {
     if (key === 'collection') {
@@ -222,10 +238,16 @@ const filter = (filters) => {
 
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
+    console.log('filters in filter', filters)
+    console.log('query in filters', query)
+    if (query !== '') {
+      filters.query = searchFilter(query);
+    }
     model.find(filters
       ).sort({band: 1}).exec(
       (err, docs) => {
       if (err) { throw err }
+
       console.log('num of results of filters query', docs.length)
       resolve(docs);
       reject(new Error('error in filter'));
