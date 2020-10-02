@@ -215,14 +215,7 @@ const filter = (filters, query = '') => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
     console.log('regex----', regex)
-    return { $or: [{ "band": regex }, { "album": regex }] };
-    // return new Promise((resolve, reject) => {
-    //   model.find({ $or: [{ "band": regex }, { "album": regex }] }).exec(function (err, docs) {
-    //     if (err) { console.log('err: ', err); }
-    //     resolve(docs);
-    //     reject(new Error('error in search'));
-    //   })
-    // })
+    return regex;
   }
 
   console.log('filters in filter --------', filters)
@@ -241,17 +234,26 @@ const filter = (filters, query = '') => {
     console.log('filters in filter', filters)
     console.log('query in filters', query)
     if (query !== '') {
-      filters.query = searchFilter(query);
-    }
-    model.find(filters
-      ).sort({band: 1}).exec(
-      (err, docs) => {
-      if (err) { throw err }
+      //////// CURRENT ERROR HERE; QUESTION - CAN YOU PASS IN OBJECT W/ITH SPECIALOR $OR  OPERATOR AND THE GENRE / MOOD FILTERS??????
+      let regexSearch = searchFilter(query);
+      model.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] }, filters).sort({band:1}).exec(
+        (err, docsWithSearch) => {
+          if (err) { throw err; }
+          resolve(docsWithSearch)
+          reject(new Error('error in filter with Search'))
+        }
+      );
+    } else {
+      model.find(filters
+        ).sort({band: 1}).exec(
+          (err, docs) => {
+            if (err) { throw err }
 
-      console.log('num of results of filters query', docs.length)
-      resolve(docs);
-      reject(new Error('error in filter'));
-    })
+            console.log('num of results of filters query', docs.length)
+            resolve(docs);
+            reject(new Error('error in withOUT search filter'));
+          })
+        }
   })
 }
 
