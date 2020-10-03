@@ -109,7 +109,10 @@ app.post('/search', (req, res) => {
   console.log('searchQuery in /search', searchQuery)
   // filter(searchQuery.queryFilters, searchQuery.queryString)
   test(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
-  .then(data => res.status(200).send(data))
+  .then((data) => {
+    console.log('data in /search', data)
+    res.status(200).send(data)
+  })
 
   // search(req.body )
   //   .then((results) => {

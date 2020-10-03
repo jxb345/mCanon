@@ -192,7 +192,7 @@ const compareTwoEntries = (original, edited) => {
     }
   }
   updateQuery.push(original._id, difference);
-  return updateQuery
+  return updateQuery;
 }
 
 const capitalize = (name) => {
@@ -214,11 +214,9 @@ const filter = (filters, query = '') => {
   const searchFilter = (query) => {
     const wildcard = capitalize(query) + ".*";
     const regex = new RegExp(wildcard);
-    console.log('regex----', regex)
     return regex;
   }
 
-  console.log('filters in filter --------', filters)
   for (let key in filters) {
     if (key === 'collection') {
       filters.musicCollection = filters[key];
@@ -232,23 +230,29 @@ const filter = (filters, query = '') => {
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
     console.log('filters in filter', filters)
-    console.log('query in filters', query)
     if (query !== '') {
-      //////// CURRENT ERROR HERE; QUESTION - CAN YOU PASS IN OBJECT W/ITH SPECIALOR $OR  OPERATOR AND THE GENRE / MOOD FILTERS??????
       let regexSearch = searchFilter(query);
-      model.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] }, filters).sort({band:1}).exec(
-        (err, docsWithSearch) => {
-          if (err) { throw err; }
-          resolve(docsWithSearch)
-          reject(new Error('error in filter with Search'))
-        }
-      );
+      console.log('regexSearch', regexSearch)
+      let filterQuery = model.find(filters);
+      console.log('q', q)
+      filterQuery.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] })
+      .then((results) => {
+        resolve(results);
+      })
+      // model.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] }, filters
+      // ).sort({band:1}).exec(
+      //   (err, docsWithSearch) => {
+      //     if (err) { throw err; }
+      //     console.log('docsW S', docsWithSearch)
+      //     resolve(docsWithSearch)
+      //     reject(new Error('error in filter with Search'))
+      //   }
+      // );
     } else {
       model.find(filters
         ).sort({band: 1}).exec(
           (err, docs) => {
             if (err) { throw err }
-
             console.log('num of results of filters query', docs.length)
             resolve(docs);
             reject(new Error('error in withOUT search filter'));
