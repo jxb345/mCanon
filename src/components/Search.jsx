@@ -6,7 +6,6 @@ const Search = (props) => {
 
   const handleChange = (e) => {
     setQuery(e.target.value, ...query);
-    console.log('query---', query)
   }
 
   const addPlaceholder = (e) => {
@@ -19,7 +18,6 @@ const Search = (props) => {
 
   useEffect( () => {
     if (query !== '') {
-      console.log('in /search')
       let queryFetch = {
         queryFilters: props.selectedFilters,
         queryString: query
@@ -33,14 +31,9 @@ const Search = (props) => {
       })
       .then(response => response.json())
       .then((data) => {
-        console.log('data in /search response', data)
         props.setEntries((data.entries));
-        // props.setGenres(props.alphabetize(data.genres));
-        // props.setMoods(props.alphabetize(data.moods));
       })
-      return () => {
-        console.log('search - set entries', props.entries)
-      }
+      return;
     } else {
       props.queryEntries();
         return
@@ -49,10 +42,14 @@ const Search = (props) => {
 
   return (
     <div>
-      {/* moved to App.Jsx
-     <button className="new-entry-btn" onClick={displayForm}>+</button> */}
-      <div className="input-search">
-      <input type="text" placeholder={placeholder} onChange={handleChange} onClick={addPlaceholder} onBlur={removePlaceholder} />
+      <div className='input-search'>
+      <input
+        type="text"
+        placeholder={placeholder}
+        onChange={handleChange}
+        onClick={addPlaceholder}
+        onBlur={removePlaceholder}
+      />
       </div>
     </div>
   )

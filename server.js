@@ -67,13 +67,11 @@ app.use(bodyParser.text());
 
 let entriesGenresMoods = {};
 
-
-const test = (filters, queryString = '', entriesGenresMoods) => {
+const filterSearch = (filters, queryString = '', entriesGenresMoods) => {
 
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
-  console.log('querySTring in test------', queryString)
   return new Promise((resolve, reject) => {
     Promise.all([filter(filters, queryString), queryGenresMoods()]).then((results) => {
       let entries = results[0];
@@ -82,8 +80,6 @@ const test = (filters, queryString = '', entriesGenresMoods) => {
       entriesGenresMoods.entries = entries;
       entriesGenresMoods.genres = genres;
       entriesGenresMoods.moods = moods;
-      console.log('eGM----length', entriesGenresMoods.entries.length)
-      // res.status(200).send(entriesGenresMoods);
       resolve(entriesGenresMoods);
     })
     .catch(error => {
@@ -107,45 +103,18 @@ app.post('/search', (req, res) => {
   console.log('req.body - /search', req.body)
   let searchQuery = req.body;
   console.log('searchQuery in /search', searchQuery)
-  // filter(searchQuery.queryFilters, searchQuery.queryString)
-  test(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
+  filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
   .then((data) => {
     console.log('data in /search', data)
     res.status(200).send(data)
   })
-
-  // search(req.body )
-  //   .then((results) => {
-  //     res.status(200).send(results)
-  //   })
-  //   .catch(error => console.error(error));
 })
 
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
-  // let entriesGenresMoods = {};
   console.log('filters', filters)
-  // if (Array.isArray(filters) && filters.length === 0) {
-  //   filters = {};
-  // }
- test(filters, '', entriesGenresMoods)
+  filterSearch(filters, '', entriesGenresMoods)
   .then(data => res.status(200).send(data))
-
-
-  // Promise.all([filter(filters), queryGenresMoods()]).then((results) => {
-  //   let entries = results[0];
-  //   let genres = results[1].genres;
-  //   let moods = results[1].moods;
-  //   entriesGenresMoods.entries = entries;
-  //   entriesGenresMoods.genres = genres;
-  //   entriesGenresMoods.moods = moods;
-  //   console.log('eGM----length', entriesGenresMoods.entries.length)
-  //   res.status(200).send(entriesGenresMoods);
-
-  // })
-  //   .catch(error => {
-  //     console.error(error.message)
-  //   })
 })
 
 app.post('/new-entry', (req, res) => {
@@ -223,8 +192,6 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 //   })
 
 // app.get('/logout')
-
-
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);

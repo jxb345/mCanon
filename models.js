@@ -234,7 +234,6 @@ const filter = (filters, query = '') => {
       let regexSearch = searchFilter(query);
       console.log('regexSearch', regexSearch)
       let filterQuery = model.find(filters);
-      console.log('q', q)
       filterQuery.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] })
       .then((results) => {
         resolve(results);
