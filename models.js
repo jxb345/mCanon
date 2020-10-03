@@ -23,7 +23,6 @@ let currentUserId = ''
 
 const addEntry = (entry) => {
 
-
   // currentUserId
 
   // what if band / album is purposefully NOT
@@ -216,43 +215,34 @@ const filter = (filters, query = '') => {
     const regex = new RegExp(wildcard);
     return regex;
   }
-
+  console.log('filters', filters)
   for (let key in filters) {
     if (key === 'collection') {
-      filters.musicCollection = filters[key];
+      if (filters[key] !== 'clear') {
+        filters.musicCollection = filters[key];
+      }
       delete filters.collection;
     }
+    console.log('filters[key]', filters[key])
     if (filters[key] === 'clear') {
       delete filters[key]
     }
   }
-
+  console.log('after filters', filters)
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
-    console.log('filters in filter', filters)
     if (query !== '') {
       let regexSearch = searchFilter(query);
-      console.log('regexSearch', regexSearch)
       let filterQuery = model.find(filters);
       filterQuery.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] })
       .then((results) => {
         resolve(results);
       })
-      // model.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] }, filters
-      // ).sort({band:1}).exec(
-      //   (err, docsWithSearch) => {
-      //     if (err) { throw err; }
-      //     console.log('docsW S', docsWithSearch)
-      //     resolve(docsWithSearch)
-      //     reject(new Error('error in filter with Search'))
-      //   }
-      // );
     } else {
       model.find(filters
         ).sort({band: 1}).exec(
           (err, docs) => {
             if (err) { throw err }
-            console.log('num of results of filters query', docs.length)
             resolve(docs);
             reject(new Error('error in withOUT search filter'));
           })

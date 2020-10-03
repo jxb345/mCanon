@@ -8,7 +8,7 @@ const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
 const { addEntry, addGenreMood, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
-const { Users } = require('./connectDb.js')
+const { Users, GenresMoods } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
 // const passport = require('passport');
@@ -163,6 +163,8 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
+      // if !row.genre, add genre
+      // if !row.mood, add mood
       addEntry(row)
     })
     .on('end', () => {
