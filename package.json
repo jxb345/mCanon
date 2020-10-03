@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^7.4.0",
+    "eslint-plugin-react": "^7.21.3",
     "webpack-merge": "^5.1.1"
   },
   "scripts": {

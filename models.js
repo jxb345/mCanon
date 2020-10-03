@@ -211,11 +211,10 @@ const capitalize = (name) => {
 const filter = (filters, query = '') => {
 
   const searchFilter = (query) => {
-    const wildcard = capitalize(query) + ".*";
-    const regex = new RegExp(wildcard);
+    const wildcard = query + ".*";
+    const regex = new RegExp(wildcard, 'i');
     return regex;
   }
-  console.log('filters', filters)
   for (let key in filters) {
     if (key === 'collection') {
       if (filters[key] !== 'clear') {
@@ -223,16 +222,16 @@ const filter = (filters, query = '') => {
       }
       delete filters.collection;
     }
-    console.log('filters[key]', filters[key])
     if (filters[key] === 'clear') {
       delete filters[key]
     }
   }
-  console.log('after filters', filters)
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
     if (query !== '') {
       let regexSearch = searchFilter(query);
+      console.log('regexSearch', regexSearch)
+      console.log('filters', filters)
       let filterQuery = model.find(filters);
       filterQuery.find({ $or: [{ "band": regexSearch }, { "album": regexSearch }] })
       .then((results) => {
