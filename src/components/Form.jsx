@@ -280,7 +280,7 @@ const Form = (props) => {
               {/* <br /> */}
               <a href="" />
               <label htmlFor="file-upload" className="custom-file-upload">
-                select CSV file
+                Select CSV file
               </label>
               <input id="file-upload" type="file" name="csv-file" />
               <br />

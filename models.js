@@ -16,6 +16,8 @@ const addEntry = (entry) => {
   // what if band / album is purposefully NOT
   //   supposed to be capitalized (edit I guess?)
 
+  console.log('entry in addEntry', entry)
+
   if (entry.band !== "") {
     entry.band = capitalize(entry.band);
   }
@@ -40,6 +42,10 @@ const addEntry = (entry) => {
     entry.musicCollection = "";
   }
 
+  if (entry.rating === 'rating' || '') {
+    entry.rating = 0;
+  }
+
   const create = new model({
     band: entry.band,
     album: entry.album,
@@ -47,7 +53,7 @@ const addEntry = (entry) => {
     mood: entry.mood,
     instrumental: entry.instrumental,
     year: entry.year || null,
-    rating: entry.rating || null,
+    rating: entry.rating || 0,
     musicCollection: entry.musicCollection,
     uId: currentUserId,
   });
