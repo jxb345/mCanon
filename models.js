@@ -16,8 +16,6 @@ const addEntry = (entry) => {
   // what if band / album is purposefully NOT
   //   supposed to be capitalized (edit I guess?)
 
-  console.log('entry in addEntry', entry)
-
   if (entry.band !== "") {
     entry.band = capitalize(entry.band);
   }
@@ -240,8 +238,8 @@ const filter = (filters, query = "") => {
         let filterQuery = model.find(filters);
         filterQuery
         .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
-        .then((results) => {
-          resolve(results);
+        .then((queryResults) => {
+          resolve(queryResults);
         });
       })
     } else {
@@ -256,11 +254,11 @@ const filter = (filters, query = "") => {
           filterQuery
             .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
             .sort({ band: 1 })
-            .exec((err, docs) => {
+            .exec((err, filterResults) => {
               if (err) {
                 throw err;
               }
-              resolve(docs);
+              resolve(filterResults);
               reject(new Error("error in withOUT search filter"));
             });
         });

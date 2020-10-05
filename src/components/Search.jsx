@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const Search = (props) => {
-  const [query, setQuery] = useState('');
+  // moved to App.jsx
+  // const [query, setQuery] = useState('');
   const [placeholder, setPlaceholder] = useState('');
 
   const handleChange = (e) => {
-    setQuery(e.target.value, ...query);
+    props.setQuery(e.target.value, ...props.query);
   }
 
   const addPlaceholder = (e) => {
@@ -17,10 +18,10 @@ const Search = (props) => {
   }
 
   useEffect( () => {
-    if (query !== '') {
+    if (props.query !== '') {
       let queryFetch = {
         queryFilters: props.selectedFilters,
-        queryString: query
+        queryString: props.query
       }
       fetch('/search', {
         method: 'POST',
@@ -38,7 +39,7 @@ const Search = (props) => {
       props.queryEntries();
         return
     }
-  }, [query])
+  }, [props.query])
 
   return (
     <div>

@@ -5,21 +5,23 @@ import Filters from './Filters.jsx';
 
 const App = () => {
 
-  const filter = useRef('');
+  const [addButton, setAddButton] = useState(false)
   const [addId, setAddId] = useState('');
+  const [buttonClicked, setButtonClicked] = useState('');
+  const [clicked, setClicked] = useState({});
+  const [disabledAttribute, setDisabledAttribute] = useState('');
+  const [editEntry, setEditEntry] = useState([]);
   const [entries, setEntries] = useState([]);
+  const [filterSelect, setFilterSelect] = useState(true)
+  const [genres, setGenres] = useState([])
+  const [moods, setMoods] = useState([])
+  const [onChangeAttribute, setOnChangeAttribute] = useState('');
+  const [option, setOption] = useState('')
+  const [query, setQuery] = useState('');
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const [clicked, setClicked] = useState({});
-  const [buttonClicked, setButtonClicked] = useState('');
-  const [editEntry, setEditEntry] = useState([]);
-  const [onChangeAttribute, setOnChangeAttribute] = useState('');
-  const [disabledAttribute, setDisabledAttribute] = useState('');
-  const [option, setOption] = useState('')
-  const [filterSelect, setFilterSelect] = useState(true)
-  const [ moods, setMoods ] = useState([])
-  const [ genres, setGenres ] = useState([])
-  const [ addButton, setAddButton ] = useState(false)
+
+  const filter = useRef('');
 
   // moved FROM Search.jsx
   const displayForm = () => {
@@ -124,8 +126,10 @@ const App = () => {
         <div className="grid-search">
           <Search
             entries={entries}
-            setEntries={setEntries}
+            query={query}
+            setQuery={setQuery}
             queryEntries={queryEntries}
+            setEntries={setEntries}
             selectedFilters={selectedFilters}
             />
         </div>
