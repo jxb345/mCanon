@@ -25,7 +25,8 @@ const User = new Schema({
 const GenreMood = new Schema({
   uId: String,
   genres: Array,
-  moods: Array
+  moods: Array,
+  search: String
 })
 
 const Users = mongoose.model('users', User)
@@ -34,7 +35,8 @@ const GenresMoods = mongoose.model('genresmoods', GenreMood)
 const initialDbSetup = {
   uId: 'genresMoods',
   genres: genres,
-  moods: moods
+  moods: moods,
+  search: '',
 }
 
 GenresMoods.find({ uId: "genresMoods" },
@@ -48,6 +50,8 @@ GenresMoods.find({ uId: "genresMoods" },
       })
     }
   })
+
+
 
 
 module.exports = { Entry, GenresMoods, Users }

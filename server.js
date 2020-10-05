@@ -91,7 +91,6 @@ const filterSearch = (filters, queryString = '', entriesGenresMoods) => {
 
 app.post('/get-one-entry', (req, res) => {
   let queryOne = req.body._id;
-  console.log('queryOne', queryOne)
   findOne(queryOne)
     .then((data) => {
       res.status(200).send(data)
@@ -100,19 +99,15 @@ app.post('/get-one-entry', (req, res) => {
 })
 
 app.post('/search', (req, res) => {
-  console.log('req.body - /search', req.body)
   let searchQuery = req.body;
-  console.log('searchQuery in /search', searchQuery)
   filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
   .then((data) => {
-    console.log('data in /search', data)
     res.status(200).send(data)
   })
 })
 
 app.post('/query-entries', (req, res) => {
   let filters = req.body;
-  console.log('filters', filters)
   filterSearch(filters, '', entriesGenresMoods)
   .then(data => res.status(200).send(data))
 })
