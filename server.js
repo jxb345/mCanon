@@ -162,9 +162,12 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
+      console.log('row', row)
       // if !row.genre, add genre
       // if !row.mood, add mood
-      addEntry(row)
+      if (row.band !== '' && row.album !== '') {
+        addEntry(row)
+      }
     })
     .on('end', () => {
       res.status(301).redirect(HOME)
