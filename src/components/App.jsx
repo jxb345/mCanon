@@ -62,7 +62,6 @@ const App = () => {
       } else {
         currentFilterId = 'instrumental';
       }
-      console.log('currentFilterId', currentFilterId)
       setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
     }
   }
@@ -84,13 +83,16 @@ const App = () => {
     const alphabetize = (group) => {
       return group.sort();
     }
-
+    let send = {
+      query: query,
+      selectedFilters: selectedFilters
+    }
     fetch('/query-entries', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(selectedFilters)
+      body: JSON.stringify(send)
     })
       .then(response => response.json())
       .then((data) => {

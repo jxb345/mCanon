@@ -100,6 +100,7 @@ app.post('/get-one-entry', (req, res) => {
 
 app.post('/search', (req, res) => {
   let searchQuery = req.body;
+  console.log('req.body in /search', req.body)
   filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
   .then((data) => {
     res.status(200).send(data)
@@ -107,8 +108,10 @@ app.post('/search', (req, res) => {
 })
 
 app.post('/query-entries', (req, res) => {
-  let filters = req.body;
-  filterSearch(filters, '', entriesGenresMoods)
+  console.log('req.body - qE', req.body)
+  let filters = req.body.selectedFilters;
+  let query = req.body.query
+  filterSearch(filters, query , entriesGenresMoods)
   .then(data => res.status(200).send(data))
 })
 

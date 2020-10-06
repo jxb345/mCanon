@@ -206,6 +206,7 @@ const capitalize = (name) => {
 };
 
 const filter = (filters, query = "") => {
+  let regexSearch;
   const searchFilter = (query) => {
     const wildcard = query + ".*";
     const regex = new RegExp(wildcard, "i");
@@ -230,29 +231,42 @@ const filter = (filters, query = "") => {
     // query. NEED a way to findOneAndUpdate AFTER a user deletes the search
     // query and then adjusts a filter
     console.log("filters", filters);
-    if (query !== "") {
+    // if (query !== "") {
+    //   GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
+    //   .then(() => {
+    //     let regexSearch = searchFilter(query);
+    //     console.log("regexSearch with query", regexSearch);
+    //     let filterQuery = model.find(filters);
+    //     filterQuery
+    //     .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
+    //     .then((queryResults) => {
+    //       resolve(queryResults);
+    //     });
+    //   })
+    // } else {
       GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
-      .then(() => {
-        let regexSearch = searchFilter(query);
-        console.log("regexSearch with query", regexSearch);
-        let filterQuery = model.find(filters);
-        filterQuery
-        .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
-        .then((queryResults) => {
-          resolve(queryResults);
-        });
-      })
-    } else {
-      GenresMoods.findOne({ uId: "genresMoods" })
         .then((results) => {
+          console.log('results.search')
           return results.search;
         })
         .then((search) => {
-          regexSearch = searchFilter(search);
           filterQuery = model.find(filters);
-          console.log("regexSearch without query", regexSearch);
-          filterQuery
-            .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
+          if (search !== '') {
+            console.log('if in filter-----')
+            regexSearch = searchFilter(search);
+            filterQuery
+              .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
+              .sort({ band: 1 })
+              .exec((err, filterResults) => {
+                if (err) {
+                  throw err;
+                }
+                resolve(filterResults);
+                reject(new Error("error in withOUT search filter"));
+              });
+          } else {
+            console.log('else in filter----')
+            filterQuery
             .sort({ band: 1 })
             .exec((err, filterResults) => {
               if (err) {
@@ -261,8 +275,11 @@ const filter = (filters, query = "") => {
               resolve(filterResults);
               reject(new Error("error in withOUT search filter"));
             });
+
+          }
+          console.log("regexSearch without query", regexSearch);
         });
-    }
+    // }
   });
 };
 

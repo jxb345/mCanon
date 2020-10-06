@@ -18,6 +18,7 @@ const Search = (props) => {
   }
 
   useEffect( () => {
+    console.log('/search - useEffect; props.query', props.query)
     if (props.query !== '') {
       let queryFetch = {
         queryFilters: props.selectedFilters,
