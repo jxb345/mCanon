@@ -207,6 +207,31 @@ const capitalize = (name = '') => {
   return capital || name;
 };
 
+const checkRow = (row) => {
+  // if !row.genre, add genre
+  // if !row.mood, add mood
+  if (row.band !== '' && row.album !== '') {
+    addEntry(row)
+  }
+  // query db for row.mood
+  GenresMoods.findOneAndUpdate({ uId: "genresMoods"}, { mood: row})
+  // if mood is NOT present
+    // add mood to db
+  // query db for row.genre
+  // if genre is NOT present
+    // add genre to db
+
+  // if row.rating null
+    // add 0
+
+  // if row.collection null OR misspelled?
+    // ???
+
+  // if row.instrumental null
+    // add "-"
+
+}
+
 const filter = (filters, query = "") => {
   let regexSearch;
   const searchFilter = (query) => {
@@ -309,6 +334,7 @@ const search = (query) => {
 module.exports = {
   addEntry,
   addGenreMood,
+  checkRow,
   createUser,
   editEntry,
   filter,

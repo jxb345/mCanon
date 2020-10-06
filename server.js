@@ -7,7 +7,7 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, addGenreMood, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
+const { addEntry, addGenreMood, checkRow, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
 const { Users, GenresMoods } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
@@ -163,11 +163,7 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
     .pipe(csv())
     .on('data', (row) => {
       console.log('row', row)
-      // if !row.genre, add genre
-      // if !row.mood, add mood
-      if (row.band !== '' && row.album !== '') {
-        addEntry(row)
-      }
+      checkRow(row)
     })
     .on('end', () => {
       res.status(301).redirect(HOME)
