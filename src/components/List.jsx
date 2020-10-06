@@ -5,10 +5,8 @@ const List = (props) => {
 
   const options = document.getElementsByClassName("options");
 
-
   return (
     <div className="table-container">
-
       <table>
         <thead>
           <tr className="entries-headers">
@@ -23,19 +21,23 @@ const List = (props) => {
           </tr>
         </thead>
       {
-        props.entries.map((entry, i) => {
-          return <Entry
-          entry={entry}
-          key={i}
-          handleClick={props.handleClick}
-          clicked={props.clicked}
-          setClicked={props.setClicked}
-          setEntries={props.setEntries}
-          setButtonClicked={props.setButtonClicked}
-          setEditEntry={props.setEditEntry}
-          />
-        })
-      }
+        props.entries && props.entries.length > 0?
+
+          props.entries.map((entry, i) => {
+            return <Entry
+            entry={entry}
+            key={i}
+            handleClick={props.handleClick}
+            clicked={props.clicked}
+            setClicked={props.setClicked}
+            setEntries={props.setEntries}
+            setButtonClicked={props.setButtonClicked}
+            setEditEntry={props.setEditEntry}
+            />
+          })
+          :
+          <div></div>
+        }
       </table>
     </div>
   )

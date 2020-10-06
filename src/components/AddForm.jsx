@@ -4,30 +4,58 @@ import React, { useEffect, useState } from 'react'
 const AddForm = (props) => {
 
   const [ add, setAdd ] = useState('');
+  const addPopup = document.getElementsByClassName("new-add-popup")[0];
 
-  const handleAdd = () => {
-    console.log('handleAdd')
+  const revert = () => {
+    setAdd('')
+    let queryOption = '';
     if (props.addId === 'genre') {
-      props.setGenres([add, ...props.genres])
+     queryOption = "#genre-select option";
     } else {
-      props.setMoods([add, ...props.moods])
-      const query = document.querySelectorAll('mood-select option')
-      for (var i = 0, l = query.length; i < l; i++) {
-        console.log('query[i[', query[i])
-        query[i].selected = query[i].defaultSelected;
+      queryOption = "#mood-select option"
+    }
+    const revertToSelected = document.querySelectorAll(queryOption);
+    for (let i = 0; i < revertToSelected.length; i += 1) {
+      console.log('revertToSelected[i].value', revertToSelected[i].value)
+      if (revertToSelected[i].value === 'clear') {
+        revertToSelected[i].selected = revertToSelected[i];
       }
     }
-    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+    setAdd('')
+  }
+
+  useEffect(() => {
+    console.log('add uE', add)
+  })
+
+  const handleAdd = () => {
+    console.log('add', add)
+    let addition = {
+      id: props.addId,
+      add: add
+    }
+
+    fetch('/genres-moods', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(addition)
+    })
+    .then(response => response.json)
+    .then(data => console.log('data', data))
+    revert();
     addPopup.style.display = "none";
+    props.setAddButton(!props.addButton)
   }
 
 const handleAddChange = (e) => {
     setAdd(e.target.value, ...add)
   }
 
-  const handleCancel = () => {
-    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+  const handleCancel = (e) => {
     addPopup.style.display = "none";
+    revert();
   }
 
 
@@ -36,10 +64,10 @@ const handleAddChange = (e) => {
       <div className="form-title">
         ADD {props.addId}
       </div>
-      <input type="text" onChange={handleAddChange} />
+      <input type="text" onChange={handleAddChange} value={add} autoFocus />
       <br/>
+      <button type="button" onClick={() => { handleCancel()}} >CANCEL</button>
       <button type="button" onClick={() => { handleAdd() }}>ADD</button>
-      <button type="button" onClick={() => { handleCancel()}} >Cancel</button>
     </div>
   )
 }

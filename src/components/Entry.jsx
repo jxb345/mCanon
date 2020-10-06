@@ -44,30 +44,30 @@ const Entry = (props) => {
 
   const displayInstrumental = () => {
     if (props.entry.instrumental === 'yes') {
-      return <span>
+      return <div>
           <img id="checkmark" src="./checkmark.jpg" alt="checkmark" height="19" width="19" />
-    </span>
+    </div>
 }
   }
 
   const displayRating = () => {
     if (props.entry.rating === 1) {
-        return <span>
+        return <div>
                 <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
-              </span>
+              </div>
      }
     else if (props.entry.rating === 2) {
-      return <span>
+      return <div>
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
-    </span>
+    </div>
 }
     else if (props.entry.rating === 3) {
-      return <span>
+      return <div>
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
       <img id="fire" src="./fire.jpg" alt="fire-icon" height="19" width="19" />
-    </span>
+    </div>
     } else {
       return '';
     }
@@ -78,9 +78,9 @@ const Entry = (props) => {
           <td>
             <div className="icons-hover">
               <div className="icons-container">
-               <span>
+               <div>
                &nbsp;&nbsp;&nbsp;&nbsp;
-                </span>
+                </div>
               </div>
               <div className="icons">
                 <button onClick={handleEdit}>

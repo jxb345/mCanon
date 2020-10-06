@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Form from './Form.jsx';
 import AddForm from './AddForm.jsx';
+import easydropdown from 'easydropdown';
 
 const Filters = (props) => {
 
@@ -11,17 +12,29 @@ const Filters = (props) => {
     const moodSelect = document.getElementById("mood-select");
     const genreSelect = document.getElementById("genre-select");
     const instrumentalSelect = document.getElementById("instrumental-select");
-    const ratingSelect = document.getAnimations("rating-select");
+    const ratingSelect = document.getElementById("rating-select");
 
     // m.options.selectedIndex = -1
-    moodSelect.options[0].selected = true;
     collectionSelect.options[0].selected = true;
+    moodSelect.options[0].selected = true;
     genreSelect.options[0].selected = true;
     instrumentalSelect.options[0].selected = true;
     ratingSelect.options[0].selected = true;
     console.log('m.options[0].selected', m.options[0].selected)
    }
 
+   const styleMood = {
+    backgroundColor: 'yellow'
+  }
+
+  //  useEffect(() => {
+  //   const edd = easydropdown.all(
+  //       {
+  //     behavior: {
+  //       liveUpdates: true
+  //     }
+  //   })
+  // })
 
   return (
     <div>
@@ -44,6 +57,8 @@ const Filters = (props) => {
             moods={props.moods}
             setGenres={props.setGenres}
             genres={props.genres}
+            setAddButton={props.setAddButton}
+            addButton={props.addButton}
           />
         </div>
       </div>
@@ -51,7 +66,7 @@ const Filters = (props) => {
         <p>
           collection
           <br></br>
-        <select type="text" name="collection" id="collection-select" onChange={props.handleFilterChange} >
+        <select className="style-select" type="text" name="collection" id="collection-select" onChange={props.handleFilterChange} >
           <option value="clear" selected>ALL</option>
           <option value="canon">canon</option>
           <option value="nominee">nominee</option>
@@ -64,11 +79,12 @@ const Filters = (props) => {
           <select type="text" name="mood" id="mood-select" onChange={props.handleFilterChange}>
             <option  value="clear" selected>ALL</option>
             {
-              props.moods.map((mood) => {
-                return <option value={mood}>{mood}</option>
+              props.moods.map((mood, i) => {
+                return <option value={mood} key={i}>{mood}</option>
               })
             }
-            <option value="add">ADD MOOD</option>
+              <option value="add" data-stat>
+               -- ADD MOOD --</option>
 
           </select>
           </p>
@@ -80,32 +96,11 @@ const Filters = (props) => {
           <select type="text" name="genre" id="genre-select" onChange={props.handleFilterChange}>
             <option value="clear" selected>ALL</option>
             {
-              props.genres.map((genre) => {
-                return <option value={genre}>{genre}</option>
+              props.genres.map((genre, i) => {
+                return <option value={genre} key={i}>{genre}</option>
               })
             }
-            {/* <option value="bachata">bachata</option>
-            <option value="bassaNova">bassa nova</option> */}
-            {/* <option value="blues">blues</option> */}
-            {/* <option value="bolero">bolero</option> */}
-            {/* <option value="classical">classical</option>
-            <option value="country">country</option>
-            <option value="electronic">electronic</option>
-            <option value="funk">funk</option>
-            <option value="folk">folk</option> */}
-            {/* <option value="gospel">gospel</option> */}
-            {/* <option value="jazz">jazz</option> */}
-            {/* <option value="metal">metal</option> */}
-            {/* <option value="musicalTheater">musical theater</option> */}
-            {/* <option value="pop">pop</option> */}
-            {/* <option value="punk rock">punk rock</option> */}
-            {/* <option value="reggae">reggae</option> */}
-            {/* <option value="rap">rap</option> */}
-            {/* <option value="rhythmAndlues">rhythm and blues</option> */}
-            {/* <option value="rock">rock</option> */}
-            {/* <option value="salsa">salsa</option> */}
-            {/* <option value="soul">soul</option> */}
-            <option value="add">ADD GENRE</option>
+            <option value="add">-- ADD GENRE --</option>
           </select>
           </p>
         </div>

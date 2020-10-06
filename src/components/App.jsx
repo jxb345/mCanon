@@ -1,27 +1,27 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useReducer, useEffect, useState, useRef } from 'react';
 import List from './List.jsx';
 import Search from './Search.jsx';
 import Filters from './Filters.jsx';
 
-const App = (props) => {
+const App = () => {
 
-  const initialGenres = [
-    'blues', 'classical', 'country', 'electronic', 'folk', 'funk', 'rock', 'jazz', 'pop', 'rap', 'rock', 'soul'
-  ]
-  const filter = useRef('');
+  const [addButton, setAddButton] = useState(false)
   const [addId, setAddId] = useState('');
+  const [buttonClicked, setButtonClicked] = useState('');
+  const [clicked, setClicked] = useState({});
+  const [disabledAttribute, setDisabledAttribute] = useState('');
+  const [editEntry, setEditEntry] = useState([]);
   const [entries, setEntries] = useState([]);
+  const [filterSelect, setFilterSelect] = useState(true)
+  const [genres, setGenres] = useState([])
+  const [moods, setMoods] = useState([])
+  const [onChangeAttribute, setOnChangeAttribute] = useState('');
+  const [option, setOption] = useState('')
+  const [query, setQuery] = useState('');
   const [search, setSearch] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState([]);
-  const [clicked, setClicked] = useState({});
-  const [buttonClicked, setButtonClicked] = useState('');
-  const [editEntry, setEditEntry] = useState([]);
-  const [onChangeAttribute, setOnChangeAttribute] = useState('');
-  const [disabledAttribute, setDisabledAttribute] = useState('');
-  const [option, setOption] = useState('')
-  const [filterSelect, setFilterSelect] = useState(true)
-  const [ moods, setMoods ] = useState(['upbeat', 'daytime','chill'])
-  const [ genres, setGenres ] = useState(initialGenres)
+
+  const filter = useRef('');
 
   // moved FROM Search.jsx
   const displayForm = () => {
@@ -62,7 +62,6 @@ const App = (props) => {
       } else {
         currentFilterId = 'instrumental';
       }
-      console.log('currentFilterId', currentFilterId)
       setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
     }
   }
@@ -79,21 +78,34 @@ const App = (props) => {
     .then(data => console.log('data', data));
   }
 
+  const queryEntries = () => {
+
+    const alphabetize = (group) => {
+      return group.sort();
+    }
+    let send = {
+      query: query,
+      selectedFilters: selectedFilters
+    }
+    fetch('/query-entries', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(send)
+    })
+      .then(response => response.json())
+      .then((data) => {
+        setEntries((data.entries));
+        setGenres(alphabetize(data.genres));
+        setMoods(alphabetize(data.moods));
+      }
+        );
+  }
+
   useEffect(() => {
-      console.log('fetching...')
-      fetch('/query-entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(selectedFilters)
-      })
-        .then(response => response.json())
-        .then(data => setEntries((data)));
-        return () => {
-          console.log('buttonClicked', buttonClicked)
-        }
-      }, [selectedFilters])
+    queryEntries();
+      }, [selectedFilters, addButton])
 
   return (
     <div>
@@ -114,7 +126,14 @@ const App = (props) => {
           <button className="new-entry-btn" onClick={displayForm}>+</button>
         </div>
         <div className="grid-search">
-          <Search  entries={entries} setEntries={setEntries} />
+          <Search
+            entries={entries}
+            query={query}
+            setQuery={setQuery}
+            queryEntries={queryEntries}
+            setEntries={setEntries}
+            selectedFilters={selectedFilters}
+            />
         </div>
         <div className="grid-filters">
           <Filters
@@ -136,6 +155,8 @@ const App = (props) => {
             genres={genres}
             setGenres={setGenres}
             setMoods={setMoods}
+            setAddButton={setAddButton}
+            addButton={addButton}
           />
 
           </div>
