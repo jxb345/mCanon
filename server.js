@@ -162,7 +162,6 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
-      console.log('row', row)
       checkRow(row)
     })
     .on('end', () => {

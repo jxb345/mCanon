@@ -66,6 +66,7 @@ const addEntry = (entry) => {
 };
 
 const addGenreMood = (filter, addition) => {
+  console.log('f,a', filter, addition)
   let query = {};
   query[filter] = addition;
   return new Promise((resolve, reject) => {
@@ -192,10 +193,8 @@ const compareTwoEntries = (original, edited) => {
 };
 
 const capitalize = (name = '') => {
-  console.log('name------', name)
   let capital = name[0].toUpperCase();
   for (let i = 1; i < name.length; i += 1) {
-    console.log('capital', capital)
     if (name[i] === " ") {
       capital += " ";
       capital += name[i + 1].toUpperCase();
@@ -208,28 +207,47 @@ const capitalize = (name = '') => {
 };
 
 const checkRow = (row) => {
+  if (row.band !== '' && row.album !== '') {
+    console.log('row------------', row)
   // if !row.genre, add genre
   // if !row.mood, add mood
-  if (row.band !== '' && row.album !== '') {
-    addEntry(row)
-  }
   // query db for row.mood
-  GenresMoods.findOneAndUpdate({ uId: "genresMoods"}, { mood: row})
+  GenresMoods.findOne({ uId: "genresMoods"})
+  .then((data) => {
+    if (!data.genres.includes(row.genre)) {
+      addGenreMood('genres', row.genre)
+    }
+    if (!data.moods.includes(row.moods)) {
+      addGenreMood('moods', row.mood)
+    }
+    console.log('genres', data.genres);
+    console.log('moods', data.moods);
+  })
+  // GenresMoods.find({ moods: row.mood }, (err, docs) => {
+  //   if (err) throw err;
+  //   console.log('docs ---- found!', docs)
+  // })
+  // GenresMoods.findOneAndUpdate({ uId: "genresMoods"}, { $push: { moods: row.mood}})
+  // .then(() => { return;
+  // })
+  // GenresMoods.findOneAndUpdate(({ uId: "genresMoods"}, { $push: { genres: row.genre}}))
   // if mood is NOT present
-    // add mood to db
+  // add mood to db
   // query db for row.genre
   // if genre is NOT present
-    // add genre to db
+  // add genre to db
 
   // if row.rating null
-    // add 0
+  // add 0
 
   // if row.collection null OR misspelled?
-    // ???
+  // ???
 
   // if row.instrumental null
-    // add "-"
+  // add "-"
 
+    addEntry(row)
+  }
 }
 
 const filter = (filters, query = "") => {
@@ -315,21 +333,22 @@ const queryGenresMoods = () => {
   });
 };
 
-const search = (query) => {
-  return new Promise((resolve, reject) => {
-    const wildcard = capitalize(query) + ".*";
-    const regex = new RegExp(wildcard);
-    model
-      .find({ $or: [{ band: regex }, { album: regex }] })
-      .exec(function (err, docs) {
-        if (err) {
-          console.log("err: ", err);
-        }
-        resolve(docs);
-        reject(new Error("error in search"));
-      });
-  });
-};
+// can delete as this logic has been moved into filter function
+// const search = (query) => {
+//   return new Promise((resolve, reject) => {
+//     const wildcard = capitalize(query) + ".*";
+//     const regex = new RegExp(wildcard);
+//     model
+//       .find({ $or: [{ band: regex }, { album: regex }] })
+//       .exec(function (err, docs) {
+//         if (err) {
+//           console.log("err: ", err);
+//         }
+//         resolve(docs);
+//         reject(new Error("error in search"));
+//       });
+//   });
+// };
 
 module.exports = {
   addEntry,
@@ -343,5 +362,5 @@ module.exports = {
   deleteEntry,
   model,
   queryGenresMoods,
-  search,
+  // search,
 };
