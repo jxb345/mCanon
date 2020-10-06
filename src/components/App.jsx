@@ -83,7 +83,7 @@ const App = () => {
     const alphabetize = (group) => {
       return group.sort();
     }
-    let send = {
+    let filters = {
       query: query,
       selectedFilters: selectedFilters
     }
@@ -92,7 +92,7 @@ const App = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(send)
+      body: JSON.stringify(filters)
     })
       .then(response => response.json())
       .then((data) => {
@@ -105,7 +105,7 @@ const App = () => {
 
   useEffect(() => {
     queryEntries();
-      }, [selectedFilters, addButton])
+      }, [selectedFilters, addButton, query])
 
   return (
     <div>

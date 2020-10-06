@@ -244,16 +244,17 @@ const filter = (filters, query = "") => {
     //     });
     //   })
     // } else {
-      GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
-        .then((results) => {
-          console.log('results.search')
-          return results.search;
-        })
-        .then((search) => {
-          filterQuery = model.find(filters);
-          if (search !== '') {
-            console.log('if in filter-----')
-            regexSearch = searchFilter(search);
+
+      // commenting out db query for 'search'
+      // GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
+      //   .then((results) => {
+      //     console.log('results.search')
+      //     return results.search;
+      //   })
+        // .then((search) => {
+          let filterQuery = model.find(filters);
+          if (query !== '') {
+            regexSearch = searchFilter(query);
             filterQuery
               .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
               .sort({ band: 1 })
@@ -265,7 +266,6 @@ const filter = (filters, query = "") => {
                 reject(new Error("error in withOUT search filter"));
               });
           } else {
-            console.log('else in filter----')
             filterQuery
             .sort({ band: 1 })
             .exec((err, filterResults) => {
@@ -280,7 +280,8 @@ const filter = (filters, query = "") => {
           console.log("regexSearch without query", regexSearch);
         });
     // }
-  });
+  // }
+  // );
 };
 
 const findOne = (query) => {

@@ -18,29 +18,31 @@ const Search = (props) => {
   }
 
   useEffect( () => {
-    console.log('/search - useEffect; props.query', props.query)
-    if (props.query !== '') {
-      let queryFetch = {
-        queryFilters: props.selectedFilters,
-        queryString: props.query
-      }
-      fetch('/search', {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify(queryFetch)
-      })
-      .then(response => response.json())
-      .then((data) => {
-        props.setEntries((data.entries));
-      })
-      return;
-    } else {
-      props.queryEntries();
-        return
-    }
-  }, [props.query])
+    console.log('/search - useEffect')
+  //   if (props.query !== '') {
+  //     let queryFetch = {
+  //       queryFilters: props.selectedFilters,
+  //       queryString: props.query
+  //     }
+  //     fetch('/search', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-type': 'application/json'
+  //       },
+  //       body: JSON.stringify(queryFetch)
+  //     })
+  //     .then(response => response.json())
+  //     .then((data) => {
+  //       props.setEntries((data.entries));
+  //     })
+  //     return;
+  //   } else {
+  //     props.queryEntries();
+  //       return
+  //   }
+  // }, [props.query]
+  })
+
 
   return (
     <div>
