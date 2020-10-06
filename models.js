@@ -191,9 +191,11 @@ const compareTwoEntries = (original, edited) => {
   return updateQuery;
 };
 
-const capitalize = (name) => {
+const capitalize = (name = '') => {
+  console.log('name------', name)
   let capital = name[0].toUpperCase();
   for (let i = 1; i < name.length; i += 1) {
+    console.log('capital', capital)
     if (name[i] === " ") {
       capital += " ";
       capital += name[i + 1].toUpperCase();
@@ -225,26 +227,7 @@ const filter = (filters, query = "") => {
   }
   filters.uId = currentUserId;
   return new Promise((resolve, reject) => {
-    // NOTE: this search / filter function ALMOST WORKS except for this edge case:
-    // - after the user enter a search query and then deletes it but adjusts a
-    // filter, then that subsequent search will still use the previous search
-    // query. NEED a way to findOneAndUpdate AFTER a user deletes the search
-    // query and then adjusts a filter
     console.log("filters", filters);
-    // if (query !== "") {
-    //   GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
-    //   .then(() => {
-    //     let regexSearch = searchFilter(query);
-    //     console.log("regexSearch with query", regexSearch);
-    //     let filterQuery = model.find(filters);
-    //     filterQuery
-    //     .find({ $or: [{ band: regexSearch }, { album: regexSearch }] })
-    //     .then((queryResults) => {
-    //       resolve(queryResults);
-    //     });
-    //   })
-    // } else {
-
       // commenting out db query for 'search'
       // GenresMoods.findOneAndUpdate( { uId: "genresMoods" }, { search: query})
       //   .then((results) => {
@@ -252,6 +235,7 @@ const filter = (filters, query = "") => {
       //     return results.search;
       //   })
         // .then((search) => {
+          console.log('query in filter---------------', query)
           let filterQuery = model.find(filters);
           if (query !== '') {
             regexSearch = searchFilter(query);
@@ -275,9 +259,7 @@ const filter = (filters, query = "") => {
               resolve(filterResults);
               reject(new Error("error in withOUT search filter"));
             });
-
           }
-          console.log("regexSearch without query", regexSearch);
         });
     // }
   // }

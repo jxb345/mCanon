@@ -36,7 +36,8 @@ const initialDbSetup = {
   uId: 'genresMoods',
   genres: genres,
   moods: moods,
-  search: '',
+  // a db query for 'search' may no longer be needed
+  // search: '',
 }
 
 GenresMoods.find({ uId: "genresMoods" },

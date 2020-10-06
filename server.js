@@ -98,14 +98,15 @@ app.post('/get-one-entry', (req, res) => {
     .catch(error => console.error(error));
 })
 
-app.post('/search', (req, res) => {
-  let searchQuery = req.body;
-  console.log('req.body in /search', req.body)
-  filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
-  .then((data) => {
-    res.status(200).send(data)
-  })
-})
+// both the search query AND filters will be send to the query-entries endpoint
+// app.post('/search', (req, res) => {
+//   let searchQuery = req.body;
+//   console.log('req.body in /search', req.body)
+//   filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
+//   .then((data) => {
+//     res.status(200).send(data)
+//   })
+// })
 
 app.post('/query-entries', (req, res) => {
   console.log('req.body - qE', req.body)
