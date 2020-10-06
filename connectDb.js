@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/canon', { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
+const { genres, moods} = require('./genresMoods.js');
 
 const Entry = new Schema({
-  // userId = Number,
-  // // username: String,
-  // password: String,
   band: String,
   album: String,
   genre: String,
@@ -24,6 +22,36 @@ const User = new Schema({
   password: String,
 })
 
-const Users = mongoose.model('users', User)
+const GenreMood = new Schema({
+  uId: String,
+  genres: Array,
+  moods: Array,
+  search: String
+})
 
-module.exports = { Entry, Users }
+const Users = mongoose.model('users', User)
+const GenresMoods = mongoose.model('genresmoods', GenreMood)
+
+const initialDbSetup = {
+  uId: 'genresMoods',
+  genres: genres,
+  moods: moods,
+  search: '',
+}
+
+GenresMoods.find({ uId: "genresMoods" },
+ (err, docs) => {
+    if (err) console.log('error', err)
+    console.log('docs.l', docs.length)
+    if (docs.length === 0) {
+      GenresMoods.create(initialDbSetup, (err, results) => {
+        if (err) console.log('error', err)
+        console.log('results', results)
+      })
+    }
+  })
+
+
+
+
+module.exports = { Entry, GenresMoods, Users }

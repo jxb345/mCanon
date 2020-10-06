@@ -7,8 +7,8 @@ const upload = multer({dest: 'uploads/'});
 const app = express();
 const PORT = 3000;
 const HOME = 'http://localhost:3000/';
-const { addEntry, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, search } = require('./models.js');
-const { Users } = require('./connectDb.js')
+const { addEntry, addGenreMood, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
+const { Users, GenresMoods } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
 const bodyParser = require('body-parser');
 // const passport = require('passport');
@@ -65,47 +65,62 @@ app.use(bodyParser.text());
 //   })
 // })
 
+let entriesGenresMoods = {};
 
-app.post('/get-one-entry', (req, res) => {
-  let queryOne = req.body._id;
-  console.log('queryOne', queryOne)
-  findOne(queryOne)
-    .then((data) => {
-      console.log('data in get-one-entry', data)
-      res.status(200).send(data)
-    })
-})
+const filterSearch = (filters, queryString = '', entriesGenresMoods) => {
 
-app.post('/search', (req, res) => {
-  search(req.body)
-    .then((results) => {
-      res.status(200).send(results)
-    })
-})
-
-app.post('/query-entries', (req, res) => {
-  let filters = req.body;
-  console.log('filters', filters)
   if (Array.isArray(filters) && filters.length === 0) {
     filters = {};
   }
-  filter(filters)
-    .then((entries) => {
-      res.status(200).send(entries)
+  return new Promise((resolve, reject) => {
+    Promise.all([filter(filters, queryString), queryGenresMoods()]).then((results) => {
+      let entries = results[0];
+      let genres = results[1].genres;
+      let moods = results[1].moods;
+      entriesGenresMoods.entries = entries;
+      entriesGenresMoods.genres = genres;
+      entriesGenresMoods.moods = moods;
+      resolve(entriesGenresMoods);
     })
     .catch(error => {
       console.error(error.message)
     })
+  })
+
+}
+
+app.post('/get-one-entry', (req, res) => {
+  let queryOne = req.body._id;
+  findOne(queryOne)
+    .then((data) => {
+      res.status(200).send(data)
+    })
+    .catch(error => console.error(error));
+})
+
+app.post('/search', (req, res) => {
+  let searchQuery = req.body;
+  console.log('req.body in /search', req.body)
+  filterSearch(searchQuery.queryFilters, searchQuery.queryString, entriesGenresMoods)
+  .then((data) => {
+    res.status(200).send(data)
+  })
+})
+
+app.post('/query-entries', (req, res) => {
+  console.log('req.body - qE', req.body)
+  let filters = req.body.selectedFilters;
+  let query = req.body.query
+  filterSearch(filters, query , entriesGenresMoods)
+  .then(data => res.status(200).send(data))
 })
 
 app.post('/new-entry', (req, res) => {
   const entry = req.body;
-  console.log('r', req.body.collection)
-  // entry.musicCollection = mColl;
   delete entry.collection;
-  console.log('entry', entry)
   addEntry(entry)
   .then(res.status(301).redirect(HOME))
+  .catch(error => console.error(error));
 })
 
 app.post('/delete-entry', (req, res) => {
@@ -124,6 +139,16 @@ app.post('/edit-entry', (req, res) => {
       editEntry(result)
       .then(res.status(301).redirect(HOME));
     })
+    .catch(error => console.error(error));
+})
+
+app.post('/genres-moods', (req, res) => {
+  const filter = req.body.id + 's';
+  const addition = req.body.add;
+  console.log('additon', addition)
+  addGenreMood(filter, addition)
+    .then(res.status(301).redirect(HOME))
+    .catch(error => console.error(error));
 })
 
 app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
@@ -136,7 +161,8 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
   fs.createReadStream(uploadedFile.path, 'utf-8')
     .pipe(csv())
     .on('data', (row) => {
-      console.log('row', row)
+      // if !row.genre, add genre
+      // if !row.mood, add mood
       addEntry(row)
     })
     .on('end', () => {
@@ -166,8 +192,6 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 //   })
 
 // app.get('/logout')
-
-
 
 app.listen(PORT, () => {
   console.log(`listening on ${PORT}`);

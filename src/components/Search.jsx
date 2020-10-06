@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const Search = (props) => {
-  const [query, setQuery] = useState('');
+  // moved to App.jsx
+  // const [query, setQuery] = useState('');
   const [placeholder, setPlaceholder] = useState('');
 
   const handleChange = (e) => {
-    setQuery(e.target.value);
-    console.log('query---', query)
+    props.setQuery(e.target.value, ...props.query);
   }
 
   const addPlaceholder = (e) => {
@@ -18,42 +18,40 @@ const Search = (props) => {
   }
 
   useEffect( () => {
-    if (query.length && query.length > 0) {
+    console.log('/search - useEffect; props.query', props.query)
+    if (props.query !== '') {
+      let queryFetch = {
+        queryFilters: props.selectedFilters,
+        queryString: props.query
+      }
       fetch('/search', {
         method: 'POST',
         headers: {
-          'Content-type': 'text/plain'
+          'Content-type': 'application/json'
         },
-        body: query
+        body: JSON.stringify(queryFetch)
       })
       .then(response => response.json())
-      .then(data => props.setEntries(data))
-      return () => {
-        console.log('search - set entries', props.entries)
-      }
-    } else {
-      fetch('/query-entries', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({})
+      .then((data) => {
+        props.setEntries((data.entries));
       })
-        .then(response => response.json())
-        .then(data => props.setEntries((data)));
-        return () => {
-          console.log('search query: 0 characters')
-        }
-
+      return;
+    } else {
+      props.queryEntries();
+        return
     }
-  }, [query])
+  }, [props.query])
 
   return (
     <div>
-      {/* moved to App.Jsx
-     <button className="new-entry-btn" onClick={displayForm}>+</button> */}
-      <div className="input-search">
-      <input type="text" placeholder={placeholder} onChange={handleChange} onClick={addPlaceholder} onBlur={removePlaceholder} />
+      <div className='input-search'>
+      <input
+        type="text"
+        placeholder={placeholder}
+        onChange={handleChange}
+        onClick={addPlaceholder}
+        onBlur={removePlaceholder}
+      />
       </div>
     </div>
   )
