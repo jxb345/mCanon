@@ -83,8 +83,8 @@ const Filters = (props) => {
                 return <option value={mood} key={i}>{mood}</option>
               })
             }
-              <option value="add" data-stat>
-               -- ADD MOOD --</option>
+              {/* <option value="add" data-stat>
+               -- ADD MOOD --</option> */}
 
           </select>
           </p>
@@ -100,7 +100,7 @@ const Filters = (props) => {
                 return <option value={genre} key={i}>{genre}</option>
               })
             }
-            <option value="add">-- ADD GENRE --</option>
+            {/* <option value="add">-- ADD GENRE --</option> */}
           </select>
           </p>
         </div>

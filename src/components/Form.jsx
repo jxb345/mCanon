@@ -204,6 +204,7 @@ const Form = (props) => {
               id="genre"
               disabled={formSettings.disabled}
             >
+              <option value="add">-- ADD GENRE --</option>
               <option selected>{formSettings.genreSelected}</option>
               {props.genres.map((genre) => {
                 return <option value={genre}>{genre}</option>;
@@ -217,6 +218,7 @@ const Form = (props) => {
               id="mood"
               disabled={formSettings.disabled}
             >
+              <option value="add" data-stat> -- ADD MOOD --</option>
               <option selected>{formSettings.moodSelected}</option>
               {props.moods.map((mood) => {
                 return <option value={mood}>{mood}</option>;
