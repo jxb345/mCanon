@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import AddForm from './AddForm.jsx'
 import easydropdown from "easydropdown";
 
 const Form = (props) => {
@@ -156,6 +157,20 @@ const Form = (props) => {
               <br />
             </div>
           )}
+
+        <div className="new-add-popup">
+          <div className="new-add-form">
+            <AddForm
+              addId={props.addId}
+              setMoods={props.setMoods}
+              moods={props.moods}
+              setGenres={props.setGenres}
+              genres={props.genres}
+              setAddButton={props.setAddButton}
+              addButton={props.addButton}
+            />
+          </div>
+        </div>
 
           <div id="add-one-entry" className="tab-content-manual">
             <input type="hidden" name="_id" value={props.editEntry._id} />

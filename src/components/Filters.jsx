@@ -49,7 +49,7 @@ const Filters = (props) => {
           />
         </div>
       </div>
-      <div className="new-add-popup">
+      {/* <div className="new-add-popup">
         <div className="new-add-form">
           <AddForm
             addId={props.addId}
@@ -61,7 +61,7 @@ const Filters = (props) => {
             addButton={props.addButton}
           />
         </div>
-      </div>
+      </div> */}
       <div className="filters">
         <p>
           collection
