@@ -209,34 +209,18 @@ const capitalize = (name = '') => {
 const checkRow = (row) => {
   if (row.band !== '' && row.album !== '') {
     console.log('row------------', row)
-  // if !row.genre, add genre
-  // if !row.mood, add mood
-  // query db for row.mood
-  GenresMoods.findOne({ uId: "genresMoods"})
-  .then((data) => {
-    if (!data.genres.includes(row.genre)) {
-      addGenreMood('genres', row.genre)
-    }
-    if (!data.moods.includes(row.moods)) {
-      addGenreMood('moods', row.mood)
-    }
-    console.log('genres', data.genres);
-    console.log('moods', data.moods);
-  })
-  // GenresMoods.find({ moods: row.mood }, (err, docs) => {
-  //   if (err) throw err;
-  //   console.log('docs ---- found!', docs)
-  // })
-  // GenresMoods.findOneAndUpdate({ uId: "genresMoods"}, { $push: { moods: row.mood}})
-  // .then(() => { return;
-  // })
-  // GenresMoods.findOneAndUpdate(({ uId: "genresMoods"}, { $push: { genres: row.genre}}))
-  // if mood is NOT present
-  // add mood to db
-  // query db for row.genre
-  // if genre is NOT present
-  // add genre to db
 
+    GenresMoods.findOne({ uId: "genresMoods"})
+    .then((data) => {
+      if (!data.genres.includes(row.genre)) {
+        addGenreMood('genres', row.genre)
+      }
+      if (!data.moods.includes(row.moods)) {
+        addGenreMood('moods', row.mood)
+      }
+      console.log('genres', data.genres);
+      console.log('moods', data.moods);
+    })
   // if row.rating null
   // add 0
 
