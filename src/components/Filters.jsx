@@ -28,6 +28,26 @@ const Filters = (props) => {
     backgroundColor: 'yellow'
   }
 
+  const ratingOptions = [
+    { value: "clear", label: "ALL"},
+    { value: "3", label: 3 },
+    { value: "2", label: 2 },
+    { value: "1", label: 1 }
+  ]
+
+  const MyComponent = () => (
+    <Select
+      options={ratingOptions}
+      className="filters"
+      onChange={handleTest("select-option")}
+      autoFocus={true}
+    />
+  )
+
+  const handleTest = (e, selectedOption) => {
+    console.log('selectedOption', selectedOption)
+  }
+
   //  useEffect(() => {
   //   const edd = easydropdown.all(
   //       {
@@ -120,12 +140,13 @@ const Filters = (props) => {
           <p>
             rating
             <br/>
-          <select type="text" name="rating" id="rating-select" onChange={props.handleFilterChange}>
-            <option  value="clear" selected>ALL</option>
+            <MyComponent/>
+          {/* <select type="text" name="rating" id="rating-select" onChange={props.handleFilterChange}> */}
+            {/* <option  value="clear" selected>ALL</option>
             <option value="3">3</option>
             <option value="2">2</option>
-            <option value="1">1</option>
-          </select>
+            <option value="1">1</option> */}
+          {/* </select> */}
           </p>
         </div>
 
