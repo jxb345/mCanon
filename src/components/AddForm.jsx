@@ -62,7 +62,7 @@ const handleAddChange = (e) => {
   return (
     <div>
       <div className="form-title">
-        ADD {props.addId}
+        ADD {props.addId.toUpperCase()}
       </div>
       <input type="text" onChange={handleAddChange} value={add} autoFocus />
       <br/>

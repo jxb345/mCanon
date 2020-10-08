@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import Form from './Form.jsx';
 import AddForm from './AddForm.jsx';
 import easydropdown from 'easydropdown';
+import Select from 'react-select';
 
 const Filters = (props) => {
 
