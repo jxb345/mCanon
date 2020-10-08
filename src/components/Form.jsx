@@ -88,6 +88,12 @@ const Form = (props) => {
     }
   }, [props.buttonClicked, props.editEntry]);
 
+  const displayAdd = () => {
+    const addPopup = document.getElementsByClassName("new-add-popup")[0];
+    console.log('addPopup.style', addPopup.style)
+    addPopup.style.display = "block";
+  }
+
   const handleCancel = () => {
     props.setButtonClicked("");
     const popup = document.getElementsByClassName("new-entry-popup")[0];
@@ -106,8 +112,14 @@ const Form = (props) => {
     } else if (targetId === "album-input") {
       setEditAlbum(targetValue);
     } else {
+      if (targetValue === 'add') {
+        setAddId(currentName)
+        displayAdd()
+      }
+      else {
       let convertedYear = parseInt(targetValue);
       setEditYear(parseInt(convertedYear));
+      }
     }
   };
 

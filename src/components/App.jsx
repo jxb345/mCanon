@@ -31,11 +31,11 @@ const App = () => {
       popup.style.display = "block";
   }
 
-  const displayAdd = () => {
-    const addPopup = document.getElementsByClassName("new-add-popup")[0];
-    console.log('addPopup.style', addPopup.style)
-    addPopup.style.display = "block";
-  }
+  // const displayAdd = () => {
+  //   const addPopup = document.getElementsByClassName("new-add-popup")[0];
+  //   console.log('addPopup.style', addPopup.style)
+  //   addPopup.style.display = "block";
+  // }
 
   const titleStyle = {
     color: 'rgb(145, 159, 182)',
@@ -47,10 +47,12 @@ const App = () => {
     let currentFilterId = e.target.id
     let currentName = e.target.name;
     console.log('cN', currentName)
-    if (currentFilterValue === 'add') {
-      setAddId(currentName)
-      displayAdd()
-    } else {
+    // moved to Form.jsx
+    // if (currentFilterValue === 'add') {
+    //   setAddId(currentName)
+    //   displayAdd()
+    // }
+    // else {
       if (currentFilterId === 'collection-select') {
         currentFilterId = 'collection';
       } else if (currentFilterId === 'mood-select') {
@@ -63,7 +65,7 @@ const App = () => {
         currentFilterId = 'instrumental';
       }
       setSelectedFilters(selectedFilters => ({...selectedFilters, [currentFilterId]: currentFilterValue  }));
-    }
+    // }
   }
 
   const handleClick = (e) => {
