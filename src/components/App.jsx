@@ -44,10 +44,13 @@ const App = () => {
 
   const handleFilterChange = (e) => {
     console.log('e', e)
-    // { value: "3", label: 3 }
-    let currentFilterValue = e.target.value;
-    let currentFilterId = e.target.id
-    let currentName = e.target.name;
+    // { value: "3", label: 3, id: "rating-select" }
+    // let currentFilterValue = e.target.value;
+    // let currentFilterId = e.target.id
+    // let currentName = e.target.name;
+    let currentFilterValue = e.value;
+    let currentFilterId = e.id;
+    let currentName = e.label;
     console.log('cN', currentName)
     if (currentFilterValue === 'add') {
       setAddId(currentName)

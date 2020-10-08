@@ -29,22 +29,21 @@ const Filters = (props) => {
   }
 
   const ratingOptions = [
-    { value: "clear", label: "ALL"},
-    { value: "3", label: 3 },
-    { value: "2", label: 2 },
-    { value: "1", label: 1 }
+    { value: "clear", label: "ALL", id: "rating-select"},
+    { value: "3", label: 3, id: "rating-select"},
+    { value: "2", label: 2, id: "rating-select"},
+    { value: "1", label: 1, id: "rating-select"}
   ]
 
-  const MyComponent = () => (
+  const RatingSelect = () => (
     <Select
       options={ratingOptions}
-      className="filters"
-      onChange={handleTest("select-option")}
-      autoFocus={true}
+      onChange={props.handleFilterChange}
+      defaultValue={{value: 'clear', label: 'all'}}
     />
   )
 
-  const handleTest = (e, selectedOption) => {
+  const handleTest = (selectedOption) => {
     console.log('selectedOption', selectedOption)
   }
 
@@ -140,7 +139,7 @@ const Filters = (props) => {
           <p>
             rating
             <br/>
-            <MyComponent/>
+            <RatingSelect/>
           {/* <select type="text" name="rating" id="rating-select" onChange={props.handleFilterChange}> */}
             {/* <option  value="clear" selected>ALL</option>
             <option value="3">3</option>
