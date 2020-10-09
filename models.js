@@ -215,7 +215,8 @@ const checkRow = (row) => {
       if (!data.genres.includes(row.genre)) {
         addGenreMood('genres', row.genre)
       }
-      if (!data.moods.includes(row.moods)) {
+      if (!data.moods.includes(row.mood)) {
+        console.log('row.moods', row.mood)
         addGenreMood('moods', row.mood)
       }
       console.log('genres', data.genres);

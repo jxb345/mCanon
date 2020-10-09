@@ -146,7 +146,7 @@ app.post('/edit-entry', (req, res) => {
 app.post('/genres-moods', (req, res) => {
   const filter = req.body.id + 's';
   const addition = req.body.add;
-  console.log('additon', addition)
+  console.log('addition', addition)
   addGenreMood(filter, addition)
     .then(res.status(301).redirect(HOME))
     .catch(error => console.error(error));
