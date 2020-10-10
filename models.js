@@ -120,22 +120,22 @@ const createUser = (user, ps) => {
 };
 
 const deleteEntry = (entry) => {
+  let genre;
+  let mood;
   return new Promise((resolve, reject) => {
     model.findOneAndDelete({ _id: entry._id })
     .then((deleteResult) => {
-    GenresMoods.find({ genre: deleteResult.genre})
+      genre = deleteResult.genre;
+      mood = deleteResult.mood;
+      return model.find({ genre: genre })
     })
     .then((genres) => {
       console.log('genres', genres)
+      if (genres.length === 0) {
+        console.log('in length 1')
+        return GenresMoods.updateOne( { $pull: { genres: genres.genre } })
+      }
     })
-    // })
-    //     console.log('in!')
-    //     GenresMoods.find( { $pullAll: { genre: docs.genres}})
-    //   }
-    // })
-    // search for result.genre / mood
-        // if no more of genre
-         // remove genre from GenresMoods
         // if no more of mood
         // remove mood from GenreMoods
     //   // // model.find({}, (err, docs) => {
