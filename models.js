@@ -121,20 +121,33 @@ const createUser = (user, ps) => {
 
 const deleteEntry = (entry) => {
   return new Promise((resolve, reject) => {
-    model.findOneAndDelete({ _id: entry._id }, (err) => {
-      if (err) {
-        throw err;
-      }
-      model.find({}, (err, docs) => {
-        if (err) {
-          throw err;
-        }
-        resolve(docs);
-        reject(new Error("error in deleteEntry"));
-      });
-    });
+    model.findOneAndDelete({ _id: entry._id })
+    .then((deleteResult) => {
+    GenresMoods.find({ genre: deleteResult.genre})
+    })
+    .then((genres) => {
+      console.log('genres', genres)
+    })
+    // })
+    //     console.log('in!')
+    //     GenresMoods.find( { $pullAll: { genre: docs.genres}})
+    //   }
+    // })
+    // search for result.genre / mood
+        // if no more of genre
+         // remove genre from GenresMoods
+        // if no more of mood
+        // remove mood from GenreMoods
+    //   // // model.find({}, (err, docs) => {
+    //   // //   if (err) {
+    //   // //     throw err;
+    //   // //   }
+    //   // //   resolve(docs);
+    //   // //   reject(new Error("error in deleteEntry"));
+    //   // });
+    // });
   });
-};
+}
 
 const findUpdate = (entry) => {
   let id = entry._id;

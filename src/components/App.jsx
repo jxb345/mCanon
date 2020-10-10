@@ -67,6 +67,7 @@ const App = () => {
   }
 
   const handleClick = (e) => {
+    console.log('clicked', clicked)
     fetch('/delete-entry', {
       method: 'POST',
       headers: {
