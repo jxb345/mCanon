@@ -18,14 +18,18 @@ const Form = (props) => {
   const [editBand, setEditBand] = useState("");
   const [editAlbum, setEditAlbum] = useState("");
   const [editYear, setEditYear] = useState("");
+  const [fileName, setFileName] = useState("Select CSV file")
   const manual = document.getElementsByClassName("tab-content-manual")[0];
   const manualButton = document.getElementById("add-one-button");
   const upload = document.getElementsByClassName("tab-content-upload")[0];
   const uploadButton = document.getElementById("upload-button");
 
   useEffect(() => {
-    console.log("buttonClicked", props.buttonClicked);
-    console.log("formSettings", formSettings);
+    const qI = document.querySelectorAll('input')[5];
+    const changeFileName = () => {
+      setFileName(qI.files[0].name);
+     }
+    qI.addEventListener('change', changeFileName);
 
     if (props.buttonClicked === "edit") {
       // need to account for entry having "" for either mood,
@@ -68,7 +72,6 @@ const Form = (props) => {
       setEditAlbum(props.editEntry.album);
       setEditYear(props.editEntry.year);
     } else {
-      console.log("hi from new buttonClicked");
       setFormSettings({
         formAction: "/new-entry",
         title: "NEW ENTRY",
@@ -84,6 +87,9 @@ const Form = (props) => {
       setEditBand("");
       setEditAlbum("");
       setEditYear("");
+    }
+    return () => {
+      qI.removeEventListener('change', changeFileName)
     }
   }, [props.buttonClicked, props.editEntry]);
 
@@ -275,14 +281,13 @@ const Form = (props) => {
             method="post"
             encType="multipart/form-data"
           >
-            <div>
+            <div className="file-name">
               <br />
-              {/* <br /> */}
               <a href="" />
               <label htmlFor="file-upload" className="custom-file-upload">
-                Select CSV file
+                {fileName}
               </label>
-              <input id="file-upload" type="file" name="csv-file" />
+              <input id="file-upload" type="file" name="csv-file" accept=".csv" />
               <br />
               <button
                 id="upload-cancel-button"
