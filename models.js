@@ -130,34 +130,20 @@ const deleteEntry = (entry) => {
       return model.find({ genre: genre })
     })
     .then((genres) => {
-      console.log('genres - -', genres)
       if (genres.length === 0) {
-        console.log('in genre length 0')
         return GenresMoods.updateOne( { $pull: { genres: genre } })
       }
     })
     .then(() => {
-      console.log('mood->', mood)
       return model.find({ mood: mood })
     })
     .then((moods) => {
-      console.log('moods - -', moods)
       if (moods.length === 0) {
-        console.log('in mood length 0')
         return GenresMoods.updateOne( { $pull: { moods: mood}})
       }
       resolve();
+      reject(new Error("error in deleteEntry"))
     })
-        // if no more of mood
-        // remove mood from GenreMoods
-    //   // // model.find({}, (err, docs) => {
-    //   // //   if (err) {
-    //   // //     throw err;
-    //   // //   }
-    //   // //   resolve(docs);
-    //   // //   reject(new Error("error in deleteEntry"));
-    //   // });
-    // });
   });
 }
 
