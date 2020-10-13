@@ -33,7 +33,6 @@ const Search = (props) => {
         onClick={addPlaceholder}
         onBlur={removePlaceholder}
       />
-
       </div>
       <div className="clear-button">
         <button onClick={resetSearch}>CLEAR</button>
