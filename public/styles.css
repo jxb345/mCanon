@@ -345,7 +345,8 @@ img {
 }
 
 .input-search input {
-  display: inline-block;
+  display: block;
+  float: left;
   height: 45px;
   width: 350px;
   font-size: 14px;

@@ -88,6 +88,7 @@ const App = () => {
       query: query,
       selectedFilters: selectedFilters
     }
+    console.log('qyer', query)
     fetch('/query-entries', {
       method: 'POST',
       headers: {

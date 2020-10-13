@@ -21,7 +21,6 @@ const Filters = (props) => {
     genreSelect.options[0].selected = true;
     instrumentalSelect.options[0].selected = true;
     ratingSelect.options[0].selected = true;
-    console.log('m.options[0].selected', m.options[0].selected)
    }
 
    const styleMood = {

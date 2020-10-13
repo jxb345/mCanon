@@ -9,40 +9,19 @@ const Search = (props) => {
     props.setQuery(e.target.value, ...props.query);
   }
 
-  const addPlaceholder = (e) => {
+  const addPlaceholder = () => {
     setPlaceholder('search for band or album...');
   }
 
-  const removePlaceholder = (e) => {
+  const removePlaceholder = () => {
     setPlaceholder('');
   }
 
-  useEffect( () => {
-    console.log('/search - useEffect')
-  //   if (props.query !== '') {
-  //     let queryFetch = {
-  //       queryFilters: props.selectedFilters,
-  //       queryString: props.query
-  //     }
-  //     fetch('/search', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-type': 'application/json'
-  //       },
-  //       body: JSON.stringify(queryFetch)
-  //     })
-  //     .then(response => response.json())
-  //     .then((data) => {
-  //       props.setEntries((data.entries));
-  //     })
-  //     return;
-  //   } else {
-  //     props.queryEntries();
-  //       return
-  //   }
-  // }, [props.query]
-  })
-
+  const resetSearch = () => {
+    props.setQuery('');
+    const searchBar = document.querySelector('input');
+    searchBar.value = '';
+  }
 
   return (
     <div>
@@ -54,6 +33,10 @@ const Search = (props) => {
         onClick={addPlaceholder}
         onBlur={removePlaceholder}
       />
+
+      </div>
+      <div className="clear-button">
+        <button onClick={resetSearch}>CLEAR</button>
       </div>
     </div>
   )
