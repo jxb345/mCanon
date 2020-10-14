@@ -1,5 +1,7 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/canon', { useNewUrlParser: true });
+mongoose.connect(DBCONNECT, { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
 const { genres, moods} = require('./genresMoods.js');

@@ -1,12 +1,11 @@
 const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 const fs = require('fs');
 const csv = require('csv-parser');
 const express = require('express');
 const multer = require('multer');
 const upload = multer({dest: 'uploads/'});
 const app = express();
-const PORT = 3000;
-const HOME = 'http://localhost:3000/';
 const { addEntry, addGenreMood, checkRow, createUser, deleteEntry, editEntry, findOne, findUpdate, filter, model, queryGenresMoods, search } = require('./models.js');
 const { Users, GenresMoods } = require('./connectDb.js')
 const UserIdFunc = require('./userId.js');
