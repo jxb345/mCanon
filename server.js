@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+require('dotenv').config();
 const fs = require('fs');
 const csv = require('csv-parser');
 const express = require('express');
@@ -191,8 +191,8 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 
 // app.get('/logout')
 
-app.listen(PORT, () => {
-  console.log(`listening on ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`listening on ${process.env.PORT}`);
 })
 
 module.exports = { currentUser, getUserId}
