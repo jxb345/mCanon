@@ -111,9 +111,9 @@ const App = () => {
 
   return (
     <div>
-      <div className="title">
-        m
-        <span style={titleStyle}>C</span>anon
+    <div className="grid">
+      <div className="grid-title">
+        {/* <span style={titleStyle}>C</span>anon */}
          {/* commented out as it is for authentication  */}
               {/* <span className="username">
                 {props.username}
@@ -121,9 +121,8 @@ const App = () => {
                 <button className="sign-out-button">
                   sign out
                 </button>
-              </span> */}
+              // </span> */}
       </div>
-      <div className="grid">
         <div className="grid-new-button">
           <button className="new-entry-btn" onClick={displayForm}>+</button>
         </div>
