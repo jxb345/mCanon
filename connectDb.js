@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.DBCONNECT, { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 const ObjectId = Schema.ObjectId;
-const { genres, moods} = require('./genresMoods.js');
+const { genres, moods} = require('./GenresMoods.js');
 
 const Entry = new Schema({
   band: String,
