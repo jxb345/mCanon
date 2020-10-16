@@ -113,7 +113,8 @@ const App = () => {
     <div>
     <div className="grid">
       <div className="grid-title">
-        {/* <span style={titleStyle}>C</span>anon */}
+        mCanon
+        {/* <span style={titleStyle}>C</span> */}
          {/* commented out as it is for authentication  */}
               {/* <span className="username">
                 {props.username}
