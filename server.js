@@ -191,7 +191,7 @@ app.post('/upload-csv', upload.single('csv-file'), (req, res) => {
 
 // app.get('/logout')
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`listening on ${process.env.PORT}`);
 })
 
